@@ -13,8 +13,9 @@ class Controller : public QWidget {
 
 private:
     QVBoxLayout* layoutPrincipale;
-    Modello* modello; //capire a cosa serve
     Menu* menuGenerale;
+    Modello* modello; //capire a cosa serve
+
 
 public:
     Controller(Modello *, QWidget *parent = nullptr);

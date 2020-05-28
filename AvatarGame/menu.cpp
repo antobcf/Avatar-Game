@@ -2,43 +2,44 @@
 
 Menu::Menu(QWidget* p):
     parent(p),
-    menuBar(new QMenuBar(this)),
+    //menuBar(new QMenuBar(this)),
     file(new QMenu("File", p)),
     personaggio(new QMenu("Avatar", p)),
     finestra(new QMenu("Finestra", p)),
     info(new QMenu("Informazioni", p)),
     esci(new QAction("Esci", p)), //da qui in poi non sono sicuro del p
     nuovo(new QAction("Nuovo", p)),
-    carica(new QAction("Carica", file)),
-    salva(new QAction("Salva", file)),
-    lista(new QAction("Lista", file)),
-    sviluppatori(new QAction("Contatti Sviluppatori", file)),
-    infoSistema(new QAction("Informazioni di Sistema", file)),
-    schermoIntero(new QAction("Schermo Intero", file)),
-    riduci(new QAction("Riduci", file)),
-    darkMode(new QAction("Dark Mode", file)),
-    home(new QAction("Homepage", file))
+    carica(new QAction("Carica", p)),
+    salva(new QAction("Salva", p)),
+    lista(new QAction("Lista", p)),
+    sviluppatori(new QAction("Contatti Sviluppatori", p)),
+    infoSistema(new QAction("Informazioni di Sistema", p)),
+    schermoIntero(new QAction("Schermo Intero", p)),
+    riduci(new QAction("Riduci", p)),
+    darkMode(new QAction("Dark Mode", p)),
+    home(new QAction("Homepage", p))
 {
+
     file->addAction(esci);
-    menuBar->addMenu(file);
+    addMenu(file);
 
     personaggio->addAction(nuovo);
     personaggio->addAction(carica);
     personaggio->addAction(salva);
     personaggio->addAction(lista);
-    menuBar->addMenu(personaggio);
+    addMenu(personaggio);
 
     finestra->addAction(schermoIntero);
     finestra->addAction(riduci);
     finestra->addAction(darkMode);
     finestra->addAction(home);
-    menuBar->addMenu(finestra);
+    addMenu(finestra);
 
     home->setEnabled(false);
 
     info->addAction(sviluppatori);
     info->addAction(infoSistema);
-    menuBar->addMenu(info);
+    addMenu(info);
 
 
 }

@@ -11,7 +11,7 @@ class Menu : public QMenuBar
     Q_OBJECT
 private:
     QWidget* parent;
-    QMenuBar* menuBar;
+    //QMenuBar* menuBar;
     QMenu* file;
     QMenu* personaggio;
     QMenu* finestra;

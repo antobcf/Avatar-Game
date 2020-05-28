@@ -3,6 +3,7 @@
 
 #include "modello.h"
 #include "menu.h"
+#include "avatarhome.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -14,15 +15,17 @@ class Controller : public QWidget {
 private:
     QVBoxLayout* layoutPrincipale;
     Menu* menuGenerale;
+    AvatarHome* vistaHome;
     Modello* modello; //capire a cosa serve
-
 
 public:
     Controller(Modello *, QWidget *parent = nullptr);
     ~Controller();
     Modello *getModello(); //ci servirà per i metodi di caricamento e salvataggio in Modello
+    void mostraHome();
 
 public slots:
+
 
 
 

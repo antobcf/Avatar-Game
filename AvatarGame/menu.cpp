@@ -2,12 +2,11 @@
 
 Menu::Menu(QWidget* p):
     parent(p),
-    //menuBar(new QMenuBar(this)),
     file(new QMenu("File", p)),
     personaggio(new QMenu("Avatar", p)),
     finestra(new QMenu("Finestra", p)),
     info(new QMenu("Informazioni", p)),
-    esci(new QAction("Esci", p)), //da qui in poi non sono sicuro del p
+    esci(new QAction("Esci", p)),
     nuovo(new QAction("Nuovo", p)),
     carica(new QAction("Carica", p)),
     salva(new QAction("Salva", p)),
@@ -35,11 +34,11 @@ Menu::Menu(QWidget* p):
     finestra->addAction(home);
     addMenu(finestra);
 
-    home->setEnabled(false);
-
     info->addAction(sviluppatori);
     info->addAction(infoSistema);
     addMenu(info);
 
+    connect(esci,SIGNAL(triggered()),parent,SLOT(close()));
+    connect(home,SIGNAL(triggred()),parent,SLOT(mostraHome()));
 
 }

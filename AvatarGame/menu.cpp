@@ -41,4 +41,14 @@ Menu::Menu(QWidget* p):
     connect(esci,SIGNAL(triggered()),parent,SLOT(close()));
     connect(home,SIGNAL(triggered()),parent,SLOT(mostraHome()));
     connect(nuovo,SIGNAL(triggered()),parent,SLOT(mostraCrea()));
+
+    home->setDisabled(true);
+}
+
+void Menu::homeOff(bool b)
+{
+    if(b == true)
+        home->setDisabled(true);
+    else
+        home->setDisabled(false);
 }

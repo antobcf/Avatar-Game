@@ -30,6 +30,9 @@ private:
 
 public:
     Menu(QWidget* parent = nullptr);
+
+public slots:
+    void homeOff(bool);
 };
 
 #endif // MENU_H

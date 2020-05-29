@@ -19,13 +19,13 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     powerUp2(new QCheckBox("Power up 2", this)),
     powerUp3(new QCheckBox("Power up 3", this)),
     powerUp4(new QCheckBox("Power up 4", this)),
-    boxValori(new QGroupBox("Statistiche", this))
+    boxValori(new QGroupBox("Sta    tistiche", this))
 {
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
     QHBoxLayout* layoutPu = new QHBoxLayout();
-    QGridLayout* layoutValori = new QGridLayout();
+    QVBoxLayout* layoutValori = new QVBoxLayout();
     boxValori->setLayout(layoutValori);
 
     layoutCrea->addLayout(layoutSx);
@@ -42,7 +42,6 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutDx->addWidget(scegliImmagine);
     layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
-
     layoutValori->addWidget(valoreForza);
     layoutValori->addWidget(valoreScienza);
     layoutValori->addWidget(valoreMagia);
@@ -50,6 +49,12 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(valoreMedia);
     layoutValori->addWidget(lvl);
     layoutDx->addWidget(resetCampi);
+
+    powerUp1->setEnabled(false);
+    powerUp2->setEnabled(false);
+    powerUp3->setEnabled(false);
+    powerUp4->setEnabled(false);
+
 }
 
 QLabel *CreaAvatar::getScrittaNome() const
@@ -112,6 +117,11 @@ QPushButton *CreaAvatar::getScegliImmagine() const
     return scegliImmagine;
 }
 
+QPushButton *CreaAvatar::getResetCampi() const
+{
+    return resetCampi;
+}
+
 QCheckBox *CreaAvatar::getPowerUp1() const
 {
     return powerUp1;
@@ -130,6 +140,11 @@ QCheckBox *CreaAvatar::getPowerUp3() const
 QCheckBox *CreaAvatar::getPowerUp4() const
 {
     return powerUp4;
+}
+
+QGroupBox *CreaAvatar::getBoxValori() const
+{
+    return boxValori;
 }
 
 

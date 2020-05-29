@@ -47,10 +47,12 @@ public:
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneCreaDef() const;
     QPushButton* getScegliImmagine() const;
+    QPushButton* getResetCampi() const;
     QCheckBox* getPowerUp1() const;
     QCheckBox* getPowerUp2() const;
     QCheckBox* getPowerUp3() const;
     QCheckBox* getPowerUp4() const;
+    QGroupBox* getBoxValori() const;
 
 signals:
 

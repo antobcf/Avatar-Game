@@ -16,8 +16,12 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaCrea->hide();
     setLayout(layoutPrincipale);
 
+    //CONNECT HOME
     connect(vistaHome->getBottoneCrea(),SIGNAL(clicked()),this,SLOT(mostraCrea()));
 
+    //CONNECT CREA
+    connect(vistaCrea->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
+    connect(vistaCrea->getBottoneHome(),SIGNAL(clicked()),this,SLOT(homeOff(false)));
 }
 
 Controller::~Controller()
@@ -35,4 +39,5 @@ void Controller::mostraHome()
 void Controller::mostraCrea() {
     vistaCrea->show();
     vistaHome->hide();
+
 }

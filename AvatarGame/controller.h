@@ -4,6 +4,7 @@
 #include "modello.h"
 #include "menu.h"
 #include "avatarhome.h"
+#include "creaavatar.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -16,16 +17,18 @@ private:
     QVBoxLayout* layoutPrincipale;
     Menu* menuGenerale;
     AvatarHome* vistaHome;
+    CreaAvatar* vistaCrea;
     Modello* modello; //capire a cosa serve
 
 public:
     Controller(Modello *, QWidget *parent = nullptr);
     ~Controller();
     Modello *getModello(); //ci servirà per i metodi di caricamento e salvataggio in Modello
-    void mostraHome();
+
 
 public slots:
-
+    void mostraHome();
+    void mostraCrea();
 
 
 

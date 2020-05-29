@@ -58,12 +58,10 @@ public:
     QTextEdit* getBoxDescrizione() const;
 
 public slots:
-    void checkUnoDue() const;
-    void checkUnoTre() const;
-    void checkUnoQuattro() const;
-    void checkDueTre() const;
-    void checkDueQuattro() const;
-    void checkTreQuattro() const;
+    void checkUno() const;
+    void checkDue() const;
+    void checkTre() const;
+    void checkQuattro() const;
 
 };
 

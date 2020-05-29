@@ -53,24 +53,14 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(lvl);
     layoutDx->addWidget(resetCampi);
 
-    powerUp1->setEnabled(true);
-    powerUp2->setEnabled(true);
-    powerUp3->setEnabled(true);
-    powerUp4->setEnabled(true);
+
     boxDescrizione->setMaximumSize(300,200);
 
-    connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUnoDue()));
-    connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUnoTre()));
-    connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUnoQuattro()));
-    connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkUnoDue()));
-    connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDueTre()));
-    connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDueQuattro()));
-    connect(powerUp3,SIGNAL(clicked()),this,SLOT(checkUnoTre()));
-    connect(powerUp3,SIGNAL(clicked()),this,SLOT(checkDueTre()));
-    connect(powerUp3,SIGNAL(clicked()),this,SLOT(checkTreQuattro()));
-    connect(powerUp4,SIGNAL(clicked()),this,SLOT(checkUnoQuattro()));
-    connect(powerUp4,SIGNAL(clicked()),this,SLOT(checkDueQuattro()));
-    connect(powerUp4,SIGNAL(clicked()),this,SLOT(checkTreQuattro()));
+    connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
+    connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
+    connect(powerUp3,SIGNAL(clicked()),this,SLOT(checkTre()));
+    connect(powerUp4,SIGNAL(clicked()),this,SLOT(checkQuattro()));
+
 }
 
 QLabel *CreaAvatar::getScrittaNome() const
@@ -168,43 +158,155 @@ QTextEdit *CreaAvatar::getBoxDescrizione() const
     return boxDescrizione;
 }
 
-void CreaAvatar::checkUnoDue() const {
+void CreaAvatar::checkUno() const
+{
     if(powerUp1->isChecked()) {
-        powerUp3->setEnabled(false);
-        powerUp4->setEnabled(false);
-        powerUp2->setEnabled(false);
+        if(powerUp2->isChecked()) {
+            powerUp3->setEnabled(false);
+            powerUp4->setEnabled(false);
+            return;
+        }
+        if(powerUp3->isChecked()) {
+            powerUp2->setEnabled(false);
+            powerUp4->setEnabled(false);
+            return;
+        }
+        if(powerUp4->isChecked()) {
+            powerUp2->setEnabled(false);
+            powerUp3->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp2->isChecked()) {
+            powerUp3->setEnabled(true);
+            powerUp4->setEnabled(true);
+            return;
+        }
+        if(powerUp3->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp4->setEnabled(true);
+            return;
+        }
+        if(powerUp4->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp3->setEnabled(true);
+            return;
+        }
     }
 }
 
-/*void CreaAvatar::checkUnoDue() const
+void CreaAvatar::checkDue() const
 {
-    (powerUp1->isChecked() && powerUp2->isChecked()) ? (powerUp3->setEnabled(false), powerUp4->setEnabled(false)) : (powerUp3->setEnabled(true), powerUp4->setEnabled(true));
-}*/
-
-void CreaAvatar::checkUnoTre() const
-{
-    (powerUp1->isChecked() && powerUp3->isChecked()) ? (powerUp2->setEnabled(false), powerUp4->setEnabled(false)) : (powerUp2->setEnabled(true), powerUp4->setEnabled(true));
+    if(powerUp2->isChecked()) {
+        if(powerUp1->isChecked()) {
+            powerUp3->setEnabled(false);
+            powerUp4->setEnabled(false);
+            return;
+        }
+        if(powerUp3->isChecked()) {
+            powerUp1->setEnabled(false);
+            powerUp4->setEnabled(false);
+            return;
+        }
+        if(powerUp4->isChecked()) {
+            powerUp1->setEnabled(false);
+            powerUp3->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp1->isChecked()) {
+            powerUp3->setEnabled(true);
+            powerUp4->setEnabled(true);
+            return;
+        }
+        if(powerUp3->isChecked()) {
+            powerUp1->setEnabled(true);
+            powerUp4->setEnabled(true);
+            return;
+        }
+        if(powerUp4->isChecked()) {
+            powerUp1->setEnabled(true);
+            powerUp3->setEnabled(true);
+            return;
+        }
+    }
 }
 
-void CreaAvatar::checkUnoQuattro() const
+void CreaAvatar::checkTre() const
 {
-    (powerUp1->isChecked() && powerUp4->isChecked()) ? (powerUp2->setEnabled(false), powerUp2->setEnabled(false)) : (powerUp2->setEnabled(true), powerUp3->setEnabled(true));
+    if(powerUp3->isChecked()) {
+        if(powerUp2->isChecked()) {
+            powerUp1->setEnabled(false);
+            powerUp4->setEnabled(false);
+            return;
+        }
+        if(powerUp1->isChecked()) {
+            powerUp2->setEnabled(false);
+            powerUp4->setEnabled(false);
+            return;
+        }
+        if(powerUp4->isChecked()) {
+            powerUp2->setEnabled(false);
+            powerUp1->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp2->isChecked()) {
+            powerUp1->setEnabled(true);
+            powerUp4->setEnabled(true);
+            return;
+        }
+        if(powerUp1->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp4->setEnabled(true);
+            return;
+        }
+        if(powerUp4->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp1->setEnabled(true);
+            return;
+        }
+    }
 }
 
-void CreaAvatar::checkDueTre() const
+void CreaAvatar::checkQuattro() const
 {
-    (powerUp2->isChecked() && powerUp3->isChecked()) ? (powerUp1->setEnabled(false), powerUp4->setEnabled(false)) : (powerUp1->setEnabled(true), powerUp4->setEnabled(true));
+    if(powerUp4->isChecked()) {
+        if(powerUp2->isChecked()) {
+            powerUp3->setEnabled(false);
+            powerUp1->setEnabled(false);
+            return;
+        }
+        if(powerUp3->isChecked()) {
+            powerUp2->setEnabled(false);
+            powerUp1->setEnabled(false);
+            return;
+        }
+        if(powerUp1->isChecked()) {
+            powerUp2->setEnabled(false);
+            powerUp3->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp2->isChecked()) {
+            powerUp3->setEnabled(true);
+            powerUp1->setEnabled(true);
+            return;
+        }
+        if(powerUp3->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp1->setEnabled(true);
+            return;
+        }
+        if(powerUp1->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp3->setEnabled(true);
+            return;
+        }
+    }
 }
 
-void CreaAvatar::checkDueQuattro() const
-{
-    (powerUp2->isChecked() && powerUp4->isChecked()) ? (powerUp1->setEnabled(false), powerUp3->setEnabled(false)) : (powerUp1->setEnabled(true), powerUp3->setEnabled(true));
-}
 
-void CreaAvatar::checkTreQuattro() const
-{
-    (powerUp3->isChecked() && powerUp4->isChecked()) ? (powerUp1->setEnabled(false), powerUp2->setEnabled(false)) : (powerUp1->setEnabled(true), powerUp2->setEnabled(true));
-}
 
 
 

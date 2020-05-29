@@ -57,7 +57,13 @@ public:
     QGroupBox* getBoxValori() const;
     QTextEdit* getBoxDescrizione() const;
 
-signals:
+public slots:
+    void checkUnoDue() const;
+    void checkUnoTre() const;
+    void checkUnoQuattro() const;
+    void checkDueTre() const;
+    void checkDueQuattro() const;
+    void checkTreQuattro() const;
 
 };
 

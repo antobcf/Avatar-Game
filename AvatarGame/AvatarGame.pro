@@ -19,6 +19,7 @@ SOURCES += \
     controller.cpp \
     creaavatar.cpp \
     gerarchia.cpp \
+    listaavatar.cpp \
     main.cpp \
     avatarhome.cpp \
     menu.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     controller.h \
     creaavatar.h \
     gerarchia.h \
+    listaavatar.h \
     menu.h \
     modello.h
 

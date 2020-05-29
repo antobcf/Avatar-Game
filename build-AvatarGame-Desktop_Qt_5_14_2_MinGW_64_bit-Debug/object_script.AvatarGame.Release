@@ -1,6 +1,7 @@
 release/controller.o
 release/creaavatar.o
 release/gerarchia.o
+release/listaavatar.o
 release/main.o
 release/avatarhome.o
 release/menu.o
@@ -8,4 +9,5 @@ release/modello.o
 release/moc_avatarhome.o
 release/moc_controller.o
 release/moc_creaavatar.o
+release/moc_listaavatar.o
 release/moc_menu.o

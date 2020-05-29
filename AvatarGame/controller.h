@@ -5,6 +5,7 @@
 #include "menu.h"
 #include "avatarhome.h"
 #include "creaavatar.h"
+#include "listaavatar.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -18,6 +19,7 @@ private:
     Menu* menuGenerale;
     AvatarHome* vistaHome;
     CreaAvatar* vistaCrea;
+    ListaAvatar* vistaLista;
     Modello* modello; //capire a cosa serve
 
 public:
@@ -29,6 +31,7 @@ public:
 public slots:
     void mostraHome();
     void mostraCrea();
+    void mostraLista();
 
 
 

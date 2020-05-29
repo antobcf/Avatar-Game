@@ -6,8 +6,13 @@
 
 class Modello
 {
+private:
+    Container<Avatar*> lista;
 public:
     Modello();
+    ~Modello();
+
+    Container<Avatar*> getLista() const;
 };
 
 #endif // MODELLO_H

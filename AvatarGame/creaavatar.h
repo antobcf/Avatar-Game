@@ -10,6 +10,8 @@
 #include <QCheckBox>
 #include <QGroupBox>
 #include <QTextEdit>
+#include <QComboBox>
+#include <QImage>
 
 class CreaAvatar : public QWidget
 {
@@ -26,7 +28,6 @@ private:
     QLineEdit* inserisciNome;
     QPushButton* bottoneHome;
     QPushButton* bottoneCreaDef;
-    QPushButton* scegliImmagine;
     QPushButton* resetCampi;
     QCheckBox* powerUp1;
     QCheckBox* powerUp2;
@@ -34,6 +35,8 @@ private:
     QCheckBox* powerUp4;
     QGroupBox* boxValori;
     QTextEdit* boxDescrizione;
+    QComboBox* sceltaTipo;
+    QLabel* immagineAvatar;
 
 public:
     CreaAvatar(QWidget * = nullptr);
@@ -48,7 +51,6 @@ public:
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneCreaDef() const;
-    QPushButton* getScegliImmagine() const;
     QPushButton* getResetCampi() const;
     QCheckBox* getPowerUp1() const;
     QCheckBox* getPowerUp2() const;
@@ -56,6 +58,8 @@ public:
     QCheckBox* getPowerUp4() const;
     QGroupBox* getBoxValori() const;
     QTextEdit* getBoxDescrizione() const;
+    QComboBox* getSceltaTipo() const;
+    QLabel* getImmagineAvatar() const;
 
 public slots:
     void checkUno() const;

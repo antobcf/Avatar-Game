@@ -13,14 +13,15 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     inserisciNome(new QLineEdit(this)),
     bottoneHome(new QPushButton("Home", this)),
     bottoneCreaDef(new QPushButton("Crea Avatar", this)),
-    scegliImmagine(new QPushButton("Scegli Immagine", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
     powerUp1(new QCheckBox("Power up 1", this)),
     powerUp2(new QCheckBox("Power up 2", this)),
     powerUp3(new QCheckBox("Power up 3", this)),
     powerUp4(new QCheckBox("Power up 4", this)),
     boxValori(new QGroupBox("Statistiche", this)),
-    boxDescrizione(new QTextEdit(this))
+    boxDescrizione(new QTextEdit(this)),
+    sceltaTipo(new QComboBox(this)),
+    immagineAvatar(new QLabel("inserire immagine qui", this))
 {
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
@@ -32,6 +33,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
     layoutSx->addWidget(bottoneHome);
+    layoutSx->addWidget(sceltaTipo);
     layoutSx->addWidget(scrittaNome);
     layoutSx->addWidget(inserisciNome);
     layoutSx->addWidget(maxPowerUps);
@@ -42,7 +44,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutPu->addWidget(powerUp4);
     layoutSx->addWidget(boxDescrizione);
     layoutSx->addWidget(bottoneCreaDef);
-    layoutDx->addWidget(scegliImmagine);
+    layoutDx->addWidget(immagineAvatar);
     layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
     layoutValori->addWidget(valoreForza);
@@ -53,8 +55,15 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(lvl);
     layoutDx->addWidget(resetCampi);
 
-
     boxDescrizione->setMaximumSize(300,200);
+
+    sceltaTipo->addItem("Elfo");
+    sceltaTipo->addItem("Nano");
+    sceltaTipo->addItem("Umano");
+    sceltaTipo->addItem("Alieno");
+    sceltaTipo->addItem("Mostro");
+
+
 
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
     connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
@@ -118,11 +127,6 @@ QPushButton *CreaAvatar::getBottoneCreaDef() const
     return bottoneCreaDef;
 }
 
-QPushButton *CreaAvatar::getScegliImmagine() const
-{
-    return scegliImmagine;
-}
-
 QPushButton *CreaAvatar::getResetCampi() const
 {
     return resetCampi;
@@ -156,6 +160,11 @@ QGroupBox *CreaAvatar::getBoxValori() const
 QTextEdit *CreaAvatar::getBoxDescrizione() const
 {
     return boxDescrizione;
+}
+
+QComboBox *CreaAvatar::getSceltaTipo() const
+{
+    return sceltaTipo;
 }
 
 void CreaAvatar::checkUno() const

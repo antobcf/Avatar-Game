@@ -19,7 +19,8 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     powerUp2(new QCheckBox("Power up 2", this)),
     powerUp3(new QCheckBox("Power up 3", this)),
     powerUp4(new QCheckBox("Power up 4", this)),
-    boxValori(new QGroupBox("Sta    tistiche", this))
+    boxValori(new QGroupBox("Statistiche", this)),
+    boxDescrizione(new QTextEdit(this))
 {
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
@@ -30,6 +31,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
 
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
+    layoutSx->addWidget(bottoneHome);
     layoutSx->addWidget(scrittaNome);
     layoutSx->addWidget(inserisciNome);
     layoutSx->addWidget(maxPowerUps);
@@ -38,6 +40,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutPu->addWidget(powerUp2);
     layoutPu->addWidget(powerUp3);
     layoutPu->addWidget(powerUp4);
+    layoutSx->addWidget(boxDescrizione);
     layoutSx->addWidget(bottoneCreaDef);
     layoutDx->addWidget(scegliImmagine);
     layoutDx->addLayout(layoutValori);
@@ -50,10 +53,12 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(lvl);
     layoutDx->addWidget(resetCampi);
 
-    powerUp1->setEnabled(false);
-    powerUp2->setEnabled(false);
-    powerUp3->setEnabled(false);
-    powerUp4->setEnabled(false);
+    powerUp1->setEnabled(true);
+    powerUp2->setEnabled(true);
+    powerUp3->setEnabled(true);
+    powerUp4->setEnabled(true);
+    boxDescrizione->setMaximumSize(300,200);
+
 
 }
 
@@ -145,6 +150,11 @@ QCheckBox *CreaAvatar::getPowerUp4() const
 QGroupBox *CreaAvatar::getBoxValori() const
 {
     return boxValori;
+}
+
+QTextEdit *CreaAvatar::getBoxDescrizione() const
+{
+    return boxDescrizione;
 }
 
 

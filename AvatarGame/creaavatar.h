@@ -9,6 +9,7 @@
 #include <QLineEdit>
 #include <QCheckBox>
 #include <QGroupBox>
+#include <QTextEdit>
 
 class CreaAvatar : public QWidget
 {
@@ -32,6 +33,7 @@ private:
     QCheckBox* powerUp3;
     QCheckBox* powerUp4;
     QGroupBox* boxValori;
+    QTextEdit* boxDescrizione;
 
 public:
     CreaAvatar(QWidget * = nullptr);
@@ -53,6 +55,7 @@ public:
     QCheckBox* getPowerUp3() const;
     QCheckBox* getPowerUp4() const;
     QGroupBox* getBoxValori() const;
+    QTextEdit* getBoxDescrizione() const;
 
 signals:
 

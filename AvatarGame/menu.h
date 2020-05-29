@@ -11,7 +11,6 @@ class Menu : public QMenuBar
     Q_OBJECT
 private:
     QWidget* parent;
-    //QMenuBar* menuBar;
     QMenu* file;
     QMenu* personaggio;
     QMenu* finestra;
@@ -32,7 +31,7 @@ public:
     Menu(QWidget* parent = nullptr);
 
 public slots:
-    void homeOff(bool);
+
 };
 
 #endif // MENU_H

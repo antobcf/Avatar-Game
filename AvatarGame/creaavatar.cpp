@@ -10,6 +10,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     valoreDifesa(new QLabel(this)),
     valoreMagia(new QLabel(this)),
     valoreMedia(new QLabel(this)),
+    labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     inserisciNome(new QLineEdit(this)),
     bottoneHome(new QPushButton("Home", this)),
     bottoneCreaDef(new QPushButton("Crea Avatar", this)),
@@ -25,11 +26,14 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
     sceltaTipo(new QComboBox(this)),
-    immagineAvatar(new QLabel("inserire immagine qui", this))
+    immagineAvatar(new QLabel("inserire immagine qui", this)),
+    sessoM(new QRadioButton("Maschio", this)),
+    sessoF(new QRadioButton("Femmina", this))
 {
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
+    QHBoxLayout* layoutSesso = new QHBoxLayout();
     QHBoxLayout* layoutPu = new QHBoxLayout();
     QVBoxLayout* layoutValori = new QVBoxLayout();
 
@@ -39,9 +43,15 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutCrea->addLayout(layoutDx);
     layoutSx->addWidget(bottoneHome);
     layoutSx->addLayout(formCrea);
-    layoutSx->addWidget(maxPowerUp);
+
+
     layoutSx->addWidget(sceltaTipo);
+    layoutSx->addLayout(layoutSesso);
+    layoutSesso->addWidget(labelSesso);
+    layoutSesso->addWidget(sessoM);
+    layoutSesso->addWidget(sessoF);
     layoutSx->addWidget(inserisciNome);
+    layoutSx->addWidget(maxPowerUp);
     layoutSx->addLayout(layoutPu);
     layoutPu->addWidget(powerUp1);
     layoutPu->addWidget(powerUp2);
@@ -64,8 +74,9 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(lvl);
     layoutDx->addWidget(resetCampi);
 
-    formCrea->addRow("Nome:", inserisciNome);
+
     formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
+    formCrea->addRow("Nome:", inserisciNome);
 
     boxDescrizione->setMaximumSize(300,200);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
@@ -134,6 +145,11 @@ QLabel *CreaAvatar::getValoreMagia() const
 QLabel *CreaAvatar::getValoreMedia() const
 {
     return valoreMedia;
+}
+
+QLabel *CreaAvatar::getLabelSesso() const
+{
+    return labelSesso;
 }
 
 QLineEdit *CreaAvatar::getInserisciNome() const
@@ -209,6 +225,16 @@ QTextEdit *CreaAvatar::getBoxDescrizione() const
 QComboBox *CreaAvatar::getSceltaTipo() const
 {
     return sceltaTipo;
+}
+
+QRadioButton *CreaAvatar::getSessoM() const
+{
+    return sessoM;
+}
+
+QRadioButton *CreaAvatar::getSessoF() const
+{
+    return sessoF;
 }
 
 void CreaAvatar::checkUno() const
@@ -531,6 +557,9 @@ void CreaAvatar::groupTipo() const
         powerUp8->show();
         resetCheck();
     }
+    if(indexAttuale == 0) {
+
+    }
 }
 
 void CreaAvatar::resetTutto() const
@@ -539,7 +568,12 @@ void CreaAvatar::resetTutto() const
     resetCheck();
     boxDescrizione->clear();
     sceltaTipo->setCurrentIndex(0);
-
+    sessoF->setAutoExclusive(false);
+    sessoF->setChecked(false);
+    sessoF->setAutoExclusive(true);
+    sessoM->setAutoExclusive(false);
+    sessoM->setChecked(false);
+    sessoM->setAutoExclusive(true);
 }
 
 void CreaAvatar::resetCheck() const

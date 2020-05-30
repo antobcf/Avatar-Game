@@ -428,6 +428,8 @@ debug/moc_controller.cpp: ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFormLayout \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qformlayout.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLayout \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QRadioButton \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		../AvatarGame/listaavatar.h \
 		debug/moc_predefs.h \
 		D:/Qt/5.14.2/mingw73_64/bin/moc.exe
@@ -583,6 +585,8 @@ debug/moc_creaavatar.cpp: ../AvatarGame/creaavatar.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFormLayout \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qformlayout.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLayout \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QRadioButton \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		debug/moc_predefs.h \
 		D:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	D:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/anton/Desktop/Avatar Game/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -ID:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/anton/Desktop/Avatar Game/avatar-game/AvatarGame" -ID:/Qt/5.14.2/mingw73_64/include -ID:/Qt/5.14.2/mingw73_64/include/QtWidgets -ID:/Qt/5.14.2/mingw73_64/include/QtGui -ID:/Qt/5.14.2/mingw73_64/include/QtANGLE -ID:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\creaavatar.h -o debug\moc_creaavatar.cpp
@@ -1018,6 +1022,8 @@ debug/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFormLayout \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qformlayout.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLayout \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QRadioButton \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		../AvatarGame/listaavatar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\controller.o ..\AvatarGame\controller.cpp
 
@@ -1170,7 +1176,9 @@ debug/creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/QImage \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFormLayout \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qformlayout.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLayout
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLayout \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QRadioButton \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\creaavatar.o ..\AvatarGame\creaavatar.cpp
 
 debug/gerarchia.o: ../AvatarGame/gerarchia.cpp ../AvatarGame/gerarchia.h \
@@ -1471,6 +1479,8 @@ debug/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFormLayout \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qformlayout.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLayout \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QRadioButton \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		../AvatarGame/listaavatar.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \

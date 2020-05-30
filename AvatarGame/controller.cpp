@@ -13,8 +13,10 @@ Controller::Controller(Modello* m, QWidget *parent) :
     layoutPrincipale->setMenuBar(menuGenerale);
     layoutPrincipale->addWidget(vistaHome);
     layoutPrincipale->addWidget(vistaCrea);
+    layoutPrincipale->addWidget(vistaLista);
 
     vistaCrea->hide();
+    vistaLista->hide();
     setLayout(layoutPrincipale);
 
     //CONNECT HOME
@@ -23,8 +25,8 @@ Controller::Controller(Modello* m, QWidget *parent) :
     //CONNECT CREA
     connect(vistaCrea->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
 
-    //CONNECTLISTA
-    connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
+    //CONNECT LISTA
+    connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraLista()));
 }
 
 Controller::~Controller()

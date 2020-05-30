@@ -2,8 +2,8 @@
 
 
 CreaAvatar::CreaAvatar(QWidget *parent) :
-    scrittaNome(new QLabel("Nome", this)),
-    maxPowerUps(new QLabel("Massimo 2 Power Up:", this)),
+    formCrea(new QFormLayout),
+    maxPowerUp(new QLabel("Scegli massimo 2 power Up", this)),
     lvl(new QLabel("LVL", this)),
     valoreForza(new QLabel(this)), //qui il valore cambia in base al personaggio e al power up quindi vedere come fare
     valoreScienza(new QLabel(this)),
@@ -14,10 +14,14 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton("Home", this)),
     bottoneCreaDef(new QPushButton("Crea Avatar", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
-    powerUp1(new QCheckBox("Power up 1", this)),
-    powerUp2(new QCheckBox("Power up 2", this)),
-    powerUp3(new QCheckBox("Power up 3", this)),
-    powerUp4(new QCheckBox("Power up 4", this)),
+    powerUp1(new QCheckBox("Scudo", this)),
+    powerUp2(new QCheckBox("Spada", this)),
+    powerUp3(new QCheckBox("Anello", this)),
+    powerUp4(new QCheckBox("Libro", this)),
+    powerUp5(new QCheckBox("Barriera", this)),
+    powerUp6(new QCheckBox("Laser", this)),
+    powerUp7(new QCheckBox("Amuleto", this)),
+    powerUp8(new QCheckBox("Chip", this)),
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
     sceltaTipo(new QComboBox(this)),
@@ -28,20 +32,25 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     QVBoxLayout* layoutDx = new QVBoxLayout();
     QHBoxLayout* layoutPu = new QHBoxLayout();
     QVBoxLayout* layoutValori = new QVBoxLayout();
+
     boxValori->setLayout(layoutValori);
 
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
     layoutSx->addWidget(bottoneHome);
+    layoutSx->addLayout(formCrea);
+    layoutSx->addWidget(maxPowerUp);
     layoutSx->addWidget(sceltaTipo);
-    layoutSx->addWidget(scrittaNome);
     layoutSx->addWidget(inserisciNome);
-    layoutSx->addWidget(maxPowerUps);
     layoutSx->addLayout(layoutPu);
     layoutPu->addWidget(powerUp1);
     layoutPu->addWidget(powerUp2);
     layoutPu->addWidget(powerUp3);
     layoutPu->addWidget(powerUp4);
+    layoutPu->addWidget(powerUp5);
+    layoutPu->addWidget(powerUp6);
+    layoutPu->addWidget(powerUp7);
+    layoutPu->addWidget(powerUp8);
     layoutSx->addWidget(boxDescrizione);
     layoutSx->addWidget(bottoneCreaDef);
     layoutDx->addWidget(immagineAvatar);
@@ -55,7 +64,16 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(lvl);
     layoutDx->addWidget(resetCampi);
 
+    formCrea->addRow("Nome:", inserisciNome);
+    formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
+
     boxDescrizione->setMaximumSize(300,200);
+    boxDescrizione->setPlaceholderText("Descrtizione storia del tuo Avatar");
+
+    powerUp5->hide();
+    powerUp6->hide();
+    powerUp7->hide();
+    powerUp8->hide();
 
     sceltaTipo->addItem("Elfo");
     sceltaTipo->addItem("Nano");
@@ -63,23 +81,23 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
 
-
-
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
     connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
     connect(powerUp3,SIGNAL(clicked()),this,SLOT(checkTre()));
     connect(powerUp4,SIGNAL(clicked()),this,SLOT(checkQuattro()));
 
+    connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
+
 }
 
-QLabel *CreaAvatar::getScrittaNome() const
+QFormLayout *CreaAvatar::getFormCrea() const
 {
-    return scrittaNome;
+    return formCrea;
 }
 
-QLabel *CreaAvatar::getMaxPowerUps() const
+QLabel *CreaAvatar::getMaxPowerUp() const
 {
-    return maxPowerUps;
+    return maxPowerUp;
 }
 
 QLabel *CreaAvatar::getLvl() const
@@ -150,6 +168,26 @@ QCheckBox *CreaAvatar::getPowerUp3() const
 QCheckBox *CreaAvatar::getPowerUp4() const
 {
     return powerUp4;
+}
+
+QCheckBox *CreaAvatar::getPowerUp5() const
+{
+    return powerUp5;
+}
+
+QCheckBox *CreaAvatar::getPowerUp6() const
+{
+    return powerUp6;
+}
+
+QCheckBox *CreaAvatar::getPowerUp7() const
+{
+    return powerUp7;
+}
+
+QCheckBox *CreaAvatar::getPowerUp8() const
+{
+    return powerUp8;
 }
 
 QGroupBox *CreaAvatar::getBoxValori() const
@@ -312,6 +350,31 @@ void CreaAvatar::checkQuattro() const
             powerUp3->setEnabled(true);
             return;
         }
+    }
+}
+
+void CreaAvatar::groupTipo() const
+{
+    int indexAttuale = sceltaTipo->currentIndex();
+    if(indexAttuale == 0 || indexAttuale == 1 || indexAttuale == 2) {
+        powerUp5->hide();
+        powerUp6->hide();
+        powerUp7->hide();
+        powerUp8->hide();
+        powerUp1->show();
+        powerUp2->show();
+        powerUp3->show();
+        powerUp4->show();
+
+     } else {
+        powerUp1->hide();
+        powerUp2->hide();
+        powerUp3->hide();
+        powerUp4->hide();
+        powerUp5->show();
+        powerUp6->show();
+        powerUp7->show();
+        powerUp8->show();
     }
 }
 

@@ -12,13 +12,14 @@
 #include <QTextEdit>
 #include <QComboBox>
 #include <QImage>
+#include <QFormLayout>
 
 class CreaAvatar : public QWidget
 {
     Q_OBJECT
 private:
-    QLabel* scrittaNome;
-    QLabel* maxPowerUps;
+    QFormLayout* formCrea;
+    QLabel* maxPowerUp;
     QLabel* lvl;
     QLabel* valoreForza;
     QLabel* valoreScienza;
@@ -33,6 +34,10 @@ private:
     QCheckBox* powerUp2;
     QCheckBox* powerUp3;
     QCheckBox* powerUp4;
+    QCheckBox* powerUp5;
+    QCheckBox* powerUp6;
+    QCheckBox* powerUp7;
+    QCheckBox* powerUp8;
     QGroupBox* boxValori;
     QTextEdit* boxDescrizione;
     QComboBox* sceltaTipo;
@@ -40,8 +45,8 @@ private:
 
 public:
     CreaAvatar(QWidget * = nullptr);
-    QLabel* getScrittaNome() const;
-    QLabel* getMaxPowerUps() const;
+    QFormLayout* getFormCrea() const;
+    QLabel* getMaxPowerUp() const;
     QLabel* getLvl() const;
     QLabel* getValoreForza() const;
     QLabel* getValoreScienza() const;
@@ -56,6 +61,10 @@ public:
     QCheckBox* getPowerUp2() const;
     QCheckBox* getPowerUp3() const;
     QCheckBox* getPowerUp4() const;
+    QCheckBox* getPowerUp5() const;
+    QCheckBox* getPowerUp6() const;
+    QCheckBox* getPowerUp7() const;
+    QCheckBox* getPowerUp8() const;
     QGroupBox* getBoxValori() const;
     QTextEdit* getBoxDescrizione() const;
     QComboBox* getSceltaTipo() const;
@@ -66,6 +75,7 @@ public slots:
     void checkDue() const;
     void checkTre() const;
     void checkQuattro() const;
+    void groupTipo() const;
 
 };
 

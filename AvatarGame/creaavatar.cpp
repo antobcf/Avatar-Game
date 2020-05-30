@@ -85,6 +85,12 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
     connect(powerUp3,SIGNAL(clicked()),this,SLOT(checkTre()));
     connect(powerUp4,SIGNAL(clicked()),this,SLOT(checkQuattro()));
+    connect(powerUp5,SIGNAL(clicked()),this,SLOT(checkCinque()));
+    connect(powerUp6,SIGNAL(clicked()),this,SLOT(checkSei()));
+    connect(powerUp7,SIGNAL(clicked()),this,SLOT(checkSette()));
+    connect(powerUp8,SIGNAL(clicked()),this,SLOT(checkOtto()));
+
+    connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
 
@@ -353,6 +359,154 @@ void CreaAvatar::checkQuattro() const
     }
 }
 
+void CreaAvatar::checkCinque() const
+{
+    if(powerUp5->isChecked()) {
+        if(powerUp6->isChecked()) {
+            powerUp7->setEnabled(false);
+            powerUp8->setEnabled(false);
+            return;
+        }
+        if(powerUp7->isChecked()) {
+            powerUp6->setEnabled(false);
+            powerUp8->setEnabled(false);
+            return;
+        }
+        if(powerUp8->isChecked()) {
+            powerUp6->setEnabled(false);
+            powerUp7->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp6->isChecked()) {
+            powerUp7->setEnabled(true);
+            powerUp8->setEnabled(true);
+            return;
+        }
+        if(powerUp7->isChecked()) {
+            powerUp6->setEnabled(true);
+            powerUp8->setEnabled(true);
+            return;
+        }
+        if(powerUp8->isChecked()) {
+            powerUp6->setEnabled(true);
+            powerUp7->setEnabled(true);
+            return;
+        }
+    }
+}
+
+void CreaAvatar::checkSei() const
+{
+    if(powerUp6->isChecked()) {
+        if(powerUp5->isChecked()) {
+            powerUp7->setEnabled(false);
+            powerUp8->setEnabled(false);
+            return;
+        }
+        if(powerUp7->isChecked()) {
+            powerUp5->setEnabled(false);
+            powerUp8->setEnabled(false);
+            return;
+        }
+        if(powerUp8->isChecked()) {
+            powerUp5->setEnabled(false);
+            powerUp7->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp5->isChecked()) {
+            powerUp7->setEnabled(true);
+            powerUp8->setEnabled(true);
+            return;
+        }
+        if(powerUp7->isChecked()) {
+            powerUp5->setEnabled(true);
+            powerUp8->setEnabled(true);
+            return;
+        }
+        if(powerUp8->isChecked()) {
+            powerUp5->setEnabled(true);
+            powerUp7->setEnabled(true);
+            return;
+        }
+    }
+}
+
+void CreaAvatar::checkSette() const
+{
+    if(powerUp7->isChecked()) {
+        if(powerUp6->isChecked()) {
+            powerUp5->setEnabled(false);
+            powerUp8->setEnabled(false);
+            return;
+        }
+        if(powerUp5->isChecked()) {
+            powerUp6->setEnabled(false);
+            powerUp8->setEnabled(false);
+            return;
+        }
+        if(powerUp8->isChecked()) {
+            powerUp6->setEnabled(false);
+            powerUp5->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp6->isChecked()) {
+            powerUp5->setEnabled(true);
+            powerUp8->setEnabled(true);
+            return;
+        }
+        if(powerUp5->isChecked()) {
+            powerUp6->setEnabled(true);
+            powerUp8->setEnabled(true);
+            return;
+        }
+        if(powerUp8->isChecked()) {
+            powerUp6->setEnabled(true);
+            powerUp5->setEnabled(true);
+            return;
+        }
+    }
+}
+
+void CreaAvatar::checkOtto() const
+{
+    if(powerUp8->isChecked()) {
+        if(powerUp6->isChecked()) {
+            powerUp7->setEnabled(false);
+            powerUp5->setEnabled(false);
+            return;
+        }
+        if(powerUp7->isChecked()) {
+            powerUp6->setEnabled(false);
+            powerUp5->setEnabled(false);
+            return;
+        }
+        if(powerUp5->isChecked()) {
+            powerUp6->setEnabled(false);
+            powerUp7->setEnabled(false);
+            return;
+        }
+    } else {
+        if(powerUp6->isChecked()) {
+            powerUp7->setEnabled(true);
+            powerUp5->setEnabled(true);
+            return;
+        }
+        if(powerUp7->isChecked()) {
+            powerUp6->setEnabled(true);
+            powerUp5->setEnabled(true);
+            return;
+        }
+        if(powerUp5->isChecked()) {
+            powerUp6->setEnabled(true);
+            powerUp7->setEnabled(true);
+            return;
+        }
+    }
+}
+
 void CreaAvatar::groupTipo() const
 {
     int indexAttuale = sceltaTipo->currentIndex();
@@ -365,7 +519,7 @@ void CreaAvatar::groupTipo() const
         powerUp2->show();
         powerUp3->show();
         powerUp4->show();
-
+        resetCheck();
      } else {
         powerUp1->hide();
         powerUp2->hide();
@@ -375,7 +529,37 @@ void CreaAvatar::groupTipo() const
         powerUp6->show();
         powerUp7->show();
         powerUp8->show();
+        resetCheck();
     }
+}
+
+void CreaAvatar::resetTutto() const
+{
+    inserisciNome->clear();
+    resetCheck();
+    boxDescrizione->clear();
+    sceltaTipo->setCurrentIndex(0);
+
+}
+
+void CreaAvatar::resetCheck() const
+{
+    powerUp1->setChecked(false);
+    powerUp2->setChecked(false);
+    powerUp3->setChecked(false);
+    powerUp4->setChecked(false);
+    powerUp5->setChecked(false);
+    powerUp6->setChecked(false);
+    powerUp7->setChecked(false);
+    powerUp8->setChecked(false);
+    powerUp1->setEnabled(true);
+    powerUp2->setEnabled(true);
+    powerUp3->setEnabled(true);
+    powerUp4->setEnabled(true);
+    powerUp5->setEnabled(true);
+    powerUp6->setEnabled(true);
+    powerUp7->setEnabled(true);
+    powerUp8->setEnabled(true);
 }
 
 

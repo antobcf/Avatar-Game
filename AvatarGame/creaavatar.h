@@ -75,8 +75,13 @@ public slots:
     void checkDue() const;
     void checkTre() const;
     void checkQuattro() const;
+    void checkCinque() const;
+    void checkSei() const;
+    void checkSette() const;
+    void checkOtto() const;
     void groupTipo() const;
-
+    void resetTutto() const;
+    void resetCheck() const;
 };
 
 #endif // CREAAVATAR_H

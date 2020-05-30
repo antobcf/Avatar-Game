@@ -18,7 +18,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutLista = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
-    QHBoxLayout* layoutCheckBox = new QHBoxLayout(this);
+    QHBoxLayout* layoutCheckBox = new QHBoxLayout();
 
     layoutCrea->addLayout(layoutLista);
     layoutCrea->addLayout(layoutDx);

@@ -21,12 +21,13 @@ Controller::Controller(Modello* m, QWidget *parent) :
 
     //CONNECT HOME
     connect(vistaHome->getBottoneCrea(),SIGNAL(clicked()),this,SLOT(mostraCrea()));
+    connect(vistaHome->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraLista()));
 
     //CONNECT CREA
     connect(vistaCrea->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
 
     //CONNECT LISTA
-    connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraLista()));
+    connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
 }
 
 Controller::~Controller()

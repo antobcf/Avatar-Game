@@ -13,6 +13,7 @@
 #include <QComboBox>
 #include <QImage>
 #include <QFormLayout>
+#include <QRadioButton>
 
 class CreaAvatar : public QWidget
 {
@@ -26,6 +27,7 @@ private:
     QLabel* valoreDifesa;
     QLabel* valoreMagia;
     QLabel* valoreMedia;
+    QLabel* labelSesso;
     QLineEdit* inserisciNome;
     QPushButton* bottoneHome;
     QPushButton* bottoneCreaDef;
@@ -42,6 +44,8 @@ private:
     QTextEdit* boxDescrizione;
     QComboBox* sceltaTipo;
     QLabel* immagineAvatar;
+    QRadioButton* sessoM;
+    QRadioButton* sessoF;
 
 public:
     CreaAvatar(QWidget * = nullptr);
@@ -53,6 +57,7 @@ public:
     QLabel* getValoreDifesa() const;
     QLabel* getValoreMagia() const;
     QLabel* getValoreMedia() const;
+    QLabel* getLabelSesso() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneCreaDef() const;
@@ -69,6 +74,8 @@ public:
     QTextEdit* getBoxDescrizione() const;
     QComboBox* getSceltaTipo() const;
     QLabel* getImmagineAvatar() const;
+    QRadioButton* getSessoM() const;
+    QRadioButton* getSessoF() const;
 
 public slots:
     void checkUno() const;

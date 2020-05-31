@@ -9,16 +9,19 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaCrea(new CreaAvatar(this)),
     vistaLista(new ListaAvatar(this)),
     vistaModifica(new ModificaAvatar(this)),
+    vistaScontro(new Scontro(this)),
     modello(m)
 {
     layoutPrincipale->setMenuBar(menuGenerale);
     layoutPrincipale->addWidget(vistaHome);
     layoutPrincipale->addWidget(vistaCrea);
     layoutPrincipale->addWidget(vistaLista);
+    layoutPrincipale->addWidget(vistaScontro);
 
     vistaCrea->hide();
     vistaLista->hide();
     vistaModifica->hide();
+    vistaScontro->hide();
     setLayout(layoutPrincipale);
 
     //CONNECT HOME
@@ -31,6 +34,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     //CONNECT LISTA
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(mostraModifica()));
+    connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
 }
 
 Controller::~Controller()
@@ -64,6 +68,14 @@ void Controller::mostraLista() {
 void Controller::mostraModifica() {
     vistaModifica->show();
     vistaLista->show();
+    vistaHome->hide();
+    vistaCrea->hide();
+}
+
+void Controller::mostraScontro() {
+    vistaScontro->show();
+    vistaModifica->hide();
+    vistaLista->hide();
     vistaHome->hide();
     vistaCrea->hide();
 }

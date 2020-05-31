@@ -30,7 +30,7 @@ private:
     QLabel* labelSesso;
     QLineEdit* inserisciNome;
     QPushButton* bottoneHome;
-    QPushButton* bottoneCreaDef;
+    QPushButton* bottoneSalvaModifiche;
     QPushButton* resetCampi;
     QCheckBox* powerUp1;
     QCheckBox* powerUp2;
@@ -60,7 +60,7 @@ public:
     QLabel* getLabelSesso() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
-    QPushButton* getBottoneCreaDef() const;
+    QPushButton* getbottoneSalvaModifiche() const;
     QPushButton* getResetCampi() const;
     QCheckBox* getPowerUp1() const;
     QCheckBox* getPowerUp2() const;

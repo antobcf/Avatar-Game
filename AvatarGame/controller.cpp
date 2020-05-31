@@ -15,7 +15,6 @@ Controller::Controller(Modello* m, QWidget *parent) :
     layoutPrincipale->addWidget(vistaHome);
     layoutPrincipale->addWidget(vistaCrea);
     layoutPrincipale->addWidget(vistaLista);
-    layoutPrincipale->addWidget(vistaModifica);
 
     vistaCrea->hide();
     vistaLista->hide();
@@ -64,7 +63,7 @@ void Controller::mostraLista() {
 
 void Controller::mostraModifica() {
     vistaModifica->show();
-    vistaLista->hide();
+    vistaLista->show();
     vistaHome->hide();
     vistaCrea->hide();
 }

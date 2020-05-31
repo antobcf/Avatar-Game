@@ -12,7 +12,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     inserisciNome(new QLineEdit(this)),
     bottoneHome(new QPushButton("Home", this)),
-    bottoneCreaDef(new QPushButton("Crea Avatar", this)),
+    bottoneSalvaModifiche(new QPushButton("Salva modifiche", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
     powerUp1(new QCheckBox("Scudo", this)),
     powerUp2(new QCheckBox("Spada", this)),
@@ -61,7 +61,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutPu->addWidget(powerUp7);
     layoutPu->addWidget(powerUp8);
     layoutSx->addWidget(boxDescrizione);
-    layoutSx->addWidget(bottoneCreaDef);
+    layoutSx->addWidget(bottoneSalvaModifiche);
     layoutDx->addWidget(immagineAvatar);
     layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
@@ -161,9 +161,9 @@ QPushButton *ModificaAvatar::getBottoneHome() const
     return bottoneHome;
 }
 
-QPushButton *ModificaAvatar::getBottoneCreaDef() const
+QPushButton *ModificaAvatar::getbottoneSalvaModifiche() const
 {
-    return bottoneCreaDef;
+    return bottoneSalvaModifiche;
 }
 
 QPushButton *ModificaAvatar::getResetCampi() const

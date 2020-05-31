@@ -29,10 +29,18 @@ private:
     QGroupBox* boxLista;
     QGroupBox* boxAvatar1;
     QLabel* nomeAvatar1;
+    QLabel* forzaAvatar1;
+    QLabel* magiaAvatar1;
+    QLabel* difesaAvatar1;
+    QLabel* scienzaAvatar1;
     QCheckBox* checkAvatar1;
     QPushButton* bottoneDescrizione1;
-    /*QLabel* nomeAvatar2;
-    QCheckBox* checkAvatar2;*/
+    QLabel* nomeAvatar2;
+    QCheckBox* checkAvatar2;
+    QPushButton* bottoneDescrizione2;
+    QLabel* nomeAvatar3;
+    QCheckBox* checkAvatar3;
+    QPushButton* bottoneDescrizione3;
 
 public:
     ListaAvatar(QWidget * = nullptr);

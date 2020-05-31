@@ -9,6 +9,7 @@
 #include <QLineEdit>
 #include <QFormLayout>
 #include <QLabel>
+#include <QDialog>
 
 class ListaAvatar : public QWidget
 {
@@ -50,6 +51,7 @@ public:
     QLineEdit* getCercaNome() const;
 
 public slots:
+    void on_bottoneModifica_clicked();
 
 };
 

@@ -40,7 +40,5 @@ AvatarHome::AvatarHome(QWidget* p):
     layoutHome->addLayout(layoutBottoniSopra);
     layoutHome->addWidget(bottoneInfo, 0, Qt::AlignRight);
 
-
-
 }
 

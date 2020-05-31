@@ -6,8 +6,10 @@ release/main.o
 release/avatarhome.o
 release/menu.o
 release/modello.o
+release/modificaavatar.o
 release/moc_avatarhome.o
 release/moc_controller.o
 release/moc_creaavatar.o
 release/moc_listaavatar.o
 release/moc_menu.o
+release/moc_modificaavatar.o

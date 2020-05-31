@@ -89,6 +89,11 @@ QPushButton *ListaAvatar::getBottoneHome() const
     return bottoneHome;
 }
 
+QPushButton *ListaAvatar::getBottoneModifica() const
+{
+   return bottoneModifica;
+}
+
 QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;

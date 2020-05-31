@@ -46,6 +46,7 @@ public:
     ListaAvatar(QWidget * = nullptr);
     QFormLayout* getFormLista() const;
     QPushButton* getBottoneHome() const;
+    QPushButton* getBottoneModifica() const;
     QLineEdit* getCercaNome() const;
 
 public slots:

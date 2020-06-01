@@ -23,7 +23,9 @@ SOURCES += \
     main.cpp \
     avatarhome.cpp \
     menu.cpp \
-    modello.cpp
+    modello.cpp \
+    modificaavatar.cpp \
+    scontro.cpp
 
 HEADERS += \
     avatarhome.h \
@@ -33,7 +35,9 @@ HEADERS += \
     gerarchia.h \
     listaavatar.h \
     menu.h \
-    modello.h
+    modello.h \
+    modificaavatar.h \
+    scontro.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

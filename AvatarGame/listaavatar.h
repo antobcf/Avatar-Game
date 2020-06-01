@@ -9,6 +9,7 @@
 #include <QLineEdit>
 #include <QFormLayout>
 #include <QLabel>
+#include <QDialog>
 
 class ListaAvatar : public QWidget
 {
@@ -46,9 +47,12 @@ public:
     ListaAvatar(QWidget * = nullptr);
     QFormLayout* getFormLista() const;
     QPushButton* getBottoneHome() const;
+    QPushButton* getBottoneModifica() const;
+    QPushButton* getBottoneGioca() const;
     QLineEdit* getCercaNome() const;
 
 public slots:
+    void on_bottoneModifica_clicked();
 
 };
 

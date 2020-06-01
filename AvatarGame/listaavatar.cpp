@@ -77,6 +77,8 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget((bottoneAvvioGioco));
 
     formLista->addRow("Cerca:", cercaNome);
+
+    connect(bottoneModifica,SIGNAL(clicked()),this,SLOT(on_bottoneModifica_clicked()));
 }
 
 QFormLayout *ListaAvatar::getFormLista() const
@@ -89,7 +91,27 @@ QPushButton *ListaAvatar::getBottoneHome() const
     return bottoneHome;
 }
 
+QPushButton *ListaAvatar::getBottoneModifica() const
+{
+   return bottoneModifica;
+}
+
+QPushButton *ListaAvatar::getBottoneGioca() const
+{
+    return bottoneAvvioGioco;
+}
+
 QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;
+}
+
+void ListaAvatar::on_bottoneModifica_clicked()
+{
+    QDialog modificaAvatar;
+    /*modificaAvatar.setWindowTitle("Modifica");
+    modificaAvatar.setMinimumSize(QSize(300, 150));
+    modificaAvatar.setSizePolicy(QSizePolicy::MinimumExpanding,
+                              QSizePolicy::MinimumExpanding);*/
+    modificaAvatar.exec();
 }

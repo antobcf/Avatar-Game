@@ -15,9 +15,9 @@ void Modello::carica()
 
 }
 
-void Modello::rimuovi()
+void Modello::rimuovi(Avatar* a)
 {
-
+    lista.removeElement(a);
 }
 
 Container<Avatar *> Modello::getLista() const
@@ -37,10 +37,10 @@ Container<Avatar*>::iteratore Modello::end()
 
 Container<Avatar*>::iteratoreConst Modello::begin() const
 {
-
+    return lista.beginC();
 }
 
 Container<Avatar*>::iteratoreConst Modello::end() const
 {
-
+    return lista.endC();
 }

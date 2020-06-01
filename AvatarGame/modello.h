@@ -13,7 +13,7 @@ public:
     ~Modello();
     void salva();
     void carica();
-    void rimuovi();
+    void rimuovi(Avatar*);
     Container<Avatar*> getLista() const;
     Container<Avatar*>::iteratore begin();
     Container<Avatar*>::iteratore end();

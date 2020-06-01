@@ -12,6 +12,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QMenuBar>
+#include <QFileDialog>
 
 class Controller : public QWidget {
     Q_OBJECT
@@ -25,6 +26,7 @@ private:
     ModificaAvatar* vistaModifica;
     Scontro* vistaScontro;
     Modello* modello; //capire a cosa serve
+    QString destinazione;;
 
 public:
     Controller(Modello *, QWidget *parent = nullptr);

@@ -77,10 +77,8 @@ public:
     iteratore begin();
     iteratore end();
     int counter();
-
-
-    iteratoreConst begin() const;
-    iteratoreConst end() const;
+    iteratoreConst beginC() const;
+    iteratoreConst endC() const;
 };
 
 //METODI SMARTP
@@ -289,7 +287,7 @@ template <class T>
 Container<T>::iteratore::iteratore(smartP elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
 
 template <class T>
-Container<T>::iteratore::iteratore(const iteratore& it) : punt(it), pte(it.pte) {}
+Container<T>::iteratore::iteratore(const iteratore& it) : punt(it.punt), pte(it.pte) {}
 
 template <class T>
 typename Container<T>::nodo Container<T>::iteratore::operator*() {
@@ -356,7 +354,7 @@ template <class T>
 Container<T>::iteratoreConst::iteratoreConst(smartP elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
 
 template <class T>
-Container<T>::iteratoreConst::iteratoreConst(const iteratoreConst& cit) : punt(cit), pte(cit.pte) {}
+Container<T>::iteratoreConst::iteratoreConst(const iteratoreConst& cit) : punt(cit.punt), pte(cit.pte) {}
 
 template <class T>
 typename Container<T>::nodo Container<T>::iteratoreConst::operator*() {
@@ -403,13 +401,13 @@ typename Container<T>::iteratoreConst& Container<T>::iteratoreConst::operator--(
 }
 
 template <class T>
-typename Container<T>::iteratoreConst Container<T>::begin() const {
+typename Container<T>::iteratoreConst Container<T>::beginC() const {
     if(primo==nullptr) return iteratoreConst(nullptr);
     return iteratoreConst(primo);
 }
 
 template <class T>
-typename Container<T>::iteratoreConst Container<T>::end() const {
+typename Container<T>::iteratoreConst Container<T>::endC() const {
     if(ultimo==nullptr) return iteratoreConst(nullptr);
     return iteratoreConst(ultimo);
 }

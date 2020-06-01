@@ -447,6 +447,10 @@ release/moc_controller.cpp: ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/modificaavatar.h \
 		../AvatarGame/scontro.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h \
 		release/moc_predefs.h \
 		D:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	D:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/anton/Desktop/Avatar Game/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/release/moc_predefs.h" -ID:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/anton/Desktop/Avatar Game/avatar-game/AvatarGame" -ID:/Qt/5.14.2/mingw73_64/include -ID:/Qt/5.14.2/mingw73_64/include/QtWidgets -ID:/Qt/5.14.2/mingw73_64/include/QtGui -ID:/Qt/5.14.2/mingw73_64/include/QtANGLE -ID:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\controller.h -o release\moc_controller.cpp
@@ -1325,7 +1329,11 @@ release/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/modificaavatar.h \
-		../AvatarGame/scontro.h
+		../AvatarGame/scontro.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\controller.o ..\AvatarGame\controller.cpp
 
 release/creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h \
@@ -1498,7 +1506,11 @@ release/creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/modificaavatar.h \
-		../AvatarGame/scontro.h
+		../AvatarGame/scontro.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\creaavatar.o ..\AvatarGame\creaavatar.cpp
 
 release/gerarchia.o: ../AvatarGame/gerarchia.cpp ../AvatarGame/gerarchia.h \
@@ -1810,6 +1822,10 @@ release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/modificaavatar.h \
 		../AvatarGame/scontro.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \

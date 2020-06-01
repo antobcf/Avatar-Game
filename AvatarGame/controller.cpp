@@ -10,7 +10,8 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaLista(new ListaAvatar(this)),
     vistaModifica(new ModificaAvatar(this)),
     vistaScontro(new Scontro(this)),
-    modello(m)
+    modello(m),
+    destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
 {
     layoutPrincipale->setMenuBar(menuGenerale);
     layoutPrincipale->addWidget(vistaHome);

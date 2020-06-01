@@ -15,9 +15,16 @@ private:
     QLabel* nomeAvatarDx;
     QLabel* terreno;
     QPushButton* bottoneCombatti;
+    QPushButton* bottoneCambioAvatar;
+    QPushButton* bottoneHomeScontro;
+    QLabel* mediaSx;
+    QLabel* mediaDx;
 
 public:
     Scontro(QWidget * = nullptr);
+    QPushButton* getBottoneCombatti() const;
+    QPushButton* getBottoneCambioAvatar() const;
+    QPushButton* getBottoneHomeScontro() const;
 
 public slots:
 

@@ -115,3 +115,58 @@ void ListaAvatar::on_bottoneModifica_clicked()
                               QSizePolicy::MinimumExpanding);*/
     modificaAvatar.exec();
 }
+
+/*void ListaAvatar::checkElfo() const
+{
+    if(tipoElfo->isChecked()) {
+        if(tipoNano->isChecked()) {
+            if(tipoUmano->isChecked()){
+                if(tipoAlieno->isChecked()){
+                    tipoMostro->setEnabled(false);
+                    return;
+                }
+            }
+        }
+        if(tipoNano->isChecked()) {
+            if(tipoUmano->isChecked()){
+                if(tipoMostro->isChecked()){
+                    tipoAlieno->setEnabled(false);
+                    return;
+                }
+            }
+        }
+        if(tipoNano->isChecked()) {
+            if(tipoAlieno->isChecked()){
+                if(tipoMostro->isChecked()){
+                    tipoUmano->setEnabled(false);
+                    return;
+                }
+            }
+        }
+        if(tipoUmano->isChecked()) {
+            if(tipoAlieno->isChecked()){
+                if(tipoMostro->isChecked()){
+                    tipoNano->setEnabled(false);
+                    return;
+                }
+            }
+        }
+    } else {
+        if(tipoNano->isChecked()) {
+            tipoUmano->setEnabled(true);
+            tipoAlieno->setEnabled(true);
+            tipoMostro->setEnabled(true);
+            return;
+        }
+        if(powerUp3->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp4->setEnabled(true);
+            return;
+        }
+        if(powerUp4->isChecked()) {
+            powerUp2->setEnabled(true);
+            powerUp3->setEnabled(true);
+            return;
+        }
+    }
+}*/

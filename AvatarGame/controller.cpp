@@ -36,6 +36,10 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(mostraModifica()));
     connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
+
+    //CONNECT SCONTRO
+    connect(vistaScontro->getBottoneCambioAvatar(),SIGNAL(clicked()),this,SLOT(mostraLista()));
+    connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
 }
 
 Controller::~Controller()
@@ -49,6 +53,7 @@ void Controller::mostraHome()
     vistaCrea->hide();
     vistaLista->hide();
     vistaModifica->hide();
+    vistaScontro->hide();
 
 }
 
@@ -57,6 +62,7 @@ void Controller::mostraCrea() {
     vistaHome->hide();
     vistaLista->hide();
     vistaModifica->hide();
+    vistaScontro->hide();
 
     vistaCrea->resetTutto();
 }
@@ -66,6 +72,7 @@ void Controller::mostraLista() {
     vistaHome->hide();
     vistaCrea->hide();
     vistaModifica->hide();
+    vistaScontro->hide();
 }
 
 void Controller::mostraModifica() {
@@ -73,6 +80,7 @@ void Controller::mostraModifica() {
     vistaLista->show();
     vistaHome->hide();
     vistaCrea->hide();
+    vistaScontro->hide();
 }
 
 void Controller::mostraScontro() {

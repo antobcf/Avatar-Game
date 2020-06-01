@@ -48,7 +48,7 @@ void Controller::mostraHome()
     vistaCrea->hide();
     vistaLista->hide();
     vistaModifica->hide();
-    //qui vanno le hide delle altre pagine
+
 }
 
 void Controller::mostraCrea() {
@@ -56,6 +56,8 @@ void Controller::mostraCrea() {
     vistaHome->hide();
     vistaLista->hide();
     vistaModifica->hide();
+
+    vistaCrea->resetTutto();
 }
 
 void Controller::mostraLista() {

@@ -23,9 +23,9 @@ private:
     QLabel* maxPowerUp;
     QLabel* lvl;
     QLabel* valoreForza;
-    QLabel* valoreScienza;
-    QLabel* valoreDifesa;
     QLabel* valoreMagia;
+    QLabel* valoreDifesa;
+    QLabel* valoreScienza;
     QLabel* valoreMedia;
     QLabel* labelSesso;
     QLineEdit* inserisciNome;
@@ -53,9 +53,9 @@ public:
     QLabel* getMaxPowerUp() const;
     QLabel* getLvl() const;
     QLabel* getValoreForza() const;
-    QLabel* getValoreScienza() const;
-    QLabel* getValoreDifesa() const;
     QLabel* getValoreMagia() const;
+    QLabel* getValoreDifesa() const;
+    QLabel* getValoreScienza() const;
     QLabel* getValoreMedia() const;
     QLabel* getLabelSesso() const;
     QLineEdit* getInserisciNome() const;
@@ -89,6 +89,8 @@ public slots:
     void groupTipo() const;
     void resetTutto() const;
     void resetCheck() const;
+    void calcoloValori() const;
+
 };
 
 #endif // CREAAVATAR_H

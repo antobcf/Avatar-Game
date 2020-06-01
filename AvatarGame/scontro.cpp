@@ -8,9 +8,9 @@ Scontro::Scontro(QWidget *parent) :
     bottoneCombatti(new QPushButton("Combatti", this))
 {
     QHBoxLayout* layoutScontro = new QHBoxLayout(this);
-    QVBoxLayout* layoutScontroSx = new QVBoxLayout(this);
-    QVBoxLayout* layoutScontroCentrale = new QVBoxLayout(this);
-    QVBoxLayout* layoutScontroDx = new QVBoxLayout(this);
+    QVBoxLayout* layoutScontroSx = new QVBoxLayout();
+    QVBoxLayout* layoutScontroCentrale = new QVBoxLayout();
+    QVBoxLayout* layoutScontroDx = new QVBoxLayout();
 
     layoutScontro->addLayout(layoutScontroSx);
     layoutScontro->addLayout(layoutScontroCentrale);

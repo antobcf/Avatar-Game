@@ -31,6 +31,10 @@ private:
     QLineEdit* cercaNome;
     QScrollArea* scrollLista;
     QScrollBar* scrollbarLista;
+    QLabel* ordinaLista;
+    QPushButton* ordinaNome;
+    QPushButton* ordinaLivello;
+    QPushButton* ordinaMedia;
     QGroupBox* boxAvatar1;
     QLabel* nomeAvatar1;
     QLabel* forzaAvatar1;

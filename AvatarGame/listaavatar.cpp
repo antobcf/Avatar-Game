@@ -6,6 +6,10 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton("Home", this)),
     scrollLista(new QScrollArea),
     scrollbarLista(new QScrollBar),
+    ordinaLista(new QLabel("Ordina per", this)),
+    ordinaNome(new QPushButton("Nome", this)),
+    ordinaMedia(new QPushButton("Media", this)),
+    ordinaLivello(new QPushButton("Livello", this)),
     checkAvatar1(new QCheckBox(this)),
     nomeAvatar1(new QLabel("Gino", this)),
     bottoneDescrizione1(new QPushButton("Info", this)),
@@ -59,6 +63,10 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     QHBoxLayout* layoutListaAvatar = new QHBoxLayout(this);
     QVBoxLayout* layoutSelezioneAvatar = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
+    QHBoxLayout* layoutOrdina = new QHBoxLayout();
+    QVBoxLayout* layoutOrdinaNome = new QVBoxLayout();
+    QVBoxLayout* layoutOrdinaMedia = new QVBoxLayout();
+    QVBoxLayout* layoutOrdinaLivello = new QVBoxLayout();
     QHBoxLayout* layoutCheckBox = new QHBoxLayout();
     QVBoxLayout* layoutincolonnamento = new QVBoxLayout();
     QHBoxLayout* layoutBoxAvatar1 = new QHBoxLayout();
@@ -87,6 +95,11 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutListaAvatar->addLayout(layoutDx);
     layoutDx->addLayout(formLista);
     layoutDx->addLayout(layoutCheckBox);
+
+    layoutOrdina->addWidget(ordinaLista);
+    layoutOrdina->addWidget(ordinaNome);
+    layoutOrdina->addWidget(ordinaMedia);
+    layoutOrdina->addWidget(ordinaLivello);
 
     scrollLista->setLayout(layoutincolonnamento);
     scrollLista->addScrollBarWidget(scrollbarLista, (Qt::Orientation::Vertical, Qt::AlignRight));
@@ -119,6 +132,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutBoxAvatar3->addWidget(scienzaAvatar3);
 
     layoutSelezioneAvatar->addWidget(bottoneHome);
+    layoutSelezioneAvatar->addLayout(layoutOrdina);
     layoutSelezioneAvatar->addWidget(scrollLista);
     layoutCheckBox->addWidget(tipoElfo);
     layoutCheckBox->addWidget(tipoNano);

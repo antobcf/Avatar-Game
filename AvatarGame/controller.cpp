@@ -34,7 +34,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
 
     //CONNECT LISTA
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
-    connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(mostraModifica()));
+    connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(on_bottoneModifica_clicked()));
     connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
 
     //CONNECT SCONTRO
@@ -89,4 +89,15 @@ void Controller::mostraScontro() {
     vistaLista->hide();
     vistaHome->hide();
     vistaCrea->hide();
+}
+
+void Controller::on_bottoneModifica_clicked()
+{
+    QDialog modificaAvatar;
+    vistaModifica->show();
+    vistaLista->show();
+    vistaHome->hide();
+    vistaCrea->hide();
+    vistaScontro->hide();
+    modificaAvatar.exec();
 }

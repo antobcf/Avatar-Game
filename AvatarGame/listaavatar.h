@@ -52,8 +52,7 @@ public:
     QLineEdit* getCercaNome() const;
 
 public slots:
-    void on_bottoneModifica_clicked();
-    //void checkElfo() const;
+    //void on_bottoneModifica_clicked();
 
 };
 

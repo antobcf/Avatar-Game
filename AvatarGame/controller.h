@@ -26,7 +26,7 @@ private:
     ModificaAvatar* vistaModifica;
     Scontro* vistaScontro;
     Modello* modello; //capire a cosa serve
-    QString destinazione;;
+    QString destinazione;
 
 public:
     Controller(Modello *, QWidget *parent = nullptr);
@@ -40,8 +40,7 @@ public slots:
     void mostraLista();
     void mostraModifica();
     void mostraScontro();
-
-
+    void on_bottoneModifica_clicked();
 
 signals:
 

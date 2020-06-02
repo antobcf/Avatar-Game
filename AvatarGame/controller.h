@@ -40,7 +40,6 @@ public slots:
     void mostraLista();
     void mostraModifica();
     void mostraScontro();
-    void on_bottoneModifica_clicked();
 
 signals:
 

@@ -4,20 +4,28 @@
 ListaAvatar::ListaAvatar(QWidget *parent) :
     formLista(new QFormLayout),
     bottoneHome(new QPushButton("Home", this)),
-    boxLista(new QGroupBox("Scegli il tuo avatar", this)),
+    scrollLista(new QScrollArea),
     checkAvatar1(new QCheckBox(this)),
     nomeAvatar1(new QLabel("Gino", this)),
-    bottoneDescrizione1(new QPushButton("Storia1", this)),
+    bottoneDescrizione1(new QPushButton("Info", this)),
     forzaAvatar1(new QLabel("1234", this)),
     magiaAvatar1(new QLabel("134", this)),
     difesaAvatar1(new QLabel("6543", this)),
     scienzaAvatar1(new QLabel("5", this)),
+    forzaAvatar2(new QLabel("1234", this)),
+    magiaAvatar2(new QLabel("134", this)),
+    difesaAvatar2(new QLabel("6543", this)),
+    scienzaAvatar2(new QLabel("5", this)),
+    forzaAvatar3(new QLabel("1234", this)),
+    magiaAvatar3(new QLabel("134", this)),
+    difesaAvatar3(new QLabel("6543", this)),
+    scienzaAvatar3(new QLabel("5", this)),
     checkAvatar2(new QCheckBox(this)),
     nomeAvatar2(new QLabel("Giangiorgio", this)),
-    bottoneDescrizione2(new QPushButton("Storia2", this)),
+    bottoneDescrizione2(new QPushButton("Info", this)),
     checkAvatar3(new QCheckBox(this)),
     nomeAvatar3(new QLabel("Pierangelo", this)),
-    bottoneDescrizione3(new QPushButton("Storia3", this)),
+    bottoneDescrizione3(new QPushButton("Info", this)),
     bottoneModifica(new QPushButton("Modifica", this)),
     bottoneRimuovi(new QPushButton("Rimuovi", this)),
     bottoneRimuoviTutto(new QPushButton("Rimuovi tutto", this)),
@@ -43,7 +51,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addLayout(formLista);
     layoutDx->addLayout(layoutCheckBox);
 
-    boxLista->setLayout(layoutincolonnamento);
+    scrollLista->setLayout(layoutincolonnamento);
 
     layoutincolonnamento->addLayout(layoutBoxAvatar1);
     layoutBoxAvatar1->addWidget(checkAvatar1);
@@ -58,23 +66,31 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutBoxAvatar2->addWidget(checkAvatar2);
     layoutBoxAvatar2->addWidget(nomeAvatar2);
     layoutBoxAvatar2->addWidget(bottoneDescrizione2);
+    layoutBoxAvatar2->addWidget(forzaAvatar2);
+    layoutBoxAvatar2->addWidget(magiaAvatar2);
+    layoutBoxAvatar2->addWidget(difesaAvatar2);
+    layoutBoxAvatar2->addWidget(scienzaAvatar2);
 
     layoutincolonnamento->addLayout(layoutBoxAvatar3);
     layoutBoxAvatar3->addWidget(checkAvatar3);
     layoutBoxAvatar3->addWidget(nomeAvatar3);
     layoutBoxAvatar3->addWidget(bottoneDescrizione3);
+    layoutBoxAvatar3->addWidget(forzaAvatar3);
+    layoutBoxAvatar3->addWidget(magiaAvatar3);
+    layoutBoxAvatar3->addWidget(difesaAvatar3);
+    layoutBoxAvatar3->addWidget(scienzaAvatar3);
 
     layoutSelezioneAvatar->addWidget(bottoneHome);
-    layoutSelezioneAvatar->addWidget(boxLista);
-    layoutCheckBox->addWidget((tipoElfo));
-    layoutCheckBox->addWidget((tipoNano));
-    layoutCheckBox->addWidget((tipoUmano));
-    layoutCheckBox->addWidget((tipoAlieno));
-    layoutCheckBox->addWidget((tipoMostro));
-    layoutDx->addWidget((bottoneModifica));
-    layoutDx->addWidget((bottoneRimuovi));
-    layoutDx->addWidget((bottoneRimuoviTutto));
-    layoutDx->addWidget((bottoneAvvioGioco));
+    layoutSelezioneAvatar->addWidget(scrollLista);
+    layoutCheckBox->addWidget(tipoElfo);
+    layoutCheckBox->addWidget(tipoNano);
+    layoutCheckBox->addWidget(tipoUmano);
+    layoutCheckBox->addWidget(tipoAlieno);
+    layoutCheckBox->addWidget(tipoMostro);
+    layoutDx->addWidget(bottoneModifica);
+    layoutDx->addWidget(bottoneRimuovi);
+    layoutDx->addWidget(bottoneRimuoviTutto);
+    layoutDx->addWidget(bottoneAvvioGioco);
 
     formLista->addRow("Cerca:", cercaNome);
 }
@@ -103,3 +119,4 @@ QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;
 }
+

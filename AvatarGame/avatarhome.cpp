@@ -21,7 +21,7 @@ AvatarHome::AvatarHome(QWidget* p):
     bottoneGioca(new QPushButton("Gioca", p)),
     bottoneInfo(new QPushButton("?", p)),
     titoloGioco(new QLabel("Inserire logo", p))
-{
+{    
     const QSize dimBottone = QSize(90,50);
     bottoneCrea->setFixedSize(dimBottone);
     bottoneGioca->setFixedSize(dimBottone);

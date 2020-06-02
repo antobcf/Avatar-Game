@@ -20,15 +20,20 @@ Scontro::Scontro(QWidget *parent) :
     layoutScontro->addLayout(layoutScontroCentrale);
     layoutScontro->addLayout(layoutScontroDx);
 
-    layoutScontroSx->addWidget(nomeAvatarSx);
-    layoutScontroSx->addWidget(mediaSx);
-    layoutScontroCentrale->addWidget(vs);
-    layoutScontroCentrale->addWidget(terreno);
-    layoutScontroCentrale->addWidget(bottoneHomeScontro);
-    layoutScontroCentrale->addWidget(bottoneCambioAvatar);
-    layoutScontroCentrale->addWidget(bottoneCombatti);
-    layoutScontroDx->addWidget(nomeAvatarDx);
-    layoutScontroDx->addWidget(mediaDx);
+    const QSize dimBottoneHomeCambio = QSize(100,30);
+    bottoneCambioAvatar->setFixedSize(dimBottoneHomeCambio);
+    bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
+    bottoneCombatti->setFixedSize(130,60);
+
+    layoutScontroSx->addWidget(nomeAvatarSx, 0, Qt::AlignCenter);
+    layoutScontroSx->addWidget(mediaSx, 0, Qt::AlignCenter);
+    layoutScontroCentrale->addWidget(vs, 0, Qt::AlignCenter);
+    layoutScontroCentrale->addWidget(terreno, 0, Qt::AlignCenter);
+    layoutScontroCentrale->addWidget(bottoneHomeScontro, 0, Qt::AlignCenter);
+    layoutScontroCentrale->addWidget(bottoneCambioAvatar, 0, Qt::AlignCenter);
+    layoutScontroCentrale->addWidget(bottoneCombatti, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(nomeAvatarDx, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(mediaDx, 0, Qt::AlignCenter);
 }
 
 QPushButton *Scontro::getBottoneCombatti() const

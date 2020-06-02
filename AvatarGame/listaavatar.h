@@ -10,6 +10,7 @@
 #include <QFormLayout>
 #include <QLabel>
 #include <QDialog>
+#include <QScrollArea>
 
 class ListaAvatar : public QWidget
 {
@@ -27,7 +28,7 @@ private:
     QCheckBox* tipoAlieno;
     QCheckBox* tipoMostro;
     QLineEdit* cercaNome;
-    QGroupBox* boxLista;
+    QScrollArea* scrollLista;
     QGroupBox* boxAvatar1;
     QLabel* nomeAvatar1;
     QLabel* forzaAvatar1;
@@ -37,9 +38,17 @@ private:
     QCheckBox* checkAvatar1;
     QPushButton* bottoneDescrizione1;
     QLabel* nomeAvatar2;
+    QLabel* forzaAvatar2;
+    QLabel* magiaAvatar2;
+    QLabel* difesaAvatar2;
+    QLabel* scienzaAvatar2;
     QCheckBox* checkAvatar2;
     QPushButton* bottoneDescrizione2;
     QLabel* nomeAvatar3;
+    QLabel* forzaAvatar3;
+    QLabel* magiaAvatar3;
+    QLabel* difesaAvatar3;
+    QLabel* scienzaAvatar3;
     QCheckBox* checkAvatar3;
     QPushButton* bottoneDescrizione3;
 

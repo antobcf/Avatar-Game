@@ -41,7 +41,5 @@ Menu::Menu(QWidget* p):
     connect(esci,SIGNAL(triggered()),parent,SLOT(close()));
     connect(home,SIGNAL(triggered()),parent,SLOT(mostraHome()));
     connect(nuovo,SIGNAL(triggered()),parent,SLOT(mostraCrea()));
-    connect(lista,SIGNAL(triggered()),parent,SLOT(mostraLista()));
-
 }
 

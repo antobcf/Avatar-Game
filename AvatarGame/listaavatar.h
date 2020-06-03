@@ -22,6 +22,7 @@ private:
     QPushButton* bottoneModifica;
     QPushButton* bottoneRimuovi;
     QPushButton* bottoneRimuoviTutto;
+    QPushButton* bottoneAzzera;
     QPushButton* bottoneAvvioGioco;
     QCheckBox* tipoElfo;
     QCheckBox* tipoNano;
@@ -86,6 +87,8 @@ public:
     QLineEdit* getCercaNome() const;
 
 public slots:
+    void azzeraTutto() const;
+    void azzeraCheck() const;
     //void on_bottoneModifica_clicked();
 
 };

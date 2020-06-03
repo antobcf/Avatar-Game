@@ -34,6 +34,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneModifica(new QPushButton("Modifica", this)),
     bottoneRimuovi(new QPushButton("Rimuovi", this)),
     bottoneRimuoviTutto(new QPushButton("Rimuovi tutto", this)),
+    bottoneAzzera(new QPushButton("Azzera la ricerca", this)),
     bottoneAvvioGioco(new QPushButton("Gioca", this)),
     tipoElfo(new QCheckBox("Elfo", this)),
     tipoNano(new QCheckBox("Nano", this)),
@@ -102,7 +103,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutOrdina->addWidget(ordinaLivello);
 
     scrollLista->setLayout(layoutincolonnamento);
-    scrollLista->addScrollBarWidget(scrollbarLista, (Qt::Orientation::Vertical, Qt::AlignRight));
+    //scrollLista->addScrollBarWidget(scrollbarLista, (Qt::Orientation::Vertical, Qt::AlignRight));
 
     layoutincolonnamento->addLayout(layoutBoxAvatar1);
     layoutBoxAvatar1->addWidget(checkAvatar1);
@@ -142,6 +143,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneModifica);
     layoutDx->addWidget(bottoneRimuovi);
     layoutDx->addWidget(bottoneRimuoviTutto);
+    layoutDx->addWidget(bottoneAzzera);
     layoutDx->addWidget(bottoneAvvioGioco);
 
     formLista->addRow("Cerca:", cercaNome);
@@ -196,6 +198,8 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
 
     layoutincolonnamento->addLayout(layoutBoxAvatar20);
     layoutBoxAvatar20->addWidget(checkAvatar20);*/
+
+    connect(bottoneAzzera,SIGNAL(clicked()),this,SLOT(azzeraTutto()));
 }
 
 QFormLayout *ListaAvatar::getFormLista() const
@@ -221,5 +225,26 @@ QPushButton *ListaAvatar::getBottoneGioca() const
 QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;
+}
+
+void ListaAvatar::azzeraTutto() const
+{
+    cercaNome->clear();
+    azzeraCheck();
+    //aggiungere pulizia degli avatar selezionati
+}
+
+void ListaAvatar::azzeraCheck() const
+{
+    tipoElfo->setChecked(false);
+    tipoNano->setChecked(false);
+    tipoUmano->setChecked(false);
+    tipoAlieno->setChecked(false);
+    tipoMostro->setChecked(false);
+    tipoElfo->setEnabled(true);
+    tipoNano->setEnabled(true);
+    tipoUmano->setEnabled(true);
+    tipoAlieno->setEnabled(true);
+    tipoMostro->setEnabled(true);
 }
 

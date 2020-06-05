@@ -40,6 +40,9 @@ public slots:
     void mostraLista();
     void mostraModifica();
     void mostraScontro();
+    void infoPopHome();
+    void infoSviluppatori();
+    void infoPopSistema();
 
 signals:
 

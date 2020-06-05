@@ -4,7 +4,6 @@ Menu::Menu(QWidget* p):
     parent(p),
     file(new QMenu("File", p)),
     personaggio(new QMenu("Avatar", p)),
-    finestra(new QMenu("Finestra", p)),
     info(new QMenu("Informazioni", p)),
     esci(new QAction("Esci", p)),
     nuovo(new QAction("Nuovo", p)),
@@ -13,9 +12,6 @@ Menu::Menu(QWidget* p):
     lista(new QAction("Lista", p)),
     sviluppatori(new QAction("Contatti Sviluppatori", p)),
     infoSistema(new QAction("Informazioni di Sistema", p)),
-    schermoIntero(new QAction("Schermo Intero", p)),
-    riduci(new QAction("Riduci", p)),
-    darkMode(new QAction("Dark Mode", p)),
     home(new QAction("Homepage", p))
 {
 
@@ -26,13 +22,8 @@ Menu::Menu(QWidget* p):
     personaggio->addAction(carica);
     personaggio->addAction(salva);
     personaggio->addAction(lista);
+    personaggio->addAction(home);
     addMenu(personaggio);
-
-    finestra->addAction(schermoIntero);
-    finestra->addAction(riduci);
-    finestra->addAction(darkMode);
-    finestra->addAction(home);
-    addMenu(finestra);
 
     info->addAction(sviluppatori);
     info->addAction(infoSistema);
@@ -41,5 +32,6 @@ Menu::Menu(QWidget* p):
     connect(esci,SIGNAL(triggered()),parent,SLOT(close()));
     connect(home,SIGNAL(triggered()),parent,SLOT(mostraHome()));
     connect(nuovo,SIGNAL(triggered()),parent,SLOT(mostraCrea()));
+    connect(sviluppatori,SIGNAL(triggered()),parent,SLOT(infoSviluppatori()));
+    connect(infoSistema,SIGNAL(triggered()),parent,SLOT(infoPopSistema()));
 }
-

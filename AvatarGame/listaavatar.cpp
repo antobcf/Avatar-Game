@@ -2,14 +2,13 @@
 
 
 ListaAvatar::ListaAvatar(QWidget *parent) :
-    formLista(new QFormLayout),
     bottoneHome(new QPushButton("Home", this)),
-    scrollLista(new QScrollArea),
-    scrollbarLista(new QScrollBar),
     ordinaLista(new QLabel("Ordina per", this)),
     ordinaNome(new QPushButton("Nome", this)),
-    ordinaMedia(new QPushButton("Media", this)),
     ordinaLivello(new QPushButton("Livello", this)),
+    ordinaMedia(new QPushButton("Media", this)),
+    scrollLista(new QScrollArea),
+    scrollbarLista(new QScrollBar),
     checkAvatar1(new QCheckBox(this)),
     nomeAvatar1(new QLabel("Gino", this)),
     bottoneDescrizione1(new QPushButton("Info", this)),
@@ -17,31 +16,35 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     magiaAvatar1(new QLabel("134", this)),
     difesaAvatar1(new QLabel("6543", this)),
     scienzaAvatar1(new QLabel("5", this)),
+    checkAvatar2(new QCheckBox(this)),
+    nomeAvatar2(new QLabel("Giangiorgio", this)),
+    bottoneDescrizione2(new QPushButton("Info", this)),
     forzaAvatar2(new QLabel("1234", this)),
     magiaAvatar2(new QLabel("134", this)),
     difesaAvatar2(new QLabel("6543", this)),
     scienzaAvatar2(new QLabel("5", this)),
+    checkAvatar3(new QCheckBox(this)),
+    nomeAvatar3(new QLabel("Pierangelo", this)),
+    bottoneDescrizione3(new QPushButton("Info", this)),
     forzaAvatar3(new QLabel("1234", this)),
     magiaAvatar3(new QLabel("134", this)),
     difesaAvatar3(new QLabel("6543", this)),
     scienzaAvatar3(new QLabel("5", this)),
-    checkAvatar2(new QCheckBox(this)),
-    nomeAvatar2(new QLabel("Giangiorgio", this)),
-    bottoneDescrizione2(new QPushButton("Info", this)),
-    checkAvatar3(new QCheckBox(this)),
-    nomeAvatar3(new QLabel("Pierangelo", this)),
-    bottoneDescrizione3(new QPushButton("Info", this)),
-    bottoneModifica(new QPushButton("Modifica", this)),
-    bottoneRimuovi(new QPushButton("Rimuovi", this)),
-    bottoneRimuoviTutto(new QPushButton("Rimuovi tutto", this)),
-    bottoneAzzera(new QPushButton("Azzera la ricerca", this)),
-    bottoneAvvioGioco(new QPushButton("Gioca", this)),
+
+
+    formLista(new QFormLayout),
+    cercaNome(new QLineEdit(this)),
     tipoElfo(new QCheckBox("Elfo", this)),
     tipoNano(new QCheckBox("Nano", this)),
     tipoUmano(new QCheckBox("Umano", this)),
     tipoAlieno(new QCheckBox("Alieno", this)),
     tipoMostro(new QCheckBox("Mostro", this)),
-    cercaNome(new QLineEdit(this))
+    bottoneModifica(new QPushButton("Modifica", this)),
+    bottoneRimuovi(new QPushButton("Rimuovi", this)),
+    bottoneRimuoviTutto(new QPushButton("Rimuovi tutto", this)),
+    bottoneAvvioGioco(new QPushButton("Gioca", this)),
+    bottoneInfoLista(new QPushButton("?", this))
+
 {
     QHBoxLayout* layoutListaAvatar = new QHBoxLayout(this);
     QVBoxLayout* layoutSelezioneAvatar = new QVBoxLayout();
@@ -55,14 +58,14 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
 
     layoutListaAvatar->addLayout(layoutSelezioneAvatar);
     layoutListaAvatar->addLayout(layoutDx);
-    layoutDx->addLayout(formLista);
-    layoutDx->addLayout(layoutCheckBox);
 
+    layoutSelezioneAvatar->addWidget(bottoneHome);
+    layoutSelezioneAvatar->addLayout(layoutOrdina);
     layoutOrdina->addWidget(ordinaLista);
     layoutOrdina->addWidget(ordinaNome);
     layoutOrdina->addWidget(ordinaMedia);
     layoutOrdina->addWidget(ordinaLivello);
-
+    layoutSelezioneAvatar->addWidget(scrollLista);
     scrollLista->setLayout(layoutincolonnamento);
     //scrollLista->addScrollBarWidget(scrollbarLista, (Qt::Orientation::Vertical, Qt::AlignRight));
 
@@ -93,9 +96,9 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutBoxAvatar3->addWidget(difesaAvatar3);
     layoutBoxAvatar3->addWidget(scienzaAvatar3);
 
-    layoutSelezioneAvatar->addWidget(bottoneHome);
-    layoutSelezioneAvatar->addLayout(layoutOrdina);
-    layoutSelezioneAvatar->addWidget(scrollLista);
+    formLista->addRow("Cerca:", cercaNome);
+    layoutDx->addLayout(formLista);
+    layoutDx->addLayout(layoutCheckBox);
     layoutCheckBox->addWidget(tipoElfo);
     layoutCheckBox->addWidget(tipoNano);
     layoutCheckBox->addWidget(tipoUmano);
@@ -104,12 +107,13 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneModifica);
     layoutDx->addWidget(bottoneRimuovi);
     layoutDx->addWidget(bottoneRimuoviTutto);
-    layoutDx->addWidget(bottoneAzzera);
     layoutDx->addWidget(bottoneAvvioGioco);
+    layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
+    bottoneInfoLista->setFixedSize(25,25);
 
-    formLista->addRow("Cerca:", cercaNome);
-
-    connect(bottoneAzzera,SIGNAL(clicked()),this,SLOT(azzeraTutto()));
+    bottoneModifica->setEnabled(false);
+    bottoneRimuovi->setEnabled(false);
+    bottoneAvvioGioco->setEnabled(false);
 }
 
 QFormLayout *ListaAvatar::getFormLista() const
@@ -136,25 +140,3 @@ QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;
 }
-
-void ListaAvatar::azzeraTutto() const
-{
-    cercaNome->clear();
-    azzeraCheck();
-    //aggiungere pulizia degli avatar selezionati
-}
-
-void ListaAvatar::azzeraCheck() const
-{
-    tipoElfo->setChecked(false);
-    tipoNano->setChecked(false);
-    tipoUmano->setChecked(false);
-    tipoAlieno->setChecked(false);
-    tipoMostro->setChecked(false);
-    tipoElfo->setEnabled(true);
-    tipoNano->setEnabled(true);
-    tipoUmano->setEnabled(true);
-    tipoAlieno->setEnabled(true);
-    tipoMostro->setEnabled(true);
-}
-

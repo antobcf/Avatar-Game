@@ -11,14 +11,14 @@ class Scontro : public QWidget
 {
     Q_OBJECT
 private:
-    QLabel* vs;
     QLabel* nomeAvatarSx;
-    QLabel* nomeAvatarDx;
-    QLabel* terreno;
-    QPushButton* bottoneCombatti;
-    QPushButton* bottoneCambioAvatar;
-    QPushButton* bottoneHomeScontro;
     QLabel* mediaSx;
+    QLabel* vs;
+    QLabel* terreno;
+    QPushButton* bottoneHomeScontro;
+    QPushButton* bottoneCambioAvatar;
+    QPushButton* bottoneCombatti;
+    QLabel* nomeAvatarDx;
     QLabel* mediaDx;
 
 public:

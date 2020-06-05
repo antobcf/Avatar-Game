@@ -7,6 +7,7 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGridLayout>
+#include <QMessageBox>
 
 class AvatarHome : public QWidget
 {

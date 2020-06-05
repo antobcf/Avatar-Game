@@ -5,6 +5,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QWidget>
+#include <QMessageBox>
 
 class Menu : public QMenuBar
 {
@@ -13,7 +14,6 @@ private:
     QWidget* parent;
     QMenu* file;
     QMenu* personaggio;
-    QMenu* finestra;
     QMenu* info;
     QAction* esci;
     QAction* nuovo;
@@ -22,9 +22,6 @@ private:
     QAction* lista;
     QAction* sviluppatori;
     QAction* infoSistema;
-    QAction* schermoIntero;
-    QAction* riduci;
-    QAction* darkMode;
     QAction* home;
 
 public:

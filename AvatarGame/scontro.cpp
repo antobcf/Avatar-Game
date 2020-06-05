@@ -1,14 +1,14 @@
 #include "scontro.h"
 
 Scontro::Scontro(QWidget *parent) :
-    bottoneCambioAvatar(new QPushButton("Cambia Avatar", this)),
-    bottoneHomeScontro(new QPushButton("Home", this)),
-    vs(new QLabel("VS", this)),
     nomeAvatarSx(new QLabel("Avatar1", this)),
-    nomeAvatarDx(new QLabel("Avatar2", this)),
-    terreno(new QLabel("Terreno", this)),
-    bottoneCombatti(new QPushButton("Combatti", this)),
     mediaSx(new QLabel("Media: ", this)),
+    vs(new QLabel("VS", this)),
+    terreno(new QLabel("Terreno", this)),
+    bottoneHomeScontro(new QPushButton("Home", this)),
+    bottoneCambioAvatar(new QPushButton("Cambia Avatar", this)),
+    bottoneCombatti(new QPushButton("Combatti", this)),
+    nomeAvatarDx(new QLabel("Avatar2", this)),
     mediaDx(new QLabel("Media: ", this))
 {
     QHBoxLayout* layoutScontro = new QHBoxLayout(this);

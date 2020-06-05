@@ -28,7 +28,6 @@ AvatarHome::AvatarHome(QWidget* p):
     bottoneInfo->setFixedSize(25,25);
     titoloGioco->setAlignment(Qt::AlignCenter);
 
-
     //setStyleSheet bottoni o tramite fogli di stile
 
     QVBoxLayout* layoutHome = new QVBoxLayout(this);
@@ -39,6 +38,4 @@ AvatarHome::AvatarHome(QWidget* p):
     layoutBottoniSopra->addWidget(bottoneCrea);
     layoutHome->addLayout(layoutBottoniSopra);
     layoutHome->addWidget(bottoneInfo, 0, Qt::AlignRight);
-
 }
-

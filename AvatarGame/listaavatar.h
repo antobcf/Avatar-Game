@@ -17,46 +17,47 @@ class ListaAvatar : public QWidget
 {
     Q_OBJECT
 private:
-    QFormLayout* formLista;
     QPushButton* bottoneHome;
-    QPushButton* bottoneModifica;
-    QPushButton* bottoneRimuovi;
-    QPushButton* bottoneRimuoviTutto;
-    QPushButton* bottoneAzzera;
-    QPushButton* bottoneAvvioGioco;
+    QLabel* ordinaLista;
+    QPushButton* ordinaNome;
+    QPushButton* ordinaLivello;
+    QPushButton* ordinaMedia;
+    QScrollArea* scrollLista;
+    QScrollBar* scrollbarLista;
+    QCheckBox* checkAvatar1;
+    QLabel* nomeAvatar1;
+    QPushButton* bottoneDescrizione1;
+    QLabel* forzaAvatar1;
+    QLabel* magiaAvatar1;
+    QLabel* difesaAvatar1;
+    QLabel* scienzaAvatar1;
+    QCheckBox* checkAvatar2;
+    QLabel* nomeAvatar2;
+    QPushButton* bottoneDescrizione2;
+    QLabel* forzaAvatar2;
+    QLabel* magiaAvatar2;
+    QLabel* difesaAvatar2;
+    QLabel* scienzaAvatar2;
+    QCheckBox* checkAvatar3;
+    QLabel* nomeAvatar3;
+    QPushButton* bottoneDescrizione3;
+    QLabel* forzaAvatar3;
+    QLabel* magiaAvatar3;
+    QLabel* difesaAvatar3;
+    QLabel* scienzaAvatar3;
+
+    QFormLayout* formLista;
+    QLineEdit* cercaNome;
     QCheckBox* tipoElfo;
     QCheckBox* tipoNano;
     QCheckBox* tipoUmano;
     QCheckBox* tipoAlieno;
     QCheckBox* tipoMostro;
-    QLineEdit* cercaNome;
-    QScrollArea* scrollLista;
-    QScrollBar* scrollbarLista;
-    QLabel* ordinaLista;
-    QPushButton* ordinaNome;
-    QPushButton* ordinaLivello;
-    QPushButton* ordinaMedia;
-    QLabel* nomeAvatar1;
-    QLabel* forzaAvatar1;
-    QLabel* magiaAvatar1;
-    QLabel* difesaAvatar1;
-    QLabel* scienzaAvatar1;
-    QCheckBox* checkAvatar1;
-    QPushButton* bottoneDescrizione1;
-    QLabel* nomeAvatar2;
-    QLabel* forzaAvatar2;
-    QLabel* magiaAvatar2;
-    QLabel* difesaAvatar2;
-    QLabel* scienzaAvatar2;
-    QCheckBox* checkAvatar2;
-    QPushButton* bottoneDescrizione2;
-    QLabel* nomeAvatar3;
-    QLabel* forzaAvatar3;
-    QLabel* magiaAvatar3;
-    QLabel* difesaAvatar3;
-    QLabel* scienzaAvatar3;
-    QCheckBox* checkAvatar3;
-    QPushButton* bottoneDescrizione3;
+    QPushButton* bottoneModifica;
+    QPushButton* bottoneRimuovi;
+    QPushButton* bottoneRimuoviTutto;
+    QPushButton* bottoneAvvioGioco;
+    QPushButton* bottoneInfoLista;
 
 public:
     ListaAvatar(QWidget * = nullptr);
@@ -67,8 +68,6 @@ public:
     QLineEdit* getCercaNome() const;
 
 public slots:
-    void azzeraTutto() const;
-    void azzeraCheck() const;
     //void on_bottoneModifica_clicked();
 
 };

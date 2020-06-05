@@ -8,7 +8,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaHome(new AvatarHome(this)),
     vistaCrea(new CreaAvatar(this)),
     vistaLista(new ListaAvatar(this)),
-    vistaModifica(new ModificaAvatar(this)),
+    vistaModifica(new ModificaAvatar),
     vistaScontro(new Scontro(this)),
     modello(m),
     destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
@@ -28,6 +28,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     //CONNECT HOME
     connect(vistaHome->getBottoneCrea(),SIGNAL(clicked()),this,SLOT(mostraCrea()));
     connect(vistaHome->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraLista()));
+    connect(vistaHome->getBottoneInfo(),SIGNAL(clicked()),this,SLOT(infoPopHome()));
 
     //CONNECT CREA
     connect(vistaCrea->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -72,8 +73,6 @@ void Controller::mostraLista() {
     vistaCrea->hide();
     vistaModifica->hide();
     vistaScontro->hide();
-
-    vistaLista->azzeraTutto();
 }
 
 void Controller::mostraModifica() {
@@ -90,4 +89,19 @@ void Controller::mostraScontro() {
     vistaLista->hide();
     vistaHome->hide();
     vistaCrea->hide();
+}
+
+void Controller::infoPopHome()
+{
+    QMessageBox::information(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
+}
+
+void Controller::infoSviluppatori()
+{
+    QMessageBox::information(this,"Sviluppatori","Sviluppatori.\nSviluppatori");
+}
+
+void Controller::infoPopSistema()
+{
+    QMessageBox::information(this,"Info sistema","Info sistema.\nInfo sistema");
 }

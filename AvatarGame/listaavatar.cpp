@@ -42,55 +42,16 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     tipoAlieno(new QCheckBox("Alieno", this)),
     tipoMostro(new QCheckBox("Mostro", this)),
     cercaNome(new QLineEdit(this))
-
-    /*checkAvatar4(new QCheckBox(this)),
-    checkAvatar5(new QCheckBox(this)),
-    checkAvatar6(new QCheckBox(this)),
-    checkAvatar7(new QCheckBox(this)),
-    checkAvatar8(new QCheckBox(this)),
-    checkAvatar9(new QCheckBox(this)),
-    checkAvatar10(new QCheckBox(this)),
-    checkAvatar11(new QCheckBox(this)),
-    checkAvatar12(new QCheckBox(this)),
-    checkAvatar13(new QCheckBox(this)),
-    checkAvatar14(new QCheckBox(this)),
-    checkAvatar15(new QCheckBox(this)),
-    checkAvatar16(new QCheckBox(this)),
-    checkAvatar17(new QCheckBox(this)),
-    checkAvatar18(new QCheckBox(this)),
-    checkAvatar19(new QCheckBox(this)),
-    checkAvatar20(new QCheckBox(this))*/
 {
     QHBoxLayout* layoutListaAvatar = new QHBoxLayout(this);
     QVBoxLayout* layoutSelezioneAvatar = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
     QHBoxLayout* layoutOrdina = new QHBoxLayout();
-    QVBoxLayout* layoutOrdinaNome = new QVBoxLayout();
-    QVBoxLayout* layoutOrdinaMedia = new QVBoxLayout();
-    QVBoxLayout* layoutOrdinaLivello = new QVBoxLayout();
     QHBoxLayout* layoutCheckBox = new QHBoxLayout();
     QVBoxLayout* layoutincolonnamento = new QVBoxLayout();
     QHBoxLayout* layoutBoxAvatar1 = new QHBoxLayout();
     QHBoxLayout* layoutBoxAvatar2 = new QHBoxLayout();
     QHBoxLayout* layoutBoxAvatar3 = new QHBoxLayout();
-
-    /*QHBoxLayout* layoutBoxAvatar4 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar5 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar6 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar7 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar8 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar9 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar10 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar11 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar12 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar13 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar14 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar15 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar16 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar17 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar18 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar19 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar20 = new QHBoxLayout();*/
 
     layoutListaAvatar->addLayout(layoutSelezioneAvatar);
     layoutListaAvatar->addLayout(layoutDx);
@@ -147,57 +108,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneAvvioGioco);
 
     formLista->addRow("Cerca:", cercaNome);
-
-    /*layoutincolonnamento->addLayout(layoutBoxAvatar4);
-    layoutBoxAvatar4->addWidget(checkAvatar4);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar5);
-    layoutBoxAvatar5->addWidget(checkAvatar5);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar6);
-    layoutBoxAvatar6->addWidget(checkAvatar6);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar7);
-    layoutBoxAvatar7->addWidget(checkAvatar7);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar8);
-    layoutBoxAvatar8->addWidget(checkAvatar8);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar9);
-    layoutBoxAvatar9->addWidget(checkAvatar9);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar10);
-    layoutBoxAvatar10->addWidget(checkAvatar10);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar11);
-    layoutBoxAvatar11->addWidget(checkAvatar11);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar12);
-    layoutBoxAvatar12->addWidget(checkAvatar12);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar13);
-    layoutBoxAvatar13->addWidget(checkAvatar13);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar14);
-    layoutBoxAvatar14->addWidget(checkAvatar14);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar15);
-    layoutBoxAvatar15->addWidget(checkAvatar15);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar16);
-    layoutBoxAvatar16->addWidget(checkAvatar16);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar17);
-    layoutBoxAvatar17->addWidget(checkAvatar17);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar18);
-    layoutBoxAvatar18->addWidget(checkAvatar18);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar19);
-    layoutBoxAvatar19->addWidget(checkAvatar19);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar20);
-    layoutBoxAvatar20->addWidget(checkAvatar20);*/
 
     connect(bottoneAzzera,SIGNAL(clicked()),this,SLOT(azzeraTutto()));
 }

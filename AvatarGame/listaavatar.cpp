@@ -140,3 +140,8 @@ QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;
 }
+
+QPushButton *ListaAvatar::getBottoneInfoLista() const
+{
+   return bottoneInfoLista;
+}

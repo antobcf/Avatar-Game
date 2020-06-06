@@ -41,6 +41,7 @@ public slots:
     void mostraModifica();
     void mostraScontro();
     void infoPopHome();
+    void infoPopLista();
     void infoSviluppatori();
     void infoPopSistema();
 

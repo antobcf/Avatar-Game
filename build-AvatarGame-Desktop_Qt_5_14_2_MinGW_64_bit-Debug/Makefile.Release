@@ -272,6 +272,9 @@ release/moc_avatarhome.cpp: ../AvatarGame/avatarhome.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QHBoxLayout \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGridLayout \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		release/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/AvatarGame" -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\avatarhome.h -o release\moc_avatarhome.cpp
@@ -393,6 +396,9 @@ release/moc_controller.cpp: ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenu \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QAction \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/avatarhome.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
@@ -444,9 +450,16 @@ release/moc_controller.cpp: ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		../AvatarGame/listaavatar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollArea \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollbar.h \
 		../AvatarGame/modificaavatar.h \
 		../AvatarGame/scontro.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h \
 		release/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/AvatarGame" -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\controller.h -o release\moc_controller.cpp
@@ -739,6 +752,12 @@ release/moc_listaavatar.cpp: ../AvatarGame/listaavatar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollArea \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollbar.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractslider.h \
 		release/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/AvatarGame" -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\listaavatar.h -o release\moc_listaavatar.cpp
@@ -856,6 +875,9 @@ release/moc_menu.cpp: ../AvatarGame/menu.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenu \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QAction \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		release/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/AvatarGame" -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\menu.h -o release\moc_menu.cpp
@@ -1133,6 +1155,9 @@ release/moc_scontro.cpp: ../AvatarGame/scontro.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		release/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/release/moc_predefs.h" -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/AvatarGame" -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\scontro.h -o release\moc_scontro.cpp
@@ -1272,6 +1297,9 @@ release/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenu \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QAction \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/avatarhome.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
@@ -1323,9 +1351,16 @@ release/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		../AvatarGame/listaavatar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollArea \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollbar.h \
 		../AvatarGame/modificaavatar.h \
-		../AvatarGame/scontro.h
+		../AvatarGame/scontro.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\controller.o ..\AvatarGame\controller.cpp
 
 release/creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h \
@@ -1492,13 +1527,23 @@ release/creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qactiongroup.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenu \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QAction \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/avatarhome.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGridLayout \
 		../AvatarGame/listaavatar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollArea \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollbar.h \
 		../AvatarGame/modificaavatar.h \
-		../AvatarGame/scontro.h
+		../AvatarGame/scontro.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\creaavatar.o ..\AvatarGame\creaavatar.cpp
 
 release/gerarchia.o: ../AvatarGame/gerarchia.cpp ../AvatarGame/gerarchia.h \
@@ -1636,7 +1681,13 @@ release/listaavatar.o: ../AvatarGame/listaavatar.cpp ../AvatarGame/listaavatar.h
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QLabel \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollArea \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollbar.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractslider.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\listaavatar.o ..\AvatarGame\listaavatar.cpp
 
 release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
@@ -1756,6 +1807,9 @@ release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenu \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QAction \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 		../AvatarGame/avatarhome.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
@@ -1807,9 +1861,16 @@ release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qradiobutton.h \
 		../AvatarGame/listaavatar.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QDialog \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollArea \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollarea.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qscrollbar.h \
 		../AvatarGame/modificaavatar.h \
 		../AvatarGame/scontro.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QFileDialog \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qdir.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qfileinfo.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
@@ -1937,7 +1998,10 @@ release/avatarhome.o: ../AvatarGame/avatarhome.cpp ../AvatarGame/avatarhome.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qlayoutitem.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGridLayout
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QGridLayout \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\avatarhome.o ..\AvatarGame\avatarhome.cpp
 
 release/menu.o: ../AvatarGame/menu.cpp ../AvatarGame/menu.h \
@@ -2052,7 +2116,10 @@ release/menu.o: ../AvatarGame/menu.cpp ../AvatarGame/menu.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qactiongroup.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenu \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QAction \
-		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QWidget \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menu.o ..\AvatarGame\menu.cpp
 
 release/modello.o: ../AvatarGame/modello.cpp ../AvatarGame/modello.h \
@@ -2330,7 +2397,10 @@ release/scontro.o: ../AvatarGame/scontro.cpp ../AvatarGame/scontro.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/qicon.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMessageBox \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\scontro.o ..\AvatarGame\scontro.cpp
 
 release/moc_avatarhome.o: release/moc_avatarhome.cpp 

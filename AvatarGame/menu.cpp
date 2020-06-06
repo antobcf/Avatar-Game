@@ -15,6 +15,7 @@ Menu::Menu(QWidget* p):
     home(new QAction("Homepage", p))
 {
 
+    file->addAction(home);
     file->addAction(esci);
     addMenu(file);
 
@@ -22,7 +23,6 @@ Menu::Menu(QWidget* p):
     personaggio->addAction(carica);
     personaggio->addAction(salva);
     personaggio->addAction(lista);
-    personaggio->addAction(home);
     addMenu(personaggio);
 
     info->addAction(sviluppatori);

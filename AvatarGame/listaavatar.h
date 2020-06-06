@@ -9,7 +9,6 @@
 #include <QLineEdit>
 #include <QFormLayout>
 #include <QLabel>
-#include <QDialog>
 #include <QScrollArea>
 #include <QScrollBar>
 
@@ -66,6 +65,7 @@ public:
     QPushButton* getBottoneModifica() const;
     QPushButton* getBottoneGioca() const;
     QLineEdit* getCercaNome() const;
+    QPushButton* getBottoneInfoLista() const;
 
 public slots:
     //void on_bottoneModifica_clicked();

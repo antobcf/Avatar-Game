@@ -77,11 +77,13 @@ void Controller::mostraLista() {
 }
 
 void Controller::mostraModifica() {
-    vistaModifica->show();
-    vistaLista->show();
+    QDialog vistaModifica(this);
+    vistaModifica.setModal(true);
+    vistaModifica.exec();
+    /*vistaLista->show();
     vistaHome->hide();
     vistaCrea->hide();
-    vistaScontro->hide();
+    vistaScontro->hide();*/
 }
 
 void Controller::mostraScontro() {
@@ -100,14 +102,4 @@ void Controller::infoPopHome()
 void Controller::infoPopLista()
 {
     QMessageBox::information(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
-}
-
-void Controller::infoSviluppatori()
-{
-    QMessageBox::information(this,"Sviluppatori","Sviluppatori.\nSviluppatori");
-}
-
-void Controller::infoPopSistema()
-{
-    QMessageBox::information(this,"Info sistema","Info sistema.\nInfo sistema");
 }

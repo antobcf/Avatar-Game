@@ -32,6 +32,6 @@ Menu::Menu(QWidget* p):
     connect(esci,SIGNAL(triggered()),parent,SLOT(close()));
     connect(home,SIGNAL(triggered()),parent,SLOT(mostraHome()));
     connect(nuovo,SIGNAL(triggered()),parent,SLOT(mostraCrea()));
-    connect(sviluppatori,SIGNAL(triggered()),parent,SLOT(infoSviluppatori()));
-    connect(infoSistema,SIGNAL(triggered()),parent,SLOT(infoPopSistema()));
+    //connect(sviluppatori,SIGNAL(triggered()),parent,SLOT(infoSviluppatori()));
+    //connect(infoSistema,SIGNAL(triggered()),parent,SLOT(infoPopSistema()));
 }

@@ -111,9 +111,9 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
     bottoneInfoLista->setFixedSize(25,25);
 
-    bottoneModifica->setEnabled(false);
+    //bottoneModifica->setEnabled(false);
     bottoneRimuovi->setEnabled(false);
-    bottoneAvvioGioco->setEnabled(false);
+    //bottoneAvvioGioco->setEnabled(false);
 }
 
 QFormLayout *ListaAvatar::getFormLista() const

@@ -39,10 +39,10 @@ public:
         bool pte; //vero se past the end
     public:
         iteratore();
-        iteratore(const smartP* = nullptr, bool = false);
+        iteratore(smartP* = nullptr, bool = false);
         iteratore(const iteratore&);
-        nodo operator*();
-        nodo operator->();
+        T operator*();
+        T operator->();
         bool operator==(const iteratore&) const;
         bool operator!=(const iteratore&) const;
         iteratore& operator++();
@@ -57,8 +57,8 @@ public:
         iteratoreConst();
         iteratoreConst(const smartP* = nullptr, bool = false);
         iteratoreConst(const iteratoreConst&);
-        nodo operator*();
-        nodo operator->();
+        const T operator*() const;
+        const T operator->() const;
         bool operator==(const iteratoreConst&) const;
         bool operator!=(const iteratoreConst&) const;
         iteratoreConst& operator++();
@@ -284,18 +284,18 @@ template <class T>
 Container<T>::iteratore::iteratore(): punt(nullptr), pte(false) {}
 
 template <class T>
-Container<T>::iteratore::iteratore(const smartP* elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
+Container<T>::iteratore::iteratore(smartP* elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
 
 template <class T>
 Container<T>::iteratore::iteratore(const iteratore& it) : punt(it.punt), pte(it.pte) {}
 
 template <class T>
-typename Container<T>::nodo Container<T>::iteratore::operator*() {
+T Container<T>::iteratore::operator*() {
     return (**punt).info;
 }
 
 template <class T>
-typename Container<T>::nodo Container<T>::iteratore::operator->() {
+T Container<T>::iteratore::operator->() {
     return &(**punt).info;
 }
 
@@ -357,12 +357,12 @@ template <class T>
 Container<T>::iteratoreConst::iteratoreConst(const iteratoreConst& cit) : punt(cit.punt), pte(cit.pte) {}
 
 template <class T>
-typename Container<T>::nodo Container<T>::iteratoreConst::operator*() {
+const T Container<T>::iteratoreConst::operator*() const {
     return (**punt).info;
 }
 
 template <class T>
-typename Container<T>::nodo Container<T>::iteratoreConst::operator->() {
+const T Container<T>::iteratoreConst::operator->() const {
     return &(**punt).info;
 }
 

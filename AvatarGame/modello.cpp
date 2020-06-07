@@ -7,6 +7,17 @@ Modello::Modello()
 
 void Modello::salva()
 {
+    QSaveFile file(QString::fromStdString(percorso));
+
+    if(!file.open(QIODevice::WriteOnly)) {
+        return;
+    }
+
+    QXmlStreamWriter reader(&file);
+    reader.setAutoFormatting(true);
+    reader.writeStartDocument();
+    reader.writeComment("!!!Non commentare il documento!!!");
+    reader.writeStartElement("root");
 
 }
 

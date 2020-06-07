@@ -7,19 +7,20 @@
 #include <QSaveFile>
 #include <QFile>
 #include <iostream>
+#include <QXmlStreamWriter>
 
 class Modello
 {
 private:
-    Container<Avatar*> lista;
+    Container<Avatar*>* lista;
     std::string percorso;
 public:
     Modello();
     ~Modello();
     void salva();
     void carica();
-    void rimuovi(Avatar*);
-    Container<Avatar*> getLista() const;
+    void rimuovi(Avatar* =nullptr);
+    Container<Avatar*>* getLista() const;
     Container<Avatar*>::iteratore begin();
     Container<Avatar*>::iteratore end();
     Container<Avatar*>::iteratoreConst begin() const;

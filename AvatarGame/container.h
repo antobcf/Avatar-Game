@@ -35,11 +35,11 @@ private:
 public:
     class iteratore {
     private:
-        smartP punt; //forse ci va *
+        smartP* punt; //forse ci va *
         bool pte; //vero se past the end
     public:
         iteratore();
-        iteratore(smartP = nullptr, bool = false);
+        iteratore(const smartP* = nullptr, bool = false);
         iteratore(const iteratore&);
         nodo operator*();
         nodo operator->();
@@ -51,11 +51,11 @@ public:
 
     class iteratoreConst {
     private:
-        const smartP punt; //forse ci va *
+        const smartP* punt; //forse ci va *
         bool pte; //vero se past the end
     public:
         iteratoreConst();
-        iteratoreConst(smartP = nullptr, bool = false);
+        iteratoreConst(const smartP* = nullptr, bool = false);
         iteratoreConst(const iteratoreConst&);
         nodo operator*();
         nodo operator->();
@@ -284,19 +284,19 @@ template <class T>
 Container<T>::iteratore::iteratore(): punt(nullptr), pte(false) {}
 
 template <class T>
-Container<T>::iteratore::iteratore(smartP elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
+Container<T>::iteratore::iteratore(const smartP* elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
 
 template <class T>
 Container<T>::iteratore::iteratore(const iteratore& it) : punt(it.punt), pte(it.pte) {}
 
 template <class T>
 typename Container<T>::nodo Container<T>::iteratore::operator*() {
-    return (*punt)->info;
+    return (**punt).info;
 }
 
 template <class T>
 typename Container<T>::nodo Container<T>::iteratore::operator->() {
-    return &(*punt)->info;
+    return &(**punt).info;
 }
 
 template <class T>
@@ -336,13 +336,13 @@ typename Container<T>::iteratore& Container<T>::iteratore::operator--(){
 template <class T>
 typename Container<T>::iteratore Container<T>::begin(){
     if(primo==nullptr) return iteratore(nullptr);
-    return iteratore(primo);
+    return iteratore(&primo, false);
 }
 
 template <class T>
 typename Container<T>::iteratore Container<T>::end(){
     if(ultimo==nullptr) return iteratore(nullptr);
-    return iteratore(ultimo);
+    return iteratore(&(ultimo->next), true);
 }
 
 
@@ -351,19 +351,19 @@ template <class T>
 Container<T>::iteratoreConst::iteratoreConst(): punt(nullptr), pte(false) {}
 
 template <class T>
-Container<T>::iteratoreConst::iteratoreConst(smartP elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
+Container<T>::iteratoreConst::iteratoreConst(const smartP* elemento, bool pastTheEnd): punt(elemento), pte(pastTheEnd) {}
 
 template <class T>
 Container<T>::iteratoreConst::iteratoreConst(const iteratoreConst& cit) : punt(cit.punt), pte(cit.pte) {}
 
 template <class T>
 typename Container<T>::nodo Container<T>::iteratoreConst::operator*() {
-    return (*punt)->info;
+    return (**punt).info;
 }
 
 template <class T>
 typename Container<T>::nodo Container<T>::iteratoreConst::operator->() {
-    return &(*punt)->info;
+    return &(**punt).info;
 }
 
 template <class T>
@@ -403,13 +403,13 @@ typename Container<T>::iteratoreConst& Container<T>::iteratoreConst::operator--(
 template <class T>
 typename Container<T>::iteratoreConst Container<T>::beginC() const {
     if(primo==nullptr) return iteratoreConst(nullptr);
-    return iteratoreConst(primo);
+    return iteratoreConst(&primo, false);
 }
 
 template <class T>
 typename Container<T>::iteratoreConst Container<T>::endC() const {
     if(ultimo==nullptr) return iteratoreConst(nullptr);
-    return iteratoreConst(ultimo);
+    return iteratoreConst(&(ultimo->next), true);
 }
 
 #endif // CONTAINER_H

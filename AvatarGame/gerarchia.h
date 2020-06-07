@@ -19,6 +19,7 @@ public:
     virtual unsigned int scienza() = 0;
     Avatar(std::string n, unsigned int lvl, unsigned int e, bool s = true): nome(n), livello(lvl),  exp(e), sesso(s) {}
     //GET
+    virtual std::string getTipo() const = 0;
     unsigned int GetLiv() const;
     bool GetSesso() const;
     unsigned int GetExp() const;
@@ -49,6 +50,7 @@ public:
     virtual unsigned int difesa() override = 0;
     virtual unsigned int scienza() override = 0;*/
     //GET
+    virtual std::string getTipo() const = 0;
     bool GetScu() const;
     bool GetSpada() const;
     bool GetAnello() const;
@@ -70,6 +72,7 @@ public:
     Elfo(std::string n, unsigned int lvl, bool s, unsigned int e, bool sc = false, bool sp = false, bool a = false, bool lib = false,unsigned int tr = 50): Terrestre(n,lvl,e,s,sc,sp,a,lib), trasparentia(tr) {}
     unsigned int GetTrasparentia() const;
     unsigned int SetTrasparentia();
+    virtual std::string getTipo() const;
     virtual unsigned int forza() override;
     virtual unsigned int magia() override;
     virtual unsigned int difesa() override;
@@ -85,6 +88,7 @@ public:
     Nano(std::string n, unsigned int lvl, bool s, unsigned int e, bool sc = false, bool sp = false, bool a = false, bool lib = false, unsigned int cor = 10): Terrestre(n,lvl,e,s,sc,sp,a,lib), corteccia(cor) {}
     unsigned int GetCorteccia() const;
     unsigned int SetCorteccia();
+    virtual std::string getTipo() const;
     virtual unsigned int forza() override;
     virtual unsigned int magia() override;
     virtual unsigned int difesa() override;
@@ -100,6 +104,7 @@ public:
     Umano(std::string n, unsigned int lvl, bool s, unsigned int e, bool sc = false, bool sp = false, bool a = false, bool lib = false, unsigned int is = 20): Terrestre(n,lvl,e,s,sc,sp,a,lib), ingegnoScientifico(is) {}
     unsigned int GetIngegno() const;
     unsigned int SetIngegno();
+    virtual std::string getTipo() const;
     virtual unsigned int forza() override;
     virtual unsigned int magia() override;
     virtual unsigned int difesa() override;
@@ -120,6 +125,7 @@ public:
     virtual unsigned int difesa() override = 0;
     virtual unsigned int scienza() override = 0;*/
     //GET
+    virtual std::string getTipo() const = 0;
     bool GetBar() const;
     bool GetLaser() const;
     bool GetAmuleto() const;
@@ -142,6 +148,7 @@ public:
     Alieno(std::string n, unsigned int lvl, bool s,  unsigned int e, bool ba = false, bool las = false, bool am = false, bool ch = false, unsigned int ufo = 30): NOTerrestre(n,lvl,e,s,ba,las,am,ch), ufo(ufo) {}
     unsigned int GetUfo() const;
     unsigned int SetUfo();
+    virtual std::string getTipo() const;
     virtual unsigned int forza() override;
     virtual unsigned int scienza() override;
     virtual unsigned int magia() override;
@@ -158,6 +165,7 @@ public:
     Mostro(std::string n, unsigned int lvl, bool s, unsigned int e, bool ba = false, bool las = false, bool am = false, bool ch = false, unsigned int pd = 60): NOTerrestre(n,lvl,e,s,ba,las,am,ch), portaDemoniaca(pd) {}
     unsigned int GetPorta() const;
     unsigned int SetPorta();
+    virtual std::string getTipo() const;
     virtual unsigned int forza() override;
     virtual unsigned int scienza() override;
     virtual unsigned int magia() override;

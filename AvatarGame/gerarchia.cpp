@@ -103,6 +103,11 @@ unsigned int Elfo::SetTrasparentia() {
     return trasparentia;
 }
 
+std::string Elfo::getTipo() const
+{
+    return "Elfo";
+}
+
 unsigned int Elfo::forza() {
     if(GetSpada()) return GetLiv()*6+8;
     return GetLiv()*6;
@@ -140,6 +145,11 @@ unsigned int Nano::SetCorteccia() {
     return corteccia;
 }
 
+std::string Nano::getTipo() const
+{
+    return "Nano";
+}
+
 unsigned int Nano::forza() {
     if(GetSpada()) return GetLiv()*7+8;
     return GetLiv()*7;
@@ -175,6 +185,11 @@ unsigned int Umano::SetIngegno() {
         ingegnoScientifico = ingegnoScientifico+(scienza()%GetLiv());
     }
     return ingegnoScientifico;
+}
+
+std::string Umano::getTipo() const
+{
+    return "Umano";
 }
 
 unsigned int Umano::forza() {
@@ -247,6 +262,11 @@ unsigned int Alieno::SetUfo() {
     return ufo;
 }
 
+std::string Alieno::getTipo() const
+{
+    return "Alieno";
+}
+
 unsigned int Alieno::forza() {
     if(GetLaser()) return GetLiv()*3+7;
     return GetLiv()*3;
@@ -286,6 +306,11 @@ unsigned int Mostro::SetPorta() {
         portaDemoniaca = portaDemoniaca+(forza()%GetLiv());
     }
     return portaDemoniaca;
+}
+
+std::string Mostro::getTipo() const
+{
+    return "Mostro";
 }
 
 unsigned int Mostro::forza() {

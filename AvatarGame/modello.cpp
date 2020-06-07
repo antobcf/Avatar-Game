@@ -27,7 +27,10 @@ void Modello::salva()
     auto it = begin();
     while(it != end()) {
         const Avatar* salvaElemento = *it;
-
+        const QString tipoAvatar = QString::fromStdString(salvaElemento->getTipo());
+        reader.writeEmptyElement(tipoAvatar);
+        reader.writeAttribute("Nome", QString::fromStdString(salvaElemento->GetNome()));
+        //reader.writeAttribute("Livello", QString::fromStdString(salvaElemento->GetLiv()));
     }
 }
 

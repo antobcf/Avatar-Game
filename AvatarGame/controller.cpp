@@ -77,10 +77,11 @@ void Controller::mostraLista() {
 }
 
 void Controller::mostraModifica() {
-    QDialog vistaModifica(this);
-    vistaModifica.setModal(true);
+    QDialog vistaModifica( this );
+    vistaModifica.setModal( true );
     vistaModifica.exec();
-    /*vistaLista->show();
+    /*vistaModifica->show();
+    vistaLista->show();
     vistaHome->hide();
     vistaCrea->hide();
     vistaScontro->hide();*/

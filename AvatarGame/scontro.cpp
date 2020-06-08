@@ -12,8 +12,8 @@ Scontro::Scontro(QWidget *parent) :
     mediaDx(new QLabel("Media: ", this))
 {
     QVBoxLayout* layoutScontro = new QVBoxLayout(this);
-    QHBoxLayout* layoutTastiNavigazione = new QHBoxLayout(this);
-    QHBoxLayout* layoutCombattimento = new QHBoxLayout(this);
+    QHBoxLayout* layoutTastiNavigazione = new QHBoxLayout();
+    QHBoxLayout* layoutCombattimento = new QHBoxLayout();
     QVBoxLayout* layoutScontroSx = new QVBoxLayout();
     QVBoxLayout* layoutScontroCentrale = new QVBoxLayout();
     QVBoxLayout* layoutScontroDx = new QVBoxLayout();

@@ -13,6 +13,26 @@ std::string Avatar::GetNome() const {
     return nome;
 }
 
+unsigned int Avatar::getForza() const
+{
+    return forza;
+}
+
+unsigned int Avatar::getMagia() const
+{
+    return magia;
+}
+
+unsigned int Avatar::getDifesa() const
+{
+    return difesa;
+}
+
+unsigned int Avatar::getScienza() const
+{
+    return scienza;
+}
+
 std::string Avatar::SetNome(std::string n) {
     return nome=n;
 }
@@ -38,27 +58,13 @@ unsigned int Avatar::SetExp(unsigned int e) {
         return exp;
 }
 
-unsigned int Avatar::SetForza(bool t) {
-    if(t) return forza()+10;
-    return forza()-10;
-}
-
-unsigned int Avatar::SetMagia(bool t) {
-    if(t) return magia()+10;
-    return magia()-10;
-}
-
-unsigned int Avatar::SetDifesa(bool t) {
-    if(t) return difesa()+10;
-    return difesa()-10;
-}
-
-unsigned int Avatar::SetScienza(bool t) {
-    if(t) return scienza()+10;
-    return scienza()-10;
-}
 
 //Metodi della classe Terrestre
+std::string Terrestre::getTerrNon() const
+{
+    return "Terrestre";
+}
+
 bool Terrestre::GetScu() const {
     return scudo;
 }
@@ -98,7 +104,7 @@ unsigned int Elfo::GetTrasparentia() const {
 
 unsigned int Elfo::SetTrasparentia() {
     if(GetLiv()%5 == 0){
-        trasparentia = trasparentia+(magia()%GetLiv());
+        trasparentia = trasparentia+(setMagia()%GetLiv());
     }
     return trasparentia;
 }
@@ -108,22 +114,22 @@ std::string Elfo::getTipo() const
     return "Elfo";
 }
 
-unsigned int Elfo::forza() {
+unsigned int Elfo::setForza() {
     if(GetSpada()) return GetLiv()*6+8;
     return GetLiv()*6;
 }
 
-unsigned int Elfo::magia() {
+unsigned int Elfo::setMagia() {
         if(GetAnello()) return GetLiv()*10+6;
         return GetLiv()*10;
 }
 
-unsigned int Elfo::difesa() {
+unsigned int Elfo::setDifesa() {
     if(GetScu()) return GetLiv()*6+10;
     return GetLiv()*6;
 }
 
-unsigned int Elfo::scienza() {
+unsigned int Elfo::setScienza() {
     if(GetLibro()) return GetLiv()*5+5;
     return GetLiv()*5;
 }
@@ -140,7 +146,7 @@ unsigned int Nano::GetCorteccia() const {
 
 unsigned int Nano::SetCorteccia() {
     if(GetLiv()%5 == 0){
-        corteccia = corteccia+(difesa()%GetLiv());
+        corteccia = corteccia+(setDifesa()%GetLiv());
     }
     return corteccia;
 }
@@ -150,23 +156,22 @@ std::string Nano::getTipo() const
     return "Nano";
 }
 
-unsigned int Nano::forza() {
+unsigned int Nano::setForza() {
     if(GetSpada()) return GetLiv()*7+8;
     return GetLiv()*7;
 }
 
-unsigned int Nano::magia() {
+unsigned int Nano::setMagia() {
     if(GetAnello()) return GetLiv()*2+6;
     return GetLiv()*2;
 }
 
-unsigned int Nano::difesa() {
+unsigned int Nano::setDifesa() {
     if(GetScu()) return GetLiv()*10+10;
     return GetLiv()*10;
 }
 
-unsigned int Nano::scienza() {
-    if(GetLibro()) return GetLiv()*6+5;
+unsigned int Nano::setScienza() {    if(GetLibro()) return GetLiv()*6+5;
     return GetLiv()*6;
 }
 
@@ -182,7 +187,7 @@ unsigned int Umano::GetIngegno() const {
 
 unsigned int Umano::SetIngegno() {
     if(GetLiv()%5 == 0){
-        ingegnoScientifico = ingegnoScientifico+(scienza()%GetLiv());
+        ingegnoScientifico = ingegnoScientifico+(setScienza()%GetLiv());
     }
     return ingegnoScientifico;
 }
@@ -192,22 +197,22 @@ std::string Umano::getTipo() const
     return "Umano";
 }
 
-unsigned int Umano::forza() {
+unsigned int Umano::setForza() {
     if(GetSpada()) return GetLiv()*5+8;
     return GetLiv()*5;
 }
 
-unsigned int Umano::magia() {
+unsigned int Umano::setMagia() {
     if(GetAnello()) return GetLiv()*3+6;
     return GetLiv()*3;
 }
 
-unsigned int Umano::difesa() {
+unsigned int Umano::setDifesa() {
     if(GetScu()) return GetLiv()*8+2;
     return GetLiv()*8;
 }
 
-unsigned int Umano::scienza() {
+unsigned int Umano::setScienza() {
     if(GetLibro()) return GetLiv()*8+5;
     return GetLiv()*8;
 }
@@ -218,6 +223,11 @@ bool Umano::operator==(const Avatar & a) const {
 }
 
 //Metodi della classe NOTerrestre
+std::string NOTerrestre::getTerrNon() const
+{
+    return "Non terrestre";
+}
+
 bool NOTerrestre::GetBar() const {
     return barriera;
 }
@@ -257,7 +267,7 @@ unsigned int Alieno::GetUfo() const {
 
 unsigned int Alieno::SetUfo() {
     if(GetLiv()%5 == 0){
-        ufo = ufo+(scienza()%GetLiv());
+        ufo = ufo+(setScienza()%GetLiv());
     }
     return ufo;
 }
@@ -267,28 +277,28 @@ std::string Alieno::getTipo() const
     return "Alieno";
 }
 
-unsigned int Alieno::forza() {
+unsigned int Alieno::setForza() {
     if(GetLaser()) return GetLiv()*3+7;
     return GetLiv()*3;
 }
 
-unsigned int Alieno::scienza() {
+unsigned int Alieno::setScienza() {
     if(GetChip()) return GetLiv()*10+6;
     return GetLiv()*10;
 }
 
-unsigned int Alieno::magia() {
+unsigned int Alieno::setMagia() {
     if(GetAmuleto()) return GetLiv()*0+8;
     return GetLiv()*0;
 }
 
-unsigned int Alieno::difesa() {
+unsigned int Alieno::setDifesa() {
     if(GetBar()) return GetLiv()*7+9;
     return GetLiv()*7;
 }
 
 unsigned int Alieno::velocitaVolo() {
-    return 15*scienza();
+    return 15*setScienza();
 }
 
 bool Alieno::operator==(const Avatar & a) const {
@@ -303,7 +313,7 @@ unsigned int Mostro::GetPorta() const {
 
 unsigned int Mostro::SetPorta() {
     if(GetLiv()%5 == 0) {
-        portaDemoniaca = portaDemoniaca+(forza()%GetLiv());
+        portaDemoniaca = portaDemoniaca+(getForza()%GetLiv());
     }
     return portaDemoniaca;
 }
@@ -313,27 +323,27 @@ std::string Mostro::getTipo() const
     return "Mostro";
 }
 
-unsigned int Mostro::forza() {
+unsigned int Mostro::setForza() {
     if(GetLaser()) return GetLiv()*10+7;
     return GetLiv()*10;
 }
 
-unsigned int Mostro::scienza() {
+unsigned int Mostro::setScienza() {
     if(GetChip()) return GetLiv()*10+6;
     return GetLiv()*0;
 }
-unsigned int Mostro::magia() {
+unsigned int Mostro::setMagia() {
     if(GetAmuleto()) return GetLiv()*5+8;
     return GetLiv()*5;
 }
 
-unsigned int Mostro::difesa() {
+unsigned int Mostro::setDifesa() {
     if(GetBar()) return GetLiv()*9+9;
     return GetLiv()*9;
 }
 
 unsigned int Mostro::velocitaVolo(){
-    return 15*forza();
+    return 15*getForza();
 }
 
 bool Mostro::operator==(const Avatar & a) const {

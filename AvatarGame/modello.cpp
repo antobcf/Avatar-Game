@@ -1,9 +1,7 @@
 #include "modello.h"
 
-Modello::Modello()
-{
+Modello::Modello(std::string p) : lista(new Container<Avatar*>), salvato(true), percorso(p) {}
 
-}
 
 Modello::~Modello()
 {
@@ -12,23 +10,24 @@ Modello::~Modello()
 
 void Modello::salva()
 {
-    QSaveFile file(QString::fromStdString(percorso));
+    QSaveFile fileS(QString::fromStdString(percorso));
 
-    if(!file.open(QIODevice::WriteOnly)) {
+    if(!fileS.open(QIODevice::WriteOnly)) {
         return;
     }
 
-    QXmlStreamWriter reader(&file);
+    QXmlStreamWriter reader(&fileS);
     reader.setAutoFormatting(true);
     reader.writeStartDocument();
     reader.writeComment("!!!Non commentare il documento!!!");
-    reader.writeStartElement("root");
+    reader.writeStartElement("start");
 
     auto it = begin();
     while(it != end()) {
         const Avatar* salvaElemento = *it;
         const QString tipo = QString::fromStdString(salvaElemento->getTerrNon());
         const QString tipoAvatar = QString::fromStdString(salvaElemento->getTipo());
+        reader.writeEmptyElement(tipo);
         reader.writeEmptyElement(tipoAvatar);
         reader.writeAttribute("Nome", QString::fromStdString(salvaElemento->GetNome()));
         reader.writeAttribute("Livello", QString("1%").arg(salvaElemento->GetLiv()));
@@ -38,6 +37,7 @@ void Modello::salva()
         reader.writeAttribute("Difesa", QString("1%").arg(salvaElemento->getDifesa()));
         reader.writeAttribute("Scienza", QString("1%").arg(salvaElemento->getScienza()));
         reader.writeAttribute("Sesso", salvaElemento->GetSesso() ? "true" : "false");
+        reader.writeAttribute("Terreno", QString::fromStdString(salvaElemento->getTerreno()));
         if(tipo == "Terrestre") {
             const Terrestre* tipoTerrestre = static_cast<const Terrestre*>(salvaElemento);
             reader.writeAttribute("Scudo", tipoTerrestre->GetScu() ? "true" : "false");
@@ -47,7 +47,12 @@ void Modello::salva()
             if(tipoAvatar == "Elfo") {
                 const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre); //o salva elemento??
                 reader.writeAttribute("Trasparentia", QString("1%").arg(tipoElfo->GetTrasparentia()));
-                //reader.writeAttribute("Terreno preferito", QString::fromStdString(tipoElfo->get))
+            } else if(tipoAvatar == "Nano") {
+                const Nano* tipoNano = static_cast<const Nano*>(tipoTerrestre);
+                reader.writeAttribute("Corteccia", QString("1%").arg(tipoNano->GetCorteccia()));
+            } else if(tipoAvatar == "Umano") {
+                const Umano* tipoUmano = static_cast<const Umano*>(tipoTerrestre);
+                reader.writeAttribute("Ingegno scientifico", QString("1%").arg(tipoUmano->GetIngegno()));
             }
         } else if (tipo == "Non terrestre") {
             const NOTerrestre* tipoNoTerrestre = static_cast<const NOTerrestre*>(salvaElemento);
@@ -55,13 +60,94 @@ void Modello::salva()
             reader.writeAttribute("Laser", tipoNoTerrestre->GetLaser() ? "true" : "false");
             reader.writeAttribute("Amuleto", tipoNoTerrestre->GetAmuleto() ? "true" : "false");
             reader.writeAttribute("Chip", tipoNoTerrestre->GetChip() ? "true" : "false");
+            if(tipoAvatar == "Alieno") {
+                const Alieno* tipoAlieno = static_cast<const Alieno*>(tipoNoTerrestre);
+                reader.writeAttribute("Ufo", QString("1%").arg(tipoAlieno->GetUfo()));
+            } else if(tipoAvatar == "Mostro") {
+                const Mostro* tipoMostro = static_cast<const Mostro*>(tipoNoTerrestre);
+                reader.writeAttribute("Porta demoniaca", QString("1%").arg(tipoMostro->GetPorta()));
+            }
         }
+
+        ++it;
     }
+
+    reader.writeEndElement();
+    reader.writeEndDocument();
+    salvato = true;
+    fileS.commit();
+
 }
 
 void Modello::carica()
 {
+    QSaveFile fileC(QString::fromStdString(percorso));
 
+    if(!fileC.open(QIODevice::ReadOnly)) {
+        qWarning() << "Apertura file fallita !!!"<<fileC.errorString();
+        return;
+    }
+
+    QXmlStreamReader reader(&fileC);
+    if(reader.readNextStartElement()) {
+        if(reader.name() == "start") {
+            while(reader.readNextStartElement()) {
+                const QXmlStreamAttributes newAttributo = reader.attributes();
+
+                std::string nome = newAttributo.hasAttribute("Nome") ? newAttributo.value("Nome").toString().toStdString() : "";
+                unsigned int lvl = newAttributo.hasAttribute("Livello") ? newAttributo.value("Livello").toUInt() : 0;
+                unsigned int exp = newAttributo.hasAttribute("Exp") ? newAttributo.value("Exp").toUInt() : 0;
+                unsigned int forza = newAttributo.hasAttribute("Forza") ? newAttributo.value("Forza").toUInt() : 0;
+                unsigned int magia = newAttributo.hasAttribute("Magia") ? newAttributo.value("Magia").toUInt() : 0;
+                unsigned int difesa = newAttributo.hasAttribute("Difesa") ? newAttributo.value("Difesa").toUInt() : 0;
+                unsigned int scienza = newAttributo.hasAttribute("Scienza") ? newAttributo.value("Scienza").toUInt() : 0;
+                bool sesso = newAttributo.hasAttribute("Sesso") ? newAttributo.value("Sesso").toString() == "true" ? true : false : false;
+                std::string terreno = newAttributo.hasAttribute("Terreno") ? newAttributo.value("Terreno").toString().toStdString() : "";
+
+                Avatar* inserire = nullptr;
+
+                if(reader.name() == "Terrestre") {
+                    bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
+                    bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
+                    bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
+                    bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
+                    if(reader.name() == "Elfo") {
+                        unsigned int trasparentia = newAttributo.hasAttribute("Trasparentia") ? newAttributo.value("Trasparentia").toUInt() : 0;
+                        inserire = new Elfo(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, scudo, spada, anello, libro, trasparentia);
+                    } else if(reader.name() == "Nano") {
+                        unsigned int corteccia = newAttributo.hasAttribute("Corteccia") ? newAttributo.value("Corteccia").toUInt() : 0;
+                        inserire = new Nano(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, scudo, spada, anello, libro, corteccia);
+                    } else if(reader.name() == "Umano") {
+                        unsigned int ingegno = newAttributo.hasAttribute("Ingegno scientifico") ? newAttributo.value("Ingegno scientifico").toUInt() : 0;
+                        inserire = new Umano(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, scudo, spada, anello, libro, ingegno);
+                    }
+                } else if(reader.name() == "Non terrestre") {
+                    bool barriera = newAttributo.hasAttribute("Barriera") ? newAttributo.value("Barriera").toString() == "true" ? true : false : false;
+                    bool laser = newAttributo.hasAttribute("Laser") ? newAttributo.value("Laser").toString() == "true" ? true : false : false;
+                    bool amuleto = newAttributo.hasAttribute("Amuleto") ? newAttributo.value("Amuleto").toString() == "true" ? true : false : false;
+                    bool chip = newAttributo.hasAttribute("Chip") ? newAttributo.value("Chip").toString() == "true" ? true : false : false;
+                    if(reader.name() == "Alieno") {
+                        unsigned int ufo = newAttributo.hasAttribute("Ufo") ? newAttributo.value("Ufo").toUInt() : 0;
+                        inserire = new Alieno(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, barriera, laser, amuleto, chip, ufo);
+                    } else if(reader.name() == "Mostro") {
+                        unsigned int porta = newAttributo.hasAttribute("Porta demoniaca") ? newAttributo.value("Porta demoniaca").toUInt() : 0;
+                        inserire = new Mostro(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, barriera, laser, amuleto, chip, porta);
+                    }
+                }
+
+                if(inserire!=nullptr) {
+                    lista->insert(inserire);
+                }
+
+                if(!reader.isEndDocument()) {
+                    reader.skipCurrentElement();
+                }
+            }
+        }
+    }
+
+    salvato = true;
+    fileC.close();
 }
 
 void Modello::rimuovi(Avatar* a)
@@ -69,14 +155,22 @@ void Modello::rimuovi(Avatar* a)
     lista->removeElement(a);
 }
 
-Container<Avatar *> *Modello::getLista() const
+void Modello::setPercorso(std::string p)
+{
+    percorso = p;
+    delete lista;
+    salvato = false;
+    lista = new Container<Avatar*>();
+}
+
+Container<Avatar*> *Modello::getLista() const
 {
     return lista;
 }
 
 Container<Avatar*>::iteratore Modello::begin()
 {
-    return lista->begin(); //mi trasforma in automatico la freccia in punto
+    return lista->begin();
 }
 
 Container<Avatar*>::iteratore Modello::end()

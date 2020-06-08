@@ -8,18 +8,21 @@
 #include <QFile>
 #include <iostream>
 #include <QXmlStreamWriter>
+#include <QDebug>
 
 class Modello
 {
 private:
     Container<Avatar*>* lista;
+    bool salvato;
     std::string percorso;
 public:
-    Modello();
+    Modello(std::string = ":/Risorse");
     ~Modello();
     void salva();
     void carica();
     void rimuovi(Avatar* =nullptr);
+    void setPercorso(std::string);
     Container<Avatar*>* getLista() const;
     Container<Avatar*>::iteratore begin();
     Container<Avatar*>::iteratore end();

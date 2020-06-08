@@ -343,6 +343,18 @@ release/moc_controller.cpp: ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfile.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/QXmlStreamWriter \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qxmlstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		../AvatarGame/menu.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenubar.h \
@@ -373,10 +385,6 @@ release/moc_controller.cpp: ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qimage.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qpixelformat.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qpixmap.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfont.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfontmetrics.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfontinfo.h \
@@ -384,13 +392,6 @@ release/moc_controller.cpp: ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qcursor.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qkeysequence.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qevent.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qurl.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qurlquery.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qvector2d.h \
@@ -1246,6 +1247,18 @@ release/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfile.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/QXmlStreamWriter \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qxmlstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		../AvatarGame/menu.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenubar.h \
@@ -1276,10 +1289,6 @@ release/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qimage.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qpixelformat.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qpixmap.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfont.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfontmetrics.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfontinfo.h \
@@ -1287,13 +1296,6 @@ release/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qcursor.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qkeysequence.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qevent.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qurl.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qurlquery.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qvector2d.h \
@@ -1530,6 +1532,7 @@ release/creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/QFile \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/QXmlStreamWriter \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qxmlstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
 		../AvatarGame/menu.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/qmenubar.h \
@@ -1761,6 +1764,18 @@ release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfile.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/QXmlStreamWriter \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qxmlstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		../AvatarGame/controller.h \
 		../AvatarGame/menu.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
@@ -1792,10 +1807,6 @@ release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qimage.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qpixelformat.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qpixmap.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfont.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfontmetrics.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qfontinfo.h \
@@ -1803,13 +1814,6 @@ release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qcursor.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qkeysequence.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qevent.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qurl.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qurlquery.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtGui/qvector2d.h \
@@ -2196,7 +2200,19 @@ release/modello.o: ../AvatarGame/modello.cpp ../AvatarGame/modello.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/QFile \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/qfile.h \
 		D:/Qt/5.14.2/mingw73_64/include/QtCore/QXmlStreamWriter \
-		D:/Qt/5.14.2/mingw73_64/include/QtCore/qxmlstream.h
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qxmlstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/QDebug \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qdebug.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qhash.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qmap.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qtextstream.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qlocale.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qvariant.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qshareddata.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qset.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qcontiguouscache.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer.h \
+		D:/Qt/5.14.2/mingw73_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\modello.o ..\AvatarGame\modello.cpp
 
 release/modificaavatar.o: ../AvatarGame/modificaavatar.cpp ../AvatarGame/modificaavatar.h \

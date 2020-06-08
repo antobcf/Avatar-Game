@@ -33,6 +33,11 @@ unsigned int Avatar::getScienza() const
     return scienza;
 }
 
+std::string Avatar::getTerreno() const
+{
+    return terreno;
+}
+
 std::string Avatar::SetNome(std::string n) {
     return nome=n;
 }
@@ -134,6 +139,11 @@ unsigned int Elfo::setScienza() {
     return GetLiv()*5;
 }
 
+std::string Elfo::setTerreno()
+{
+    return "Regno incantato";
+}
+
 bool Elfo::operator==(const Avatar & a) const {
     if(a.GetNome()==this->GetNome()) return true;
     else return false;
@@ -173,6 +183,11 @@ unsigned int Nano::setDifesa() {
 
 unsigned int Nano::setScienza() {    if(GetLibro()) return GetLiv()*6+5;
     return GetLiv()*6;
+                                }
+
+std::string Nano::setTerreno()
+{
+    return "Regno del sottosuolo";
 }
 
 bool Nano::operator==(const Avatar & a) const {
@@ -215,6 +230,11 @@ unsigned int Umano::setDifesa() {
 unsigned int Umano::setScienza() {
     if(GetLibro()) return GetLiv()*8+5;
     return GetLiv()*8;
+}
+
+std::string Umano::setTerreno()
+{
+    return "Regno delle macchine";
 }
 
 bool Umano::operator==(const Avatar & a) const {
@@ -287,6 +307,11 @@ unsigned int Alieno::setScienza() {
     return GetLiv()*10;
 }
 
+std::string Alieno::setTerreno()
+{
+    return "Regno dello spazio";
+}
+
 unsigned int Alieno::setMagia() {
     if(GetAmuleto()) return GetLiv()*0+8;
     return GetLiv()*0;
@@ -295,10 +320,6 @@ unsigned int Alieno::setMagia() {
 unsigned int Alieno::setDifesa() {
     if(GetBar()) return GetLiv()*7+9;
     return GetLiv()*7;
-}
-
-unsigned int Alieno::velocitaVolo() {
-    return 15*setScienza();
 }
 
 bool Alieno::operator==(const Avatar & a) const {
@@ -332,6 +353,11 @@ unsigned int Mostro::setScienza() {
     if(GetChip()) return GetLiv()*10+6;
     return GetLiv()*0;
 }
+
+std::string Mostro::setTerreno()
+{
+    return "Regno dei demoni";
+}
 unsigned int Mostro::setMagia() {
     if(GetAmuleto()) return GetLiv()*5+8;
     return GetLiv()*5;
@@ -340,10 +366,6 @@ unsigned int Mostro::setMagia() {
 unsigned int Mostro::setDifesa() {
     if(GetBar()) return GetLiv()*9+9;
     return GetLiv()*9;
-}
-
-unsigned int Mostro::velocitaVolo(){
-    return 15*getForza();
 }
 
 bool Mostro::operator==(const Avatar & a) const {

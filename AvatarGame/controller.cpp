@@ -32,6 +32,8 @@ Controller::Controller(Modello* m, QWidget *parent) :
 
     //CONNECT CREA
     connect(vistaCrea->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
+    connect(vistaCrea->getBottoneCreaDef(),SIGNAL(clicked()),this,SLOT(infoPopCrea()));
+    connect(vistaCrea->getBottoneCreaDef(),SIGNAL(clicked()),this,SLOT(mostraLista()));
 
     //CONNECT LISTA
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -102,4 +104,9 @@ void Controller::infoPopHome()
 void Controller::infoPopLista()
 {
     QMessageBox::information(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
+}
+
+void Controller::infoPopCrea()
+{
+    QMessageBox::information(this,"Creazione nuovo avatar","Hai creato il tuo avatar.\nPuoi selezionarlo dalla lista");
 }

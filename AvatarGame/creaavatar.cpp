@@ -711,8 +711,3 @@ void CreaAvatar::calcoloValori() const
     valoreScienza->setText(QString::number(scienza));
     valoreMedia->setText(QString::number(media,'f',1));
 }
-
-
-
-
-

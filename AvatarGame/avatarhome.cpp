@@ -1,20 +1,5 @@
 #include "avatarhome.h"
 
-QPushButton *AvatarHome::getBottoneCrea() const
-{
-    return bottoneCrea;
-}
-
-QPushButton *AvatarHome::getBottoneGioca() const
-{
-    return bottoneGioca;
-}
-
-QPushButton *AvatarHome::getBottoneInfo() const
-{
-   return bottoneInfo;
-}
-
 AvatarHome::AvatarHome(QWidget* p):
     QWidget(p),
     bottoneCrea(new QPushButton("Crea Avatar", p)),
@@ -38,4 +23,19 @@ AvatarHome::AvatarHome(QWidget* p):
     layoutBottoniSopra->addWidget(bottoneCrea);
     layoutHome->addLayout(layoutBottoniSopra);
     layoutHome->addWidget(bottoneInfo, 0, Qt::AlignRight);
+}
+
+QPushButton *AvatarHome::getBottoneCrea() const
+{
+    return bottoneCrea;
+}
+
+QPushButton *AvatarHome::getBottoneGioca() const
+{
+    return bottoneGioca;
+}
+
+QPushButton *AvatarHome::getBottoneInfo() const
+{
+   return bottoneInfo;
 }

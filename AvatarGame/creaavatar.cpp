@@ -714,4 +714,3 @@ void CreaAvatar::calcoloValori() const
 
 
 
-

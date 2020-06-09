@@ -7,30 +7,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     ordinaNome(new QPushButton("Nome", this)),
     ordinaLivello(new QPushButton("Livello", this)),
     ordinaMedia(new QPushButton("Media", this)),
-    scrollLista(new QScrollArea),
-    scrollbarLista(new QScrollBar),
-    checkAvatar1(new QCheckBox(this)),
-    nomeAvatar1(new QLabel("Gino", this)),
-    bottoneDescrizione1(new QPushButton("Info", this)),
-    forzaAvatar1(new QLabel("1234", this)),
-    magiaAvatar1(new QLabel("134", this)),
-    difesaAvatar1(new QLabel("6543", this)),
-    scienzaAvatar1(new QLabel("5", this)),
-    checkAvatar2(new QCheckBox(this)),
-    nomeAvatar2(new QLabel("Giangiorgio", this)),
-    bottoneDescrizione2(new QPushButton("Info", this)),
-    forzaAvatar2(new QLabel("1234", this)),
-    magiaAvatar2(new QLabel("134", this)),
-    difesaAvatar2(new QLabel("6543", this)),
-    scienzaAvatar2(new QLabel("5", this)),
-    checkAvatar3(new QCheckBox(this)),
-    nomeAvatar3(new QLabel("Pierangelo", this)),
-    bottoneDescrizione3(new QPushButton("Info", this)),
-    forzaAvatar3(new QLabel("1234", this)),
-    magiaAvatar3(new QLabel("134", this)),
-    difesaAvatar3(new QLabel("6543", this)),
-    scienzaAvatar3(new QLabel("5", this)),
-
 
     formLista(new QFormLayout),
     cercaNome(new QLineEdit(this)),
@@ -54,9 +30,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     QHBoxLayout* layoutOrdina = new QHBoxLayout();
     QHBoxLayout* layoutCheckBox = new QHBoxLayout();
     QVBoxLayout* layoutincolonnamento = new QVBoxLayout();
-    QHBoxLayout* layoutBoxAvatar1 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar2 = new QHBoxLayout();
-    QHBoxLayout* layoutBoxAvatar3 = new QHBoxLayout();
 
     layoutListaAvatar->addLayout(layoutSelezioneAvatar);
     layoutListaAvatar->addLayout(layoutDx);
@@ -67,36 +40,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutOrdina->addWidget(ordinaNome);
     layoutOrdina->addWidget(ordinaMedia);
     layoutOrdina->addWidget(ordinaLivello);
-    layoutSelezioneAvatar->addWidget(scrollLista);
-    scrollLista->setLayout(layoutincolonnamento);
-    //scrollLista->addScrollBarWidget(scrollbarLista, (Qt::Orientation::Vertical, Qt::AlignRight));
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar1);
-    layoutBoxAvatar1->addWidget(checkAvatar1);
-    layoutBoxAvatar1->addWidget(nomeAvatar1);
-    layoutBoxAvatar1->addWidget(bottoneDescrizione1);
-    layoutBoxAvatar1->addWidget(forzaAvatar1);
-    layoutBoxAvatar1->addWidget(magiaAvatar1);
-    layoutBoxAvatar1->addWidget(difesaAvatar1);
-    layoutBoxAvatar1->addWidget(scienzaAvatar1);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar2);
-    layoutBoxAvatar2->addWidget(checkAvatar2);
-    layoutBoxAvatar2->addWidget(nomeAvatar2);
-    layoutBoxAvatar2->addWidget(bottoneDescrizione2);
-    layoutBoxAvatar2->addWidget(forzaAvatar2);
-    layoutBoxAvatar2->addWidget(magiaAvatar2);
-    layoutBoxAvatar2->addWidget(difesaAvatar2);
-    layoutBoxAvatar2->addWidget(scienzaAvatar2);
-
-    layoutincolonnamento->addLayout(layoutBoxAvatar3);
-    layoutBoxAvatar3->addWidget(checkAvatar3);
-    layoutBoxAvatar3->addWidget(nomeAvatar3);
-    layoutBoxAvatar3->addWidget(bottoneDescrizione3);
-    layoutBoxAvatar3->addWidget(forzaAvatar3);
-    layoutBoxAvatar3->addWidget(magiaAvatar3);
-    layoutBoxAvatar3->addWidget(difesaAvatar3);
-    layoutBoxAvatar3->addWidget(scienzaAvatar3);
 
     //scroll area
     layoutincolonnamento->addWidget(elenco);

@@ -32,8 +32,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
 
     //CONNECT CREA
     connect(vistaCrea->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
-    connect(vistaCrea->getBottoneCreaDef(),SIGNAL(clicked()),this,SLOT(infoPopCrea()));
-    connect(vistaCrea->getBottoneCreaDef(),SIGNAL(clicked()),this,SLOT(mostraLista()));
+    connect(vistaCrea->getBottoneCreaDef(), SIGNAL(clicked()),this,SLOT(inserisciAvatar()));
 
     //CONNECT LISTA
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -106,10 +105,7 @@ void Controller::infoPopLista()
     QMessageBox::information(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
 }
 
-void Controller::infoPopCrea()
-{
-    QMessageBox::information(this,"Creazione nuovo avatar","Hai creato il tuo avatar.\nPuoi selezionarlo dalla lista");
-}
+
 
 void Controller::inserisciAvatar()
 {
@@ -128,7 +124,7 @@ void Controller::inserisciAvatar()
     if(check == 1) sesso = true;
     else sesso = false;
 
-    if(nome == "" || sesso == 0) {
+    if(nome == "" || (sesso != 0 && sesso != 1)) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
     } else {
 
@@ -160,6 +156,8 @@ void Controller::inserisciAvatar()
                 modello->salva();
                 //carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+                vistaCrea->hide();
+                vistaLista->show();
             } else if(vistaCrea->getSceltaTipo()->currentIndex() == 1) {
                 unsigned int corteccia = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, corteccia);
@@ -167,6 +165,8 @@ void Controller::inserisciAvatar()
                 modello->salva();
                 //carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+                vistaCrea->hide();
+                vistaLista->show();
             } else if(vistaCrea->getSceltaTipo()->currentIndex() == 2) {
                 unsigned int ingegnoScientifico = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegnoScientifico);
@@ -174,6 +174,8 @@ void Controller::inserisciAvatar()
                 modello->salva();
                 //carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+                vistaCrea->hide();
+                vistaLista->show();
             }
 
         } else if (vistaCrea->getSceltaTipo()->currentIndex() == 3 || 4) {
@@ -204,6 +206,8 @@ void Controller::inserisciAvatar()
                 modello->salva();
                 //carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+                vistaCrea->hide();
+                vistaLista->show();
             } else if(vistaCrea->getSceltaTipo()->currentIndex() == 4) {
                 unsigned int portaDemoniaca = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, portaDemoniaca);
@@ -211,7 +215,40 @@ void Controller::inserisciAvatar()
                 modello->salva();
                 //carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+                vistaCrea->hide();
+                vistaLista->show();
             }
         }
     }
+}
+
+void Controller::modificaAvatar()
+{
+
+}
+
+void Controller::rimuoviAvatar()
+{
+
+}
+
+void Controller::ricercaAvatar()
+{
+
+}
+
+void Controller::caricaDb()
+{
+    destinazione = QFileDialog::getOpenFileName(this, "Scegli file", ":Risorse", "File XML(*.xml)");
+    //carica();
+}
+
+void Controller::carica()
+{
+
+}
+
+void Controller::salva()
+{
+
 }

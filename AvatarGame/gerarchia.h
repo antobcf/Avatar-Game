@@ -50,6 +50,7 @@ public:
     virtual std::string setTerreno() = 0;
     //OPERATORI
     virtual bool operator==(const Avatar&) const =0;
+    virtual std::string datiAvatar();
 };
 
 class Terrestre: public Avatar {
@@ -89,7 +90,7 @@ public:
     virtual unsigned int setScienza() override;
     virtual std::string setTerreno() override;
     virtual bool operator==(const Avatar&) const override;
-
+    virtual std::string datiAvatar() override;
 };
 
 class Nano: public Terrestre {
@@ -106,6 +107,7 @@ public:
     virtual unsigned int setScienza() override;
     virtual std::string setTerreno() override;
     virtual bool operator==(const Avatar&) const override;
+    virtual std::string datiAvatar() override;
 };
 
 class Umano: public Terrestre {
@@ -122,6 +124,7 @@ public:
     virtual unsigned int setScienza() override;
     virtual std::string setTerreno() override;
     virtual bool operator==(const Avatar&) const override;
+    virtual std::string datiAvatar() override;
 };
 
 class NOTerrestre: public Avatar {
@@ -166,6 +169,7 @@ public:
     virtual unsigned int setScienza() override;
     virtual std::string setTerreno() override;
     virtual bool operator==(const Avatar&) const override;
+    virtual std::string datiAvatar() override;
 };
 
 class Mostro: public NOTerrestre {
@@ -182,7 +186,8 @@ public:
     virtual unsigned int setDifesa() override;
     virtual unsigned int setScienza() override;
     virtual std::string setTerreno() override;
-   virtual bool operator==(const Avatar&) const override;
+    virtual bool operator==(const Avatar&) const override;
+    virtual std::string datiAvatar() override;
 };
 
 #endif // GERARCHIA_H

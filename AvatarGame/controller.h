@@ -42,7 +42,6 @@ public slots:
     void mostraScontro();
     void infoPopHome();
     void infoPopLista();
-    void infoPopCrea();
     void inserisciAvatar();
     void modificaAvatar();
     void rimuoviAvatar();

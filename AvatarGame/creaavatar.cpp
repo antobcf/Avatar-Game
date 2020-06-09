@@ -121,7 +121,6 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(calcoloValori()));
 
-    bottoneCreaDef->setEnabled(false);
 }
 
 QFormLayout *CreaAvatar::getFormCrea() const

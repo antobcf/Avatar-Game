@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     controller.cpp \
     creaavatar.cpp \
+    elencoavatar.cpp \
     gerarchia.cpp \
     listaavatar.cpp \
     main.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     container.h \
     controller.h \
     creaavatar.h \
+    elencoavatar.h \
     gerarchia.h \
     listaavatar.h \
     menu.h \

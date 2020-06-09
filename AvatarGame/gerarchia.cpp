@@ -83,6 +83,15 @@ double Avatar::setMedia()
     return (setForza()+setMagia()+setDifesa()+setScienza())/4;
 }
 
+std::string Avatar::datiAvatar()
+{
+    return ("Tipo Avatar: "+getTipo()).append("   Sesso: ").append(GetSesso() ? "Maschio" : "Femmina")
+            .append("\nForza: "+std::to_string(getForza())).append("   Magia: "+std::to_string(getMagia()))
+            .append("\nDifesa: "+std::to_string(getDifesa())).append("   Scienza: "+std::to_string(getScienza()))
+            .append("\nMedia: "+std::to_string(getMedia())).append("   Lvl: "+std::to_string(GetLiv()))
+            .append("\nStoria: "+getDescrizione());
+}
+
 
 //Metodi della classe Terrestre
 std::string Terrestre::getTerrNon() const
@@ -169,6 +178,12 @@ bool Elfo::operator==(const Avatar & a) const {
     else return false;
 }
 
+std::string Elfo::datiAvatar()
+{
+    std::string dati = Avatar::datiAvatar();
+    return dati.append("\nTrasparentia: "+std::to_string(GetTrasparentia()));
+}
+
 //Metodi della classe Nano
 unsigned int Nano::GetCorteccia() const {
     return corteccia;
@@ -213,6 +228,12 @@ std::string Nano::setTerreno()
 bool Nano::operator==(const Avatar & a) const {
     if(a.GetNome()==this->GetNome()) return true;
     else return false;
+}
+
+std::string Nano::datiAvatar()
+{
+    std::string dati = Avatar::datiAvatar();
+    return dati.append("\nCorteccia: "+std::to_string(GetCorteccia()));
 }
 
 //Metodi della classe Umano
@@ -260,6 +281,12 @@ std::string Umano::setTerreno()
 bool Umano::operator==(const Avatar & a) const {
     if(a.GetNome()==this->GetNome()) return true;
     else return false;
+}
+
+std::string Umano::datiAvatar()
+{
+    std::string dati = Avatar::datiAvatar();
+    return dati.append("\nIngegno Scientifico: "+std::to_string(GetIngegno()));
 }
 
 //Metodi della classe NOTerrestre
@@ -347,6 +374,12 @@ bool Alieno::operator==(const Avatar & a) const {
     else return false;
 }
 
+std::string Alieno::datiAvatar()
+{
+    std::string dati = Avatar::datiAvatar();
+    return dati.append("\nUfo: "+std::to_string(GetUfo()));
+}
+
 //Metodi della classe Mostro
 unsigned int Mostro::GetPorta() const {
     return portaDemoniaca;
@@ -391,6 +424,12 @@ unsigned int Mostro::setDifesa() {
 bool Mostro::operator==(const Avatar & a) const {
     if(a.GetNome()==this->GetNome()) return true;
     else return false;
+}
+
+std::string Mostro::datiAvatar()
+{
+    std::string dati = Avatar::datiAvatar();
+    return dati.append("\nPorta Demoniaca: "+std::to_string(GetPorta()));
 }
 
 //metodi della classe ListaPersonaggi

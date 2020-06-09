@@ -1,6 +1,8 @@
 #ifndef LISTAAVATAR_H
 #define LISTAAVATAR_H
 
+#include "item.h"
+
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -57,6 +59,8 @@ private:
     QPushButton* bottoneRimuoviTutto;
     QPushButton* bottoneAvvioGioco;
     QPushButton* bottoneInfoLista;
+
+    item* elenco;
 
 public:
     ListaAvatar(QWidget * = nullptr);

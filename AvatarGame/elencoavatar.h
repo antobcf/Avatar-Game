@@ -3,18 +3,16 @@
 
 #include "gerarchia.h"
 
-#include <QObject>
 #include <QListWidgetItem>
 
-class elencoAvatar : public QListWidgetItem
+class ElencoAvatar : public QListWidgetItem
 {
-    Q_OBJECT
 private:
     QWidget* parent;
     Avatar* item;
 
 public:
-    elencoAvatar(QWidget*, Avatar* = nullptr);
+    ElencoAvatar(QWidget*, Avatar* = nullptr);
     Avatar* getItem() const;
     void aggiorna();
 };

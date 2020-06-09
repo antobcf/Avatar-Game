@@ -1,16 +1,16 @@
 #include "elencoavatar.h"
 
-elencoAvatar::elencoAvatar(QWidget * p, Avatar * i) : parent(p), item(i)
+ElencoAvatar::ElencoAvatar(QWidget * p, Avatar * i) : parent(p), item(i)
 {
     aggiorna();
 }
 
-Avatar *elencoAvatar::getItem() const
+Avatar *ElencoAvatar::getItem() const
 {
     return item;
 }
 
-void elencoAvatar::aggiorna()
+void ElencoAvatar::aggiorna()
 {
     //manca la foto qui
     setText(QString::fromStdString(item->datiAvatar()));

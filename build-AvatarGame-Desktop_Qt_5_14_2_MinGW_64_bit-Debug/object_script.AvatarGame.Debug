@@ -1,6 +1,8 @@
 debug/controller.o
 debug/creaavatar.o
+debug/elencoavatar.o
 debug/gerarchia.o
+debug/item.o
 debug/listaavatar.o
 debug/main.o
 debug/avatarhome.o
@@ -11,6 +13,7 @@ debug/scontro.o
 debug/moc_avatarhome.o
 debug/moc_controller.o
 debug/moc_creaavatar.o
+debug/moc_item.o
 debug/moc_listaavatar.o
 debug/moc_menu.o
 debug/moc_modificaavatar.o

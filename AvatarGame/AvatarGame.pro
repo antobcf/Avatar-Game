@@ -20,6 +20,7 @@ SOURCES += \
     creaavatar.cpp \
     elencoavatar.cpp \
     gerarchia.cpp \
+    item.cpp \
     listaavatar.cpp \
     main.cpp \
     avatarhome.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     creaavatar.h \
     elencoavatar.h \
     gerarchia.h \
+    item.h \
     listaavatar.h \
     menu.h \
     modello.h \

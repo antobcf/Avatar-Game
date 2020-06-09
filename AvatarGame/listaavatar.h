@@ -70,6 +70,7 @@ public:
     QPushButton* getBottoneGioca() const;
     QLineEdit* getCercaNome() const;
     QPushButton* getBottoneInfoLista() const;
+    item* getElenco() const;
 
 public slots:
     //void on_bottoneModifica_clicked();

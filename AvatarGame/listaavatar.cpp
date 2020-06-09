@@ -43,7 +43,9 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneRimuovi(new QPushButton("Rimuovi", this)),
     bottoneRimuoviTutto(new QPushButton("Rimuovi tutto", this)),
     bottoneAvvioGioco(new QPushButton("Gioca", this)),
-    bottoneInfoLista(new QPushButton("?", this))
+    bottoneInfoLista(new QPushButton("?", this)),
+
+    elenco(new item(this))
 
 {
     QHBoxLayout* layoutListaAvatar = new QHBoxLayout(this);
@@ -96,6 +98,11 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutBoxAvatar3->addWidget(difesaAvatar3);
     layoutBoxAvatar3->addWidget(scienzaAvatar3);
 
+    //scroll area
+    layoutincolonnamento->addWidget(elenco);
+    elenco->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    elenco->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     formLista->addRow("Cerca:", cercaNome);
     layoutDx->addLayout(formLista);
     layoutDx->addLayout(layoutCheckBox);
@@ -143,5 +150,10 @@ QLineEdit *ListaAvatar::getCercaNome() const
 
 QPushButton *ListaAvatar::getBottoneInfoLista() const
 {
-   return bottoneInfoLista;
+    return bottoneInfoLista;
+}
+
+item *ListaAvatar::getElenco() const
+{
+    return elenco;
 }

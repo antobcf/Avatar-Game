@@ -43,7 +43,7 @@ public slots:
     void infoPopHome();
     void infoPopLista();
     void infoPopCrea();
-
+    void inserisciAvatar();
 signals:
 
 };

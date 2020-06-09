@@ -13,6 +13,11 @@ std::string Avatar::GetNome() const {
     return nome;
 }
 
+std::string Avatar::getDescrizione() const
+{
+    return descrizione;
+}
+
 unsigned int Avatar::getForza() const
 {
     return forza;
@@ -39,7 +44,12 @@ std::string Avatar::getTerreno() const
 }
 
 std::string Avatar::SetNome(std::string n) {
-    return nome=n;
+    return nome = n;
+}
+
+std::string Avatar::setDescrizione(std::string d)
+{
+    return descrizione = d;
 }
 
 unsigned int Avatar::SetLvl(unsigned int lvl) {

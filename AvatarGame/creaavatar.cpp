@@ -10,7 +10,10 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     valoreDifesa(new QLabel("6", this)),
     valoreScienza(new QLabel("5", this)),
     valoreMedia(new QLabel("6.8", this)),
+    valoreSpeciale(new QLabel("0", this)),
+    exp(new QLabel("exp 0", this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
+    terrenoPreferito(new QLabel("Regno incantato", this)),
     inserisciNome(new QLineEdit(this)),
     bottoneHome(new QPushButton("Home", this)),
     bottoneCreaDef(new QPushButton("Crea Avatar", this)),
@@ -71,7 +74,10 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(valoreDifesa);
     layoutValori->addWidget(valoreScienza);
     layoutValori->addWidget(valoreMedia);
+    layoutValori->addWidget(valoreSpeciale);
     layoutValori->addWidget(lvl);
+    layoutValori->addWidget(exp);
+    layoutValori->addWidget(terrenoPreferito);
     layoutDx->addWidget(resetCampi);
 
 
@@ -158,9 +164,24 @@ QLabel *CreaAvatar::getValoreMedia() const
     return valoreMedia;
 }
 
+QLabel *CreaAvatar::getValoreSpeciale() const
+{
+    return valoreSpeciale;
+}
+
+QLabel *CreaAvatar::getExp() const
+{
+    return exp;
+}
+
 QLabel *CreaAvatar::getLabelSesso() const
 {
     return labelSesso;
+}
+
+QLabel *CreaAvatar::getTerrenoPreferito() const
+{
+    return terrenoPreferito;
 }
 
 QLineEdit *CreaAvatar::getInserisciNome() const
@@ -614,6 +635,7 @@ void CreaAvatar::calcoloValori() const
     double magia = 0;
     double difesa = 0;
     double scienza = 0;
+    std::string terreno;
     if(indexAttuale == 0) {
         forza = 6;
         if(powerUp1->isChecked()) {
@@ -631,6 +653,7 @@ void CreaAvatar::calcoloValori() const
         if(powerUp4->isChecked()) {
             scienza += 5;
         }
+        terreno = "Regno incantato";
     }
     if(indexAttuale == 1) {
         forza = 7;
@@ -649,6 +672,7 @@ void CreaAvatar::calcoloValori() const
         if(powerUp4->isChecked()) {
             scienza += 5;
         }
+        terreno = "Regno del sottosuolo";
     }
     if(indexAttuale == 2) {
         forza = 5;
@@ -667,6 +691,7 @@ void CreaAvatar::calcoloValori() const
         if(powerUp4->isChecked()) {
             scienza += 5;
         }
+        terreno = "Regno delle macchine";
     }
     if(indexAttuale == 3) {
         forza = 3;
@@ -685,6 +710,7 @@ void CreaAvatar::calcoloValori() const
         if(powerUp8->isChecked()) {
             scienza += 9;
         }
+        terreno = "Regno dello spazio";
     }
     if(indexAttuale == 4) {
         forza = 10;
@@ -703,6 +729,7 @@ void CreaAvatar::calcoloValori() const
         if(powerUp8->isChecked()) {
             scienza += 9;
         }
+        terreno = "Regno dei demoni";
     }
     double media = (forza+magia+difesa+scienza)/4;
     valoreForza->setText(QString::number(forza));
@@ -710,4 +737,5 @@ void CreaAvatar::calcoloValori() const
     valoreDifesa->setText(QString::number(difesa));
     valoreScienza->setText(QString::number(scienza));
     valoreMedia->setText(QString::number(media,'f',1));
+    terrenoPreferito->setText(QString::fromStdString(terreno));
 }

@@ -110,3 +110,61 @@ void Controller::infoPopCrea()
 {
     QMessageBox::information(this,"Creazione nuovo avatar","Hai creato il tuo avatar.\nPuoi selezionarlo dalla lista");
 }
+
+void Controller::inserisciAvatar()
+{
+    std::string nome = vistaCrea->getInserisciNome()->text().toStdString();
+    unsigned int lvl = vistaCrea->getLvl()->text().toUInt();
+    unsigned int forza = vistaCrea->getValoreForza()->text().toUInt();
+    unsigned int magia = vistaCrea->getValoreMagia()->text().toUInt();
+    unsigned int difesa = vistaCrea->getValoreDifesa()->text().toUInt();
+    unsigned int scienza = vistaCrea->getValoreScienza()->text().toUInt();
+    bool sesso;
+    int check = vistaCrea->getSessoM()->isChecked();
+    if(check == 1) sesso = true;
+    else sesso = false;
+    double media = vistaCrea->getValoreMedia()->text().toUInt();
+
+    if(vistaCrea->getSceltaTipo()->currentIndex() == 0 || 1 || 2) {
+        bool scudo;
+        check = vistaCrea->getPowerUp1()->isChecked();
+        if(check == 1) scudo = true;
+        else scudo = false;
+
+        bool spada;
+        check = vistaCrea->getPowerUp2()->isChecked();
+        if(check == 1) spada = true;
+        else spada = false;
+
+        bool anello;
+        check = vistaCrea->getPowerUp3()->isChecked();
+        if(check == 1) anello = true;
+        else anello = false;
+
+        bool libro;
+        check = vistaCrea->getPowerUp4()->isChecked();
+        if(check == 1) libro = true;
+        else libro = false;
+
+    } else if (vistaCrea->getSceltaTipo()->currentIndex() == 3 || 4) {
+        bool barriera;
+        check = vistaCrea->getPowerUp5()->isChecked();
+        if(check == 1) barriera = true;
+        else barriera = false;
+
+        bool laser;
+        check = vistaCrea->getPowerUp6()->isChecked();
+        if(check == 1) laser = true;
+        else laser = false;
+
+        bool amuleto;
+        check = vistaCrea->getPowerUp7()->isChecked();
+        if(check == 1) amuleto = true;
+        else amuleto = false;
+
+        bool chip;
+        check = vistaCrea->getPowerUp8()->isChecked();
+        if(check == 1) chip = true;
+        else chip = false;
+    }
+}

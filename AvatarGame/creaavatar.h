@@ -27,7 +27,10 @@ private:
     QLabel* valoreDifesa;
     QLabel* valoreScienza;
     QLabel* valoreMedia;
+    QLabel* valoreSpeciale;
+    QLabel* exp;
     QLabel* labelSesso;
+    QLabel* terrenoPreferito;
     QLineEdit* inserisciNome;
     QPushButton* bottoneHome;
     QPushButton* bottoneCreaDef;
@@ -57,7 +60,10 @@ public:
     QLabel* getValoreDifesa() const;
     QLabel* getValoreScienza() const;
     QLabel* getValoreMedia() const;
+    QLabel* getValoreSpeciale() const;
+    QLabel* getExp() const;
     QLabel* getLabelSesso() const;
+    QLabel* getTerrenoPreferito() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneCreaDef() const;

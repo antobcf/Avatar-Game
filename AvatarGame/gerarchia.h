@@ -7,6 +7,7 @@
 class Avatar { //classe base astratta e polimorfa
 private:
     std::string nome;
+    std::string descrizione;
     unsigned int livello;
     unsigned int exp;
     unsigned int forza;
@@ -27,6 +28,7 @@ public:
     bool GetSesso() const;
     unsigned int GetExp() const;
     std::string GetNome() const;
+    std::string getDescrizione() const;
     unsigned int getForza() const;
     unsigned int getMagia() const;
     unsigned int getDifesa() const;
@@ -34,6 +36,7 @@ public:
     std::string getTerreno() const;
     //SET
     std::string SetNome(std::string);
+    std::string setDescrizione(std::string);
     unsigned int SetLvl(unsigned int);
     bool SetSesso(bool);
     unsigned int SetExp(unsigned int);

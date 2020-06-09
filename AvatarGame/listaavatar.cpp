@@ -42,6 +42,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutOrdina->addWidget(ordinaLivello);
 
     //scroll area
+    layoutSelezioneAvatar->addLayout(layoutincolonnamento);
     layoutincolonnamento->addWidget(elenco);
     elenco->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     elenco->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

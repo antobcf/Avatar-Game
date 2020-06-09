@@ -44,6 +44,14 @@ public slots:
     void infoPopLista();
     void infoPopCrea();
     void inserisciAvatar();
+    void modificaAvatar();
+    void rimuoviAvatar();
+    void ricercaAvatar();
+    void caricaDb();
+    void carica();
+    void salva();
+
+
 signals:
 
 };

@@ -114,57 +114,104 @@ void Controller::infoPopCrea()
 void Controller::inserisciAvatar()
 {
     std::string nome = vistaCrea->getInserisciNome()->text().toStdString();
+    std::string descrizione = vistaCrea->getInserisciNome()->text().toStdString();
     unsigned int lvl = vistaCrea->getLvl()->text().toUInt();
+    unsigned int exp = vistaCrea->getExp()->text().toUInt();
     unsigned int forza = vistaCrea->getValoreForza()->text().toUInt();
     unsigned int magia = vistaCrea->getValoreMagia()->text().toUInt();
     unsigned int difesa = vistaCrea->getValoreDifesa()->text().toUInt();
     unsigned int scienza = vistaCrea->getValoreScienza()->text().toUInt();
+    double media = vistaCrea->getValoreMedia()->text().toDouble();
+    std::string terreno = vistaCrea->getTerrenoPreferito()->text().toStdString();
     bool sesso;
     int check = vistaCrea->getSessoM()->isChecked();
     if(check == 1) sesso = true;
     else sesso = false;
-    double media = vistaCrea->getValoreMedia()->text().toUInt();
 
-    if(vistaCrea->getSceltaTipo()->currentIndex() == 0 || 1 || 2) {
-        bool scudo;
-        check = vistaCrea->getPowerUp1()->isChecked();
-        if(check == 1) scudo = true;
-        else scudo = false;
+    if(nome == "" || sesso == 0) {
+        QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
+    } else {
 
-        bool spada;
-        check = vistaCrea->getPowerUp2()->isChecked();
-        if(check == 1) spada = true;
-        else spada = false;
+        if(vistaCrea->getSceltaTipo()->currentIndex() == 0 || 1 || 2) {
+            bool scudo;
+            check = vistaCrea->getPowerUp1()->isChecked();
+            if(check == 1) scudo = true;
+            else scudo = false;
 
-        bool anello;
-        check = vistaCrea->getPowerUp3()->isChecked();
-        if(check == 1) anello = true;
-        else anello = false;
+            bool spada;
+            check = vistaCrea->getPowerUp2()->isChecked();
+            if(check == 1) spada = true;
+            else spada = false;
 
-        bool libro;
-        check = vistaCrea->getPowerUp4()->isChecked();
-        if(check == 1) libro = true;
-        else libro = false;
+            bool anello;
+            check = vistaCrea->getPowerUp3()->isChecked();
+            if(check == 1) anello = true;
+            else anello = false;
 
-    } else if (vistaCrea->getSceltaTipo()->currentIndex() == 3 || 4) {
-        bool barriera;
-        check = vistaCrea->getPowerUp5()->isChecked();
-        if(check == 1) barriera = true;
-        else barriera = false;
+            bool libro;
+            check = vistaCrea->getPowerUp4()->isChecked();
+            if(check == 1) libro = true;
+            else libro = false;
 
-        bool laser;
-        check = vistaCrea->getPowerUp6()->isChecked();
-        if(check == 1) laser = true;
-        else laser = false;
+            if(vistaCrea->getSceltaTipo()->currentIndex() == 0) {
+                unsigned int trasparentia = vistaCrea->getValoreSpeciale()->text().toUInt();
+                Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, trasparentia);
+                modello->getLista()->insert(personaggio);
+                modello->salva();
+                //carica();
+                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            } else if(vistaCrea->getSceltaTipo()->currentIndex() == 1) {
+                unsigned int corteccia = vistaCrea->getValoreSpeciale()->text().toUInt();
+                Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, corteccia);
+                modello->getLista()->insert(personaggio);
+                modello->salva();
+                //carica();
+                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            } else if(vistaCrea->getSceltaTipo()->currentIndex() == 2) {
+                unsigned int ingegnoScientifico = vistaCrea->getValoreSpeciale()->text().toUInt();
+                Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegnoScientifico);
+                modello->getLista()->insert(personaggio);
+                modello->salva();
+                //carica();
+                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            }
 
-        bool amuleto;
-        check = vistaCrea->getPowerUp7()->isChecked();
-        if(check == 1) amuleto = true;
-        else amuleto = false;
+        } else if (vistaCrea->getSceltaTipo()->currentIndex() == 3 || 4) {
+            bool barriera;
+            check = vistaCrea->getPowerUp5()->isChecked();
+            if(check == 1) barriera = true;
+            else barriera = false;
 
-        bool chip;
-        check = vistaCrea->getPowerUp8()->isChecked();
-        if(check == 1) chip = true;
-        else chip = false;
+            bool laser;
+            check = vistaCrea->getPowerUp6()->isChecked();
+            if(check == 1) laser = true;
+            else laser = false;
+
+            bool amuleto;
+            check = vistaCrea->getPowerUp7()->isChecked();
+            if(check == 1) amuleto = true;
+            else amuleto = false;
+
+            bool chip;
+            check = vistaCrea->getPowerUp8()->isChecked();
+            if(check == 1) chip = true;
+            else chip = false;
+
+            if(vistaCrea->getSceltaTipo()->currentIndex() == 3) {
+                unsigned int ufo = vistaCrea->getValoreSpeciale()->text().toUInt();
+                Alieno* personaggio = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, ufo);
+                modello->getLista()->insert(personaggio);
+                modello->salva();
+                //carica();
+                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            } else if(vistaCrea->getSceltaTipo()->currentIndex() == 4) {
+                unsigned int portaDemoniaca = vistaCrea->getValoreSpeciale()->text().toUInt();
+                Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, portaDemoniaca);
+                modello->getLista()->insert(personaggio);
+                modello->salva();
+                //carica();
+                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            }
+        }
     }
 }

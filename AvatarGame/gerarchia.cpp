@@ -38,6 +38,11 @@ unsigned int Avatar::getScienza() const
     return scienza;
 }
 
+double Avatar::getMedia() const
+{
+    return media;
+}
+
 std::string Avatar::getTerreno() const
 {
     return terreno;
@@ -70,7 +75,12 @@ unsigned int Avatar::SetExp(unsigned int e) {
         SetLvl(livello+1);
         exp = exp -100;
     }
-        return exp;
+    return exp;
+}
+
+double Avatar::setMedia()
+{
+    return (setForza()+setMagia()+setDifesa()+setScienza())/4;
 }
 
 

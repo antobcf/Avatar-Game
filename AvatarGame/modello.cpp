@@ -30,6 +30,7 @@ void Modello::salva()
         reader.writeEmptyElement(tipo);
         reader.writeEmptyElement(tipoAvatar);
         reader.writeAttribute("Nome", QString::fromStdString(salvaElemento->GetNome()));
+        reader.writeAttribute("Descrizione", QString::fromStdString(salvaElemento->getDescrizione()));
         reader.writeAttribute("Livello", QString("1%").arg(salvaElemento->GetLiv()));
         reader.writeAttribute("Exp", QString("1%").arg(salvaElemento->GetExp()));
         reader.writeAttribute("Forza", QString("1%").arg(salvaElemento->getForza()));
@@ -37,6 +38,7 @@ void Modello::salva()
         reader.writeAttribute("Difesa", QString("1%").arg(salvaElemento->getDifesa()));
         reader.writeAttribute("Scienza", QString("1%").arg(salvaElemento->getScienza()));
         reader.writeAttribute("Sesso", salvaElemento->GetSesso() ? "true" : "false");
+        reader.writeAttribute("Media", QString("1%").arg(salvaElemento->getMedia())); //è un double quindio non so se vada bene
         reader.writeAttribute("Terreno", QString::fromStdString(salvaElemento->getTerreno()));
         if(tipo == "Terrestre") {
             const Terrestre* tipoTerrestre = static_cast<const Terrestre*>(salvaElemento);
@@ -45,7 +47,7 @@ void Modello::salva()
             reader.writeAttribute("Anello", tipoTerrestre->GetAnello() ? "true" : "false");
             reader.writeAttribute("Libro", tipoTerrestre->GetLibro() ? "true" : "false");
             if(tipoAvatar == "Elfo") {
-                const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre); //o salva elemento??
+                const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre); //o salvaElemento??
                 reader.writeAttribute("Trasparentia", QString("1%").arg(tipoElfo->GetTrasparentia()));
             } else if(tipoAvatar == "Nano") {
                 const Nano* tipoNano = static_cast<const Nano*>(tipoTerrestre);
@@ -95,6 +97,7 @@ void Modello::carica()
                 const QXmlStreamAttributes newAttributo = reader.attributes();
 
                 std::string nome = newAttributo.hasAttribute("Nome") ? newAttributo.value("Nome").toString().toStdString() : "";
+                std::string descrizione = newAttributo.hasAttribute("Descrizione") ? newAttributo.value("Descrizione").toString().toStdString() : "";
                 unsigned int lvl = newAttributo.hasAttribute("Livello") ? newAttributo.value("Livello").toUInt() : 0;
                 unsigned int exp = newAttributo.hasAttribute("Exp") ? newAttributo.value("Exp").toUInt() : 0;
                 unsigned int forza = newAttributo.hasAttribute("Forza") ? newAttributo.value("Forza").toUInt() : 0;
@@ -102,6 +105,7 @@ void Modello::carica()
                 unsigned int difesa = newAttributo.hasAttribute("Difesa") ? newAttributo.value("Difesa").toUInt() : 0;
                 unsigned int scienza = newAttributo.hasAttribute("Scienza") ? newAttributo.value("Scienza").toUInt() : 0;
                 bool sesso = newAttributo.hasAttribute("Sesso") ? newAttributo.value("Sesso").toString() == "true" ? true : false : false;
+                double media = newAttributo.hasAttribute("Media") ? newAttributo.value("Media").toDouble() : 0;
                 std::string terreno = newAttributo.hasAttribute("Terreno") ? newAttributo.value("Terreno").toString().toStdString() : "";
 
                 Avatar* inserire = nullptr;
@@ -113,13 +117,13 @@ void Modello::carica()
                     bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
                     if(reader.name() == "Elfo") {
                         unsigned int trasparentia = newAttributo.hasAttribute("Trasparentia") ? newAttributo.value("Trasparentia").toUInt() : 0;
-                        inserire = new Elfo(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, scudo, spada, anello, libro, trasparentia);
+                        inserire = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, trasparentia);
                     } else if(reader.name() == "Nano") {
                         unsigned int corteccia = newAttributo.hasAttribute("Corteccia") ? newAttributo.value("Corteccia").toUInt() : 0;
-                        inserire = new Nano(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, scudo, spada, anello, libro, corteccia);
+                        inserire = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, corteccia);
                     } else if(reader.name() == "Umano") {
                         unsigned int ingegno = newAttributo.hasAttribute("Ingegno scientifico") ? newAttributo.value("Ingegno scientifico").toUInt() : 0;
-                        inserire = new Umano(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, scudo, spada, anello, libro, ingegno);
+                        inserire = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegno);
                     }
                 } else if(reader.name() == "Non terrestre") {
                     bool barriera = newAttributo.hasAttribute("Barriera") ? newAttributo.value("Barriera").toString() == "true" ? true : false : false;
@@ -128,10 +132,10 @@ void Modello::carica()
                     bool chip = newAttributo.hasAttribute("Chip") ? newAttributo.value("Chip").toString() == "true" ? true : false : false;
                     if(reader.name() == "Alieno") {
                         unsigned int ufo = newAttributo.hasAttribute("Ufo") ? newAttributo.value("Ufo").toUInt() : 0;
-                        inserire = new Alieno(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, barriera, laser, amuleto, chip, ufo);
+                        inserire = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, ufo);
                     } else if(reader.name() == "Mostro") {
                         unsigned int porta = newAttributo.hasAttribute("Porta demoniaca") ? newAttributo.value("Porta demoniaca").toUInt() : 0;
-                        inserire = new Mostro(nome, lvl, exp, forza, magia, difesa, scienza, terreno, sesso, barriera, laser, amuleto, chip, porta);
+                        inserire = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, porta);
                     }
                 }
 

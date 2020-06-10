@@ -140,7 +140,7 @@ void Modello::carica()
                 }
 
                 if(inserire!=nullptr) {
-                    lista->insert(inserire);
+                    lista->inserisci(inserire);
                 }
 
                 if(!reader.isEndDocument()) {

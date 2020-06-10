@@ -10,4 +10,5 @@ int main(int argc, char *argv[])
     Controller w(new Modello());
     w.show();
     return a.exec();
+
 }

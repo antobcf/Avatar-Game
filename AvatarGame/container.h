@@ -69,7 +69,7 @@ public:
     //METODI CONTAINER
     Container(): primo(nullptr), ultimo(nullptr) {} //la definizione sicuro non va qui, il nullptr serve?
     bool isEmpty() const;//controlla se il container è vuoto
-    void insert(const T&);//metodo per l'inserimento alla fine della lista di un nuovo elemento
+    void inserisci(const T&);//metodo per l'inserimento alla fine della lista di un nuovo elemento
     void remove(); //rimuove valore in testa
     void removeElement(const T&);
     void clean(); //svuota contenitore
@@ -146,14 +146,14 @@ bool Container<T>::isEmpty() const {
 }
 
 template <class T>
-void Container<T>::insert(const T& p) {
-    if(isEmpty()){
-        primo = ultimo = new nodo(p, nullptr,nullptr);
-        return;
+void Container<T>::inserisci(const T& p) {
+    ultimo = new nodo (p, ultimo, nullptr);
+
+    if(primo == nullptr) {
+        primo = ultimo;
+    } else {
+        (ultimo->prev)->next = ultimo;
     }
-    ultimo->next = new nodo(p, nullptr,nullptr);
-    ultimo = (ultimo.ptr)->next;
-    return;
 }
 
 template <class T>

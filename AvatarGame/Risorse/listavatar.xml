@@ -1,1 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--!!!Non commentare il documento!!!-->
+<start>
+    <Terrestre/>
+    <Elfo Nome="Prova" Descrizione="Prova" Livello="1%" Exp="1%" Forza="1%" Magia="1%" Difesa="1%" Scienza="1%" Sesso="true" Media="1%" Terreno="Regno incantato" Scudo="true" Spada="true" Anello="false" Libro="false" Trasparentia="1%"/>
+</start>

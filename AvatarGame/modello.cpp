@@ -182,12 +182,12 @@ Container<Avatar*>::iteratore Modello::end()
     return lista->end();
 }
 
-Container<Avatar*>::iteratoreConst Modello::begin() const
+Container<Avatar*>::iteratoreConst Modello::beginConst() const
 {
     return lista->beginC();
 }
 
-Container<Avatar*>::iteratoreConst Modello::end() const
+Container<Avatar*>::iteratoreConst Modello::endConst() const
 {
     return lista->endC();
 }

@@ -48,6 +48,14 @@ public:
     QLineEdit* getCercaNome() const;
     QPushButton* getBottoneInfoLista() const;
     item* getElenco() const;
+    QCheckBox* getTipoElfo() const;
+    QCheckBox* getTipoNano() const;
+    QCheckBox* getTipoUmano() const;
+    QCheckBox* getTipoAlieno() const;
+    QCheckBox* getTipoMostro() const;
+
+    //mancano tutti i get!!!
+
 
 public slots:
     //void on_bottoneModifica_clicked();

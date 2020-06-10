@@ -39,6 +39,11 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
     connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(mostraModifica()));
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
+    connect(vistaLista->getTipoElfo(),SIGNAL(clicked()),this,SLOT(carica()));
+    connect(vistaLista->getTipoNano(),SIGNAL(clicked()),this,SLOT(carica()));
+    connect(vistaLista->getTipoUmano(),SIGNAL(clicked()),this,SLOT(carica()));
+    connect(vistaLista->getTipoAlieno(),SIGNAL(clicked()),this,SLOT(carica()));
+    connect(vistaLista->getTipoMostro(),SIGNAL(clicked()),this,SLOT(carica()));
 
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -245,7 +250,82 @@ void Controller::caricaDb()
 
 void Controller::carica()
 {
+    if(destinazione!="") {
+        if(!(vistaLista->getTipoElfo()->isChecked()) && !(vistaLista->getTipoNano()->isChecked()) &&
+                !(vistaLista->getTipoUmano()->isChecked()) && !(vistaLista->getTipoAlieno()->isChecked()) &&
+                !(vistaLista->getTipoMostro()->isChecked())) {
 
+            vistaLista->getElenco()->clear();
+            modello->setPercorso(destinazione.toStdString());
+            modello->carica();
+
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+            while(val != valFin) {
+                vistaLista->getElenco()->inserisciAvatar(*val);
+                ++val;
+            }
+
+            mostraLista();
+        }
+    } else {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->carica();
+
+        if(vistaLista->getTipoElfo()->isChecked()) {
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+            while(val != valFin) {
+                if((*val)->getTipo()=="Elfo") {
+                    vistaLista->getElenco()->inserisciAvatar(*val);
+                    ++val;
+                }
+            }
+        } else if(vistaLista->getTipoNano()->isChecked()) {
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+            while(val != valFin) {
+                if((*val)->getTipo()=="Nano") {
+                    vistaLista->getElenco()->inserisciAvatar(*val);
+                    ++val;
+                }
+            }
+        } else if(vistaLista->getTipoUmano()->isChecked()) {
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+            while(val != valFin) {
+                if((*val)->getTipo()=="Umano") {
+                    vistaLista->getElenco()->inserisciAvatar(*val);
+                    ++val;
+                }
+            }
+        } else if(vistaLista->getTipoAlieno()->isChecked()) {
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+            while(val != valFin) {
+                if((*val)->getTipo()=="Alieno") {
+                    vistaLista->getElenco()->inserisciAvatar(*val);
+                    ++val;
+                }
+            }
+        } else if(vistaLista->getTipoMostro()->isChecked()) {
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+            while(val != valFin) {
+                if((*val)->getTipo()=="Mostro") {
+                    vistaLista->getElenco()->inserisciAvatar(*val);
+                    ++val;
+                }
+            }
+        }
+    }
 }
 
 void Controller::salva()

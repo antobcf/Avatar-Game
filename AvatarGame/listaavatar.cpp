@@ -101,3 +101,28 @@ item *ListaAvatar::getElenco() const
 {
     return elenco;
 }
+
+QCheckBox *ListaAvatar::getTipoElfo() const
+{
+    return tipoElfo;
+}
+
+QCheckBox *ListaAvatar::getTipoNano() const
+{
+    return tipoNano;
+}
+
+QCheckBox *ListaAvatar::getTipoUmano() const
+{
+    return tipoUmano;
+}
+
+QCheckBox *ListaAvatar::getTipoAlieno() const
+{
+    return tipoAlieno;
+}
+
+QCheckBox *ListaAvatar::getTipoMostro() const
+{
+    return tipoMostro;
+}

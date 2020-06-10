@@ -26,8 +26,8 @@ public:
     Container<Avatar*>* getLista() const;
     Container<Avatar*>::iteratore begin();
     Container<Avatar*>::iteratore end();
-    Container<Avatar*>::iteratoreConst begin() const;
-    Container<Avatar*>::iteratoreConst end() const;
+    Container<Avatar*>::iteratoreConst beginConst() const;
+    Container<Avatar*>::iteratoreConst endConst() const;
 
 };
 

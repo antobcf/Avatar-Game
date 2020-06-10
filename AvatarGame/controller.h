@@ -25,15 +25,13 @@ private:
     ListaAvatar* vistaLista;
     ModificaAvatar* vistaModifica;
     Scontro* vistaScontro;
-    Modello* modello; //capire a cosa serve
+    Modello* modello;
     QString destinazione;
 
 public:
     Controller(Modello *, QWidget *parent = nullptr);
     ~Controller();
-    Modello *getModello(); //ci servirà per i metodi di caricamento e salvataggio in Modello
-
-
+    Modello *getModello();
 public slots:
     void mostraHome();
     void mostraCrea();

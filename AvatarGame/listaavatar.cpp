@@ -47,6 +47,8 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     elenco->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     elenco->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    connect(elenco,SIGNAL(itemSelectionChanged()),this,SLOT(avatarSelezionato()));
+
     formLista->addRow("Cerca:", cercaNome);
     layoutDx->addLayout(formLista);
     layoutDx->addLayout(layoutCheckBox);
@@ -62,9 +64,9 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
     bottoneInfoLista->setFixedSize(25,25);
 
-    //bottoneModifica->setEnabled(false);
+    bottoneModifica->setEnabled(false);
     bottoneRimuovi->setEnabled(false);
-    //bottoneAvvioGioco->setEnabled(false);
+    bottoneAvvioGioco->setEnabled(false);
 }
 
 QFormLayout *ListaAvatar::getFormLista() const
@@ -125,4 +127,11 @@ QCheckBox *ListaAvatar::getTipoAlieno() const
 QCheckBox *ListaAvatar::getTipoMostro() const
 {
     return tipoMostro;
+}
+
+void ListaAvatar::avatarSelezionato() const
+{
+    bottoneModifica->setEnabled(true);
+    bottoneRimuovi->setEnabled(true);
+    bottoneAvvioGioco->setEnabled(true);
 }

@@ -19,8 +19,8 @@ private:
 public:
     Modello(std::string = ":/Risorse");
     ~Modello();
-    void salva();
-    void carica();
+    void salvare();
+    void caricare();
     void rimuovi(Avatar* =nullptr);
     void setPercorso(std::string);
     Container<Avatar*>* getLista() const;

@@ -8,7 +8,7 @@ Modello::~Modello()
     delete lista;
 }
 
-void Modello::salva()
+void Modello::salvare()
 {
     QSaveFile fileS(QString::fromStdString(percorso));
 
@@ -31,14 +31,14 @@ void Modello::salva()
         reader.writeEmptyElement(tipoAvatar);
         reader.writeAttribute("Nome", QString::fromStdString(salvaElemento->GetNome()));
         reader.writeAttribute("Descrizione", QString::fromStdString(salvaElemento->getDescrizione()));
-        reader.writeAttribute("Livello", QString("1%").arg(salvaElemento->GetLiv()));
-        reader.writeAttribute("Exp", QString("1%").arg(salvaElemento->GetExp()));
-        reader.writeAttribute("Forza", QString("1%").arg(salvaElemento->getForza()));
-        reader.writeAttribute("Magia", QString("1%").arg(salvaElemento->getMagia()));
-        reader.writeAttribute("Difesa", QString("1%").arg(salvaElemento->getDifesa()));
-        reader.writeAttribute("Scienza", QString("1%").arg(salvaElemento->getScienza()));
+        reader.writeAttribute("Livello", QString("%1").arg(salvaElemento->GetLiv()));
+        reader.writeAttribute("Exp", QString("%1").arg(salvaElemento->GetExp()));
+        reader.writeAttribute("Forza", QString("%1").arg(salvaElemento->getForza()));
+        reader.writeAttribute("Magia", QString("%1").arg(salvaElemento->getMagia()));
+        reader.writeAttribute("Difesa", QString("%1").arg(salvaElemento->getDifesa()));
+        reader.writeAttribute("Scienza", QString("%1").arg(salvaElemento->getScienza()));
         reader.writeAttribute("Sesso", salvaElemento->GetSesso() ? "true" : "false");
-        reader.writeAttribute("Media", QString("1%").arg(salvaElemento->getMedia())); //è un double quindio non so se vada bene
+        reader.writeAttribute("Media", QString("%1").arg(salvaElemento->getMedia())); //è un double quindio non so se vada bene
         reader.writeAttribute("Terreno", QString::fromStdString(salvaElemento->getTerreno()));
         if(tipo == "Terrestre") {
             const Terrestre* tipoTerrestre = static_cast<const Terrestre*>(salvaElemento);
@@ -48,13 +48,13 @@ void Modello::salva()
             reader.writeAttribute("Libro", tipoTerrestre->GetLibro() ? "true" : "false");
             if(tipoAvatar == "Elfo") {
                 const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre); //o salvaElemento??
-                reader.writeAttribute("Trasparentia", QString("1%").arg(tipoElfo->GetTrasparentia()));
+                reader.writeAttribute("Trasparentia", QString("%1").arg(tipoElfo->GetTrasparentia()));
             } else if(tipoAvatar == "Nano") {
                 const Nano* tipoNano = static_cast<const Nano*>(tipoTerrestre);
-                reader.writeAttribute("Corteccia", QString("1%").arg(tipoNano->GetCorteccia()));
+                reader.writeAttribute("Corteccia", QString("%1").arg(tipoNano->GetCorteccia()));
             } else if(tipoAvatar == "Umano") {
                 const Umano* tipoUmano = static_cast<const Umano*>(tipoTerrestre);
-                reader.writeAttribute("Ingegno scientifico", QString("1%").arg(tipoUmano->GetIngegno()));
+                reader.writeAttribute("Ingegno scientifico", QString("%1").arg(tipoUmano->GetIngegno()));
             }
         } else if (tipo == "Non terrestre") {
             const NOTerrestre* tipoNoTerrestre = static_cast<const NOTerrestre*>(salvaElemento);
@@ -64,10 +64,10 @@ void Modello::salva()
             reader.writeAttribute("Chip", tipoNoTerrestre->GetChip() ? "true" : "false");
             if(tipoAvatar == "Alieno") {
                 const Alieno* tipoAlieno = static_cast<const Alieno*>(tipoNoTerrestre);
-                reader.writeAttribute("Ufo", QString("1%").arg(tipoAlieno->GetUfo()));
+                reader.writeAttribute("Ufo", QString("%1").arg(tipoAlieno->GetUfo()));
             } else if(tipoAvatar == "Mostro") {
                 const Mostro* tipoMostro = static_cast<const Mostro*>(tipoNoTerrestre);
-                reader.writeAttribute("Porta demoniaca", QString("1%").arg(tipoMostro->GetPorta()));
+                reader.writeAttribute("Porta demoniaca", QString("%1").arg(tipoMostro->GetPorta()));
             }
         }
 
@@ -81,7 +81,7 @@ void Modello::salva()
 
 }
 
-void Modello::carica()
+void Modello::caricare()
 {
     QFile fileC(QString::fromStdString(percorso));
 

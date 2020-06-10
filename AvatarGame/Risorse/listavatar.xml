@@ -2,5 +2,5 @@
 <!--!!!Non commentare il documento!!!-->
 <start>
     <Terrestre/>
-    <Elfo Nome="Prova" Descrizione="Prova" Livello="1%" Exp="1%" Forza="1%" Magia="1%" Difesa="1%" Scienza="1%" Sesso="true" Media="1%" Terreno="Regno incantato" Scudo="true" Spada="true" Anello="false" Libro="false" Trasparentia="1%"/>
+    <Elfo Nome="xzfczx" Descrizione="" Livello="0" Exp="0" Forza="6" Magia="10" Difesa="16" Scienza="5" Sesso="true" Media="9.3" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="true" Libro="false" Trasparentia="0"/>
 </start>

@@ -24,6 +24,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaModifica->hide();
     vistaScontro->hide();
     setLayout(layoutPrincipale);
+    carica();
 
     //CONNECT HOME
     connect(vistaHome->getBottoneCrea(),SIGNAL(clicked()),this,SLOT(mostraCrea()));
@@ -61,6 +62,7 @@ void Controller::mostraHome()
     vistaLista->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+
 }
 
 void Controller::mostraCrea() {
@@ -79,6 +81,7 @@ void Controller::mostraLista() {
     vistaCrea->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+
 }
 
 void Controller::mostraModifica() {
@@ -115,7 +118,7 @@ void Controller::infoPopLista()
 void Controller::inserisciAvatar()
 {
     std::string nome = vistaCrea->getInserisciNome()->text().toStdString();
-    std::string descrizione = vistaCrea->getInserisciNome()->text().toStdString();
+    std::string descrizione = vistaCrea->getBoxDescrizione()->toPlainText().toStdString();
     unsigned int lvl = vistaCrea->getLvl()->text().toUInt();
     unsigned int exp = vistaCrea->getExp()->text().toUInt();
     unsigned int forza = vistaCrea->getValoreForza()->text().toUInt();
@@ -132,8 +135,9 @@ void Controller::inserisciAvatar()
     if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked()))) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
     } else {
+        int index = vistaCrea->getSceltaTipo()->currentIndex();
 
-        if(vistaCrea->getSceltaTipo()->currentIndex() == 0 || 1 || 2) {
+        if(index == 0 || index == 1 || index == 2) {
             bool scudo;
             check = vistaCrea->getPowerUp1()->isChecked();
             if(check == 1) scudo = true;
@@ -154,36 +158,36 @@ void Controller::inserisciAvatar()
             if(check == 1) libro = true;
             else libro = false;
 
-            if(vistaCrea->getSceltaTipo()->currentIndex() == 0) {
+            if(index == 0) {
                 unsigned int trasparentia = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, trasparentia);
                 modello->getLista()->inserisci(personaggio);
-                modello->salva();
+                modello->salvare();
                 carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
-            } else if(vistaCrea->getSceltaTipo()->currentIndex() == 1) {
+            } else if(index == 1) {
                 unsigned int corteccia = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, corteccia);
                 modello->getLista()->inserisci(personaggio);
-                modello->salva();
+                modello->salvare();
                 carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
-            } else if(vistaCrea->getSceltaTipo()->currentIndex() == 2) {
+            } else if(index == 2) {
                 unsigned int ingegnoScientifico = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegnoScientifico);
                 modello->getLista()->inserisci(personaggio);
-                modello->salva();
+                modello->salvare();
                 carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
             }
 
-        } else if (vistaCrea->getSceltaTipo()->currentIndex() == 3 || 4) {
+        } else if (index == 3 || index == 4) {
             bool barriera;
             check = vistaCrea->getPowerUp5()->isChecked();
             if(check == 1) barriera = true;
@@ -204,20 +208,20 @@ void Controller::inserisciAvatar()
             if(check == 1) chip = true;
             else chip = false;
 
-            if(vistaCrea->getSceltaTipo()->currentIndex() == 3) {
+            if(index == 3) {
                 unsigned int ufo = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Alieno* personaggio = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, ufo);
                 modello->getLista()->inserisci(personaggio);
-                modello->salva();
+                modello->salvare();
                 carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
-            } else if(vistaCrea->getSceltaTipo()->currentIndex() == 4) {
+            } else if(index == 4) {
                 unsigned int portaDemoniaca = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, portaDemoniaca);
                 modello->getLista()->inserisci(personaggio);
-                modello->salva();
+                modello->salvare();
                 carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
@@ -257,7 +261,7 @@ void Controller::carica()
 
             vistaLista->getElenco()->clear();
             modello->setPercorso(destinazione.toStdString());
-            modello->carica();
+            modello->caricare();
 
             Container<Avatar*>::iteratoreConst val = modello->beginConst();
             Container<Avatar*>::iteratoreConst valFin = modello->endConst();
@@ -267,12 +271,12 @@ void Controller::carica()
                 ++val;
             }
 
-            mostraLista();
+
         }
     } else {
         vistaLista->getElenco()->clear();
         modello->setPercorso(destinazione.toStdString());
-        modello->carica();
+        modello->caricare();
 
         if(vistaLista->getTipoElfo()->isChecked()) {
             Container<Avatar*>::iteratoreConst val = modello->beginConst();

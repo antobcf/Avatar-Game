@@ -85,7 +85,7 @@ double Avatar::setMedia()
 
 std::string Avatar::datiAvatar()
 {
-    return ("Tipo Avatar: "+getTipo()).append("   Sesso: ").append(GetSesso() ? "Maschio" : "Femmina")
+    return ("Tipo Avatar: "+getTipo()).append("   Nome: "+GetNome()).append("   Sesso: ").append(GetSesso() ? "Maschio" : "Femmina")
             .append("\nForza: "+std::to_string(getForza())).append("   Magia: "+std::to_string(getMagia()))
             .append("\nDifesa: "+std::to_string(getDifesa())).append("   Scienza: "+std::to_string(getScienza()))
             .append("\nMedia: "+std::to_string(getMedia())).append("   Lvl: "+std::to_string(GetLiv()))

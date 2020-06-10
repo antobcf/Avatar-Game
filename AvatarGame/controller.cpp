@@ -129,7 +129,7 @@ void Controller::inserisciAvatar()
     if(check == 1) sesso = true;
     else sesso = false;
 
-    if(nome == "" || (sesso != 0 && sesso != 1)) {
+    if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked()))) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
     } else {
 
@@ -159,7 +159,7 @@ void Controller::inserisciAvatar()
                 Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, trasparentia);
                 modello->getLista()->insert(personaggio);
                 modello->salva();
-                //carica();
+                carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
@@ -168,7 +168,7 @@ void Controller::inserisciAvatar()
                 Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, corteccia);
                 modello->getLista()->insert(personaggio);
                 modello->salva();
-                //carica();
+                carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
@@ -177,7 +177,7 @@ void Controller::inserisciAvatar()
                 Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegnoScientifico);
                 modello->getLista()->insert(personaggio);
                 modello->salva();
-                //carica();
+                carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
@@ -209,7 +209,7 @@ void Controller::inserisciAvatar()
                 Alieno* personaggio = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, ufo);
                 modello->getLista()->insert(personaggio);
                 modello->salva();
-                //carica();
+                carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
@@ -218,7 +218,7 @@ void Controller::inserisciAvatar()
                 Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, portaDemoniaca);
                 modello->getLista()->insert(personaggio);
                 modello->salva();
-                //carica();
+                carica();
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
@@ -245,7 +245,7 @@ void Controller::ricercaAvatar()
 void Controller::caricaDb()
 {
     destinazione = QFileDialog::getOpenFileName(this, "Scegli file", ":Risorse", "File XML(*.xml)");
-    //carica();
+    carica();
 }
 
 void Controller::carica()

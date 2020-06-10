@@ -22,8 +22,8 @@ void Modello::salva()
     reader.writeComment("!!!Non commentare il documento!!!");
     reader.writeStartElement("start");
 
-    auto it = begin();
-    while(it != end()) {
+    auto it = beginConst();
+    while(it != endConst()) {
         const Avatar* salvaElemento = *it;
         const QString tipo = QString::fromStdString(salvaElemento->getTerrNon());
         const QString tipoAvatar = QString::fromStdString(salvaElemento->getTipo());
@@ -83,7 +83,7 @@ void Modello::salva()
 
 void Modello::carica()
 {
-    QSaveFile fileC(QString::fromStdString(percorso));
+    QFile fileC(QString::fromStdString(percorso));
 
     if(!fileC.open(QIODevice::ReadOnly)) {
         qWarning() << "Apertura file fallita !!!"<<fileC.errorString();

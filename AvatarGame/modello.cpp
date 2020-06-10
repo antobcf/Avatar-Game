@@ -27,7 +27,6 @@ void Modello::salvare()
         const Avatar* salvaElemento = *it;
         const QString tipo = QString::fromStdString(salvaElemento->getTerrNon());
         const QString tipoAvatar = QString::fromStdString(salvaElemento->getTipo());
-        reader.writeEmptyElement(tipo);
         reader.writeEmptyElement(tipoAvatar);
         reader.writeAttribute("Nome", QString::fromStdString(salvaElemento->GetNome()));
         reader.writeAttribute("Descrizione", QString::fromStdString(salvaElemento->getDescrizione()));
@@ -110,7 +109,7 @@ void Modello::caricare()
 
                 Avatar* inserire = nullptr;
 
-                if(reader.name() == "Terrestre") {
+                if(reader.name() == "Elfo" || reader.name() == "Nano" || reader.name() == "Umano") {
                     bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
                     bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
                     bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
@@ -125,7 +124,7 @@ void Modello::caricare()
                         unsigned int ingegno = newAttributo.hasAttribute("Ingegno scientifico") ? newAttributo.value("Ingegno scientifico").toUInt() : 0;
                         inserire = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegno);
                     }
-                } else if(reader.name() == "Non terrestre") {
+                } else if(reader.name() == "Alieno" || reader.name() == "Mostro") {
                     bool barriera = newAttributo.hasAttribute("Barriera") ? newAttributo.value("Barriera").toString() == "true" ? true : false : false;
                     bool laser = newAttributo.hasAttribute("Laser") ? newAttributo.value("Laser").toString() == "true" ? true : false : false;
                     bool amuleto = newAttributo.hasAttribute("Amuleto") ? newAttributo.value("Amuleto").toString() == "true" ? true : false : false;

@@ -270,8 +270,6 @@ void Controller::carica()
                 vistaLista->getElenco()->inserisciAvatar(*val);
                 ++val;
             }
-
-
         }
     } else {
         vistaLista->getElenco()->clear();

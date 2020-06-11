@@ -66,7 +66,7 @@ void Modello::salvare()
                 reader.writeAttribute("Ufo", QString("%1").arg(tipoAlieno->GetUfo()));
             } else if(tipoAvatar == "Mostro") {
                 const Mostro* tipoMostro = static_cast<const Mostro*>(tipoNoTerrestre);
-                reader.writeAttribute("Porta demoniaca", QString("%1").arg(tipoMostro->GetPorta()));
+                reader.writeAttribute("Portademoniaca", QString("%1").arg(tipoMostro->GetPorta())); //con lo spazio tra porta e demoniaca non funziona
             }
         }
 
@@ -157,7 +157,7 @@ void Modello::caricare()
                     bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
                     bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
                     bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
-                    unsigned int ingegno = newAttributo.hasAttribute("Ingegno scientifico") ? newAttributo.value("Ingegno scientifico").toUInt() : 0;
+                    unsigned int ingegno = newAttributo.hasAttribute("Ingegnoscientifico") ? newAttributo.value("Ingegnoscientifico").toUInt() : 0; //qui invece avere lo spazio non conta nulla
                     inserire = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegno);
                 } else if(reader.name() == "Alieno") {
                     bool barriera = newAttributo.hasAttribute("Barriera") ? newAttributo.value("Barriera").toString() == "true" ? true : false : false;
@@ -171,7 +171,7 @@ void Modello::caricare()
                     bool laser = newAttributo.hasAttribute("Laser") ? newAttributo.value("Laser").toString() == "true" ? true : false : false;
                     bool amuleto = newAttributo.hasAttribute("Amuleto") ? newAttributo.value("Amuleto").toString() == "true" ? true : false : false;
                     bool chip = newAttributo.hasAttribute("Chip") ? newAttributo.value("Chip").toString() == "true" ? true : false : false;
-                    unsigned int porta = newAttributo.hasAttribute("Porta demoniaca") ? newAttributo.value("Porta demoniaca").toUInt() : 0;
+                    unsigned int porta = newAttributo.hasAttribute("Portademoniaca") ? newAttributo.value("Portademoniaca").toUInt() : 0;
                     inserire = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, porta);
                 }
 

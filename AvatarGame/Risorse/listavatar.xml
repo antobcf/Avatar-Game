@@ -18,6 +18,7 @@
     <Umano Nome="fgfdgsdf" Descrizione="dggfgdfg" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="8" Sesso="true" Media="6.5" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="true" Libro="false" Ingegnoscientifico="0"/>
     <Umano Nome="provca" Descrizione="asdasdqwert" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="13" Sesso="false" Media="7.8" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="true" Libro="true" Ingegnoscientifico="0"/>
     <Umano Nome="salsiccia" Descrizione="" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="8" Scienza="8" Sesso="false" Media="6" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="false" Libro="false" Ingegnoscientifico="0"/>
-    <Mostro Nome="1" Descrizione="" Livello="0" Exp="0" Forza="10" Magia="0" Difesa="5" Scienza="18" Sesso="true" Media="8.3" Terreno="Regno dei demoni" Barriera="false" Laser="false" Amuleto="false" Chip="true" Portademoniaca="0"/>
+    <Mostro Nome="1" Descrizione="" Livello="0" Exp="0" Forza="10" Magia="0" Difesa="5" Scienza="18" Sesso="true" Media="8.3" Terreno="Regno dei demoni" Barriera="false" Laser="false" Amuleto="false" Chip="true" Porta demoniaca="0"/>
     <Umano Nome="fdfd" Descrizione="" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="8" Sesso="true" Media="6.5" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="true" Libro="false" Ingegnoscientifico="0"/>
+    <Mostro Nome="g" Descrizione="gg" Livello="0" Exp="0" Forza="10" Magia="0" Difesa="13" Scienza="9" Sesso="true" Media="8" Terreno="Regno dei demoni" Barriera="false" Laser="false" Amuleto="true" Chip="false" Porta demoniaca="0"/>
 </start>

@@ -53,7 +53,7 @@ void Modello::salvare()
                 reader.writeAttribute("Corteccia", QString("%1").arg(tipoNano->GetCorteccia()));
             } else if(tipoAvatar == "Umano") {
                 const Umano* tipoUmano = static_cast<const Umano*>(tipoTerrestre);
-                reader.writeAttribute("Ingegno scientifico", QString("%1").arg(tipoUmano->GetIngegno()));
+                reader.writeAttribute("Ingegnoscientifico", QString("%1").arg(tipoUmano->GetIngegno()));
             }
         } else if (tipo == "Non terrestre") {
             const NOTerrestre* tipoNoTerrestre = static_cast<const NOTerrestre*>(salvaElemento);

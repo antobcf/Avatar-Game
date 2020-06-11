@@ -13,7 +13,7 @@ private:
     QWidget* parent;
 public:
     item(QWidget* = nullptr);
-    void inserisciAvatar(Avatar*);
+    void insertAvatar(Avatar*);
     ElencoAvatar* itemAttuale() const;
 };
 

@@ -3,11 +3,11 @@
 
 item::item(QWidget* p) : parent(p)
 {
-    setIconSize(QSize(100,100));
+    //setIconSize(QSize(100,100));
     addScrollBarWidget(new QScrollBar(Qt::Orientation::Vertical, parent), Qt::AlignRight);
 }
 
-void item::inserisciAvatar(Avatar* avatar)
+void item::insertAvatar(Avatar* avatar)
 {
     ElencoAvatar* oggetto = new ElencoAvatar(parent, avatar);
     addItem(oggetto);

@@ -109,7 +109,7 @@ void Modello::caricare()
 
                 Avatar* inserire = nullptr;
 
-                if(reader.name() == "Elfo" || reader.name() == "Nano" || reader.name() == "Umano") {
+                /*if(reader.name() == "Elfo" || reader.name() == "Nano" || reader.name() == "Umano") {
                     bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
                     bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
                     bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
@@ -136,6 +136,43 @@ void Modello::caricare()
                         unsigned int porta = newAttributo.hasAttribute("Porta demoniaca") ? newAttributo.value("Porta demoniaca").toUInt() : 0;
                         inserire = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, porta);
                     }
+                }*/
+
+                if(reader.name() == "Elfo") {
+                    bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
+                    bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
+                    bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
+                    bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
+                    unsigned int trasparentia = newAttributo.hasAttribute("Trasparentia") ? newAttributo.value("Trasparentia").toUInt() : 0;
+                    inserire = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, trasparentia);
+                } else if(reader.name() == "Nano") {
+                    bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
+                    bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
+                    bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
+                    bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
+                    unsigned int corteccia = newAttributo.hasAttribute("Corteccia") ? newAttributo.value("Corteccia").toUInt() : 0;
+                    inserire = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, corteccia);
+                } else if(reader.name() == "Umano") {
+                    bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
+                    bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
+                    bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
+                    bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
+                    unsigned int ingegno = newAttributo.hasAttribute("Ingegno scientifico") ? newAttributo.value("Ingegno scientifico").toUInt() : 0;
+                    inserire = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegno);
+                } else if(reader.name() == "Alieno") {
+                    bool barriera = newAttributo.hasAttribute("Barriera") ? newAttributo.value("Barriera").toString() == "true" ? true : false : false;
+                    bool laser = newAttributo.hasAttribute("Laser") ? newAttributo.value("Laser").toString() == "true" ? true : false : false;
+                    bool amuleto = newAttributo.hasAttribute("Amuleto") ? newAttributo.value("Amuleto").toString() == "true" ? true : false : false;
+                    bool chip = newAttributo.hasAttribute("Chip") ? newAttributo.value("Chip").toString() == "true" ? true : false : false;
+                    unsigned int ufo = newAttributo.hasAttribute("Ufo") ? newAttributo.value("Ufo").toUInt() : 0;
+                    inserire = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, ufo);
+                } else if(reader.name() == "Mostro") {
+                    bool barriera = newAttributo.hasAttribute("Barriera") ? newAttributo.value("Barriera").toString() == "true" ? true : false : false;
+                    bool laser = newAttributo.hasAttribute("Laser") ? newAttributo.value("Laser").toString() == "true" ? true : false : false;
+                    bool amuleto = newAttributo.hasAttribute("Amuleto") ? newAttributo.value("Amuleto").toString() == "true" ? true : false : false;
+                    bool chip = newAttributo.hasAttribute("Chip") ? newAttributo.value("Chip").toString() == "true" ? true : false : false;
+                    unsigned int porta = newAttributo.hasAttribute("Porta demoniaca") ? newAttributo.value("Porta demoniaca").toUInt() : 0;
+                    inserire = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, porta);
                 }
 
                 if(inserire!=nullptr) {

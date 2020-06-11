@@ -267,62 +267,71 @@ void Controller::carica()
             Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
             while(val != valFin) {
-                vistaLista->getElenco()->inserisciAvatar(*val);
+                vistaLista->getElenco()->insertAvatar(*val);
                 ++val;
             }
         }
-    } else {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
+         else {
+            vistaLista->getElenco()->clear();
+            modello->setPercorso(destinazione.toStdString());
+            modello->caricare();
 
-        if(vistaLista->getTipoElfo()->isChecked()) {
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+            if(vistaLista->getTipoElfo()->isChecked()) {
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
-            while(val != valFin) {
-                if((*val)->getTipo()=="Elfo") {
-                    vistaLista->getElenco()->inserisciAvatar(*val);
+                while(val != valFin) {
+                    if((*val)->getTipo()=="Elfo") {
+                        vistaLista->getElenco()->insertAvatar(*val);
+                    }
                     ++val;
                 }
             }
-        } else if(vistaLista->getTipoNano()->isChecked()) {
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
-            while(val != valFin) {
-                if((*val)->getTipo()=="Nano") {
-                    vistaLista->getElenco()->inserisciAvatar(*val);
+            if(vistaLista->getTipoNano()->isChecked()) {
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+                while(val != valFin) {
+                    if((*val)->getTipo()=="Nano") {
+                        vistaLista->getElenco()->insertAvatar(*val);
+                    }
                     ++val;
                 }
             }
-        } else if(vistaLista->getTipoUmano()->isChecked()) {
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
-            while(val != valFin) {
-                if((*val)->getTipo()=="Umano") {
-                    vistaLista->getElenco()->inserisciAvatar(*val);
+            if(vistaLista->getTipoUmano()->isChecked()) {
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+                while(val != valFin) {
+                    if((*val)->getTipo()=="Umano") {
+                        vistaLista->getElenco()->insertAvatar(*val);
+                    }
                     ++val;
                 }
             }
-        } else if(vistaLista->getTipoAlieno()->isChecked()) {
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
-            while(val != valFin) {
-                if((*val)->getTipo()=="Alieno") {
-                    vistaLista->getElenco()->inserisciAvatar(*val);
+            if(vistaLista->getTipoAlieno()->isChecked()) {
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+                while(val != valFin) {
+                    if((*val)->getTipo()=="Alieno") {
+                        vistaLista->getElenco()->insertAvatar(*val);
+                    }
                     ++val;
                 }
             }
-        } else if(vistaLista->getTipoMostro()->isChecked()) {
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
-            while(val != valFin) {
-                if((*val)->getTipo()=="Mostro") {
-                    vistaLista->getElenco()->inserisciAvatar(*val);
+            if(vistaLista->getTipoMostro()->isChecked()) {
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+                while(val != valFin) {
+                    if((*val)->getTipo()=="Mostro") {
+                        vistaLista->getElenco()->insertAvatar(*val);
+                    }
                     ++val;
                 }
             }

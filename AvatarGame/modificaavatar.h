@@ -1,7 +1,7 @@
 #ifndef MODIFICAAVATAR_H
 #define MODIFICAAVATAR_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -15,7 +15,7 @@
 #include <QFormLayout>
 #include <QRadioButton>
 
-class ModificaAvatar : public QWidget
+class ModificaAvatar : public QDialog
 {
     Q_OBJECT
 private:

@@ -41,20 +41,24 @@ private:
 
 public:
     ListaAvatar(QWidget * = nullptr);
-    QFormLayout* getFormLista() const;
     QPushButton* getBottoneHome() const;
-    QPushButton* getBottoneModifica() const;
-    QPushButton* getBottoneGioca() const;
+    QLabel* getOrdinaLista() const;
+    QPushButton* getOrdinaNome() const;
+    QPushButton* getOrdinaLivello() const;
+    QPushButton* getOrdinaMedia() const;
+    QFormLayout* getFormLista() const;
     QLineEdit* getCercaNome() const;
-    QPushButton* getBottoneInfoLista() const;
-    item* getElenco() const;
     QCheckBox* getTipoElfo() const;
     QCheckBox* getTipoNano() const;
     QCheckBox* getTipoUmano() const;
     QCheckBox* getTipoAlieno() const;
     QCheckBox* getTipoMostro() const;
-
-    //mancano tutti i get!!!
+    QPushButton* getBottoneModifica() const;
+    QPushButton* getBottoneRimuovi() const;
+    QPushButton* getBottoneRimuoviTutto() const;
+    QPushButton* getBottoneGioca() const;
+    QPushButton* getBottoneInfoLista() const;
+    item* getElenco() const;
 
 
 public slots:

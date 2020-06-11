@@ -1,6 +1,7 @@
 release/controller.o
 release/creaavatar.o
 release/elencoavatar.o
+release/finescontro.o
 release/gerarchia.o
 release/item.o
 release/listaavatar.o
@@ -13,6 +14,7 @@ release/scontro.o
 release/moc_avatarhome.o
 release/moc_controller.o
 release/moc_creaavatar.o
+release/moc_finescontro.o
 release/moc_item.o
 release/moc_listaavatar.o
 release/moc_menu.o

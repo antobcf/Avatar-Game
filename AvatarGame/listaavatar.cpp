@@ -69,39 +69,39 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneAvvioGioco->setEnabled(false);
 }
 
-QFormLayout *ListaAvatar::getFormLista() const
-{
-    return formLista;
-}
-
 QPushButton *ListaAvatar::getBottoneHome() const
 {
     return bottoneHome;
 }
 
-QPushButton *ListaAvatar::getBottoneModifica() const
+QLabel *ListaAvatar::getOrdinaLista() const
 {
-   return bottoneModifica;
+    return ordinaLista;
 }
 
-QPushButton *ListaAvatar::getBottoneGioca() const
+QPushButton *ListaAvatar::getOrdinaNome() const
 {
-    return bottoneAvvioGioco;
+    return ordinaNome;
+}
+
+QPushButton *ListaAvatar::getOrdinaLivello() const
+{
+    return ordinaLivello;
+}
+
+QPushButton *ListaAvatar::getOrdinaMedia() const
+{
+    return ordinaMedia;
+}
+
+QFormLayout *ListaAvatar::getFormLista() const
+{
+    return formLista;
 }
 
 QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;
-}
-
-QPushButton *ListaAvatar::getBottoneInfoLista() const
-{
-    return bottoneInfoLista;
-}
-
-item *ListaAvatar::getElenco() const
-{
-    return elenco;
 }
 
 QCheckBox *ListaAvatar::getTipoElfo() const
@@ -127,6 +127,36 @@ QCheckBox *ListaAvatar::getTipoAlieno() const
 QCheckBox *ListaAvatar::getTipoMostro() const
 {
     return tipoMostro;
+}
+
+QPushButton *ListaAvatar::getBottoneModifica() const
+{
+   return bottoneModifica;
+}
+
+QPushButton *ListaAvatar::getBottoneRimuovi() const
+{
+   return bottoneRimuovi;
+}
+
+QPushButton *ListaAvatar::getBottoneRimuoviTutto() const
+{
+   return bottoneRimuoviTutto;
+}
+
+QPushButton *ListaAvatar::getBottoneGioca() const
+{
+    return bottoneAvvioGioco;
+}
+
+QPushButton *ListaAvatar::getBottoneInfoLista() const
+{
+    return bottoneInfoLista;
+}
+
+item *ListaAvatar::getElenco() const
+{
+    return elenco;
 }
 
 void ListaAvatar::avatarSelezionato() const

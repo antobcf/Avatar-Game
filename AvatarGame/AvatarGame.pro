@@ -19,6 +19,7 @@ SOURCES += \
     controller.cpp \
     creaavatar.cpp \
     elencoavatar.cpp \
+    finescontro.cpp \
     gerarchia.cpp \
     item.cpp \
     listaavatar.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     controller.h \
     creaavatar.h \
     elencoavatar.h \
+    finescontro.h \
     gerarchia.h \
     item.h \
     listaavatar.h \

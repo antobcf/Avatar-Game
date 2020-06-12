@@ -132,6 +132,12 @@ void Controller::inserisciAvatar()
     if(check == 1) sesso = true;
     else sesso = false;
 
+    /*
+    if ((vistaCrea->getInserisciNome()->text().toStdString())==.......){
+        QMessageBox::warning(this, "Errore", "Il nome è uguale ad un altro");
+    }
+     */
+
     if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked()))) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
     } else {

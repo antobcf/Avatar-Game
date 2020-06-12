@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--!!!Non commentare il documento!!!-->
 <start>
-    <Elfo Nome="h" Descrizione="" Livello="0" Exp="0" Forza="6" Magia="10" Difesa="6" Scienza="5" Sesso="true" Media="6.8" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="false" Libro="false" Trasparentia="0"/>
-    <Elfo Nome="asd" Descrizione="" Livello="0" Exp="0" Forza="6" Magia="10" Difesa="16" Scienza="5" Sesso="true" Media="9.3" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="true" Libro="false" Trasparentia="0"/>
-    <Elfo Nome="asd" Descrizione="dsadsad" Livello="0" Exp="0" Forza="6" Magia="16" Difesa="6" Scienza="5" Sesso="true" Media="8.3" Terreno="Regno incantato" Scudo="false" Spada="true" Anello="false" Libro="false" Trasparentia="0"/>
-    <Elfo Nome="f" Descrizione="f" Livello="0" Exp="0" Forza="6" Magia="16" Difesa="6" Scienza="5" Sesso="true" Media="8.3" Terreno="Regno incantato" Scudo="false" Spada="true" Anello="false" Libro="false" Trasparentia="0"/>
-    <Elfo Nome="dfgdsa" Descrizione="fdfsfs" Livello="0" Exp="0" Forza="6" Magia="10" Difesa="6" Scienza="5" Sesso="true" Media="6.8" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="false" Libro="false" Trasparentia="0"/>
-    <Alieno Nome="reteter" Descrizione="" Livello="0" Exp="0" Forza="3" Magia="10" Difesa="0" Scienza="7" Sesso="true" Media="5" Terreno="Regno dello spazio" Barriera="false" Laser="false" Amuleto="false" Chip="false" Ufo="0"/>
-    <Alieno Nome="ss" Descrizione="sss" Livello="0" Exp="0" Forza="3" Magia="16" Difesa="0" Scienza="7" Sesso="true" Media="6.5" Terreno="Regno dello spazio" Barriera="false" Laser="true" Amuleto="false" Chip="false" Ufo="0"/>
-    <Nano Nome="axax" Descrizione="xzxz" Livello="0" Exp="0" Forza="7" Magia="8" Difesa="10" Scienza="6" Sesso="true" Media="7.8" Terreno="Regno del sottosuolo" Scudo="false" Spada="true" Anello="false" Libro="false" Corteccia="0"/>
-    <Alieno Nome="sdsdsds" Descrizione="" Livello="0" Exp="0" Forza="3" Magia="16" Difesa="0" Scienza="7" Sesso="true" Media="6.5" Terreno="Regno dello spazio" Barriera="false" Laser="true" Amuleto="false" Chip="false" Ufo="0"/>
-    <Elfo Nome="sadasdasd" Descrizione="ada" Livello="0" Exp="0" Forza="6" Magia="16" Difesa="6" Scienza="5" Sesso="true" Media="8.3" Terreno="Regno incantato" Scudo="false" Spada="true" Anello="false" Libro="false" Trasparentia="0"/>
-    <Nano Nome="a" Descrizione="" Livello="0" Exp="0" Forza="7" Magia="2" Difesa="20" Scienza="6" Sesso="true" Media="8.8" Terreno="Regno del sottosuolo" Scudo="false" Spada="false" Anello="true" Libro="false" Corteccia="0"/>
-    <Nano Nome="b" Descrizione="" Livello="0" Exp="0" Forza="7" Magia="8" Difesa="10" Scienza="6" Sesso="true" Media="7.8" Terreno="Regno del sottosuolo" Scudo="false" Spada="true" Anello="false" Libro="false" Corteccia="0"/>
-    <Umano Nome="fdgfdgdfgf" Descrizione="222" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="13" Sesso="true" Media="7.8" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="true" Libro="true" Ingegnoscientifico="0"/>
-    <Umano Nome="hh" Descrizione="hhh" Livello="0" Exp="0" Forza="5" Magia="9" Difesa="8" Scienza="8" Sesso="true" Media="7.5" Terreno="Regno delle macchine" Scudo="false" Spada="true" Anello="false" Libro="false" Ingegnoscientifico="0"/>
-    <Umano Nome="fgfdgsdf" Descrizione="dggfgdfg" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="8" Sesso="true" Media="6.5" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="true" Libro="false" Ingegnoscientifico="0"/>
-    <Umano Nome="provca" Descrizione="asdasdqwert" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="13" Sesso="false" Media="7.8" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="true" Libro="true" Ingegnoscientifico="0"/>
-    <Umano Nome="salsiccia" Descrizione="" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="8" Scienza="8" Sesso="false" Media="6" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="false" Libro="false" Ingegnoscientifico="0"/>
-    <Mostro Nome="1" Descrizione="" Livello="0" Exp="0" Forza="10" Magia="0" Difesa="5" Scienza="18" Sesso="true" Media="8.3" Terreno="Regno dei demoni" Barriera="false" Laser="false" Amuleto="false" Chip="true" Porta demoniaca="0"/>
-    <Umano Nome="fdfd" Descrizione="" Livello="0" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="8" Sesso="true" Media="6.5" Terreno="Regno delle macchine" Scudo="false" Spada="false" Anello="true" Libro="false" Ingegnoscientifico="0"/>
-    <Mostro Nome="g" Descrizione="gg" Livello="0" Exp="0" Forza="10" Magia="0" Difesa="13" Scienza="9" Sesso="true" Media="8" Terreno="Regno dei demoni" Barriera="false" Laser="false" Amuleto="true" Chip="false" Porta demoniaca="0"/>
+    <Elfo Nome="hghhh" Descrizione="" Livello="0" Exp="0" Forza="6" Magia="10" Difesa="6" Scienza="5" Sesso="true" Media="6.8" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="false" Libro="false" Trasparentia="0"/>
 </start>

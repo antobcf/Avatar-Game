@@ -45,6 +45,8 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getTipoUmano(),SIGNAL(clicked()),this,SLOT(carica()));
     connect(vistaLista->getTipoAlieno(),SIGNAL(clicked()),this,SLOT(carica()));
     connect(vistaLista->getTipoMostro(),SIGNAL(clicked()),this,SLOT(carica()));
+    connect(vistaLista->getBottoneRimuovi(),SIGNAL(clicked()),this,SLOT(rimuoviAvatar()));
+    connect(vistaLista->getBottoneRimuoviTutto(),SIGNAL(clicked()),this,SLOT(svuotaElenco()));
 
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -112,8 +114,6 @@ void Controller::infoPopLista()
 {
     QMessageBox::information(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
 }
-
-
 
 void Controller::inserisciAvatar()
 {
@@ -238,7 +238,28 @@ void Controller::modificaAvatar()
 
 void Controller::rimuoviAvatar()
 {
+    ElencoAvatar* aux = nullptr;
+    Avatar* item = nullptr;
 
+    if(vistaLista->getElenco()->itemAttuale() != nullptr) {
+        aux = vistaLista->getElenco()->itemAttuale();
+        item = aux->getItem();
+        modello->rimuovi(item);
+        modello->salvare();
+        carica();
+        QMessageBox::about(this, "Eliminazione completata", "L'avatar selezionato è stato eliminato dall'elenco");
+    }
+
+    vistaLista->getBottoneRimuovi()->setEnabled(false);
+    vistaLista->getBottoneModifica()->setEnabled(false);
+    vistaLista->getBottoneGioca()->setEnabled(false);
+}
+
+void Controller::svuotaElenco()
+{
+    modello->rimuoviTutto();
+    modello->salvare();
+    carica();
 }
 
 void Controller::ricercaAvatar()

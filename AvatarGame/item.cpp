@@ -1,6 +1,5 @@
 #include "item.h"
 
-
 item::item(QWidget* p) : parent(p)
 {
     //setIconSize(QSize(100,100));

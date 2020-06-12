@@ -214,14 +214,14 @@ void Container<T>::remove() {
 }
 
 template<class T>
-void Container<T>::removeElement(const T& s) {
+void Container<T>::removeElement(const T& t) {
     smartP p = primo; //lo uso per scorrere la lista
     smartP z; //punta al nodo precedente
     smartP prec = nullptr; //è il nodo precedente a p
     smartP o = primo; //mi salvo il valore originale in prima posizione
     primo = 0;
 
-    while(p!=0 && !((p.ptr)->info==s)) {
+    while(p!=0 && !((p.ptr)->info==t)) {
         z = new nodo((p.ptr)->info, (p.ptr)->prev, (p.ptr)->next);
 
         if((p.ptr)->prev == nullptr) //se ci troviamo nella posizione iniziale, allora q diventa primo perchè p diventerà il valore successivo
@@ -243,11 +243,11 @@ void Container<T>::removeElement(const T& s) {
         else {
             if(prec == nullptr) {//l'oggettto era nella prima posizione
                 primo=p.ptr->next;
-                (primo.ptr)->next = nullptr; //il primo non lo facciamo puntare a nulla cosi si rimuove dalla lista
+                (primo.ptr)->prev = nullptr; //il primo non lo facciamo puntare a nulla cosi si rimuove dalla lista
             } else {
                 if(p->next!=nullptr) {
                     (prec.ptr)->next=p.ptr->next;
-                    p.ptr->next->prev=prec;
+                    (p.ptr)->next->prev=prec;
                 } else {
                     (prec.ptr)->next= p.ptr->next; //cioe nullptr
                     ultimo = prec;

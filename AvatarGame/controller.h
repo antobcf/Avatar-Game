@@ -43,6 +43,7 @@ public slots:
     void inserisciAvatar();
     void modificaAvatar();
     void rimuoviAvatar();
+    void svuotaElenco();
     void ricercaAvatar();
     void caricaDb();
     void carica();

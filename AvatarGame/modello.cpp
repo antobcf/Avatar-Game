@@ -195,17 +195,7 @@ void Modello::rimuovi(Avatar* a)
     lista->removeElement(a);
 }
 
-void Modello::rimuoviTutto()
-{
-    Container<Avatar*>::iteratoreConst inizio = lista->beginC();
-    Container<Avatar*>::iteratoreConst fine = lista->endC();
 
-
-    while(inizio != fine) {
-         lista->removeElement(*inizio);
-         ++inizio;
-    }
-}
 
 void Modello::setPercorso(std::string p)
 {

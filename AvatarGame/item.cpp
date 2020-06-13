@@ -12,6 +12,7 @@ void item::insertAvatar(Avatar* avatar)
     addItem(oggetto);
 }
 
+
 ElencoAvatar *item::itemAttuale() const
 {
     return static_cast<ElencoAvatar*>(QListWidget::currentItem());

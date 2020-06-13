@@ -263,7 +263,9 @@ void Controller::rimuoviAvatar()
 
 void Controller::svuotaElenco()
 {
-
+    modello->rimuoviTutto();
+    modello->salvare();
+    carica();
 }
 
 void Controller::ricercaAvatar()

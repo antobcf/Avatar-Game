@@ -14,6 +14,8 @@
 #include <QImage>
 #include <QFormLayout>
 #include <QRadioButton>
+#include <QFileDialog>
+#include <QString>
 
 class ModificaAvatar : public QDialog
 {
@@ -29,7 +31,6 @@ private:
     QLabel* valoreMedia;
     QLabel* labelSesso;
     QLineEdit* inserisciNome;
-    QPushButton* bottoneHome;
     QPushButton* bottoneSalvaModifiche;
     QPushButton* resetCampi;
     QCheckBox* powerUp1;
@@ -43,9 +44,10 @@ private:
     QGroupBox* boxValori;
     QTextEdit* boxDescrizione;
     QComboBox* sceltaTipo;
-    QLabel* immagineAvatar;
+    QPushButton* modificaImmagine;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
+    QString pathImmagine;
 
 public:
     ModificaAvatar(QWidget * = nullptr);
@@ -77,6 +79,9 @@ public:
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
 
+    //inserisciPercorso(std::string);
+    QString getPath() const;
+
 public slots:
     void checkUno() const;
     void checkDue() const;
@@ -89,6 +94,8 @@ public slots:
     void groupTipo() const;
     void resetTutto() const;
     void resetCheck() const;
+
+    void cambiaImmagine();
 };
 
 #endif // MODIFICAAVATAR_H

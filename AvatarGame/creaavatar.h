@@ -46,9 +46,10 @@ private:
     QGroupBox* boxValori;
     QTextEdit* boxDescrizione;
     QComboBox* sceltaTipo;
-    QLabel* immagineAvatar;
+    QPushButton* inserisciImmagineButton;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
+    QString pathImmagine;
 
 public:
     CreaAvatar(QWidget * = nullptr);
@@ -83,6 +84,9 @@ public:
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
 
+    //void inserisciPercorso(std::string);
+    QString getPath() const;
+
 public slots:
     void checkUno() const;
     void checkDue() const;
@@ -96,6 +100,8 @@ public slots:
     void resetTutto() const;
     void resetCheck() const;
     void calcoloValori() const;
+
+    void inserisciImmagine();
 
 };
 

@@ -11,7 +11,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     valoreMedia(new QLabel(this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     inserisciNome(new QLineEdit(this)),
-    bottoneHome(new QPushButton("Home", this)),
     bottoneSalvaModifiche(new QPushButton("Salva modifiche", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
     powerUp1(new QCheckBox("Scudo", this)),
@@ -25,7 +24,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
     sceltaTipo(new QComboBox(this)),
-    immagineAvatar(new QLabel("inserire immagine qui", this)),
+    modificaImmagine(new QPushButton("Cambia Immagine")),
     sessoM(new QRadioButton("Maschio", this)),
     sessoF(new QRadioButton("Femmina", this))
 {
@@ -40,7 +39,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
-    layoutSx->addWidget(bottoneHome);
     layoutSx->addLayout(formCrea);
 
 
@@ -62,7 +60,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutPu->addWidget(powerUp8);
     layoutSx->addWidget(boxDescrizione);
     layoutSx->addWidget(bottoneSalvaModifiche);
-    layoutDx->addWidget(immagineAvatar);
+    layoutDx->addWidget(modificaImmagine);
     layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
     layoutValori->addWidget(valoreForza);
@@ -103,7 +101,25 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
+    connect(modificaImmagine,SIGNAL(clicked()),this,SLOT(cambiaImmagine()));
 
+}
+
+/*void ModificaAvatar::inserisciPercorso(std::string p){
+    pathImmagine = QString::fromStdString(p);
+    modificaImmagine->setIcon(QIcon(pathImmagine));
+}*/
+
+void ModificaAvatar::cambiaImmagine(){
+    QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)"); //QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)");
+    if(pathImmagine != "") {
+        //pathImmagine = pathImm;
+        modificaImmagine->setIcon(QIcon(pathImmagine));
+    }
+}
+
+QString ModificaAvatar::getPath() const{
+    return pathImmagine;
 }
 
 QFormLayout *ModificaAvatar::getFormCrea() const
@@ -154,11 +170,6 @@ QLabel *ModificaAvatar::getLabelSesso() const
 QLineEdit *ModificaAvatar::getInserisciNome() const
 {
     return inserisciNome;
-}
-
-QPushButton *ModificaAvatar::getBottoneHome() const
-{
-    return bottoneHome;
 }
 
 QPushButton *ModificaAvatar::getbottoneSalvaModifiche() const

@@ -29,7 +29,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
     sceltaTipo(new QComboBox(this)),
-    immagineAvatar(new QLabel("inserire immagine qui", this)),
+    inserisciImmagineButton(new QPushButton("Inserisci Immagine")),
     sessoM(new QRadioButton("Maschio", this)),
     sessoF(new QRadioButton("Femmina", this))
 {
@@ -66,7 +66,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutPu->addWidget(powerUp8);
     layoutSx->addWidget(boxDescrizione);
     layoutSx->addWidget(bottoneCreaDef);
-    layoutDx->addWidget(immagineAvatar);
+    layoutDx->addWidget(inserisciImmagineButton);
     layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
     layoutValori->addWidget(valoreForza);
@@ -121,6 +121,25 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(calcoloValori()));
 
+    connect(inserisciImmagineButton,SIGNAL(clicked()),this,SLOT(inserisciImmagine()));
+
+}
+
+/*void CreaAvatar::inserisciPercorso(std::string p){
+    pathImmagine = QString::fromStdString(p);
+    inserisciImmagineButton->setIcon(QIcon(pathImmagine));
+}*/
+
+void CreaAvatar::inserisciImmagine(){
+    QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)"); //QString pathImmCrea = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)");
+    if(pathImmagine != "") {
+        //pathImmagine = pathImmCrea;
+        inserisciImmagineButton->setIcon(QIcon(pathImmagine));
+    }
+}
+
+QString CreaAvatar::getPath() const{
+    return pathImmagine;
 }
 
 QFormLayout *CreaAvatar::getFormCrea() const

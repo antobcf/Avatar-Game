@@ -87,14 +87,14 @@ void Controller::mostraLista() {
 }
 
 void Controller::mostraModifica() {
-    QDialog vistaModifica( this );
+    /*QDialog vistaModifica( this );
     vistaModifica.setModal( true );
-    vistaModifica.exec();
-    /*vistaModifica->show();
+    vistaModifica.exec();*/
+    vistaModifica->show();
     vistaLista->show();
     vistaHome->hide();
     vistaCrea->hide();
-    vistaScontro->hide();*/
+    vistaScontro->hide();
 }
 
 void Controller::mostraScontro() {

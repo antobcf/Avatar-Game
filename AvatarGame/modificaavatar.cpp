@@ -9,6 +9,8 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     valoreDifesa(new QLabel(this)),
     valoreMagia(new QLabel(this)),
     valoreMedia(new QLabel(this)),
+    exp(new QLabel(this)),
+    valoreSpeciale(new QLabel(this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     inserisciNome(new QLineEdit(this)),
     bottoneSalvaModifiche(new QPushButton("Salva modifiche", this)),
@@ -68,7 +70,9 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutValori->addWidget(valoreMagia);
     layoutValori->addWidget(valoreDifesa);
     layoutValori->addWidget(valoreMedia);
+    layoutValori->addWidget(valoreSpeciale);
     layoutValori->addWidget(lvl);
+    layoutValori->addWidget(exp);
     layoutDx->addWidget(resetCampi);
 
 

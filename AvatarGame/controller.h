@@ -36,7 +36,7 @@ public slots:
     void mostraHome();
     void mostraCrea();
     void mostraLista();
-    void mostraModifica();
+    //void mostraModifica();
     void mostraScontro();
     void infoPopHome();
     void infoPopLista();

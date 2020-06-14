@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Controller_t {
-    QByteArrayData data[17];
-    char stringdata0[194];
+    QByteArrayData data[16];
+    char stringdata0[179];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,23 +37,22 @@ QT_MOC_LITERAL(1, 11, 10), // "mostraHome"
 QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 10), // "mostraCrea"
 QT_MOC_LITERAL(4, 34, 11), // "mostraLista"
-QT_MOC_LITERAL(5, 46, 14), // "mostraModifica"
-QT_MOC_LITERAL(6, 61, 13), // "mostraScontro"
-QT_MOC_LITERAL(7, 75, 11), // "infoPopHome"
-QT_MOC_LITERAL(8, 87, 12), // "infoPopLista"
-QT_MOC_LITERAL(9, 100, 15), // "inserisciAvatar"
-QT_MOC_LITERAL(10, 116, 14), // "modificaAvatar"
-QT_MOC_LITERAL(11, 131, 13), // "rimuoviAvatar"
-QT_MOC_LITERAL(12, 145, 12), // "svuotaElenco"
-QT_MOC_LITERAL(13, 158, 13), // "ricercaAvatar"
-QT_MOC_LITERAL(14, 172, 8), // "caricaDb"
-QT_MOC_LITERAL(15, 181, 6), // "carica"
-QT_MOC_LITERAL(16, 188, 5) // "salva"
+QT_MOC_LITERAL(5, 46, 13), // "mostraScontro"
+QT_MOC_LITERAL(6, 60, 11), // "infoPopHome"
+QT_MOC_LITERAL(7, 72, 12), // "infoPopLista"
+QT_MOC_LITERAL(8, 85, 15), // "inserisciAvatar"
+QT_MOC_LITERAL(9, 101, 14), // "modificaAvatar"
+QT_MOC_LITERAL(10, 116, 13), // "rimuoviAvatar"
+QT_MOC_LITERAL(11, 130, 12), // "svuotaElenco"
+QT_MOC_LITERAL(12, 143, 13), // "ricercaAvatar"
+QT_MOC_LITERAL(13, 157, 8), // "caricaDb"
+QT_MOC_LITERAL(14, 166, 6), // "carica"
+QT_MOC_LITERAL(15, 173, 5) // "salva"
 
     },
     "Controller\0mostraHome\0\0mostraCrea\0"
-    "mostraLista\0mostraModifica\0mostraScontro\0"
-    "infoPopHome\0infoPopLista\0inserisciAvatar\0"
+    "mostraLista\0mostraScontro\0infoPopHome\0"
+    "infoPopLista\0inserisciAvatar\0"
     "modificaAvatar\0rimuoviAvatar\0svuotaElenco\0"
     "ricercaAvatar\0caricaDb\0carica\0salva"
 };
@@ -65,7 +64,7 @@ static const uint qt_meta_data_Controller[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -73,24 +72,22 @@ static const uint qt_meta_data_Controller[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   89,    2, 0x0a /* Public */,
-       3,    0,   90,    2, 0x0a /* Public */,
-       4,    0,   91,    2, 0x0a /* Public */,
-       5,    0,   92,    2, 0x0a /* Public */,
-       6,    0,   93,    2, 0x0a /* Public */,
-       7,    0,   94,    2, 0x0a /* Public */,
-       8,    0,   95,    2, 0x0a /* Public */,
-       9,    0,   96,    2, 0x0a /* Public */,
-      10,    0,   97,    2, 0x0a /* Public */,
-      11,    0,   98,    2, 0x0a /* Public */,
-      12,    0,   99,    2, 0x0a /* Public */,
-      13,    0,  100,    2, 0x0a /* Public */,
-      14,    0,  101,    2, 0x0a /* Public */,
-      15,    0,  102,    2, 0x0a /* Public */,
-      16,    0,  103,    2, 0x0a /* Public */,
+       1,    0,   84,    2, 0x0a /* Public */,
+       3,    0,   85,    2, 0x0a /* Public */,
+       4,    0,   86,    2, 0x0a /* Public */,
+       5,    0,   87,    2, 0x0a /* Public */,
+       6,    0,   88,    2, 0x0a /* Public */,
+       7,    0,   89,    2, 0x0a /* Public */,
+       8,    0,   90,    2, 0x0a /* Public */,
+       9,    0,   91,    2, 0x0a /* Public */,
+      10,    0,   92,    2, 0x0a /* Public */,
+      11,    0,   93,    2, 0x0a /* Public */,
+      12,    0,   94,    2, 0x0a /* Public */,
+      13,    0,   95,    2, 0x0a /* Public */,
+      14,    0,   96,    2, 0x0a /* Public */,
+      15,    0,   97,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -118,18 +115,17 @@ void Controller::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->mostraHome(); break;
         case 1: _t->mostraCrea(); break;
         case 2: _t->mostraLista(); break;
-        case 3: _t->mostraModifica(); break;
-        case 4: _t->mostraScontro(); break;
-        case 5: _t->infoPopHome(); break;
-        case 6: _t->infoPopLista(); break;
-        case 7: _t->inserisciAvatar(); break;
-        case 8: _t->modificaAvatar(); break;
-        case 9: _t->rimuoviAvatar(); break;
-        case 10: _t->svuotaElenco(); break;
-        case 11: _t->ricercaAvatar(); break;
-        case 12: _t->caricaDb(); break;
-        case 13: _t->carica(); break;
-        case 14: _t->salva(); break;
+        case 3: _t->mostraScontro(); break;
+        case 4: _t->infoPopHome(); break;
+        case 5: _t->infoPopLista(); break;
+        case 6: _t->inserisciAvatar(); break;
+        case 7: _t->modificaAvatar(); break;
+        case 8: _t->rimuoviAvatar(); break;
+        case 9: _t->svuotaElenco(); break;
+        case 10: _t->ricercaAvatar(); break;
+        case 11: _t->caricaDb(); break;
+        case 12: _t->carica(); break;
+        case 13: _t->salva(); break;
         default: ;
         }
     }
@@ -165,13 +161,13 @@ int Controller::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 14)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 15;
+        _id -= 14;
     }
     return _id;
 }

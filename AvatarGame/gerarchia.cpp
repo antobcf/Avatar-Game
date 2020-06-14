@@ -148,7 +148,7 @@ std::string Elfo::getTipo() const
     return "Elfo";
 }
 
-unsigned int Elfo::setForza() {
+unsigned int Elfo::setForza(unsigned int f) {
     if(GetSpada()) return GetLiv()*6+8;
     return GetLiv()*6;
 }

@@ -448,5 +448,20 @@ void Controller::carica()
 
 void Controller::salva()
 {
+    ElencoAvatar* aux = nullptr;
+    Avatar* itemA = nullptr;
+
+    aux = vistaLista->getElenco()->itemAttuale();
+    itemA = aux->getItem();
+
+    itemA->SetNome(vistaModifica->getInserisciNome()->text().toStdString());
+    itemA->setDescrizione(vistaModifica->getBoxDescrizione()->toPlainText().toStdString());
+    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
+    itemA->SetExp(vistaModifica->getExp()->text().toUInt());
+    //itemA->setForza(vistaModifica->getValoreForza()->text().toUInt());
+    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
+    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
+    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
+    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
 
 }

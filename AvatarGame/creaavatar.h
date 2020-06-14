@@ -49,7 +49,7 @@ private:
     QPushButton* inserisciImmagineButton;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
-    QString pathImmagine;
+    QString percorsoImmagine;
 
 public:
     CreaAvatar(QWidget * = nullptr);
@@ -85,7 +85,7 @@ public:
     QRadioButton* getSessoF() const;
 
     //void inserisciPercorso(std::string);
-    QString getPath() const;
+    QString getPercorso() const;
 
 public slots:
     void checkUno() const;

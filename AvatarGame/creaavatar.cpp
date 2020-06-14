@@ -131,15 +131,13 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
 }*/
 
 void CreaAvatar::inserisciImmagine(){
-    QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)"); //QString pathImmCrea = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)");
-    if(pathImmagine != "") {
-        //pathImmagine = pathImmCrea;
-        inserisciImmagineButton->setIcon(QIcon(pathImmagine));
-    }
+    QString percorsoImmagine = QFileDialog::getOpenFileName(this, "Scegli file", ":/Risorse" , "File immagini(*.JPG;*.PNG)"); //QString pathImmCrea = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)");
+    inserisciImmagineButton->setIcon(QIcon(percorsoImmagine));
+
 }
 
-QString CreaAvatar::getPath() const{
-    return pathImmagine;
+QString CreaAvatar::getPercorso() const{
+    return percorsoImmagine;
 }
 
 QFormLayout *CreaAvatar::getFormCrea() const

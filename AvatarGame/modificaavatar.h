@@ -29,6 +29,8 @@ private:
     QLabel* valoreDifesa;
     QLabel* valoreMagia;
     QLabel* valoreMedia;
+    QLabel* valoreSpeciale;
+    QLabel* exp;
     QLabel* labelSesso;
     QLineEdit* inserisciNome;
     QPushButton* bottoneSalvaModifiche;
@@ -47,7 +49,7 @@ private:
     QPushButton* modificaImmagine;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
-    QString pathImmagine;
+    QString percorsoImmagine;
 
 public:
     ModificaAvatar(QWidget * = nullptr);
@@ -59,6 +61,8 @@ public:
     QLabel* getValoreDifesa() const;
     QLabel* getValoreMagia() const;
     QLabel* getValoreMedia() const;
+    QLabel* getValoreSpeciale() const;
+    QLabel* getExp() const;
     QLabel* getLabelSesso() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
@@ -80,7 +84,7 @@ public:
     QRadioButton* getSessoF() const;
 
     //inserisciPercorso(std::string);
-    QString getPath() const;
+    QString getPercorsoImmagine() const;
 
 public slots:
     void checkUno() const;

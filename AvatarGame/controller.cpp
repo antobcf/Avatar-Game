@@ -8,7 +8,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaHome(new AvatarHome(this)),
     vistaCrea(new CreaAvatar(this)),
     vistaLista(new ListaAvatar(this)),
-    vistaModifica(new ModificaAvatar),
+    vistaModifica(new ModificaAvatar(this)),
     vistaScontro(new Scontro(this)),
     modello(m),
     destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
@@ -239,7 +239,24 @@ void Controller::inserisciAvatar()
 
 void Controller::modificaAvatar()
 {
+    ElencoAvatar* aux = nullptr;
+    Avatar* itemA = nullptr;
 
+    aux = vistaLista->getElenco()->itemAttuale();
+    itemA = aux->getItem();
+
+    if(dynamic_cast<Elfo*>(itemA)) {
+        Elfo* e = static_cast<Elfo*>(itemA);
+
+        vistaModifica->getInserisciNome()->insert(QString::fromStdString(e->GetNome()));
+        vistaModifica->getBoxDescrizione()->insertPlainText(QString::fromStdString(e->getDescrizione()));
+        std::string lvl = (std::to_string(e->GetLiv()));
+        vistaModifica->getLvl()->setText(QString::fromStdString(lvl));
+        std::string exp = (std::to_string(e->GetExp()));
+        vistaModifica->getExp()->setText(QString::fromStdString(exp));
+        std::string forza = (std::to_string(e->getForza()));
+        vistaModifica->getValoreForza()->setText(QString::fromStdString(forza));
+    }
 }
 
 void Controller::rimuoviAvatar()

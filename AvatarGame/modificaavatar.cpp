@@ -111,15 +111,12 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 }*/
 
 void ModificaAvatar::cambiaImmagine(){
-    QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)"); //QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)");
-    if(pathImmagine != "") {
-        //pathImmagine = pathImm;
-        modificaImmagine->setIcon(QIcon(pathImmagine));
-    }
+    QString percorsoImmagine = QFileDialog::getOpenFileName(this, "Scegli file", ":/Risorse" , "File immagini(*.JPG;*.PNG)"); //QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)");
+    modificaImmagine->setIcon(QIcon(percorsoImmagine));
 }
 
-QString ModificaAvatar::getPath() const{
-    return pathImmagine;
+QString ModificaAvatar::getPercorsoImmagine() const{
+    return percorsoImmagine;
 }
 
 QFormLayout *ModificaAvatar::getFormCrea() const
@@ -160,6 +157,16 @@ QLabel *ModificaAvatar::getValoreMagia() const
 QLabel *ModificaAvatar::getValoreMedia() const
 {
     return valoreMedia;
+}
+
+QLabel *ModificaAvatar::getValoreSpeciale() const
+{
+    return valoreSpeciale;
+}
+
+QLabel *ModificaAvatar::getExp() const
+{
+    return exp;
 }
 
 QLabel *ModificaAvatar::getLabelSesso() const

@@ -183,7 +183,7 @@ QLineEdit *ModificaAvatar::getInserisciNome() const
     return inserisciNome;
 }
 
-QPushButton *ModificaAvatar::getbottoneSalvaModifiche() const
+QPushButton *ModificaAvatar::getBottoneSalvaModifiche() const
 {
     return bottoneSalvaModifiche;
 }

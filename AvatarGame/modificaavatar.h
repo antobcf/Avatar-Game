@@ -66,7 +66,7 @@ public:
     QLabel* getLabelSesso() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
-    QPushButton* getbottoneSalvaModifiche() const;
+    QPushButton* getBottoneSalvaModifiche() const;
     QPushButton* getResetCampi() const;
     QCheckBox* getPowerUp1() const;
     QCheckBox* getPowerUp2() const;

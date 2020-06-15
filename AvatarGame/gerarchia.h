@@ -36,20 +36,22 @@ public:
     unsigned int getScienza() const;
     double getMedia() const;
     std::string getTerreno() const;
+
     //SET
-    std::string SetNome(std::string);
-    std::string setDescrizione(std::string);
-    unsigned int SetLvl(unsigned int);
-    bool SetSesso(bool);
-    unsigned int SetExp(unsigned int);
-    virtual unsigned int setForza(unsigned int) = 0;
-    virtual unsigned int setMagia(unsigned int) = 0;
-    virtual unsigned int setDifesa(unsigned int) = 0;
-    virtual unsigned int setScienza(unsigned int) = 0;
-    virtual double setMedia(unsigned int, unsigned int, unsigned int, unsigned int);
-    virtual std::string setTerreno(std::string) = 0;
+    void SetNome(std::string);
+    void setDescrizione(std::string);
+    void SetLvl(unsigned int);
+    void SetSesso(bool);
+    void SetExp(unsigned int);
+    virtual void setForza(int);
+    virtual void setMagia();
+    virtual void setDifesa();
+    virtual void setScienza() = 0;
+    virtual void setMedia() = 0;
+    virtual void setTerreno() = 0;
     //OPERATORI
     virtual bool operator==(const Avatar&) const =0;
+
     virtual std::string datiAvatar();
 };
 
@@ -67,11 +69,13 @@ public:
     bool GetSpada() const;
     bool GetAnello() const;
     bool GetLibro() const;
+
     //SET
-    bool SetScudo(bool);
-    bool SetSpada(bool);
-    bool SetAnello(bool);
-    bool SetLibro(bool);
+    void SetScudo(bool);
+    void SetSpada(bool);
+    void SetAnello(bool);
+    void SetLibro(bool);
+
     //OPERATORI
     virtual bool operator==(const Avatar&) const override =0;
 };
@@ -79,16 +83,16 @@ public:
 class Elfo: public Terrestre {
 private:
     unsigned int trasparentia;
+//    unsigned int forza;
+//    unsigned int magia;
+//    unsigned int difesa;
+//    unsigned int scienza;
 public:
     Elfo(std::string n,std::string ds,  unsigned int lvl, unsigned int e, unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx = true, bool sc = false, bool sp = false, bool a = false, bool lib = false, unsigned int tr = 0): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,sc,sp,a,lib), trasparentia(tr) {}
     unsigned int GetTrasparentia() const;
-    unsigned int SetTrasparentia();
+    unsigned int SetTrasparentia(unsigned int, unsigned int);
     virtual std::string getTipo() const override;
-    virtual unsigned int setForza(unsigned int) override;
-    virtual unsigned int setMagia(unsigned int) override;
-    virtual unsigned int setDifesa(unsigned int) override;
-    virtual unsigned int setScienza(unsigned int) override;
-    virtual std::string setTerreno(std::string) override;
+
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
 };
@@ -101,11 +105,11 @@ public:
     unsigned int GetCorteccia() const;
     unsigned int SetCorteccia();
     virtual std::string getTipo() const override;
-    virtual unsigned int setForza(unsigned int) override;
-    virtual unsigned int setMagia(unsigned int) override;
-    virtual unsigned int setDifesa(unsigned int) override;
-    virtual unsigned int setScienza(unsigned int) override;
-    virtual std::string setTerreno(std::string) override;
+    virtual void setForza() override;
+    virtual void setMagia(unsigned int) override;
+    virtual void setDifesa(unsigned int) override;
+    virtual void setScienza(unsigned int) override;
+    virtual void setTerreno(std::string) override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
 };
@@ -118,10 +122,10 @@ public:
     unsigned int GetIngegno() const;
     unsigned int SetIngegno();
     virtual std::string getTipo() const override;
-    virtual unsigned int setForza(unsigned int) override;
-    virtual unsigned int setMagia(unsigned int) override;
-    virtual unsigned int setDifesa(unsigned int) override;
-    virtual unsigned int setScienza(unsigned int) override;
+    virtual void setForza(unsigned int) override;
+    virtual void setMagia(unsigned int) override;
+    virtual void setDifesa(unsigned int) override;
+    virtual void setScienza(unsigned int) override;
     virtual std::string setTerreno(std::string) override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
@@ -145,11 +149,13 @@ public:
     bool GetLaser() const;
     bool GetAmuleto() const;
     bool GetChip() const;
+
     //SET
-    bool SetBarriera(bool);
-    bool SetLaser(bool);
-    bool SetAmuleto(bool);
-    bool SetChip(bool);
+    void SetBarriera(bool);
+    void SetLaser(bool);
+    void SetAmuleto(bool);
+    void SetChip(bool);
+
     //OPERATORI
     virtual bool operator==(const Avatar&) const override =0;
 };
@@ -163,10 +169,10 @@ public:
     unsigned int GetUfo() const;
     unsigned int SetUfo();
     virtual std::string getTipo() const override;
-    virtual unsigned int setForza(unsigned int) override;
-    virtual unsigned int setMagia(unsigned int) override;
-    virtual unsigned int setDifesa(unsigned int) override;
-    virtual unsigned int setScienza(unsigned int) override;
+    virtual void setForza(unsigned int) override;
+    virtual void setMagia(unsigned int) override;
+    virtual void setDifesa(unsigned int) override;
+    virtual void setScienza(unsigned int) override;
     virtual std::string setTerreno(std::string) override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
@@ -181,10 +187,10 @@ public:
     unsigned int GetPorta() const;
     unsigned int SetPorta();
     virtual std::string getTipo() const override;
-    virtual unsigned int setForza(unsigned int) override;
-    virtual unsigned int setMagia(unsigned int) override;
-    virtual unsigned int setDifesa(unsigned int) override;
-    virtual unsigned int setScienza(unsigned int) override;
+    virtual void setForza(unsigned int) override;
+    virtual void setMagia(unsigned int) override;
+    virtual void setDifesa(unsigned int) override;
+    virtual void setScienza(unsigned int) override;
     virtual std::string setTerreno(std::string) override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;

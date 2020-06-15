@@ -1,5 +1,5 @@
 #include "creaavatar.h"
-#include "controller.h"
+
 
 CreaAvatar::CreaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),
@@ -646,6 +646,7 @@ void CreaAvatar::resetCheck() const
 
 void CreaAvatar::calcoloValori() const
 {
+
     int indexAttuale = sceltaTipo->currentIndex();
     double forza = 0;
     double magia = 0;
@@ -653,6 +654,7 @@ void CreaAvatar::calcoloValori() const
     double scienza = 0;
     std::string terreno;
     if(indexAttuale == 0) {
+
         forza = 6;
         if(powerUp1->isChecked()) {
             forza+=8;

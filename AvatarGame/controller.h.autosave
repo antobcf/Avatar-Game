@@ -48,9 +48,7 @@ public slots:
     void caricaDb();
     void carica();
     void salva();
-
-    void salvaModificheAvatar();
-
+    void calcoloForza(Avatar*);
 
 signals:
 

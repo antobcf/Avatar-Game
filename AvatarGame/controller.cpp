@@ -86,17 +86,6 @@ void Controller::mostraLista() {
 
 }
 
-//void Controller::mostraModifica() {
-//    /*QDialog vistaModifica( this );
-//    vistaModifica.setModal( true );
-//    vistaModifica.exec();*/
-//    vistaModifica->show();
-//    vistaLista->show();
-//    vistaHome->hide();
-//    vistaCrea->hide();
-//    vistaScontro->hide();
-//}
-
 void Controller::mostraScontro() {
     vistaScontro->show();
     vistaModifica->hide();
@@ -274,7 +263,9 @@ void Controller::modificaAvatar()
         e->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
         std::string trasparentia = (std::to_string(e->GetTrasparentia()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(trasparentia));
+        //vistaModifica->setModal(true);
         vistaModifica->show();
+
     } else if(dynamic_cast<Nano*>(itemA)) {
         Nano* n = static_cast<Nano*>(itemA);
 
@@ -463,5 +454,23 @@ void Controller::salva()
     itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
     itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
     itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
+
+}
+
+void Controller::calcoloForza(Avatar* a)
+{
+    if(dynamic_cast<Elfo*>(a)) {
+        Elfo* e = static_cast<Elfo*>(a);
+
+        int forza;
+
+        if(e->GetSpada()) {
+            forza = e->GetLiv()*6+8;
+        } else {
+            forza = e->GetLiv()*6;
+        }
+        e->setForza(forza);
+    }
+
 
 }

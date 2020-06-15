@@ -48,39 +48,42 @@ std::string Avatar::getTerreno() const
     return terreno;
 }
 
-std::string Avatar::SetNome(std::string n) {
-    return nome = n;
+void Avatar::SetNome(std::string n) {
+    nome = n;
 }
 
-std::string Avatar::setDescrizione(std::string d)
+void Avatar::setDescrizione(std::string d)
 {
-    return descrizione = d;
+    descrizione = d;
 }
 
-unsigned int Avatar::SetLvl(unsigned int lvl) {
-    return livello=lvl;
+void Avatar::SetLvl(unsigned int lvl) {
+    livello=lvl;
 }
 
-bool Avatar::SetSesso(bool s) {
-    return sesso=s;
+void Avatar::setForza(int f) {
+    forza = f;
+}
+
+void Avatar::SetSesso(bool s) {
+    sesso=s;
 }
 
 unsigned int Avatar::GetExp() const {
     return exp;
 }
 
-unsigned int Avatar::SetExp(unsigned int e) {
+void Avatar::SetExp(unsigned int e) {
     exp = exp+e;
     if(exp >99){
         SetLvl(livello+1);
         exp = exp -100;
     }
-    return exp;
 }
 
-double Avatar::setMedia()
+void Avatar::setMedia()
 {
-    return (setForza()+setMagia()+setDifesa()+setScienza())/4;
+    media = (forza+magia+difesa+scienza)/4;
 }
 
 std::string Avatar::datiAvatar()
@@ -115,20 +118,20 @@ bool Terrestre::GetLibro() const {
     return libro;
 }
 
-bool Terrestre::SetScudo(bool s) {
-    return scudo=s;
+void Terrestre::SetScudo(bool s) {
+    scudo=s;
 }
 
-bool Terrestre::SetSpada(bool sp) {
-    return spada=sp;
+void Terrestre::SetSpada(bool sp) {
+    spada=sp;
 }
 
-bool Terrestre::SetAnello(bool a) {
-    return anello=a;
+void Terrestre::SetAnello(bool a) {
+    anello=a;
 }
 
-bool Terrestre::SetLibro(bool lib) {
-    return libro=lib;
+void Terrestre::SetLibro(bool lib) {
+    libro=lib;
 }
 
 //Metodi della classe Elfo
@@ -136,9 +139,9 @@ unsigned int Elfo::GetTrasparentia() const {
     return trasparentia;
 }
 
-unsigned int Elfo::SetTrasparentia() {
-    if(GetLiv()%5 == 0){
-        trasparentia = trasparentia+(setMagia()%GetLiv());
+unsigned int Elfo::SetTrasparentia(unsigned l, unsigned int m) {
+    if(l%5 == 0){
+        trasparentia = trasparentia+(m%l);
     }
     return trasparentia;
 }
@@ -148,29 +151,31 @@ std::string Elfo::getTipo() const
     return "Elfo";
 }
 
-unsigned int Elfo::setForza(unsigned int f) {
+void Elfo::setForza() {
+
     if(GetSpada()) return GetLiv()*6+8;
     return GetLiv()*6;
 }
 
-unsigned int Elfo::setMagia() {
-        if(GetAnello()) return GetLiv()*10+6;
-        return GetLiv()*10;
+void Elfo::setMagia(unsigned int m) {
+    magia = m;
+    if(GetAnello()) return GetLiv()*10+6;
+    return GetLiv()*10;
 }
 
-unsigned int Elfo::setDifesa() {
+void Elfo::setDifesa() {
     if(GetScu()) return GetLiv()*6+10;
     return GetLiv()*6;
 }
 
-unsigned int Elfo::setScienza() {
+void Elfo::setScienza() {
     if(GetLibro()) return GetLiv()*5+5;
     return GetLiv()*5;
 }
 
-std::string Elfo::setTerreno()
+void Elfo::setTerreno()
 {
-    return "Regno incantato";
+    terreno = "Regno incantato";
 }
 
 bool Elfo::operator==(const Avatar & a) const {
@@ -201,28 +206,29 @@ std::string Nano::getTipo() const
     return "Nano";
 }
 
-unsigned int Nano::setForza() {
-    if(GetSpada()) return GetLiv()*7+8;
-    return GetLiv()*7;
+void Nano::setForza(int p) {
+
+//    if(GetSpada()) return GetLiv()*7+8;
+//    return GetLiv()*7;
 }
 
-unsigned int Nano::setMagia() {
+void Nano::setMagia() {
     if(GetAnello()) return GetLiv()*2+6;
     return GetLiv()*2;
 }
 
-unsigned int Nano::setDifesa() {
+void Nano::setDifesa() {
     if(GetScu()) return GetLiv()*10+10;
     return GetLiv()*10;
 }
 
-unsigned int Nano::setScienza() {    if(GetLibro()) return GetLiv()*6+5;
+void Nano::setScienza() {    if(GetLibro()) return GetLiv()*6+5;
     return GetLiv()*6;
                                 }
 
-std::string Nano::setTerreno()
+void Nano::setTerreno()
 {
-    return "Regno del sottosuolo";
+    "Regno del sottosuolo";
 }
 
 bool Nano::operator==(const Avatar & a) const {
@@ -253,29 +259,29 @@ std::string Umano::getTipo() const
     return "Umano";
 }
 
-unsigned int Umano::setForza() {
+void Umano::setForza() {
     if(GetSpada()) return GetLiv()*5+8;
     return GetLiv()*5;
 }
 
-unsigned int Umano::setMagia() {
+void Umano::setMagia() {
     if(GetAnello()) return GetLiv()*3+6;
     return GetLiv()*3;
 }
 
-unsigned int Umano::setDifesa() {
+void Umano::setDifesa() {
     if(GetScu()) return GetLiv()*8+2;
     return GetLiv()*8;
 }
 
-unsigned int Umano::setScienza() {
+void Umano::setScienza() {
     if(GetLibro()) return GetLiv()*8+5;
     return GetLiv()*8;
 }
 
-std::string Umano::setTerreno()
+void Umano::setTerreno()
 {
-    return "Regno delle macchine";
+    "Regno delle macchine";
 }
 
 bool Umano::operator==(const Avatar & a) const {
@@ -311,20 +317,20 @@ bool NOTerrestre::GetChip() const {
     return chip;
 }
 
-bool NOTerrestre::SetBarriera(bool ba) {
-    return barriera=ba;
+void NOTerrestre::SetBarriera(bool ba) {
+    barriera=ba;
 }
 
-bool NOTerrestre::SetLaser(bool las) {
-    return laser=las;
+void NOTerrestre::SetLaser(bool las) {
+    laser=las;
 }
 
-bool NOTerrestre::SetAmuleto(bool am) {
-    return amuleto=am;
+void NOTerrestre::SetAmuleto(bool am) {
+    amuleto=am;
 }
 
-bool NOTerrestre::SetChip(bool ch) {
-    return chip=ch;
+void NOTerrestre::SetChip(bool ch) {
+    chip=ch;
 }
 
 //Metodi della classe Alieno
@@ -344,27 +350,26 @@ std::string Alieno::getTipo() const
     return "Alieno";
 }
 
-unsigned int Alieno::setForza() {
+void Alieno::setForza() {
     if(GetLaser()) return GetLiv()*3+7;
     return GetLiv()*3;
 }
 
-unsigned int Alieno::setScienza() {
+void Alieno::setScienza() {
     if(GetChip()) return GetLiv()*10+6;
     return GetLiv()*10;
 }
 
-std::string Alieno::setTerreno()
+void Alieno::setTerreno()
 {
-    return "Regno dello spazio";
+    "Regno dello spazio";
 }
 
-unsigned int Alieno::setMagia() {
+void Alieno::setMagia() {
     if(GetAmuleto()) return GetLiv()*0+8;
     return GetLiv()*0;
 }
-
-unsigned int Alieno::setDifesa() {
+void Alieno::setDifesa() {
     if(GetBar()) return GetLiv()*7+9;
     return GetLiv()*7;
 }
@@ -397,26 +402,27 @@ std::string Mostro::getTipo() const
     return "Mostro";
 }
 
-unsigned int Mostro::setForza() {
+void Mostro::setForza() {
     if(GetLaser()) return GetLiv()*10+7;
     return GetLiv()*10;
 }
 
-unsigned int Mostro::setScienza() {
+void Mostro::setScienza() {
     if(GetChip()) return GetLiv()*10+6;
     return GetLiv()*0;
 }
 
-std::string Mostro::setTerreno()
+void Mostro::setTerreno()
 {
-    return "Regno dei demoni";
+    "Regno dei demoni";
 }
-unsigned int Mostro::setMagia() {
+
+void Mostro::setMagia() {
     if(GetAmuleto()) return GetLiv()*5+8;
     return GetLiv()*5;
 }
 
-unsigned int Mostro::setDifesa() {
+void Mostro::setDifesa() {
     if(GetBar()) return GetLiv()*9+9;
     return GetLiv()*9;
 }
@@ -431,5 +437,3 @@ std::string Mostro::datiAvatar()
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nPorta Demoniaca: "+std::to_string(GetPorta()));
 }
-
-//metodi della classe ListaPersonaggi

@@ -65,6 +65,21 @@ void Avatar::setForza(int f) {
     forza = f;
 }
 
+void Avatar::setMagia(int m)
+{
+    magia = m;
+}
+
+void Avatar::setDifesa(int d)
+{
+    difesa = d;
+}
+
+void Avatar::setScienza(int s)
+{
+    scienza = s;
+}
+
 void Avatar::SetSesso(bool s) {
     sesso=s;
 }
@@ -73,7 +88,7 @@ unsigned int Avatar::GetExp() const {
     return exp;
 }
 
-void Avatar::SetExp(unsigned int e) {
+void Avatar::SetExp(unsigned int e) { //forse non va bene ma bisogna farla "normale"
     exp = exp+e;
     if(exp >99){
         SetLvl(livello+1);
@@ -81,9 +96,14 @@ void Avatar::SetExp(unsigned int e) {
     }
 }
 
-void Avatar::setMedia()
+void Avatar::setMedia(double m)
 {
-    media = (forza+magia+difesa+scienza)/4;
+    media = m;
+}
+
+void Avatar::setTerreno(std::string t)
+{
+    terreno = t;
 }
 
 std::string Avatar::datiAvatar()
@@ -139,43 +159,13 @@ unsigned int Elfo::GetTrasparentia() const {
     return trasparentia;
 }
 
-unsigned int Elfo::SetTrasparentia(unsigned l, unsigned int m) {
-    if(l%5 == 0){
-        trasparentia = trasparentia+(m%l);
-    }
-    return trasparentia;
+void Elfo::setTrasparentia(int t) {
+    trasparentia = t;
 }
 
 std::string Elfo::getTipo() const
 {
     return "Elfo";
-}
-
-void Elfo::setForza() {
-
-    if(GetSpada()) return GetLiv()*6+8;
-    return GetLiv()*6;
-}
-
-void Elfo::setMagia(unsigned int m) {
-    magia = m;
-    if(GetAnello()) return GetLiv()*10+6;
-    return GetLiv()*10;
-}
-
-void Elfo::setDifesa() {
-    if(GetScu()) return GetLiv()*6+10;
-    return GetLiv()*6;
-}
-
-void Elfo::setScienza() {
-    if(GetLibro()) return GetLiv()*5+5;
-    return GetLiv()*5;
-}
-
-void Elfo::setTerreno()
-{
-    terreno = "Regno incantato";
 }
 
 bool Elfo::operator==(const Avatar & a) const {
@@ -194,41 +184,13 @@ unsigned int Nano::GetCorteccia() const {
     return corteccia;
 }
 
-unsigned int Nano::SetCorteccia() {
-    if(GetLiv()%5 == 0){
-        corteccia = corteccia+(setDifesa()%GetLiv());
-    }
-    return corteccia;
+void Nano::setCorteccia(int c) {
+    corteccia = c;
 }
 
 std::string Nano::getTipo() const
 {
     return "Nano";
-}
-
-void Nano::setForza(int p) {
-
-//    if(GetSpada()) return GetLiv()*7+8;
-//    return GetLiv()*7;
-}
-
-void Nano::setMagia() {
-    if(GetAnello()) return GetLiv()*2+6;
-    return GetLiv()*2;
-}
-
-void Nano::setDifesa() {
-    if(GetScu()) return GetLiv()*10+10;
-    return GetLiv()*10;
-}
-
-void Nano::setScienza() {    if(GetLibro()) return GetLiv()*6+5;
-    return GetLiv()*6;
-                                }
-
-void Nano::setTerreno()
-{
-    "Regno del sottosuolo";
 }
 
 bool Nano::operator==(const Avatar & a) const {
@@ -247,41 +209,13 @@ unsigned int Umano::GetIngegno() const {
     return ingegnoScientifico;
 }
 
-unsigned int Umano::SetIngegno() {
-    if(GetLiv()%5 == 0){
-        ingegnoScientifico = ingegnoScientifico+(setScienza()%GetLiv());
-    }
-    return ingegnoScientifico;
+void Umano::setIngegno(int i) {
+    ingegnoScientifico = i;
 }
 
 std::string Umano::getTipo() const
 {
     return "Umano";
-}
-
-void Umano::setForza() {
-    if(GetSpada()) return GetLiv()*5+8;
-    return GetLiv()*5;
-}
-
-void Umano::setMagia() {
-    if(GetAnello()) return GetLiv()*3+6;
-    return GetLiv()*3;
-}
-
-void Umano::setDifesa() {
-    if(GetScu()) return GetLiv()*8+2;
-    return GetLiv()*8;
-}
-
-void Umano::setScienza() {
-    if(GetLibro()) return GetLiv()*8+5;
-    return GetLiv()*8;
-}
-
-void Umano::setTerreno()
-{
-    "Regno delle macchine";
 }
 
 bool Umano::operator==(const Avatar & a) const {
@@ -338,40 +272,14 @@ unsigned int Alieno::GetUfo() const {
     return ufo;
 }
 
-unsigned int Alieno::SetUfo() {
-    if(GetLiv()%5 == 0){
-        ufo = ufo+(setScienza()%GetLiv());
-    }
-    return ufo;
+void Alieno::setUfo(int u)
+{
+    ufo = u;
 }
 
 std::string Alieno::getTipo() const
 {
     return "Alieno";
-}
-
-void Alieno::setForza() {
-    if(GetLaser()) return GetLiv()*3+7;
-    return GetLiv()*3;
-}
-
-void Alieno::setScienza() {
-    if(GetChip()) return GetLiv()*10+6;
-    return GetLiv()*10;
-}
-
-void Alieno::setTerreno()
-{
-    "Regno dello spazio";
-}
-
-void Alieno::setMagia() {
-    if(GetAmuleto()) return GetLiv()*0+8;
-    return GetLiv()*0;
-}
-void Alieno::setDifesa() {
-    if(GetBar()) return GetLiv()*7+9;
-    return GetLiv()*7;
 }
 
 bool Alieno::operator==(const Avatar & a) const {
@@ -390,41 +298,13 @@ unsigned int Mostro::GetPorta() const {
     return portaDemoniaca;
 }
 
-unsigned int Mostro::SetPorta() {
-    if(GetLiv()%5 == 0) {
-        portaDemoniaca = portaDemoniaca+(getForza()%GetLiv());
-    }
-    return portaDemoniaca;
+void Mostro::setPorta(int p) {
+    portaDemoniaca = p;
 }
 
 std::string Mostro::getTipo() const
 {
     return "Mostro";
-}
-
-void Mostro::setForza() {
-    if(GetLaser()) return GetLiv()*10+7;
-    return GetLiv()*10;
-}
-
-void Mostro::setScienza() {
-    if(GetChip()) return GetLiv()*10+6;
-    return GetLiv()*0;
-}
-
-void Mostro::setTerreno()
-{
-    "Regno dei demoni";
-}
-
-void Mostro::setMagia() {
-    if(GetAmuleto()) return GetLiv()*5+8;
-    return GetLiv()*5;
-}
-
-void Mostro::setDifesa() {
-    if(GetBar()) return GetLiv()*9+9;
-    return GetLiv()*9;
 }
 
 bool Mostro::operator==(const Avatar & a) const {

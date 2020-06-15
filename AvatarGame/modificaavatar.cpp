@@ -9,9 +9,10 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     valoreDifesa(new QLabel(this)),
     valoreMagia(new QLabel(this)),
     valoreMedia(new QLabel(this)),
-    exp(new QLabel(this)),
     valoreSpeciale(new QLabel(this)),
+    exp(new QLabel(this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
+    terrenoPreferito(new QLabel(this)),
     inserisciNome(new QLineEdit(this)),
     bottoneSalvaModifiche(new QPushButton("Salva modifiche", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
@@ -73,6 +74,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutValori->addWidget(valoreSpeciale);
     layoutValori->addWidget(lvl);
     layoutValori->addWidget(exp);
+    layoutValori->addWidget(terrenoPreferito);
     layoutDx->addWidget(resetCampi);
 
 
@@ -92,6 +94,8 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Umano");
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
+
+    connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
 
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
     connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
@@ -178,6 +182,11 @@ QLabel *ModificaAvatar::getLabelSesso() const
     return labelSesso;
 }
 
+QLabel *ModificaAvatar::getTerrenoPreferito() const
+{
+    return terrenoPreferito;
+}
+
 QLineEdit *ModificaAvatar::getInserisciNome() const
 {
     return inserisciNome;
@@ -258,8 +267,9 @@ QRadioButton *ModificaAvatar::getSessoF() const
     return sessoF;
 }
 
-void ModificaAvatar::checkUno() const
+void ModificaAvatar::checkUno()
 {
+    calcoloValori();
     if(powerUp1->isChecked()) {
         if(powerUp2->isChecked()) {
             powerUp3->setEnabled(false);
@@ -295,8 +305,9 @@ void ModificaAvatar::checkUno() const
     }
 }
 
-void ModificaAvatar::checkDue() const
+void ModificaAvatar::checkDue()
 {
+    calcoloValori();
     if(powerUp2->isChecked()) {
         if(powerUp1->isChecked()) {
             powerUp3->setEnabled(false);
@@ -332,8 +343,9 @@ void ModificaAvatar::checkDue() const
     }
 }
 
-void ModificaAvatar::checkTre() const
+void ModificaAvatar::checkTre()
 {
+    calcoloValori();
     if(powerUp3->isChecked()) {
         if(powerUp2->isChecked()) {
             powerUp1->setEnabled(false);
@@ -369,8 +381,9 @@ void ModificaAvatar::checkTre() const
     }
 }
 
-void ModificaAvatar::checkQuattro() const
+void ModificaAvatar::checkQuattro()
 {
+    calcoloValori();
     if(powerUp4->isChecked()) {
         if(powerUp2->isChecked()) {
             powerUp3->setEnabled(false);
@@ -406,8 +419,9 @@ void ModificaAvatar::checkQuattro() const
     }
 }
 
-void ModificaAvatar::checkCinque() const
+void ModificaAvatar::checkCinque()
 {
+    calcoloValori();
     if(powerUp5->isChecked()) {
         if(powerUp6->isChecked()) {
             powerUp7->setEnabled(false);
@@ -443,8 +457,9 @@ void ModificaAvatar::checkCinque() const
     }
 }
 
-void ModificaAvatar::checkSei() const
+void ModificaAvatar::checkSei()
 {
+    calcoloValori();
     if(powerUp6->isChecked()) {
         if(powerUp5->isChecked()) {
             powerUp7->setEnabled(false);
@@ -480,8 +495,9 @@ void ModificaAvatar::checkSei() const
     }
 }
 
-void ModificaAvatar::checkSette() const
+void ModificaAvatar::checkSette()
 {
+    calcoloValori();
     if(powerUp7->isChecked()) {
         if(powerUp6->isChecked()) {
             powerUp5->setEnabled(false);
@@ -517,8 +533,9 @@ void ModificaAvatar::checkSette() const
     }
 }
 
-void ModificaAvatar::checkOtto() const
+void ModificaAvatar::checkOtto()
 {
+    calcoloValori();
     if(powerUp8->isChecked()) {
         if(powerUp6->isChecked()) {
             powerUp7->setEnabled(false);
@@ -554,7 +571,7 @@ void ModificaAvatar::checkOtto() const
     }
 }
 
-void ModificaAvatar::groupTipo() const
+void ModificaAvatar::groupTipo()
 {
     int indexAttuale = sceltaTipo->currentIndex();
     if(indexAttuale == 0 || indexAttuale == 1 || indexAttuale == 2) {
@@ -578,9 +595,7 @@ void ModificaAvatar::groupTipo() const
         powerUp8->show();
         resetCheck();
     }
-    if(indexAttuale == 0) {
-
-    }
+    calcoloValori();
 }
 
 void ModificaAvatar::resetTutto() const
@@ -616,3 +631,130 @@ void ModificaAvatar::resetCheck() const
     powerUp7->setEnabled(true);
     powerUp8->setEnabled(true);
 }
+
+void ModificaAvatar::calcoloValori()
+{
+    int indexAttuale = sceltaTipo->currentIndex();
+    double forza = getValoreForza()->text().toUInt();
+    double magia = getValoreMagia()->text().toUInt();
+    double difesa = getValoreDifesa()->text().toUInt();
+    double scienza = getValoreScienza()->text().toUInt();
+    unsigned int livello = getLvl()->text().toUInt();
+    unsigned int valoreExtra = getValoreSpeciale()->text().toUInt();
+
+    if(indexAttuale == 0) {
+        forza = livello*6;
+        if(powerUp1->isChecked()) {
+            forza+=8;
+        }
+        magia = livello*10;
+        if(powerUp2->isChecked()) {
+            magia += 6;
+        }
+        difesa = livello*6;
+        if(powerUp3->isChecked()) {
+            difesa += 10;
+        }
+        scienza = livello*5;
+        if(powerUp4->isChecked()) {
+            scienza += 5;
+        }
+
+        valoreExtra = magia/livello;
+
+    } else
+    if(indexAttuale == 1) {
+        forza = livello*7;
+        if(powerUp1->isChecked()) {
+            forza+=8;
+        }
+        magia = livello*2;
+        if(powerUp2->isChecked()) {
+            magia += 6;
+        }
+        difesa = livello*10;
+        if(powerUp3->isChecked()) {
+            difesa += 10;
+        }
+        scienza = livello*6;
+        if(powerUp4->isChecked()) {
+            scienza += 5;
+        }
+
+        valoreExtra = difesa/livello;
+
+    } else
+    if(indexAttuale == 2) {
+        forza = livello*5;
+        if(powerUp1->isChecked()) {
+            forza+=8;
+        }
+        magia = livello*3;
+        if(powerUp2->isChecked()) {
+            magia += 6;
+        }
+        difesa = livello*8;
+        if(powerUp3->isChecked()) {
+            difesa += 2;
+        }
+        scienza = livello*8;
+        if(powerUp4->isChecked()) {
+            scienza += 5;
+        }
+
+        valoreExtra = scienza/livello;
+
+    } else
+    if(indexAttuale == 3) {
+        forza = livello*3;
+        if(powerUp5->isChecked()) {
+            forza+=7;
+        }
+        magia = livello*1;
+        if(powerUp6->isChecked()) {
+            magia += 6;
+        }
+        difesa = livello*7;
+        if(powerUp7->isChecked()) {
+            difesa += 8;
+        }
+        scienza = livello*10;
+        if(powerUp8->isChecked()) {
+            scienza += 9;
+        }
+
+        valoreExtra = scienza/livello;
+
+    } else
+    if(indexAttuale == 4) {
+        forza = livello*10;
+        if(powerUp5->isChecked()) {
+            forza+=7;
+        }
+        magia = livello*5;
+        if(powerUp6->isChecked()) {
+            magia += 6;
+        }
+        difesa = livello*9;
+        if(powerUp7->isChecked()) {
+            difesa += 8;
+        }
+        scienza = livello*1;
+        if(powerUp8->isChecked()) {
+            scienza += 9;
+        }
+        valoreExtra = forza/livello;
+
+    }
+
+    double media = (forza+magia+difesa+scienza)/4;
+    valoreForza->setText(QString::number(forza));
+    valoreMagia->setText(QString::number(magia));
+    valoreDifesa->setText(QString::number(difesa));
+    valoreScienza->setText(QString::number(scienza));
+    valoreMedia->setText(QString::number(media,'f',1));
+    lvl->setText(QString::number(livello));
+    valoreSpeciale->setText(QString::number(valoreExtra));
+}
+
+

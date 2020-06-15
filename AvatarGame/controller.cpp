@@ -251,6 +251,7 @@ void Controller::modificaAvatar()
     vistaModifica->getValoreScienza()->setText(QString::fromStdString(scienza));
     std::string media = (std::to_string(itemA->getMedia()));
     vistaModifica->getValoreMedia()->setText(QString::fromStdString(media));
+    vistaModifica->getTerrenoPreferito()->setText(QString::fromStdString(itemA->getTerreno()));
     itemA->GetSesso() ? vistaModifica->getSessoM()->setChecked(true) : vistaModifica->getSessoF()->setChecked(true);
 
     if(dynamic_cast<Elfo*>(itemA)) {
@@ -457,20 +458,4 @@ void Controller::salva()
 
 }
 
-void Controller::calcoloForza(Avatar* a)
-{
-    if(dynamic_cast<Elfo*>(a)) {
-        Elfo* e = static_cast<Elfo*>(a);
 
-        int forza;
-
-        if(e->GetSpada()) {
-            forza = e->GetLiv()*6+8;
-        } else {
-            forza = e->GetLiv()*6;
-        }
-        e->setForza(forza);
-    }
-
-
-}

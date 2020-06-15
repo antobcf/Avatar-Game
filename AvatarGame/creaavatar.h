@@ -89,18 +89,18 @@ public:
     QString getPercorso() const;
 
 public slots:
-    void checkUno() const;
-    void checkDue() const;
-    void checkTre() const;
-    void checkQuattro() const;
-    void checkCinque() const;
-    void checkSei() const;
-    void checkSette() const;
-    void checkOtto() const;
-    void groupTipo() const;
+    void checkUno();
+    void checkDue();
+    void checkTre();
+    void checkQuattro();
+    void checkCinque();
+    void checkSei();
+    void checkSette();
+    void checkOtto();
+    void groupTipo();
     void resetTutto() const;
     void resetCheck() const;
-    void calcoloValori() const;
+    void calcoloValori();
 
     void inserisciImmagine();
 

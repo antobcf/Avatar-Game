@@ -32,6 +32,7 @@ private:
     QLabel* valoreSpeciale;
     QLabel* exp;
     QLabel* labelSesso;
+    QLabel* terrenoPreferito;
     QLineEdit* inserisciNome;
     QPushButton* bottoneSalvaModifiche;
     QPushButton* resetCampi;
@@ -64,6 +65,7 @@ public:
     QLabel* getValoreSpeciale() const;
     QLabel* getExp() const;
     QLabel* getLabelSesso() const;
+    QLabel* getTerrenoPreferito() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneSalvaModifiche() const;
@@ -87,17 +89,18 @@ public:
     QString getPercorsoImmagine() const;
 
 public slots:
-    void checkUno() const;
-    void checkDue() const;
-    void checkTre() const;
-    void checkQuattro() const;
-    void checkCinque() const;
-    void checkSei() const;
-    void checkSette() const;
-    void checkOtto() const;
-    void groupTipo() const;
+    void checkUno();
+    void checkDue();
+    void checkTre();
+    void checkQuattro();
+    void checkCinque();
+    void checkSei();
+    void checkSette();
+    void checkOtto();
+    void groupTipo();
     void resetTutto() const;
     void resetCheck() const;
+    void calcoloValori();
 
     void cambiaImmagine();
 };

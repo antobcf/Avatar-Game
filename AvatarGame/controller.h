@@ -49,9 +49,6 @@ public slots:
     void carica();
     void salva();
 
-    void salvaModificheAvatar();
-
-
 signals:
 
 };

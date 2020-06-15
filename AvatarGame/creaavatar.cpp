@@ -1,19 +1,18 @@
 #include "creaavatar.h"
 
-
 CreaAvatar::CreaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),
     maxPowerUp(new QLabel("Scegli massimo 2 power Up", this)),
-    lvl(new QLabel("LVL 1", this)),
-    valoreForza(new QLabel("6", this)),
-    valoreMagia(new QLabel("10", this)),
-    valoreDifesa(new QLabel("6", this)),
-    valoreScienza(new QLabel("5", this)),
-    valoreMedia(new QLabel("6.8", this)),
-    valoreSpeciale(new QLabel("0", this)),
-    exp(new QLabel("exp 0", this)),
+    lvl(new QLabel(this)),
+    valoreForza(new QLabel(this)),
+    valoreMagia(new QLabel(this)),
+    valoreDifesa(new QLabel(this)),
+    valoreScienza(new QLabel(this)),
+    valoreMedia(new QLabel(this)),
+    valoreSpeciale(new QLabel(this)),
+    exp(new QLabel( this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
-    terrenoPreferito(new QLabel("Regno incantato", this)),
+    terrenoPreferito(new QLabel(this)),
     inserisciNome(new QLineEdit(this)),
     bottoneHome(new QPushButton("Home", this)),
     bottoneCreaDef(new QPushButton("Crea Avatar", this)),
@@ -33,6 +32,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sessoM(new QRadioButton("Maschio", this)),
     sessoF(new QRadioButton("Femmina", this))
 {
+
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
@@ -97,9 +97,9 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Umano");
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
+    calcoloValori();
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
-    connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(calcoloValori()));
 
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
     connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
@@ -109,14 +109,6 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     connect(powerUp6,SIGNAL(clicked()),this,SLOT(checkSei()));
     connect(powerUp7,SIGNAL(clicked()),this,SLOT(checkSette()));
     connect(powerUp8,SIGNAL(clicked()),this,SLOT(checkOtto()));
-    connect(powerUp1,SIGNAL(clicked()),this,SLOT(calcoloValori()));
-    connect(powerUp2,SIGNAL(clicked()),this,SLOT(calcoloValori()));
-    connect(powerUp3,SIGNAL(clicked()),this,SLOT(calcoloValori()));
-    connect(powerUp4,SIGNAL(clicked()),this,SLOT(calcoloValori()));
-    connect(powerUp5,SIGNAL(clicked()),this,SLOT(calcoloValori()));
-    connect(powerUp6,SIGNAL(clicked()),this,SLOT(calcoloValori()));
-    connect(powerUp7,SIGNAL(clicked()),this,SLOT(calcoloValori()));
-    connect(powerUp8,SIGNAL(clicked()),this,SLOT(calcoloValori()));
 
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(calcoloValori()));
@@ -285,8 +277,9 @@ QRadioButton *CreaAvatar::getSessoF() const
     return sessoF;
 }
 
-void CreaAvatar::checkUno() const
+void CreaAvatar::checkUno()
 {
+    calcoloValori();
     if(powerUp1->isChecked()) {
         if(powerUp2->isChecked()) {
             powerUp3->setEnabled(false);
@@ -320,10 +313,12 @@ void CreaAvatar::checkUno() const
             return;
         }
     }
+
 }
 
-void CreaAvatar::checkDue() const
+void CreaAvatar::checkDue()
 {
+    calcoloValori();
     if(powerUp2->isChecked()) {
         if(powerUp1->isChecked()) {
             powerUp3->setEnabled(false);
@@ -359,8 +354,9 @@ void CreaAvatar::checkDue() const
     }
 }
 
-void CreaAvatar::checkTre() const
+void CreaAvatar::checkTre()
 {
+    calcoloValori();
     if(powerUp3->isChecked()) {
         if(powerUp2->isChecked()) {
             powerUp1->setEnabled(false);
@@ -396,8 +392,9 @@ void CreaAvatar::checkTre() const
     }
 }
 
-void CreaAvatar::checkQuattro() const
+void CreaAvatar::checkQuattro()
 {
+    calcoloValori();
     if(powerUp4->isChecked()) {
         if(powerUp2->isChecked()) {
             powerUp3->setEnabled(false);
@@ -433,8 +430,9 @@ void CreaAvatar::checkQuattro() const
     }
 }
 
-void CreaAvatar::checkCinque() const
+void CreaAvatar::checkCinque()
 {
+    calcoloValori();
     if(powerUp5->isChecked()) {
         if(powerUp6->isChecked()) {
             powerUp7->setEnabled(false);
@@ -470,8 +468,9 @@ void CreaAvatar::checkCinque() const
     }
 }
 
-void CreaAvatar::checkSei() const
+void CreaAvatar::checkSei()
 {
+    calcoloValori();
     if(powerUp6->isChecked()) {
         if(powerUp5->isChecked()) {
             powerUp7->setEnabled(false);
@@ -507,8 +506,9 @@ void CreaAvatar::checkSei() const
     }
 }
 
-void CreaAvatar::checkSette() const
+void CreaAvatar::checkSette()
 {
+    calcoloValori();
     if(powerUp7->isChecked()) {
         if(powerUp6->isChecked()) {
             powerUp5->setEnabled(false);
@@ -544,8 +544,9 @@ void CreaAvatar::checkSette() const
     }
 }
 
-void CreaAvatar::checkOtto() const
+void CreaAvatar::checkOtto()
 {
+    calcoloValori();
     if(powerUp8->isChecked()) {
         if(powerUp6->isChecked()) {
             powerUp7->setEnabled(false);
@@ -581,7 +582,7 @@ void CreaAvatar::checkOtto() const
     }
 }
 
-void CreaAvatar::groupTipo() const
+void CreaAvatar::groupTipo()
 {
     int indexAttuale = sceltaTipo->currentIndex();
     if(indexAttuale == 0 || indexAttuale == 1 || indexAttuale == 2) {
@@ -605,9 +606,7 @@ void CreaAvatar::groupTipo() const
         powerUp8->show();
         resetCheck();
     }
-    if(indexAttuale == 0) {
-
-    }
+    calcoloValori();
 }
 
 void CreaAvatar::resetTutto() const
@@ -644,17 +643,19 @@ void CreaAvatar::resetCheck() const
     powerUp8->setEnabled(true);
 }
 
-void CreaAvatar::calcoloValori() const
+void CreaAvatar::calcoloValori()
 {
-
     int indexAttuale = sceltaTipo->currentIndex();
     double forza = 0;
     double magia = 0;
     double difesa = 0;
     double scienza = 0;
+    unsigned int livello = 1;
+    unsigned int esperienza = 0;
+    unsigned int valoreExtra = 0;
     std::string terreno;
-    if(indexAttuale == 0) {
 
+    if(indexAttuale == 0) {
         forza = 6;
         if(powerUp1->isChecked()) {
             forza+=8;
@@ -672,7 +673,9 @@ void CreaAvatar::calcoloValori() const
             scienza += 5;
         }
         terreno = "Regno incantato";
-    }
+        valoreExtra = magia/livello;
+
+    } else
     if(indexAttuale == 1) {
         forza = 7;
         if(powerUp1->isChecked()) {
@@ -691,7 +694,9 @@ void CreaAvatar::calcoloValori() const
             scienza += 5;
         }
         terreno = "Regno del sottosuolo";
-    }
+        valoreExtra = difesa/livello;
+
+    } else
     if(indexAttuale == 2) {
         forza = 5;
         if(powerUp1->isChecked()) {
@@ -710,7 +715,9 @@ void CreaAvatar::calcoloValori() const
             scienza += 5;
         }
         terreno = "Regno delle macchine";
-    }
+        valoreExtra = scienza/livello;
+
+    } else
     if(indexAttuale == 3) {
         forza = 3;
         if(powerUp5->isChecked()) {
@@ -729,7 +736,9 @@ void CreaAvatar::calcoloValori() const
             scienza += 9;
         }
         terreno = "Regno dello spazio";
-    }
+        valoreExtra = scienza/livello;
+
+    } else
     if(indexAttuale == 4) {
         forza = 10;
         if(powerUp5->isChecked()) {
@@ -748,7 +757,10 @@ void CreaAvatar::calcoloValori() const
             scienza += 9;
         }
         terreno = "Regno dei demoni";
+        valoreExtra = forza/livello;
+
     }
+
     double media = (forza+magia+difesa+scienza)/4;
     valoreForza->setText(QString::number(forza));
     valoreMagia->setText(QString::number(magia));
@@ -756,4 +768,7 @@ void CreaAvatar::calcoloValori() const
     valoreScienza->setText(QString::number(scienza));
     valoreMedia->setText(QString::number(media,'f',1));
     terrenoPreferito->setText(QString::fromStdString(terreno));
+    lvl->setText(QString::number(livello));
+    exp->setText(QString::number(esperienza));
+    valoreSpeciale->setText(QString::number(valoreExtra));
 }

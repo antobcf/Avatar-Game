@@ -234,7 +234,6 @@ void Controller::modificaAvatar()
     aux = vistaLista->getElenco()->itemAttuale();
     itemA = aux->getItem();
 
-
     vistaModifica->getInserisciNome()->insert(QString::fromStdString(itemA->GetNome()));
     vistaModifica->getBoxDescrizione()->insertPlainText(QString::fromStdString(itemA->getDescrizione()));
     std::string lvl = (std::to_string(itemA->GetLiv()));
@@ -264,7 +263,7 @@ void Controller::modificaAvatar()
         e->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
         std::string trasparentia = (std::to_string(e->GetTrasparentia()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(trasparentia));
-        //vistaModifica->setModal(true);
+        vistaModifica->setModal(true);
         vistaModifica->show();
 
     } else if(dynamic_cast<Nano*>(itemA)) {
@@ -277,7 +276,9 @@ void Controller::modificaAvatar()
         n->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
         std::string corteccia = (std::to_string(n->GetCorteccia()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(corteccia));
+        vistaModifica->setModal(true);
         vistaModifica->show();
+
     } else if(dynamic_cast<Umano*>(itemA)) {
         Umano* u = static_cast<Umano*>(itemA);
 
@@ -288,28 +289,33 @@ void Controller::modificaAvatar()
         u->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
         std::string ingegno = (std::to_string(u->GetIngegno()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ingegno));
+        vistaModifica->setModal(true);
         vistaModifica->show();
+
     } else if(dynamic_cast<Alieno*>(itemA)) {
         Alieno* a = static_cast<Alieno*>(itemA);
 
         vistaModifica->getSceltaTipo()->setCurrentIndex(3);
-        a->GetBar() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
-        a->GetLaser() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
-        a->GetAmuleto() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
-        a->GetChip() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
+        a->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true) : vistaModifica->getPowerUp5()->setChecked(false);
+        a->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true) : vistaModifica->getPowerUp6()->setChecked(false);
+        a->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true) : vistaModifica->getPowerUp7()->setChecked(false);
+        a->GetChip() ? vistaModifica->getPowerUp8()->setChecked(true) : vistaModifica->getPowerUp8()->setChecked(false);
         std::string ufo = (std::to_string(a->GetUfo()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ufo));
+        vistaModifica->setModal(true);
         vistaModifica->show();
+
     } else if(dynamic_cast<Mostro*>(itemA)) {
         Mostro* m = static_cast<Mostro*>(itemA);
 
         vistaModifica->getSceltaTipo()->setCurrentIndex(4);
-        m->GetBar() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
-        m->GetLaser() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
-        m->GetAmuleto() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
-        m->GetChip() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
+        m->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true) : vistaModifica->getPowerUp5()->setChecked(false);
+        m->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true) : vistaModifica->getPowerUp6()->setChecked(false);
+        m->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true) : vistaModifica->getPowerUp7()->setChecked(false);
+        m->GetChip() ? vistaModifica->getPowerUp8()->setChecked(true) : vistaModifica->getPowerUp8()->setChecked(false);
         std::string porta = (std::to_string(m->GetPorta()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(porta));
+        vistaModifica->setModal(true);
         vistaModifica->show();
     }
 }
@@ -434,6 +440,9 @@ void Controller::carica()
                     ++val;
                 }
             }
+            vistaLista->getBottoneModifica()->setEnabled(false);
+            vistaLista->getBottoneRimuovi()->setEnabled(false);
+            vistaLista->getBottoneGioca()->setEnabled(false);
         }
     }
 }

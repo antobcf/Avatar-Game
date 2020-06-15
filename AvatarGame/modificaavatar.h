@@ -16,6 +16,7 @@
 #include <QRadioButton>
 #include <QFileDialog>
 #include <QString>
+#include <QTimer>
 
 class ModificaAvatar : public QDialog
 {

@@ -77,7 +77,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutValori->addWidget(terrenoPreferito);
     layoutDx->addWidget(resetCampi);
 
-
     formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
     formCrea->addRow("Nome:", inserisciNome);
 
@@ -94,6 +93,24 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Umano");
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
+
+//    QTimer::singleShot(0,this,SLOT(checkUno()));
+//    QTimer::singleShot(0,this,SLOT(checkDue()));
+//    QTimer::singleShot(0,this,SLOT(checkTre()));
+//    QTimer::singleShot(0,this,SLOT(checkQuattro()));
+//    QTimer::singleShot(0,this,SLOT(checkCinque()));
+//    QTimer::singleShot(0,this,SLOT(checkSei()));
+//    QTimer::singleShot(0,this,SLOT(checkSette()));
+//    QTimer::singleShot(0,this,SLOT(checkOtto()));
+
+//    checkUno();
+//    checkDue();
+//    checkTre();
+//    checkQuattro();
+//    checkCinque();
+//    checkSei();
+//    checkSette();
+//    checkOtto();
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
 

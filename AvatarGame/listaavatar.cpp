@@ -67,9 +67,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
 
     cercaNome->setPlaceholderText("Nome");
 
-    bottoneModifica->setEnabled(false);
-    bottoneRimuovi->setEnabled(false);
-    bottoneAvvioGioco->setEnabled(false);
 }
 
 QPushButton *ListaAvatar::getBottoneHome() const
@@ -176,11 +173,13 @@ void ListaAvatar::avatarSelezionato() const
 
 void ListaAvatar::resetLista() const
 {
+    bottoneModifica->setEnabled(false);
+    bottoneRimuovi->setEnabled(false);
+    bottoneAvvioGioco->setEnabled(false);
     cercaNome->clear();
     tipoElfo->setChecked(false);
     tipoNano->setChecked(false);
     tipoUmano->setChecked(false);
     tipoAlieno->setChecked(false);
     tipoMostro->setChecked(false);
-
 }

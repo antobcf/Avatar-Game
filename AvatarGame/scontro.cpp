@@ -66,6 +66,46 @@ Scontro::Scontro(QWidget *parent) :
     formMediaDx->addRow("Media: ", mediaDx);
 }
 
+QLabel *Scontro::getNomeAvatarSx() const
+{
+    return nomeAvatarSx;
+}
+
+QFormLayout *Scontro::getFormPowerupSx() const
+{
+    return formPowerupSx;
+}
+
+QLabel *Scontro::getPowerup1selezionatoSx() const
+{
+    return powerup1selezionatoSx;
+}
+
+QLabel *Scontro::getPowerup2selezionatoSx() const
+{
+    return powerup2selezionatoSx;
+}
+
+QFormLayout *Scontro::getFormMediaSx() const
+{
+    return formMediaSx;
+}
+
+QLabel *Scontro::getMediaSx() const
+{
+    return mediaSx;
+}
+
+QLabel *Scontro::getVs() const
+{
+    return vs;
+}
+
+QLabel *Scontro::getTerreno() const
+{
+    return terreno;
+}
+
 QPushButton *Scontro::getBottoneCombatti() const
 {
     return bottoneCombatti;
@@ -79,4 +119,54 @@ QPushButton *Scontro::getBottoneCambioAvatar() const
 QPushButton *Scontro::getBottoneHomeScontro() const
 {
     return bottoneHomeScontro;
+}
+
+QLabel *Scontro::getNomeAvatarDx() const
+{
+    return nomeAvatarDx;
+}
+
+QFormLayout *Scontro::getFormPowerupDx() const
+{
+    return formPowerupDx;
+}
+
+QLabel *Scontro::getPowerup1selezionatoDx() const
+{
+    return powerup1selezionatoDx;
+}
+
+QLabel *Scontro::getPowerup2selezionatoDx() const
+{
+    return powerup2selezionatoDx;
+}
+
+QFormLayout *Scontro::getFormMediaDx() const
+{
+    return formMediaDx;
+}
+
+QLabel *Scontro::getMediaDx() const
+{
+    return mediaDx;
+}
+
+QString *Scontro::getForza() const
+{
+    return forza;
+}
+
+QString *Scontro::getMagia() const
+{
+    return magia;
+}
+
+QString *Scontro::getDifesa() const
+{
+    return difesa;
+}
+
+QString *Scontro::getScienza() const
+{
+    return scienza;
 }

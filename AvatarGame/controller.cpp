@@ -38,7 +38,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
 
     //CONNECT LISTA
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
-    connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
+    connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(scontroTraAvatar()));
     connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(modificaAvatar()));
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
     connect(vistaLista->getTipoElfo(),SIGNAL(clicked()),this,SLOT(carica()));
@@ -337,6 +337,21 @@ void Controller::modificaAvatar()
         vistaModifica->setModal(true);
         vistaModifica->show();
     }
+}
+
+void Controller::scontroTraAvatar()
+{
+    ElencoAvatar* aux = nullptr;
+    Avatar* itemA = nullptr;
+
+    aux = vistaLista->getElenco()->itemAttuale();
+    itemA = aux->getItem();
+
+    vistaScontro->getNomeAvatarSx()->setText(QString::fromStdString(itemA->GetNome()));
+    std::string forza = (std::to_string(itemA->getForza()));
+    //vistaScontro->getForza()->
+    mostraScontro();
+
 }
 
 void Controller::rimuoviAvatar()

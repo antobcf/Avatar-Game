@@ -48,6 +48,8 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneRimuovi(),SIGNAL(clicked()),this,SLOT(rimuoviAvatar()));
     connect(vistaLista->getBottoneRimuoviTutto(),SIGNAL(clicked()),this,SLOT(svuotaElenco()));
 
+    connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
+
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
 }
@@ -351,6 +353,12 @@ void Controller::svuotaElenco()
 
 void Controller::ricercaAvatar()
 {
+    std::string nome = vistaLista->getCercaNome()->text().toStdString();
+
+    if(nome == "") {
+        QMessageBox::warning(this, "Errore", "Completa il campo Nome per avviare una ricerca");
+    }
+
 
 }
 
@@ -462,12 +470,80 @@ void Controller::salva()
     itemA->setDescrizione(vistaModifica->getBoxDescrizione()->toPlainText().toStdString());
     itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
     itemA->SetExp(vistaModifica->getExp()->text().toUInt());
-    //itemA->setForza(vistaModifica->getValoreForza()->text().toUInt());
-    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
-    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
-    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
-    itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
+    itemA->setForza(vistaModifica->getValoreForza()->text().toUInt());
+    itemA->setMagia(vistaModifica->getValoreMagia()->text().toUInt());
+    itemA->setDifesa(vistaModifica->getValoreDifesa()->text().toUInt());
+    itemA->setScienza(vistaModifica->getValoreScienza()->text().toUInt());
+    itemA->setMedia(vistaModifica->getValoreMedia()->text().toUInt());
+    itemA->setTerreno(vistaModifica->getTerrenoPreferito()->text().toStdString());
+    itemA->SetSesso(vistaModifica->getSessoM()->isChecked()); //da controllare se funzia
+    itemA->setPercorsoImmagine(vistaModifica->getPercorsoImmagine().toStdString());
 
+    if(dynamic_cast<Elfo*>(itemA)) {
+        Elfo* e = static_cast<Elfo*>(itemA);
+
+        e->SetScudo(vistaModifica->getPowerUp1()->isChecked());
+        e->SetSpada(vistaModifica->getPowerUp2()->isChecked());
+        e->SetAnello(vistaModifica->getPowerUp3()->isChecked());
+        e->SetLibro(vistaModifica->getPowerUp4()->isChecked());
+        e->setTrasparentia(vistaModifica->getValoreSpeciale()->text().toUInt());
+        modello->salvare();
+        carica();
+        vistaModifica->close();
+        QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
+    } else if(dynamic_cast<Nano*>(itemA)) {
+        Nano* n = static_cast<Nano*>(itemA);
+
+        n->SetScudo(vistaModifica->getPowerUp1()->isChecked());
+        n->SetSpada(vistaModifica->getPowerUp2()->isChecked());
+        n->SetAnello(vistaModifica->getPowerUp3()->isChecked());
+        n->SetLibro(vistaModifica->getPowerUp4()->isChecked());
+        n->setCorteccia(vistaModifica->getValoreSpeciale()->text().toUInt());
+        modello->salvare();
+        carica();
+        vistaModifica->close();
+        QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
+    } else if(dynamic_cast<Umano*>(itemA)) {
+        Umano* u = static_cast<Umano*>(itemA);
+
+        u->SetScudo(vistaModifica->getPowerUp1()->isChecked());
+        u->SetSpada(vistaModifica->getPowerUp2()->isChecked());
+        u->SetAnello(vistaModifica->getPowerUp3()->isChecked());
+        u->SetLibro(vistaModifica->getPowerUp4()->isChecked());
+        u->setIngegno(vistaModifica->getValoreSpeciale()->text().toUInt());
+        modello->salvare();
+        carica();
+        vistaModifica->close();
+        QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
+    } else if(dynamic_cast<Alieno*>(itemA)) {
+        Alieno* a = static_cast<Alieno*>(itemA);
+
+        a->SetBarriera(vistaModifica->getPowerUp5()->isChecked());
+        a->SetLaser(vistaModifica->getPowerUp6()->isChecked());
+        a->SetAmuleto(vistaModifica->getPowerUp7()->isChecked());
+        a->SetChip(vistaModifica->getPowerUp8()->isChecked());
+        a->setUfo(vistaModifica->getValoreSpeciale()->text().toUInt());
+        modello->salvare();
+        carica();
+        vistaModifica->close();
+        QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
+    } else if(dynamic_cast<Mostro*>(itemA)) {
+        Mostro* m = static_cast<Mostro*>(itemA);
+
+        m->SetBarriera(vistaModifica->getPowerUp5()->isChecked());
+        m->SetLaser(vistaModifica->getPowerUp6()->isChecked());
+        m->SetAmuleto(vistaModifica->getPowerUp7()->isChecked());
+        m->SetChip(vistaModifica->getPowerUp8()->isChecked());
+        m->setPorta(vistaModifica->getValoreSpeciale()->text().toUInt());
+        modello->salvare();
+        carica();
+        vistaModifica->close();
+        QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+    }
 }
 
 

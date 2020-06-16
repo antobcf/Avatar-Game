@@ -116,6 +116,11 @@ void Avatar::setPercorsoImmagine(std::string p)
     percorsoImmagine = p;
 }
 
+bool Avatar::operator==(const Avatar & a) const
+{
+    return nome == a.nome;
+}
+
 std::string Avatar::datiAvatar()
 {
     return ("Tipo Avatar: "+getTipo()).append("   Nome: "+GetNome()).append("   Sesso: ").append(GetSesso() ? "Maschio" : "Femmina")
@@ -179,8 +184,8 @@ std::string Elfo::getTipo() const
 }
 
 bool Elfo::operator==(const Avatar & a) const {
-    if(a.GetNome()==this->GetNome()) return true;
-    else return false;
+    const Elfo* e = dynamic_cast<const Elfo*>(&a);
+    return e && Avatar::operator==(a);
 }
 
 std::string Elfo::datiAvatar()
@@ -204,8 +209,8 @@ std::string Nano::getTipo() const
 }
 
 bool Nano::operator==(const Avatar & a) const {
-    if(a.GetNome()==this->GetNome()) return true;
-    else return false;
+    const Nano* n = dynamic_cast<const Nano*>(&a);
+    return n && Avatar::operator==(a);
 }
 
 std::string Nano::datiAvatar()
@@ -229,8 +234,8 @@ std::string Umano::getTipo() const
 }
 
 bool Umano::operator==(const Avatar & a) const {
-    if(a.GetNome()==this->GetNome()) return true;
-    else return false;
+    const Umano* u = dynamic_cast<const Umano*>(&a);
+    return u && Avatar::operator==(a);
 }
 
 std::string Umano::datiAvatar()
@@ -293,8 +298,8 @@ std::string Alieno::getTipo() const
 }
 
 bool Alieno::operator==(const Avatar & a) const {
-    if(a.GetNome()==this->GetNome()) return true;
-    else return false;
+    const Alieno* al = dynamic_cast<const Alieno*>(&a);
+    return al && Avatar::operator==(a);
 }
 
 std::string Alieno::datiAvatar()
@@ -318,8 +323,8 @@ std::string Mostro::getTipo() const
 }
 
 bool Mostro::operator==(const Avatar & a) const {
-    if(a.GetNome()==this->GetNome()) return true;
-    else return false;
+    const Mostro* m = dynamic_cast<const Mostro*>(&a);
+    return m && Avatar::operator==(a);
 }
 
 std::string Mostro::datiAvatar()

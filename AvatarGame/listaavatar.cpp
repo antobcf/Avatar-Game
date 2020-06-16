@@ -7,7 +7,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     ordinaNome(new QPushButton("Nome", this)),
     ordinaLivello(new QPushButton("Livello", this)),
     ordinaMedia(new QPushButton("Media", this)),
-
+    avviaRicerca(new QPushButton("Ricerca",this)),
     formLista(new QFormLayout),
     cercaNome(new QLineEdit(this)),
     tipoElfo(new QCheckBox("Elfo", this)),
@@ -51,6 +51,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
 
     formLista->addRow("Cerca:", cercaNome);
     layoutDx->addLayout(formLista);
+    layoutDx->addWidget(avviaRicerca);
     layoutDx->addLayout(layoutCheckBox);
     layoutCheckBox->addWidget(tipoElfo);
     layoutCheckBox->addWidget(tipoNano);
@@ -63,6 +64,8 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneAvvioGioco);
     layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
     bottoneInfoLista->setFixedSize(25,25);
+
+    cercaNome->setPlaceholderText("Nome");
 
     bottoneModifica->setEnabled(false);
     bottoneRimuovi->setEnabled(false);
@@ -92,6 +95,11 @@ QPushButton *ListaAvatar::getOrdinaLivello() const
 QPushButton *ListaAvatar::getOrdinaMedia() const
 {
     return ordinaMedia;
+}
+
+QPushButton *ListaAvatar::getAvviaRicerca() const
+{
+    return avviaRicerca;
 }
 
 QFormLayout *ListaAvatar::getFormLista() const

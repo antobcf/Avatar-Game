@@ -72,6 +72,7 @@ public:
     void inserisci(const T&);//metodo per l'inserimento alla fine della lista di un nuovo elemento
     void remove(); //rimuove valore in testa
     void removeElement(const T&);
+    bool ricerca(const T&) const;
     void clean(); //svuota contenitore
     T ricercaNome(T); //servirebbe per cercare un personaggio, ma non riesco a farlo andare
     iteratore begin();
@@ -257,6 +258,17 @@ void Container<T>::removeElement(const T& t) {
         }
     }
 
+}
+
+template<class T>
+bool Container<T>::ricerca(const T & r) const
+{
+    iteratoreConst cit = beginC();
+    for(; cit!=endC(); ++cit) {
+        if(*(*cit) == *r)
+            return true;
+    }
+    return false;
 }
 
 template <class T>

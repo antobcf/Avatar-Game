@@ -47,6 +47,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getTipoMostro(),SIGNAL(clicked()),this,SLOT(carica()));
     connect(vistaLista->getBottoneRimuovi(),SIGNAL(clicked()),this,SLOT(rimuoviAvatar()));
     connect(vistaLista->getBottoneRimuoviTutto(),SIGNAL(clicked()),this,SLOT(svuotaElenco()));
+    connect(vistaLista->getAvviaRicerca(),SIGNAL(clicked()),this,SLOT(ricercaAvatar()));
 
     connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
 
@@ -353,13 +354,36 @@ void Controller::svuotaElenco()
 
 void Controller::ricercaAvatar()
 {
-    std::string nome = vistaLista->getCercaNome()->text().toStdString();
+    std::string Nome = vistaLista->getCercaNome()->text().toStdString();
 
-    if(nome == "") {
+    if(Nome == "") {
         QMessageBox::warning(this, "Errore", "Completa il campo Nome per avviare una ricerca");
+        return;
     }
 
+    Avatar* item = new Elfo(Nome);
 
+    if(modello->getLista()->ricerca(item)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+            }
+            ++val;
+        }
+    }
+
+    else {
+        QMessageBox::warning(this, "Errore",  "Non è stato trovato nessun Avatar");
+    }
 }
 
 void Controller::caricaDb()
@@ -402,6 +426,7 @@ void Controller::carica()
                     }
                     ++val;
                 }
+
             }
 
             if(vistaLista->getTipoNano()->isChecked()) {

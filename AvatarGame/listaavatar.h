@@ -23,7 +23,7 @@ private:
     QPushButton* ordinaNome;
     QPushButton* ordinaLivello;
     QPushButton* ordinaMedia;
-
+    QPushButton* avviaRicerca;
     QFormLayout* formLista;
     QLineEdit* cercaNome;
     QCheckBox* tipoElfo;
@@ -46,6 +46,7 @@ public:
     QPushButton* getOrdinaNome() const;
     QPushButton* getOrdinaLivello() const;
     QPushButton* getOrdinaMedia() const;
+    QPushButton* getAvviaRicerca() const;
     QFormLayout* getFormLista() const;
     QLineEdit* getCercaNome() const;
     QCheckBox* getTipoElfo() const;

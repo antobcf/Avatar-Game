@@ -10,6 +10,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaLista(new ListaAvatar(this)),
     vistaModifica(new ModificaAvatar(this)),
     vistaScontro(new Scontro(this)),
+    vistaFineScontro(new FineScontro(this)),
     modello(m),
     destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
 {
@@ -53,6 +54,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
 
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
+    connect(vistaScontro->getBottoneCombatti(),SIGNAL(clicked()),this,SLOT(mostraFineScontro()));
 }
 
 Controller::~Controller()
@@ -90,6 +92,16 @@ void Controller::mostraLista() {
 }
 
 void Controller::mostraScontro() {
+    vistaScontro->show();
+    vistaModifica->hide();
+    vistaLista->hide();
+    vistaHome->hide();
+    vistaCrea->hide();
+}
+
+void Controller::mostraFineScontro() {
+    vistaFineScontro->setModal(true);
+    vistaFineScontro->show();
     vistaScontro->show();
     vistaModifica->hide();
     vistaLista->hide();
@@ -501,7 +513,7 @@ void Controller::salva()
     itemA->setScienza(vistaModifica->getValoreScienza()->text().toUInt());
     itemA->setMedia(vistaModifica->getValoreMedia()->text().toUInt());
     itemA->setTerreno(vistaModifica->getTerrenoPreferito()->text().toStdString());
-    itemA->SetSesso(vistaModifica->getSessoM()->isChecked()); //da controllare se funzia
+    itemA->SetSesso(vistaModifica->getSessoM()->isChecked());
     itemA->setPercorsoImmagine(vistaModifica->getPercorsoImmagine().toStdString());
 
     if(dynamic_cast<Elfo*>(itemA)) {

@@ -120,6 +120,7 @@ void Controller::inserisciAvatar()
     int check = vistaCrea->getSessoM()->isChecked();
     if(check == 1) sesso = true;
     else sesso = false;
+    std::string percorso = vistaCrea->getPercorso().toStdString();
 
     /*
     if ((vistaCrea->getInserisciNome()->text().toStdString())==.......){
@@ -155,7 +156,7 @@ void Controller::inserisciAvatar()
 
             if(index == 0) {
                 unsigned int trasparentia = vistaCrea->getValoreSpeciale()->text().toUInt();
-                Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, trasparentia);
+                Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, scudo, spada, anello, libro, trasparentia);
                 modello->getLista()->inserisci(personaggio);
                 modello->salvare();
                 carica();
@@ -164,7 +165,7 @@ void Controller::inserisciAvatar()
                 vistaLista->show();
             } else if(index == 1) {
                 unsigned int corteccia = vistaCrea->getValoreSpeciale()->text().toUInt();
-                Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, corteccia);
+                Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, scudo, spada, anello, libro, corteccia);
                 modello->getLista()->inserisci(personaggio);
                 modello->salvare();
                 carica();
@@ -173,7 +174,7 @@ void Controller::inserisciAvatar()
                 vistaLista->show();
             } else if(index == 2) {
                 unsigned int ingegnoScientifico = vistaCrea->getValoreSpeciale()->text().toUInt();
-                Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, scudo, spada, anello, libro, ingegnoScientifico);
+                Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, scudo, spada, anello, libro, ingegnoScientifico);
                 modello->getLista()->inserisci(personaggio);
                 modello->salvare();
                 carica();
@@ -205,7 +206,7 @@ void Controller::inserisciAvatar()
 
             if(index == 3) {
                 unsigned int ufo = vistaCrea->getValoreSpeciale()->text().toUInt();
-                Alieno* personaggio = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, ufo);
+                Alieno* personaggio = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, barriera, laser, amuleto, chip, ufo);
                 modello->getLista()->inserisci(personaggio);
                 modello->salvare();
                 carica();
@@ -214,7 +215,7 @@ void Controller::inserisciAvatar()
                 vistaLista->show();
             } else if(index == 4) {
                 unsigned int portaDemoniaca = vistaCrea->getValoreSpeciale()->text().toUInt();
-                Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, barriera, laser, amuleto, chip, portaDemoniaca);
+                Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, barriera, laser, amuleto, chip, portaDemoniaca);
                 modello->getLista()->inserisci(personaggio);
                 modello->salvare();
                 carica();
@@ -234,6 +235,7 @@ void Controller::modificaAvatar()
     aux = vistaLista->getElenco()->itemAttuale();
     itemA = aux->getItem();
 
+
     vistaModifica->getInserisciNome()->insert(QString::fromStdString(itemA->GetNome()));
     vistaModifica->getBoxDescrizione()->insertPlainText(QString::fromStdString(itemA->getDescrizione()));
     std::string lvl = (std::to_string(itemA->GetLiv()));
@@ -252,6 +254,7 @@ void Controller::modificaAvatar()
     vistaModifica->getValoreMedia()->setText(QString::fromStdString(media));
     vistaModifica->getTerrenoPreferito()->setText(QString::fromStdString(itemA->getTerreno()));
     itemA->GetSesso() ? vistaModifica->getSessoM()->setChecked(true) : vistaModifica->getSessoF()->setChecked(true);
+    vistaModifica->inserisciPercorso(itemA->getPercorsoImmagine());
 
     if(dynamic_cast<Elfo*>(itemA)) {
         Elfo* e = static_cast<Elfo*>(itemA);

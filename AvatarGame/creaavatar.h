@@ -50,7 +50,7 @@ private:
     QPushButton* inserisciImmagineButton;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
-    QString percorsoImmagine;
+    QString pImmagine;
 
 public:
     CreaAvatar(QWidget * = nullptr);

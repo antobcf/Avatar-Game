@@ -29,7 +29,8 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     sceltaTipo(new QComboBox(this)),
     modificaImmagine(new QPushButton("Cambia Immagine")),
     sessoM(new QRadioButton("Maschio", this)),
-    sessoF(new QRadioButton("Femmina", this))
+    sessoF(new QRadioButton("Femmina", this)),
+    pImmagine()
 {
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
@@ -130,18 +131,22 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 
 }
 
-/*void ModificaAvatar::inserisciPercorso(std::string p){
-    pathImmagine = QString::fromStdString(p);
-    modificaImmagine->setIcon(QIcon(pathImmagine));
-}*/
-
 void ModificaAvatar::cambiaImmagine(){
-    QString percorsoImmagine = QFileDialog::getOpenFileName(this, "Scegli file", ":/Risorse" , "File immagini(*.JPG;*.PNG)"); //QString pathImmagine = QFileDialog::getOpenFileName(this, tr("Scegli file"), ":/SalvataggioDati" , "File immagini(*.JPG;*.PNG)");
+    QString percorsoImmagine = QFileDialog::getOpenFileName(this, "Scegli file", ":/Risorse" , "File immagini(*.JPG;*.PNG)");
+    if(pImmagine!="") {
+        pImmagine = percorsoImmagine;
+    }
     modificaImmagine->setIcon(QIcon(percorsoImmagine));
 }
 
 QString ModificaAvatar::getPercorsoImmagine() const{
-    return percorsoImmagine;
+    return pImmagine;
+}
+
+void ModificaAvatar::inserisciPercorso(std::string p)
+{
+    pImmagine = QString::fromStdString(p);
+    modificaImmagine->setIcon(QIcon(pImmagine));
 }
 
 QFormLayout *ModificaAvatar::getFormCrea() const

@@ -51,7 +51,7 @@ private:
     QPushButton* modificaImmagine;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
-    QString percorsoImmagine;
+    QString pImmagine;
 
 public:
     ModificaAvatar(QWidget * = nullptr);
@@ -85,9 +85,10 @@ public:
     QLabel* getImmagineAvatar() const;
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
-
-    //inserisciPercorso(std::string);
     QString getPercorsoImmagine() const;
+
+    void inserisciPercorso(std::string);
+
 
 public slots:
     void checkUno();

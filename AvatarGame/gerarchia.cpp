@@ -48,6 +48,11 @@ std::string Avatar::getTerreno() const
     return terreno;
 }
 
+std::string Avatar::getPercorsoImmagine() const
+{
+    return percorsoImmagine;
+}
+
 void Avatar::SetNome(std::string n) {
     nome = n;
 }
@@ -104,6 +109,11 @@ void Avatar::setMedia(double m)
 void Avatar::setTerreno(std::string t)
 {
     terreno = t;
+}
+
+void Avatar::setPercorsoImmagine(std::string p)
+{
+    percorsoImmagine = p;
 }
 
 std::string Avatar::datiAvatar()

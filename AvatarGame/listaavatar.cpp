@@ -173,3 +173,14 @@ void ListaAvatar::avatarSelezionato() const
     bottoneRimuovi->setEnabled(true);
     bottoneAvvioGioco->setEnabled(true);
 }
+
+void ListaAvatar::resetLista() const
+{
+    cercaNome->clear();
+    tipoElfo->setChecked(false);
+    tipoNano->setChecked(false);
+    tipoUmano->setChecked(false);
+    tipoAlieno->setChecked(false);
+    tipoMostro->setChecked(false);
+
+}

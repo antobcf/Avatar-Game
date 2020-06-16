@@ -88,7 +88,8 @@ void Controller::mostraLista() {
     vistaCrea->hide();
     vistaModifica->hide();
     vistaScontro->hide();
-
+    vistaLista->resetLista();
+    carica();
 }
 
 void Controller::mostraScontro() {
@@ -111,12 +112,12 @@ void Controller::mostraFineScontro() {
 
 void Controller::infoPopHome()
 {
-    QMessageBox::information(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
+    QMessageBox::about(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
 }
 
 void Controller::infoPopLista()
 {
-    QMessageBox::information(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
+    QMessageBox::about(this,"Cosa posso fare in questa finestra?","Quì puoi fare questo.\nChiudi questa finestra per scegliere un avatar");
 }
 
 void Controller::inserisciAvatar()
@@ -366,14 +367,18 @@ void Controller::svuotaElenco()
 
 void Controller::ricercaAvatar()
 {
-    std::string Nome = vistaLista->getCercaNome()->text().toStdString();
+    std::string nome = vistaLista->getCercaNome()->text().toStdString();
 
-    if(Nome == "") {
+    if(nome == "") {
         QMessageBox::warning(this, "Errore", "Completa il campo Nome per avviare una ricerca");
         return;
     }
 
-    Avatar* item = new Elfo(Nome);
+    Avatar* item = new Elfo(nome);
+    Avatar* item2 = new Nano(nome);
+    Avatar* item3 = new Umano(nome);
+    Avatar* item4 = new Alieno(nome);
+    Avatar* item5 = new Mostro(nome);
 
     if(modello->getLista()->ricerca(item)) {
         vistaLista->getElenco()->clear();
@@ -386,6 +391,71 @@ void Controller::ricercaAvatar()
 
         while(val != valFin && !match) {
             if(*item == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+            }
+            ++val;
+        }
+
+    } else if(modello->getLista()->ricerca(item2)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item3)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item4)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item5)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
                 vistaLista->getElenco()->insertAvatar(*val);
                 match = true;
             }

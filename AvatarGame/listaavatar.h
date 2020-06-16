@@ -63,8 +63,8 @@ public:
 
 
 public slots:
-    //void on_bottoneModifica_clicked();
     void avatarSelezionato() const;
+    void resetLista() const;
 };
 
 #endif // LISTAAVATAR_H

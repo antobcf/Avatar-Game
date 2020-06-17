@@ -1,3 +1,13 @@
 <RCC>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>Risorse/Immagini Avatar/Alieno.png</file>
+        <file>Risorse/Immagini Avatar/Elfo Femmina.png</file>
+        <file>Risorse/Immagini Avatar/Elfo Maschio.png</file>
+        <file>Risorse/Immagini Avatar/Mostro Femmina.png</file>
+        <file>Risorse/Immagini Avatar/Mostro Maschio.png</file>
+        <file>Risorse/Immagini Avatar/Nano Femmina.png</file>
+        <file>Risorse/Immagini Avatar/Nano Maschio.png</file>
+        <file>Risorse/Immagini Avatar/Umano Femmina.png</file>
+        <file>Risorse/Immagini Avatar/Umano Maschio.png</file>
+    </qresource>
 </RCC>

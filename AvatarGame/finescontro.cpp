@@ -15,3 +15,19 @@ FineScontro::FineScontro(QWidget *parent) :
     layoutFineScontro->addWidget(cambioAvatarFineScontro);
     layoutFineScontro->addWidget(continua);
 }
+
+QPushButton *FineScontro::getHomeFine() const
+{
+    return ritornoHome;
+}
+
+QPushButton *FineScontro::getCambioAvatarFine() const
+{
+    return cambioAvatarFineScontro;
+}
+
+QPushButton *FineScontro::getContinuaFine() const
+{
+    return continua;
+}
+

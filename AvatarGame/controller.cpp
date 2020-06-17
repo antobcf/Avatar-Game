@@ -55,6 +55,12 @@ Controller::Controller(Modello* m, QWidget *parent) :
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaScontro->getBottoneCombatti(),SIGNAL(clicked()),this,SLOT(mostraFineScontro()));
+
+    //CONNECT FINE SCONTRO
+    connect(vistaFineScontro->getHomeFine(),SIGNAL(clicked()),this,SLOT(mostraHome()));
+    connect(vistaFineScontro->getCambioAvatarFine(),SIGNAL(clicked()),this,SLOT(mostraLista()));
+    connect(vistaFineScontro->getContinuaFine(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
+
 }
 
 Controller::~Controller()
@@ -69,6 +75,7 @@ void Controller::mostraHome()
     vistaLista->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+    vistaFineScontro->hide();
 
 }
 
@@ -78,6 +85,7 @@ void Controller::mostraCrea() {
     vistaLista->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+    vistaFineScontro->hide();
 
     vistaCrea->resetTutto();
 }
@@ -88,6 +96,7 @@ void Controller::mostraLista() {
     vistaCrea->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+    vistaFineScontro->hide();
     vistaLista->resetLista();
     carica();
 }
@@ -98,6 +107,7 @@ void Controller::mostraScontro() {
     vistaLista->hide();
     vistaHome->hide();
     vistaCrea->hide();
+    vistaFineScontro->hide();
 }
 
 void Controller::mostraFineScontro() {
@@ -138,15 +148,104 @@ void Controller::inserisciAvatar()
     else sesso = false;
     std::string percorso = vistaCrea->getPercorso().toStdString();
 
-    /*
-    if ((vistaCrea->getInserisciNome()->text().toStdString())==.......){
-        QMessageBox::warning(this, "Errore", "Il nome è uguale ad un altro");
-    }
-     */
+    //inizio funzione che manda avviso se nome già usato
+    Avatar* item = new Elfo(nome);
+    Avatar* item2 = new Nano(nome);
+    Avatar* item3 = new Umano(nome);
+    Avatar* item4 = new Alieno(nome);
+    Avatar* item5 = new Mostro(nome);
 
-    if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked()))) {
+    if(modello->getLista()->ricerca(item)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+                QMessageBox::warning(this, "Errore",  "Nome già usato");
+            }
+            ++val;
+        }
+
+    } else if(modello->getLista()->ricerca(item2)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+                QMessageBox::warning(this, "Errore",  "Nome già usato");
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item3)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+                QMessageBox::warning(this, "Errore",  "Nome già usato");
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item4)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+                QMessageBox::warning(this, "Errore",  "Nome già usato");
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item5)) {
+        vistaLista->getElenco()->clear();
+        modello->setPercorso(destinazione.toStdString());
+        modello->caricare();
+        bool match = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !match) {
+            if(*item2 == *(*val)) {
+                vistaLista->getElenco()->insertAvatar(*val);
+                match = true;
+                QMessageBox::warning(this, "Errore",  "Nome già usato");
+            }
+            ++val;
+        }
+    }
+    //parte per campi non compilati
+    else if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked()))) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
-    } else {
+    } else { //creazione avatar
         int index = vistaCrea->getSceltaTipo()->currentIndex();
 
         if(index == 0 || index == 1 || index == 2) {
@@ -350,6 +449,8 @@ void Controller::scontroTraAvatar()
     vistaScontro->getNomeAvatarSx()->setText(QString::fromStdString(itemA->GetNome()));
     std::string forza = (std::to_string(itemA->getForza()));
     //vistaScontro->getForza()->
+    std::string media = (std::to_string(itemA->getMedia()));
+    vistaScontro->getMediaSx()->setText(QString::fromStdString(media));
     mostraScontro();
 
 }

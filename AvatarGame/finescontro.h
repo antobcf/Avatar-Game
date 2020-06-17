@@ -18,6 +18,9 @@ private:
 
 public:
     FineScontro(QWidget * = nullptr);
+    QPushButton* getHomeFine() const;
+    QPushButton* getCambioAvatarFine() const;
+    QPushButton* getContinuaFine() const;
 
 public slots:
 

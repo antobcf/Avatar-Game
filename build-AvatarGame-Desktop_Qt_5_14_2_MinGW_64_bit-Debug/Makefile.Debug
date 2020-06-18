@@ -177,6 +177,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_risorse.cpp
 debug/qrc_risorse.cpp: ../AvatarGame/risorse.qrc \
 		C:/Qt/5.14.2/mingw73_64/bin/rcc.exe \
+		../AvatarGame/Risorse/style.css \
 		../AvatarGame/Risorse/Immagini\ Avatar/Elfo\ Maschio.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Nano\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Mostro\ Femmina.png \
@@ -523,6 +524,7 @@ debug/moc_controller.cpp: ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
 		../AvatarGame/finescontro.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
 	C:\Qt\5.14.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/build-AvatarGame-Desktop_Qt_5_14_2_MinGW_64_bit-Debug/debug/moc_predefs.h" -IC:/Qt/5.14.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/modri/OneDrive/Desktop/Progetto Avatargame/avatar-game/AvatarGame" -IC:/Qt/5.14.2/mingw73_64/include -IC:/Qt/5.14.2/mingw73_64/include/QtWidgets -IC:/Qt/5.14.2/mingw73_64/include/QtGui -IC:/Qt/5.14.2/mingw73_64/include/QtANGLE -IC:/Qt/5.14.2/mingw73_64/include/QtCore -I. -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Qt/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Qt/Tools/mingw730_64/x86_64-w64-mingw32/include ..\AvatarGame\controller.h -o debug\moc_controller.cpp
@@ -1970,7 +1972,8 @@ debug/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
-		../AvatarGame/finescontro.h
+		../AvatarGame/finescontro.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\controller.o ..\AvatarGame\controller.cpp
 
 debug/creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h \
@@ -2991,6 +2994,7 @@ debug/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
 		../AvatarGame/finescontro.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
@@ -3681,7 +3685,8 @@ debug/scontro.o: ../AvatarGame/scontro.cpp ../AvatarGame/scontro.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QString \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QTimer \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtimer.h \
-		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h
+		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
+		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\scontro.o ..\AvatarGame\scontro.cpp
 
 debug/sviluppatori.o: ../AvatarGame/sviluppatori.cpp ../AvatarGame/sviluppatori.h \

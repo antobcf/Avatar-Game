@@ -173,7 +173,7 @@ void Modello::rimuoviTutto()
     Container<Avatar*>::iteratore inizio = lista->begin();
     Container<Avatar*>::iteratore fine = lista->end();
 
-    while(inizio != fine) {
+    if(inizio != fine) {
         rimuovi(*inizio);
         ++inizio;
     }

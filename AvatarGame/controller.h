@@ -14,6 +14,8 @@
 #include <QVBoxLayout>
 #include <QMenuBar>
 #include <QFileDialog>
+#include <QIcon>
+#include <QFile>
 
 class Controller : public QWidget {
     Q_OBJECT
@@ -29,6 +31,7 @@ private:
     FineScontro* vistaFineScontro;
     Modello* modello;
     QString destinazione;
+    void setAvatarGameStyle();
 
 public:
     Controller(Modello *, QWidget *parent = nullptr);
@@ -38,7 +41,6 @@ public slots:
     void mostraHome();
     void mostraCrea();
     void mostraLista();
-    //void mostraModifica();
     void mostraScontro();
     void mostraFineScontro();
     void infoPopHome();
@@ -53,7 +55,7 @@ public slots:
     void carica();
     void salva();
 
-    void ordinaMedia();
+    //void ordinaMedia();
 
 
 signals:

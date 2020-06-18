@@ -61,6 +61,8 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaFineScontro->getCambioAvatarFine(),SIGNAL(clicked()),this,SLOT(mostraLista()));
     connect(vistaFineScontro->getContinuaFine(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
 
+    setAvatarGameStyle();
+
 }
 
 Controller::~Controller()
@@ -76,7 +78,6 @@ void Controller::mostraHome()
     vistaModifica->hide();
     vistaScontro->hide();
     vistaFineScontro->hide();
-
 }
 
 void Controller::mostraCrea() {
@@ -384,6 +385,7 @@ void Controller::modificaAvatar()
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(trasparentia));
         vistaModifica->setModal(true);
         vistaModifica->setWindowTitle("Modifica Avatar");
+        vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Elfo Maschio.png"));
         vistaModifica->show();
 
     } else if(dynamic_cast<Nano*>(itemA)) {
@@ -398,6 +400,7 @@ void Controller::modificaAvatar()
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(corteccia));
         vistaModifica->setModal(true);
         vistaModifica->setWindowTitle("Modifica Avatar");
+        vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Nano Maschio.png"));
         vistaModifica->show();
 
     } else if(dynamic_cast<Umano*>(itemA)) {
@@ -412,6 +415,7 @@ void Controller::modificaAvatar()
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ingegno));
         vistaModifica->setModal(true);
         vistaModifica->setWindowTitle("Modifica Avatar");
+        vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
         vistaModifica->show();
 
     } else if(dynamic_cast<Alieno*>(itemA)) {
@@ -426,6 +430,7 @@ void Controller::modificaAvatar()
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ufo));
         vistaModifica->setModal(true);
         vistaModifica->setWindowTitle("Modifica Avatar");
+        vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Alieno.png"));
         vistaModifica->show();
 
     } else if(dynamic_cast<Mostro*>(itemA)) {
@@ -440,6 +445,7 @@ void Controller::modificaAvatar()
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(porta));
         vistaModifica->setModal(true);
         vistaModifica->setWindowTitle("Modifica Avatar");
+        vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Mostro Maschio.png"));
         vistaModifica->show();
     }
 }
@@ -459,7 +465,7 @@ void Controller::scontroTraAvatar()
     vistaScontro->getMediaSx()->setText(QString::fromStdString(media));
 
     unsigned int lvl = vistaCrea->getLvl()->text().toUInt();
-    if (lvl>49){
+    if (lvl>99){
         QMessageBox::about(this, "Errore", "Il livello dell'avatar è al massimo.\nScegli un altro avatar");
     } else {
         mostraScontro();
@@ -781,15 +787,27 @@ void Controller::salva()
     }
 }
 
-void Controller::ordinaMedia()
+void Controller::setAvatarGameStyle()
+{
+    setMinimumSize(QSize(1200,600));
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    QFile file(":/Risorse/style.css");
+    file.open(QFile::ReadOnly);
+    QString stylSsheet = QLatin1String(file.readAll());
+
+    setStyleSheet(styleSheet());
+}
+
+/*void Controller::ordinaMedia()
 {
     std::string media = vistaCrea->getValoreMedia()->text().toStdString();
     Avatar* item = new Elfo(media);
     Container<Avatar*>::iteratore inizio = modello->begin();
     Container<Avatar*>::iteratore fine = modello->end();
 
-//    if(  ){
+    if() {
 
-//    }
-}
+    }
+}*/
 

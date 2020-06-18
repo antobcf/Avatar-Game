@@ -9,5 +9,6 @@
         <file>Risorse/Immagini Avatar/Nano Maschio.png</file>
         <file>Risorse/Immagini Avatar/Umano Femmina.png</file>
         <file>Risorse/Immagini Avatar/Umano Maschio.png</file>
+        <file>Risorse/style.css</file>
     </qresource>
 </RCC>

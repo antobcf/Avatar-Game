@@ -179,8 +179,6 @@ void Modello::rimuoviTutto()
     }
 }
 
-
-
 void Modello::setPercorso(std::string p)
 {
     percorso = p;

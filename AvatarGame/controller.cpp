@@ -112,6 +112,7 @@ void Controller::mostraScontro() {
 
 void Controller::mostraFineScontro() {
     vistaFineScontro->setModal(true);
+    vistaFineScontro->setWindowTitle("Fine Scontro");
     vistaFineScontro->show();
     vistaScontro->show();
     vistaModifica->hide();
@@ -148,7 +149,7 @@ void Controller::inserisciAvatar()
     else sesso = false;
     std::string percorso = vistaCrea->getPercorso().toStdString();
 
-    //inizio funzione che manda avviso se nome già usato
+    //parte che manda avviso se nome già usato
     Avatar* item = new Elfo(nome);
     Avatar* item2 = new Nano(nome);
     Avatar* item3 = new Umano(nome);
@@ -245,7 +246,7 @@ void Controller::inserisciAvatar()
     //parte per campi non compilati
     else if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked()))) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
-    } else { //creazione avatar
+    } else { //parte per creazione avatar
         int index = vistaCrea->getSceltaTipo()->currentIndex();
 
         if(index == 0 || index == 1 || index == 2) {
@@ -382,6 +383,7 @@ void Controller::modificaAvatar()
         std::string trasparentia = (std::to_string(e->GetTrasparentia()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(trasparentia));
         vistaModifica->setModal(true);
+        vistaModifica->setWindowTitle("Modifica Avatar");
         vistaModifica->show();
 
     } else if(dynamic_cast<Nano*>(itemA)) {
@@ -395,6 +397,7 @@ void Controller::modificaAvatar()
         std::string corteccia = (std::to_string(n->GetCorteccia()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(corteccia));
         vistaModifica->setModal(true);
+        vistaModifica->setWindowTitle("Modifica Avatar");
         vistaModifica->show();
 
     } else if(dynamic_cast<Umano*>(itemA)) {
@@ -408,6 +411,7 @@ void Controller::modificaAvatar()
         std::string ingegno = (std::to_string(u->GetIngegno()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ingegno));
         vistaModifica->setModal(true);
+        vistaModifica->setWindowTitle("Modifica Avatar");
         vistaModifica->show();
 
     } else if(dynamic_cast<Alieno*>(itemA)) {
@@ -421,6 +425,7 @@ void Controller::modificaAvatar()
         std::string ufo = (std::to_string(a->GetUfo()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ufo));
         vistaModifica->setModal(true);
+        vistaModifica->setWindowTitle("Modifica Avatar");
         vistaModifica->show();
 
     } else if(dynamic_cast<Mostro*>(itemA)) {
@@ -434,6 +439,7 @@ void Controller::modificaAvatar()
         std::string porta = (std::to_string(m->GetPorta()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(porta));
         vistaModifica->setModal(true);
+        vistaModifica->setWindowTitle("Modifica Avatar");
         vistaModifica->show();
     }
 }
@@ -769,4 +775,14 @@ void Controller::salva()
     }
 }
 
+/*void Controller::ordinaMedia()
+{
+    double media = vistaCrea->getValoreMedia()->text().toDouble();
+    Container<Avatar*>::iteratore inizio = modello->begin();
+    Container<Avatar*>::iteratore fine = modello->end();
+
+    while(){
+
+    }
+}*/
 

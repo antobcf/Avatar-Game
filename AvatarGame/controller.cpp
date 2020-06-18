@@ -783,13 +783,13 @@ void Controller::salva()
 
 void Controller::ordinaMedia()
 {
-    double media = vistaCrea->getValoreMedia()->text().toDouble();
+    std::string media = vistaCrea->getValoreMedia()->text().toStdString();
     Avatar* item = new Elfo(media);
     Container<Avatar*>::iteratore inizio = modello->begin();
     Container<Avatar*>::iteratore fine = modello->end();
 
-    if(  ){
+//    if(  ){
 
-    }
+//    }
 }
 

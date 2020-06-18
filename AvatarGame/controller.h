@@ -53,6 +53,8 @@ public slots:
     void carica();
     void salva();
 
+    void ordinaMedia();
+
 
 signals:
 

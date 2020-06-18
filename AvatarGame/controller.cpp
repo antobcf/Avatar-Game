@@ -457,7 +457,13 @@ void Controller::scontroTraAvatar()
     //vistaScontro->getForza()->
     std::string media = (std::to_string(itemA->getMedia()));
     vistaScontro->getMediaSx()->setText(QString::fromStdString(media));
-    mostraScontro();
+
+    unsigned int lvl = vistaCrea->getLvl()->text().toUInt();
+    if (lvl>49){
+        QMessageBox::about(this, "Errore", "Il livello dell'avatar è al massimo.\nScegli un altro avatar");
+    } else {
+        mostraScontro();
+    }
 
 }
 
@@ -775,14 +781,15 @@ void Controller::salva()
     }
 }
 
-/*void Controller::ordinaMedia()
+void Controller::ordinaMedia()
 {
     double media = vistaCrea->getValoreMedia()->text().toDouble();
+    Avatar* item = new Elfo(media);
     Container<Avatar*>::iteratore inizio = modello->begin();
     Container<Avatar*>::iteratore fine = modello->end();
 
-    while(){
+    if(  ){
 
     }
-}*/
+}
 

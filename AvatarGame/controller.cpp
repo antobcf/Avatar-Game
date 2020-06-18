@@ -797,6 +797,8 @@ void Controller::setAvatarGameStyle()
     QString stylSsheet = QLatin1String(file.readAll());
 
     setStyleSheet(styleSheet());
+
+    setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
 }
 
 /*void Controller::ordinaMedia()

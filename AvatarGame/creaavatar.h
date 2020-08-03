@@ -81,7 +81,7 @@ public:
     QGroupBox* getBoxValori() const;
     QTextEdit* getBoxDescrizione() const;
     QComboBox* getSceltaTipo() const;
-    QLabel* getImmagineAvatar() const;
+    QPushButton* getImmagineAvatar() const;
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
 
@@ -103,7 +103,7 @@ public slots:
     void calcoloValori();
 
     void inserisciImmagine();
-
+    void setImmagine();
 };
 
 #endif // CREAAVATAR_H

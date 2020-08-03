@@ -28,7 +28,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
     sceltaTipo(new QComboBox(this)),
-    inserisciImmagineButton(new QPushButton("Inserisci Immagine")),
+    inserisciImmagineButton(new QPushButton("Inserisci immagine")),
     sessoM(new QRadioButton("Maschio", this)),
     sessoF(new QRadioButton("Femmina", this))
 {
@@ -99,6 +99,10 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Mostro");
     calcoloValori();
 
+    inserisciImmagineButton->setIconSize(QSize(100,100));
+    inserisciImmagineButton->setFixedSize(QSize(120,120));
+    setImmagine();
+
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
 
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
@@ -117,9 +121,20 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
 
 }
 
-void CreaAvatar::inserisciImmagine(){
+void CreaAvatar::inserisciImmagine() {
     pImmagine = QFileDialog::getOpenFileName(this, "Scegli file", ":/Risorse" , "File immagini(*.JPG;*.PNG)");
     inserisciImmagineButton->setIcon(QIcon(pImmagine));
+}
+
+void CreaAvatar::setImmagine()
+{
+    int indexAttuale = sceltaTipo->currentIndex();
+    if(indexAttuale == 0) {
+        QPixmap elfo(":/Risorse/Elfo Maschio.png");
+        QIcon icona(elfo);
+        inserisciImmagineButton->setIcon(icona);
+        inserisciImmagineButton->setIconSize(elfo.rect().size());
+    }
 }
 
 QString CreaAvatar::getPercorso() const{
@@ -259,6 +274,11 @@ QTextEdit *CreaAvatar::getBoxDescrizione() const
 QComboBox *CreaAvatar::getSceltaTipo() const
 {
     return sceltaTipo;
+}
+
+QPushButton *CreaAvatar::getImmagineAvatar() const
+{
+    return inserisciImmagineButton;
 }
 
 QRadioButton *CreaAvatar::getSessoM() const

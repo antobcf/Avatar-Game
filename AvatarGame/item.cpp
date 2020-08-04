@@ -2,7 +2,7 @@
 
 item::item(QWidget* p) : parent(p)
 {
-    //setIconSize(QSize(100,100));
+    setIconSize(QSize(100,100));
     addScrollBarWidget(new QScrollBar(Qt::Orientation::Vertical, parent), Qt::AlignRight);
 }
 

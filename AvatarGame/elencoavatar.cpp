@@ -12,6 +12,8 @@ Avatar *ElencoAvatar::getItem() const
 
 void ElencoAvatar::aggiorna()
 {
-    //manca la foto qui
+    QString percorso = QString::fromStdString(item->getPercorsoImmagine());
+    QPixmap p(percorso);
+    setIcon(p.scaled(500,500,Qt::AspectRatioMode::KeepAspectRatio));
     setText(QString::fromStdString(item->datiAvatar()));
 }

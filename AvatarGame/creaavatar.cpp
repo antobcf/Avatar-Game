@@ -137,25 +137,40 @@ void CreaAvatar::setImmagine()
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Maschio.png"));
             pImmagine=":Risorse/Immagini Avatar/Elfo Maschio.png";
         }
-        else
+        else {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Elfo Femmina.png";
+        }
     } else if(indexAttuale == 1) {
-        if(sessoM->isChecked())
+        if(sessoM->isChecked()) {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Maschio.png"));
-        else
+            pImmagine=":Risorse/Immagini Avatar/Nano Maschio.png";
+        }
+        else {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Nano Femmina.png";
+        }
     } else if(indexAttuale == 2) {
-        if(sessoM->isChecked())
+        if(sessoM->isChecked()) {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Maschio.png"));
-        else
+            pImmagine=":Risorse/Immagini Avatar/Umano Maschio.png";
+        }
+        else {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Umano Femmina.png";
+        }
     } else if(indexAttuale == 3) {
         inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Alieno.png"));
+        pImmagine=":Risorse/Immagini Avatar/Alieno.png";
     } else {
-        if(sessoM->isChecked())
+        if(sessoM->isChecked()) {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Maschio.png"));
-        else
+            pImmagine=":Risorse/Immagini Avatar/Mostro Maschio.png";
+        }
+        else {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Mostro Femmina.png";
+        }
     }
 }
 

@@ -28,7 +28,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
     sceltaTipo(new QComboBox(this)),
-    inserisciImmagineButton(new QPushButton("Inserisci immagine")),
+    inserisciImmagineButton(new QPushButton("")),
     sessoM(new QRadioButton("Maschio", this)),
     sessoF(new QRadioButton("Femmina", this))
 {
@@ -101,6 +101,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
 
     inserisciImmagineButton->setIconSize(QSize(100,100));
     inserisciImmagineButton->setFixedSize(QSize(120,120));
+    sessoM->setChecked(true); //forse inutile
     setImmagine();
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
@@ -113,6 +114,8 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     connect(powerUp6,SIGNAL(clicked()),this,SLOT(checkSei()));
     connect(powerUp7,SIGNAL(clicked()),this,SLOT(checkSette()));
     connect(powerUp8,SIGNAL(clicked()),this,SLOT(checkOtto()));
+    connect(sessoM,SIGNAL(clicked()),this,SLOT(setImmagine()));
+    connect(sessoF,SIGNAL(clicked()),this,SLOT(setImmagine()));
 
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(calcoloValori()));
@@ -130,10 +133,29 @@ void CreaAvatar::setImmagine()
 {
     int indexAttuale = sceltaTipo->currentIndex();
     if(indexAttuale == 0) {
-        QPixmap elfo(":/Risorse/Elfo Maschio.png");
-        QIcon icona(elfo);
-        inserisciImmagineButton->setIcon(icona);
-        inserisciImmagineButton->setIconSize(elfo.rect().size());
+        if(sessoM->isChecked()) {
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Maschio.png"));
+            pImmagine=":Risorse/Immagini Avatar/Elfo Maschio.png";
+        }
+        else
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Femmina.png"));
+    } else if(indexAttuale == 1) {
+        if(sessoM->isChecked())
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Maschio.png"));
+        else
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Femmina.png"));
+    } else if(indexAttuale == 2) {
+        if(sessoM->isChecked())
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Maschio.png"));
+        else
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Femmina.png"));
+    } else if(indexAttuale == 3) {
+        inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Alieno.png"));
+    } else {
+        if(sessoM->isChecked())
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Maschio.png"));
+        else
+            inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Femmina.png"));
     }
 }
 
@@ -621,6 +643,7 @@ void CreaAvatar::groupTipo()
         resetCheck();
     }
     calcoloValori();
+    setImmagine();
 }
 
 void CreaAvatar::resetTutto() const

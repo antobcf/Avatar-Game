@@ -356,7 +356,6 @@ void Controller::modificaAvatar()
     aux = vistaLista->getElenco()->itemAttuale();
     itemA = aux->getItem();
 
-
     vistaModifica->getInserisciNome()->insert(QString::fromStdString(itemA->GetNome()));
     vistaModifica->getBoxDescrizione()->insertPlainText(QString::fromStdString(itemA->getDescrizione()));
     std::string lvl = (std::to_string(itemA->GetLiv()));
@@ -463,16 +462,30 @@ void Controller::scontroTraAvatar()
     itemA = aux->getItem();
 
     vistaScontro->getNomeAvatarSx()->setText(QString::fromStdString(itemA->GetNome()));
-    std::string forza = (std::to_string(itemA->getForza()));
-    //vistaScontro->getForza()->
     std::string media = (std::to_string(itemA->getMedia()));
     vistaScontro->getMediaSx()->setText(QString::fromStdString(media));
+    std::string forza = (std::to_string(itemA->getForza()));
+    std::string magia = (std::to_string(itemA->getMagia()));
+    std::string difesa = (std::to_string(itemA->getDifesa()));
+    std::string scienza = (std::to_string(itemA->getScienza()));
+    std::string lvl = (std::to_string(itemA->GetLiv()));
+    //std::string valoreSpeciale = (std::to_string(itemA->get()));
+    std::string exp = (std::to_string(itemA->GetExp()));
+    std::string terrenoPreferito = (itemA->getTerreno());
 
-    unsigned int lvl = vistaCrea->getLvl()->text().toUInt();
-    if (lvl>99){
+    unsigned int Lvl = vistaCrea->getLvl()->text().toUInt();
+    if (Lvl>99){
         QMessageBox::about(this, "Errore", "Il livello dell'avatar è al massimo.\nScegli un altro avatar");
     } else {
         mostraScontro();
+    }
+
+    if(dynamic_cast<Elfo*>(itemA)) {
+        Elfo* e = static_cast<Elfo*>(itemA);
+        e->GetScu() ? vistaScontro->getPowerup1selezionatoSx()->setText("Scudo") : (vistaScontro->getPowerup1selezionatoSx()->setText(""), vistaScontro->getPowerup1selezionatoSx()->hide());
+        e->GetSpada() ? vistaScontro->getPowerup2selezionatoSx()->setText("Spada") : (vistaScontro->getPowerup2selezionatoSx()->setText(""), vistaScontro->getPowerup2selezionatoSx()->hide());
+        e->GetAnello() ? vistaScontro->getPowerup3selezionatoSx()->setText("Anello") : (vistaScontro->getPowerup3selezionatoSx()->setText(""), vistaScontro->getPowerup3selezionatoSx()->hide());
+        e->GetLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro") : (vistaScontro->getPowerup4selezionatoSx()->setText(""), vistaScontro->getPowerup4selezionatoSx()->hide());
     }
 
 }
@@ -719,7 +732,7 @@ void Controller::salva()
     itemA->setMagia(vistaModifica->getValoreMagia()->text().toUInt());
     itemA->setDifesa(vistaModifica->getValoreDifesa()->text().toUInt());
     itemA->setScienza(vistaModifica->getValoreScienza()->text().toUInt());
-    itemA->setMedia(vistaModifica->getValoreMedia()->text().toUInt());
+    itemA->setMedia(vistaModifica->getValoreMedia()->text().toDouble());
     itemA->setTerreno(vistaModifica->getTerrenoPreferito()->text().toStdString());
     itemA->SetSesso(vistaModifica->getSessoM()->isChecked());
     itemA->setPercorsoImmagine(vistaModifica->getPercorsoImmagine().toStdString());

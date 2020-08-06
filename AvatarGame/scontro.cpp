@@ -5,8 +5,10 @@
 Scontro::Scontro(QWidget *parent) :
     nomeAvatarSx(new QLabel("Avatar1", this)),
     formPowerupSx(new QFormLayout),
-    powerup1selezionatoSx(new QLabel("powerup1", this)),
-    powerup2selezionatoSx(new QLabel("powerup2", this)),
+    powerup1selezionatoSx(new QLabel(this)),
+    powerup2selezionatoSx(new QLabel(this)),
+    powerup3selezionatoSx(new QLabel(this)),
+    powerup4selezionatoSx(new QLabel(this)),
     formMediaSx(new QFormLayout),
     mediaSx(new QLabel("771", this)),
 
@@ -21,7 +23,8 @@ Scontro::Scontro(QWidget *parent) :
     powerup1selezionatoDx(new QLabel("powerup1", this)),
     powerup2selezionatoDx(new QLabel("powerup2", this)),
     formMediaDx(new QFormLayout),
-    mediaDx(new QLabel("772", this))
+    mediaDx(new QLabel("772", this)),
+    fotoAvatar(new QLabel(this))
 {
     QVBoxLayout* layoutScontro = new QVBoxLayout(this);
     QHBoxLayout* layoutTastiNavigazione = new QHBoxLayout();
@@ -45,10 +48,13 @@ Scontro::Scontro(QWidget *parent) :
     bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
     bottoneCombatti->setFixedSize(130,60);
 
+    layoutScontroSx->addWidget(fotoAvatar);
     layoutScontroSx->addWidget(nomeAvatarSx, 0, Qt::AlignCenter);
     layoutScontroSx->addLayout(formPowerupSx);
     layoutPowerupSx->addWidget(powerup1selezionatoSx);
     layoutPowerupSx->addWidget(powerup2selezionatoSx);
+    layoutPowerupSx->addWidget(powerup3selezionatoSx);
+    layoutPowerupSx->addWidget(powerup4selezionatoSx);
     formPowerupSx->addRow("Powerup: ", layoutPowerupSx);
     layoutScontroSx->addLayout(formMediaSx);
     formMediaSx->addRow("Media: ", mediaSx);
@@ -84,6 +90,16 @@ QLabel *Scontro::getPowerup1selezionatoSx() const
 QLabel *Scontro::getPowerup2selezionatoSx() const
 {
     return powerup2selezionatoSx;
+}
+
+QLabel *Scontro::getPowerup3selezionatoSx() const
+{
+    return powerup3selezionatoSx;
+}
+
+QLabel *Scontro::getPowerup4selezionatoSx() const
+{
+    return powerup4selezionatoSx;
 }
 
 QFormLayout *Scontro::getFormMediaSx() const
@@ -170,3 +186,10 @@ QString *Scontro::getScienza() const
 {
     return scienza;
 }
+
+QLabel *Scontro::getFotoAvatar() const
+{
+    return fotoAvatar;
+}
+
+

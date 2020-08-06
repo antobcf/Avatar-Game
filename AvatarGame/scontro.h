@@ -16,6 +16,8 @@ private:
     QFormLayout* formPowerupSx;
     QLabel* powerup1selezionatoSx;
     QLabel* powerup2selezionatoSx;
+    QLabel* powerup3selezionatoSx;
+    QLabel* powerup4selezionatoSx;
     QFormLayout* formMediaSx;
     QLabel* mediaSx;
     QLabel* vs;
@@ -33,6 +35,11 @@ private:
     QString* magia;
     QString* difesa;
     QString* scienza;
+    QString* lvl;
+    QString* valoreSpeciale;
+    QString* exp;
+    QString* terrenoPreferito;
+    QLabel* fotoAvatar;
 
 public:
     Scontro(QWidget * = nullptr);
@@ -40,6 +47,8 @@ public:
     QFormLayout* getFormPowerupSx() const;
     QLabel* getPowerup1selezionatoSx() const;
     QLabel* getPowerup2selezionatoSx() const;
+    QLabel* getPowerup3selezionatoSx() const;
+    QLabel* getPowerup4selezionatoSx() const;
     QFormLayout* getFormMediaSx() const;
     QLabel* getMediaSx() const;
     QLabel* getVs() const;
@@ -57,10 +66,14 @@ public:
     QString* getMagia() const;
     QString* getDifesa() const;
     QString* getScienza() const;
-
+    QString* getLvl() const;
+    QString* getValoreSpeciale() const;
+    QString* getExp() const;
+    QString* getTerrenoPreferito() const;
+    QLabel* getFotoAvatar() const;
 
 public slots:
-
+    //void mostraPowerUp();
 };
 
 #endif // SCONTRO_H

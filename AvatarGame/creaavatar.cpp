@@ -99,8 +99,6 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Umano");
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
-    calcoloValori();
-
 
     inserisciImmagineButton->setIconSize(QSize(100,100));
     inserisciImmagineButton->setFixedSize(QSize(120,120));

@@ -32,8 +32,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     sessoF(new QRadioButton("Femmina", this)),
     pImmagine()
 {
-    resetTutto();
-
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
@@ -46,7 +44,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
     layoutSx->addLayout(formCrea);
-
 
     layoutSx->addWidget(sceltaTipo);
     layoutSx->addLayout(layoutSesso);
@@ -86,7 +83,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     boxDescrizione->setMaximumSize(300,200);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
 
-
     powerUp5->hide();
     powerUp6->hide();
     powerUp7->hide();
@@ -98,6 +94,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Umano");
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
+    calcoloValori();
 
     modificaImmagine->setIconSize(QSize(100,100));
     modificaImmagine->setFixedSize(QSize(120,120));

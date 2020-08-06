@@ -73,7 +73,7 @@ public:
     QLabel* getFotoAvatar() const;
 
 public slots:
-    //void mostraPowerUp();
+
 };
 
 #endif // SCONTRO_H

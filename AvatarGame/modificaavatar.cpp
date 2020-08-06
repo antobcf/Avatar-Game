@@ -1,4 +1,4 @@
-#include "modificaavatar.h"
+ #include "modificaavatar.h"
 
 ModificaAvatar::ModificaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),
@@ -82,11 +82,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 
     boxDescrizione->setMaximumSize(300,200);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
-
-    powerUp5->hide();
-    powerUp6->hide();
-    powerUp7->hide();
-    powerUp8->hide();
 
     sceltaTipo->addItem("Scegli tipo");
     sceltaTipo->addItem("Elfo");
@@ -657,7 +652,7 @@ void ModificaAvatar::groupTipo()
         powerUp3->show();
         powerUp4->show();
         resetCheck();
-     } else {
+     } else if(indexAttuale == 4 || indexAttuale == 5){
         powerUp1->hide();
         powerUp2->hide();
         powerUp3->hide();
@@ -666,6 +661,16 @@ void ModificaAvatar::groupTipo()
         powerUp6->show();
         powerUp7->show();
         powerUp8->show();
+        resetCheck();
+    } else {
+        powerUp1->hide();
+        powerUp2->hide();
+        powerUp3->hide();
+        powerUp4->hide();
+        powerUp5->hide();
+        powerUp6->hide();
+        powerUp7->hide();
+        powerUp8->hide();
         resetCheck();
     }
     calcoloValori();

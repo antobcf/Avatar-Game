@@ -380,10 +380,12 @@ void Controller::modificaAvatar()
         Elfo* e = static_cast<Elfo*>(itemA);
 
         vistaModifica->getSceltaTipo()->setCurrentIndex(1);
-        e->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
-        e->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
-        e->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
-        e->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
+        vistaModifica->groupTipo();
+        e->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true), vistaModifica->checkUno() : vistaModifica->getPowerUp1()->setChecked(false);
+        e->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true), vistaModifica->checkDue() : vistaModifica->getPowerUp2()->setChecked(false);
+        e->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true), vistaModifica->checkTre() : vistaModifica->getPowerUp3()->setChecked(false);
+        e->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true), vistaModifica->checkQuattro() : vistaModifica->getPowerUp4()->setChecked(false);
+
         std::string trasparentia = (std::to_string(e->GetTrasparentia()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(trasparentia));
         vistaModifica->setModal(true);
@@ -395,10 +397,12 @@ void Controller::modificaAvatar()
         Nano* n = static_cast<Nano*>(itemA);
 
         vistaModifica->getSceltaTipo()->setCurrentIndex(2);
-        n->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
-        n->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
-        n->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
-        n->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
+        vistaModifica->groupTipo();
+        n->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true), vistaModifica->checkUno() : vistaModifica->getPowerUp1()->setChecked(false);
+        n->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true), vistaModifica->checkDue() : vistaModifica->getPowerUp2()->setChecked(false);
+        n->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true), vistaModifica->checkTre() : vistaModifica->getPowerUp3()->setChecked(false);
+        n->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true), vistaModifica->checkQuattro() : vistaModifica->getPowerUp4()->setChecked(false);
+
         std::string corteccia = (std::to_string(n->GetCorteccia()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(corteccia));
         vistaModifica->setModal(true);
@@ -410,10 +414,12 @@ void Controller::modificaAvatar()
         Umano* u = static_cast<Umano*>(itemA);
 
         vistaModifica->getSceltaTipo()->setCurrentIndex(3);
-        u->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
-        u->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
-        u->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
-        u->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true) : vistaModifica->getPowerUp4()->setChecked(false);
+        vistaModifica->groupTipo();
+        u->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true), vistaModifica->checkUno() : vistaModifica->getPowerUp1()->setChecked(false);
+        u->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true), vistaModifica->checkDue() : vistaModifica->getPowerUp2()->setChecked(false);
+        u->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true), vistaModifica->checkTre() : vistaModifica->getPowerUp3()->setChecked(false);
+        u->GetLibro() ? vistaModifica->getPowerUp4()->setChecked(true), vistaModifica->checkQuattro() : vistaModifica->getPowerUp4()->setChecked(false);
+
         std::string ingegno = (std::to_string(u->GetIngegno()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ingegno));
         vistaModifica->setModal(true);
@@ -425,25 +431,30 @@ void Controller::modificaAvatar()
         Alieno* a = static_cast<Alieno*>(itemA);
 
         vistaModifica->getSceltaTipo()->setCurrentIndex(4);
-        a->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true) : vistaModifica->getPowerUp5()->setChecked(false);
-        a->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true) : vistaModifica->getPowerUp6()->setChecked(false);
-        a->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true) : vistaModifica->getPowerUp7()->setChecked(false);
-        a->GetChip() ? vistaModifica->getPowerUp8()->setChecked(true) : vistaModifica->getPowerUp8()->setChecked(false);
+        vistaModifica->groupTipo();
+        a->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true), vistaModifica->checkCinque() : vistaModifica->getPowerUp5()->setChecked(false);
+        a->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true), vistaModifica->checkSei() : vistaModifica->getPowerUp6()->setChecked(false);
+        a->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true), vistaModifica->checkSette() : vistaModifica->getPowerUp7()->setChecked(false);
+        a->GetChip() ? vistaModifica->getPowerUp8()->setChecked(true), vistaModifica->checkOtto() : vistaModifica->getPowerUp8()->setChecked(false);
+
         std::string ufo = (std::to_string(a->GetUfo()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ufo));
         vistaModifica->setModal(true);
         vistaModifica->setWindowTitle("Modifica Avatar");
         vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Alieno.png"));
+
         vistaModifica->show();
 
     } else if(dynamic_cast<Mostro*>(itemA)) {
         Mostro* m = static_cast<Mostro*>(itemA);
 
         vistaModifica->getSceltaTipo()->setCurrentIndex(5);
-        m->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true) : vistaModifica->getPowerUp5()->setChecked(false);
-        m->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true) : vistaModifica->getPowerUp6()->setChecked(false);
-        m->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true) : vistaModifica->getPowerUp7()->setChecked(false);
-        m->GetChip() ? vistaModifica->getPowerUp8()->setChecked(true) : vistaModifica->getPowerUp8()->setChecked(false);
+        vistaModifica->groupTipo();
+        m->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true), vistaModifica->checkCinque() : vistaModifica->getPowerUp5()->setChecked(false);
+        m->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true), vistaModifica->checkSei() : vistaModifica->getPowerUp6()->setChecked(false);
+        m->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true), vistaModifica->checkSette() : vistaModifica->getPowerUp7()->setChecked(false);
+        m->GetChip() ? vistaModifica->getPowerUp8()->setChecked(true), vistaModifica->checkOtto() : vistaModifica->getPowerUp8()->setChecked(false);
+
         std::string porta = (std::to_string(m->GetPorta()));
         vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(porta));
         vistaModifica->setModal(true);
@@ -469,7 +480,7 @@ void Controller::scontroTraAvatar()
     std::string difesa = (std::to_string(itemA->getDifesa()));
     std::string scienza = (std::to_string(itemA->getScienza()));
     std::string lvl = (std::to_string(itemA->GetLiv()));
-    //std::string valoreSpeciale = (std::to_string(itemA->get()));
+    //std::string valoreSpeciale = (std::to_string(itemA->get())); da mettere nei singoli tipi e non qui
     std::string exp = (std::to_string(itemA->GetExp()));
     std::string terrenoPreferito = (itemA->getTerreno());
 
@@ -486,7 +497,33 @@ void Controller::scontroTraAvatar()
         e->GetSpada() ? vistaScontro->getPowerup2selezionatoSx()->setText("Spada") : (vistaScontro->getPowerup2selezionatoSx()->setText(""), vistaScontro->getPowerup2selezionatoSx()->hide());
         e->GetAnello() ? vistaScontro->getPowerup3selezionatoSx()->setText("Anello") : (vistaScontro->getPowerup3selezionatoSx()->setText(""), vistaScontro->getPowerup3selezionatoSx()->hide());
         e->GetLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro") : (vistaScontro->getPowerup4selezionatoSx()->setText(""), vistaScontro->getPowerup4selezionatoSx()->hide());
+    } else if(dynamic_cast<Nano*>(itemA)) {
+        Nano* n = static_cast<Nano*>(itemA);
+        n->GetScu() ? vistaScontro->getPowerup1selezionatoSx()->setText("Scudo") : (vistaScontro->getPowerup1selezionatoSx()->setText(""), vistaScontro->getPowerup1selezionatoSx()->hide());
+        n->GetSpada() ? vistaScontro->getPowerup2selezionatoSx()->setText("Spada") : (vistaScontro->getPowerup2selezionatoSx()->setText(""), vistaScontro->getPowerup2selezionatoSx()->hide());
+        n->GetAnello() ? vistaScontro->getPowerup3selezionatoSx()->setText("Anello") : (vistaScontro->getPowerup3selezionatoSx()->setText(""), vistaScontro->getPowerup3selezionatoSx()->hide());
+        n->GetLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro") : (vistaScontro->getPowerup4selezionatoSx()->setText(""), vistaScontro->getPowerup4selezionatoSx()->hide());
+    } else if(dynamic_cast<Umano*>(itemA)) {
+        Umano* u = static_cast<Umano*>(itemA);
+        u->GetScu() ? vistaScontro->getPowerup1selezionatoSx()->setText("Scudo") : (vistaScontro->getPowerup1selezionatoSx()->setText(""), vistaScontro->getPowerup1selezionatoSx()->hide());
+        u->GetSpada() ? vistaScontro->getPowerup2selezionatoSx()->setText("Spada") : (vistaScontro->getPowerup2selezionatoSx()->setText(""), vistaScontro->getPowerup2selezionatoSx()->hide());
+        u->GetAnello() ? vistaScontro->getPowerup3selezionatoSx()->setText("Anello") : (vistaScontro->getPowerup3selezionatoSx()->setText(""), vistaScontro->getPowerup3selezionatoSx()->hide());
+        u->GetLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro") : (vistaScontro->getPowerup4selezionatoSx()->setText(""), vistaScontro->getPowerup4selezionatoSx()->hide());
+    } else if(dynamic_cast<Alieno*>(itemA)) {
+        Alieno* a = static_cast<Alieno*>(itemA);
+        a->GetBar() ? vistaScontro->getPowerup1selezionatoSx()->setText("Barriera") : (vistaScontro->getPowerup1selezionatoSx()->setText(""), vistaScontro->getPowerup1selezionatoSx()->hide());
+        a->GetLaser() ? vistaScontro->getPowerup2selezionatoSx()->setText("Laser") : (vistaScontro->getPowerup2selezionatoSx()->setText(""), vistaScontro->getPowerup2selezionatoSx()->hide());
+        a->GetAmuleto() ? vistaScontro->getPowerup3selezionatoSx()->setText("Amuleto") : (vistaScontro->getPowerup3selezionatoSx()->setText(""), vistaScontro->getPowerup3selezionatoSx()->hide());
+        a->GetChip() ? vistaScontro->getPowerup4selezionatoSx()->setText("Chip") : (vistaScontro->getPowerup4selezionatoSx()->setText(""), vistaScontro->getPowerup4selezionatoSx()->hide());
+    } else if(dynamic_cast<Mostro*>(itemA)) {
+        Mostro* m = static_cast<Mostro*>(itemA);
+        m->GetBar() ? vistaScontro->getPowerup1selezionatoSx()->setText("Barriera") : (vistaScontro->getPowerup1selezionatoSx()->setText(""), vistaScontro->getPowerup1selezionatoSx()->hide());
+        m->GetLaser() ? vistaScontro->getPowerup2selezionatoSx()->setText("Laser") : (vistaScontro->getPowerup2selezionatoSx()->setText(""), vistaScontro->getPowerup2selezionatoSx()->hide());
+        m->GetAmuleto() ? vistaScontro->getPowerup3selezionatoSx()->setText("Amuleto") : (vistaScontro->getPowerup3selezionatoSx()->setText(""), vistaScontro->getPowerup3selezionatoSx()->hide());
+        m->GetChip() ? vistaScontro->getPowerup4selezionatoSx()->setText("Chip") : (vistaScontro->getPowerup4selezionatoSx()->setText(""), vistaScontro->getPowerup4selezionatoSx()->hide());
     }
+
+
 
 }
 

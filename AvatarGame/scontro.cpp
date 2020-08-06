@@ -10,7 +10,7 @@ Scontro::Scontro(QWidget *parent) :
     powerup3selezionatoSx(new QLabel(this)),
     powerup4selezionatoSx(new QLabel(this)),
     formMediaSx(new QFormLayout),
-    mediaSx(new QLabel("771", this)),
+    mediaSx(new QLabel(this)),
 
     vs(new QLabel("VS", this)),
     terreno(new QLabel("Terreno", this)),

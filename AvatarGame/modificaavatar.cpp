@@ -27,11 +27,13 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
     sceltaTipo(new QComboBox(this)),
-    modificaImmagine(new QPushButton("Cambia Immagine")),
+    modificaImmagine(new QPushButton()),
     sessoM(new QRadioButton("Maschio", this)),
     sessoF(new QRadioButton("Femmina", this)),
     pImmagine()
 {
+    resetTutto();
+
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
@@ -84,16 +86,21 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     boxDescrizione->setMaximumSize(300,200);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
 
+
     powerUp5->hide();
     powerUp6->hide();
     powerUp7->hide();
     powerUp8->hide();
 
+    sceltaTipo->addItem("Scegli tipo");
     sceltaTipo->addItem("Elfo");
     sceltaTipo->addItem("Nano");
     sceltaTipo->addItem("Umano");
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
+
+    modificaImmagine->setIconSize(QSize(100,100));
+    modificaImmagine->setFixedSize(QSize(120,120));
 
 //    QTimer::singleShot(0,this,SLOT(checkUno()));
 //    QTimer::singleShot(0,this,SLOT(checkDue()));
@@ -123,6 +130,8 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     connect(powerUp6,SIGNAL(clicked()),this,SLOT(checkSei()));
     connect(powerUp7,SIGNAL(clicked()),this,SLOT(checkSette()));
     connect(powerUp8,SIGNAL(clicked()),this,SLOT(checkOtto()));
+    connect(sessoM,SIGNAL(clicked()),this,SLOT(setImmagine()));
+    connect(sessoF,SIGNAL(clicked()),this,SLOT(setImmagine()));
 
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
 
@@ -137,6 +146,51 @@ void ModificaAvatar::cambiaImmagine(){
         pImmagine = percorsoImmagine;
     }
     modificaImmagine->setIcon(QIcon(percorsoImmagine));
+}
+
+void ModificaAvatar::setImmagine()
+{
+    int indexAttuale = sceltaTipo->currentIndex();
+    if(indexAttuale == 1) {
+        if(sessoM->isChecked()) {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Maschio.png"));
+            pImmagine=":Risorse/Immagini Avatar/Elfo Maschio.png";
+        }
+        else {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Elfo Femmina.png";
+        }
+    } else if(indexAttuale == 2) {
+        if(sessoM->isChecked()) {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Maschio.png"));
+            pImmagine=":Risorse/Immagini Avatar/Nano Maschio.png";
+        }
+        else {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Nano Femmina.png";
+        }
+    } else if(indexAttuale == 3) {
+        if(sessoM->isChecked()) {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Maschio.png"));
+            pImmagine=":Risorse/Immagini Avatar/Umano Maschio.png";
+        }
+        else {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Umano Femmina.png";
+        }
+    } else if(indexAttuale == 4) {
+        modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Alieno.png"));
+        pImmagine=":Risorse/Immagini Avatar/Alieno.png";
+    } else if(indexAttuale == 5) {
+        if(sessoM->isChecked()) {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Maschio.png"));
+            pImmagine=":Risorse/Immagini Avatar/Mostro Maschio.png";
+        }
+        else {
+            modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Femmina.png"));
+            pImmagine=":Risorse/Immagini Avatar/Mostro Femmina.png";
+        }
+    }
 }
 
 QString ModificaAvatar::getPercorsoImmagine() const{
@@ -596,7 +650,7 @@ void ModificaAvatar::checkOtto()
 void ModificaAvatar::groupTipo()
 {
     int indexAttuale = sceltaTipo->currentIndex();
-    if(indexAttuale == 0 || indexAttuale == 1 || indexAttuale == 2) {
+    if(indexAttuale == 1 || indexAttuale == 2 || indexAttuale == 3) {
         powerUp5->hide();
         powerUp6->hide();
         powerUp7->hide();
@@ -618,6 +672,7 @@ void ModificaAvatar::groupTipo()
         resetCheck();
     }
     calcoloValori();
+    setImmagine();
 }
 
 void ModificaAvatar::resetTutto() const
@@ -664,7 +719,7 @@ void ModificaAvatar::calcoloValori()
     unsigned int livello = getLvl()->text().toUInt();
     unsigned int valoreExtra = getValoreSpeciale()->text().toUInt();
 
-    if(indexAttuale == 0) {
+    if(indexAttuale == 1) {
         forza = livello*6;
         if(powerUp1->isChecked()) {
             forza+=8;
@@ -685,7 +740,7 @@ void ModificaAvatar::calcoloValori()
         valoreExtra = magia/livello;
 
     } else
-    if(indexAttuale == 1) {
+    if(indexAttuale == 2) {
         forza = livello*7;
         if(powerUp1->isChecked()) {
             forza+=8;
@@ -706,7 +761,7 @@ void ModificaAvatar::calcoloValori()
         valoreExtra = difesa/livello;
 
     } else
-    if(indexAttuale == 2) {
+    if(indexAttuale == 3) {
         forza = livello*5;
         if(powerUp1->isChecked()) {
             forza+=8;
@@ -727,7 +782,7 @@ void ModificaAvatar::calcoloValori()
         valoreExtra = scienza/livello;
 
     } else
-    if(indexAttuale == 3) {
+    if(indexAttuale == 4) {
         forza = livello*3;
         if(powerUp5->isChecked()) {
             forza+=7;
@@ -748,7 +803,7 @@ void ModificaAvatar::calcoloValori()
         valoreExtra = scienza/livello;
 
     } else
-    if(indexAttuale == 4) {
+    if(indexAttuale == 5) {
         forza = livello*10;
         if(powerUp5->isChecked()) {
             forza+=7;

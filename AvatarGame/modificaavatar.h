@@ -105,6 +105,7 @@ public slots:
     void calcoloValori();
 
     void cambiaImmagine();
+    void setImmagine();
 };
 
 #endif // MODIFICAAVATAR_H

@@ -150,6 +150,8 @@ void Controller::inserisciAvatar()
     else sesso = false;
     std::string percorso = vistaCrea->getPercorso().toStdString();
 
+    int index = vistaCrea->getSceltaTipo()->currentIndex();
+
     //parte che manda avviso se nome già usato
     Avatar* item = new Elfo(nome);
     Avatar* item2 = new Nano(nome);
@@ -245,12 +247,12 @@ void Controller::inserisciAvatar()
         }
     }
     //parte per campi non compilati
-    else if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked()))) {
+    else if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked())) || index == 0) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
     } else { //parte per creazione avatar
-        int index = vistaCrea->getSceltaTipo()->currentIndex();
 
-        if(index == 0 || index == 1 || index == 2) {
+
+        if(index == 1 || index == 2 || index == 3) {
             bool scudo;
             check = vistaCrea->getPowerUp1()->isChecked();
             if(check == 1) scudo = true;
@@ -271,7 +273,7 @@ void Controller::inserisciAvatar()
             if(check == 1) libro = true;
             else libro = false;
 
-            if(index == 0) {
+            if(index == 1) {
                 unsigned int trasparentia = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, scudo, spada, anello, libro, trasparentia);
                 modello->getLista()->inserisci(personaggio);
@@ -280,7 +282,7 @@ void Controller::inserisciAvatar()
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
-            } else if(index == 1) {
+            } else if(index == 2) {
                 unsigned int corteccia = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, scudo, spada, anello, libro, corteccia);
                 modello->getLista()->inserisci(personaggio);
@@ -289,7 +291,7 @@ void Controller::inserisciAvatar()
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
-            } else if(index == 2) {
+            } else if(index == 3) {
                 unsigned int ingegnoScientifico = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, scudo, spada, anello, libro, ingegnoScientifico);
                 modello->getLista()->inserisci(personaggio);
@@ -300,7 +302,7 @@ void Controller::inserisciAvatar()
                 vistaLista->show();
             }
 
-        } else if (index == 3 || index == 4) {
+        } else if (index == 4 || index == 5) {
             bool barriera;
             check = vistaCrea->getPowerUp5()->isChecked();
             if(check == 1) barriera = true;
@@ -321,7 +323,7 @@ void Controller::inserisciAvatar()
             if(check == 1) chip = true;
             else chip = false;
 
-            if(index == 3) {
+            if(index == 4) {
                 unsigned int ufo = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Alieno* personaggio = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, barriera, laser, amuleto, chip, ufo);
                 modello->getLista()->inserisci(personaggio);
@@ -330,7 +332,7 @@ void Controller::inserisciAvatar()
                 QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
                 vistaCrea->hide();
                 vistaLista->show();
-            } else if(index == 4) {
+            } else if(index == 5) {
                 unsigned int portaDemoniaca = vistaCrea->getValoreSpeciale()->text().toUInt();
                 Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, barriera, laser, amuleto, chip, portaDemoniaca);
                 modello->getLista()->inserisci(personaggio);
@@ -346,6 +348,8 @@ void Controller::inserisciAvatar()
 
 void Controller::modificaAvatar()
 {
+    vistaModifica->resetTutto();
+
     ElencoAvatar* aux = nullptr;
     Avatar* itemA = nullptr;
 
@@ -376,7 +380,7 @@ void Controller::modificaAvatar()
     if(dynamic_cast<Elfo*>(itemA)) {
         Elfo* e = static_cast<Elfo*>(itemA);
 
-        vistaModifica->getSceltaTipo()->setCurrentIndex(0);
+        vistaModifica->getSceltaTipo()->setCurrentIndex(1);
         e->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
         e->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
         e->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
@@ -391,7 +395,7 @@ void Controller::modificaAvatar()
     } else if(dynamic_cast<Nano*>(itemA)) {
         Nano* n = static_cast<Nano*>(itemA);
 
-        vistaModifica->getSceltaTipo()->setCurrentIndex(1);
+        vistaModifica->getSceltaTipo()->setCurrentIndex(2);
         n->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
         n->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
         n->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
@@ -406,7 +410,7 @@ void Controller::modificaAvatar()
     } else if(dynamic_cast<Umano*>(itemA)) {
         Umano* u = static_cast<Umano*>(itemA);
 
-        vistaModifica->getSceltaTipo()->setCurrentIndex(2);
+        vistaModifica->getSceltaTipo()->setCurrentIndex(3);
         u->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true) : vistaModifica->getPowerUp1()->setChecked(false);
         u->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true) : vistaModifica->getPowerUp2()->setChecked(false);
         u->GetAnello() ? vistaModifica->getPowerUp3()->setChecked(true) : vistaModifica->getPowerUp3()->setChecked(false);
@@ -421,7 +425,7 @@ void Controller::modificaAvatar()
     } else if(dynamic_cast<Alieno*>(itemA)) {
         Alieno* a = static_cast<Alieno*>(itemA);
 
-        vistaModifica->getSceltaTipo()->setCurrentIndex(3);
+        vistaModifica->getSceltaTipo()->setCurrentIndex(4);
         a->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true) : vistaModifica->getPowerUp5()->setChecked(false);
         a->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true) : vistaModifica->getPowerUp6()->setChecked(false);
         a->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true) : vistaModifica->getPowerUp7()->setChecked(false);
@@ -436,7 +440,7 @@ void Controller::modificaAvatar()
     } else if(dynamic_cast<Mostro*>(itemA)) {
         Mostro* m = static_cast<Mostro*>(itemA);
 
-        vistaModifica->getSceltaTipo()->setCurrentIndex(4);
+        vistaModifica->getSceltaTipo()->setCurrentIndex(5);
         m->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true) : vistaModifica->getPowerUp5()->setChecked(false);
         m->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true) : vistaModifica->getPowerUp6()->setChecked(false);
         m->GetAmuleto() ? vistaModifica->getPowerUp7()->setChecked(true) : vistaModifica->getPowerUp7()->setChecked(false);

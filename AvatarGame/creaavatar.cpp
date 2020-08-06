@@ -32,6 +32,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sessoM(new QRadioButton("Maschio", this)),
     sessoF(new QRadioButton("Femmina", this))
 {
+    setImmagine();
 
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
@@ -92,6 +93,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     powerUp7->hide();
     powerUp8->hide();
 
+    sceltaTipo->addItem("Scegli tipo");
     sceltaTipo->addItem("Elfo");
     sceltaTipo->addItem("Nano");
     sceltaTipo->addItem("Umano");
@@ -99,10 +101,11 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Mostro");
     calcoloValori();
 
+
     inserisciImmagineButton->setIconSize(QSize(100,100));
     inserisciImmagineButton->setFixedSize(QSize(120,120));
     sessoM->setChecked(true); //forse inutile
-    setImmagine();
+
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
 
@@ -132,7 +135,7 @@ void CreaAvatar::inserisciImmagine() {
 void CreaAvatar::setImmagine()
 {
     int indexAttuale = sceltaTipo->currentIndex();
-    if(indexAttuale == 0) {
+    if(indexAttuale == 1) {
         if(sessoM->isChecked()) {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Maschio.png"));
             pImmagine=":Risorse/Immagini Avatar/Elfo Maschio.png";
@@ -141,7 +144,7 @@ void CreaAvatar::setImmagine()
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Elfo Femmina.png"));
             pImmagine=":Risorse/Immagini Avatar/Elfo Femmina.png";
         }
-    } else if(indexAttuale == 1) {
+    } else if(indexAttuale == 2) {
         if(sessoM->isChecked()) {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Maschio.png"));
             pImmagine=":Risorse/Immagini Avatar/Nano Maschio.png";
@@ -150,7 +153,7 @@ void CreaAvatar::setImmagine()
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Nano Femmina.png"));
             pImmagine=":Risorse/Immagini Avatar/Nano Femmina.png";
         }
-    } else if(indexAttuale == 2) {
+    } else if(indexAttuale == 3) {
         if(sessoM->isChecked()) {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Maschio.png"));
             pImmagine=":Risorse/Immagini Avatar/Umano Maschio.png";
@@ -159,10 +162,10 @@ void CreaAvatar::setImmagine()
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Umano Femmina.png"));
             pImmagine=":Risorse/Immagini Avatar/Umano Femmina.png";
         }
-    } else if(indexAttuale == 3) {
+    } else if(indexAttuale == 4) {
         inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Alieno.png"));
         pImmagine=":Risorse/Immagini Avatar/Alieno.png";
-    } else {
+    } else if(indexAttuale == 5) {
         if(sessoM->isChecked()) {
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Maschio.png"));
             pImmagine=":Risorse/Immagini Avatar/Mostro Maschio.png";
@@ -636,7 +639,7 @@ void CreaAvatar::checkOtto()
 void CreaAvatar::groupTipo()
 {
     int indexAttuale = sceltaTipo->currentIndex();
-    if(indexAttuale == 0 || indexAttuale == 1 || indexAttuale == 2) {
+    if(indexAttuale == 1 || indexAttuale == 2 || indexAttuale == 3) {
         powerUp5->hide();
         powerUp6->hide();
         powerUp7->hide();
@@ -707,7 +710,7 @@ void CreaAvatar::calcoloValori()
     unsigned int valoreExtra = 0;
     std::string terreno;
 
-    if(indexAttuale == 0) {
+    if(indexAttuale == 1) {
         forza = 6;
         if(powerUp1->isChecked()) {
             forza+=8;
@@ -728,7 +731,7 @@ void CreaAvatar::calcoloValori()
         valoreExtra = magia/livello;
 
     } else
-    if(indexAttuale == 1) {
+    if(indexAttuale == 2) {
         forza = 7;
         if(powerUp1->isChecked()) {
             forza+=8;
@@ -749,7 +752,7 @@ void CreaAvatar::calcoloValori()
         valoreExtra = difesa/livello;
 
     } else
-    if(indexAttuale == 2) {
+    if(indexAttuale == 3) {
         forza = 5;
         if(powerUp1->isChecked()) {
             forza+=8;
@@ -770,7 +773,7 @@ void CreaAvatar::calcoloValori()
         valoreExtra = scienza/livello;
 
     } else
-    if(indexAttuale == 3) {
+    if(indexAttuale == 4) {
         forza = 3;
         if(powerUp5->isChecked()) {
             forza+=7;
@@ -791,7 +794,7 @@ void CreaAvatar::calcoloValori()
         valoreExtra = scienza/livello;
 
     } else
-    if(indexAttuale == 4) {
+    if(indexAttuale == 5) {
         forza = 10;
         if(powerUp5->isChecked()) {
             forza+=7;

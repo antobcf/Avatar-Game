@@ -43,7 +43,7 @@ Scontro::Scontro(QWidget *parent) :
 
     layoutTastiNavigazione->addWidget(bottoneHomeScontro);
     layoutTastiNavigazione->addWidget(bottoneCambioAvatar);
-    const QSize dimBottoneHomeCambio = QSize(100,30);
+    const QSize dimBottoneHomeCambio = QSize(100,30); //funzia?
     bottoneCambioAvatar->setFixedSize(dimBottoneHomeCambio);
     bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
     bottoneCombatti->setFixedSize(130,60);
@@ -70,6 +70,8 @@ Scontro::Scontro(QWidget *parent) :
     formPowerupDx->addRow("Powerup: ", layoutPowerupDx);
     layoutScontroDx->addLayout(formMediaDx);
     formMediaDx->addRow("Media: ", mediaDx);
+
+    //fotoAvatar->setFixedSize(150,150);
 }
 
 QLabel *Scontro::getNomeAvatarSx() const

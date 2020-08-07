@@ -94,26 +94,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     modificaImmagine->setIconSize(QSize(100,100));
     modificaImmagine->setFixedSize(QSize(120,120));
 
-//    QTimer::singleShot(0,this,SLOT(checkUno()));
-//    QTimer::singleShot(0,this,SLOT(checkDue()));
-//    QTimer::singleShot(0,this,SLOT(checkTre()));
-//    QTimer::singleShot(0,this,SLOT(checkQuattro()));
-//    QTimer::singleShot(0,this,SLOT(checkCinque()));
-//    QTimer::singleShot(0,this,SLOT(checkSei()));
-//    QTimer::singleShot(0,this,SLOT(checkSette()));
-//    QTimer::singleShot(0,this,SLOT(checkOtto()));
-
-//    checkUno();
-//    checkDue();
-//    checkTre();
-//    checkQuattro();
-//    checkCinque();
-//    checkSei();
-//    checkSette();
-//    checkOtto();
-
-    connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
-
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
     connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
     connect(powerUp3,SIGNAL(clicked()),this,SLOT(checkTre()));
@@ -129,7 +109,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
     connect(modificaImmagine,SIGNAL(clicked()),this,SLOT(cambiaImmagine()));
-
 }
 
 void ModificaAvatar::cambiaImmagine(){

@@ -14,6 +14,6 @@ void ElencoAvatar::aggiorna()
 {
     QString percorso = QString::fromStdString(item->getPercorsoImmagine());
     QPixmap p(percorso);
-    setIcon(p.scaled(500,500,Qt::AspectRatioMode::KeepAspectRatio));
+    setIcon(p.scaled(200,200,Qt::AspectRatioMode::KeepAspectRatio));
     setText(QString::fromStdString(item->datiAvatar()));
 }

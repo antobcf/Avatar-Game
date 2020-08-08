@@ -555,11 +555,11 @@ void Controller::scontroTraAvatar()
     //avversario random
     int max = modello->getLista()->counter();
     int numeroCasuale = rand()%(max);
-    //std::cout<<numeroCasuale<<std::endl; check per controllare se mi trovava il numero casuale
+    std::cout<<numeroCasuale<<std::endl; //check per controllare se mi trovava il numero casuale
     ElencoAvatar* itemCasuale = nullptr;
     itemCasuale = vistaLista->getElenco()->itemCasuale(numeroCasuale);
     Avatar* itemB = nullptr;
-    itemB = aux->getItem();
+    itemB = itemCasuale->getItem();
 
     vistaScontro->getNomeAvatarDx()->setText(QString::fromStdString(itemB->GetNome()));
 

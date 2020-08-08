@@ -15,6 +15,7 @@ public:
     item(QWidget* = nullptr);
     void insertAvatar(Avatar*);
     ElencoAvatar* itemAttuale() const;
+    ElencoAvatar* itemCasuale(int) const;
 };
 
 #endif // ITEM_H

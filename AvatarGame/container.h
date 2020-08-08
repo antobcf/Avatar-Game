@@ -186,7 +186,6 @@ int Container<T>::counter() {
                 scorri=scorri.ptr->next;
                 i++;
             }
-            std::cout<<i<<std::endl;
         }
     }
     return i;

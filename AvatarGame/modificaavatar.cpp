@@ -161,6 +161,8 @@ void ModificaAvatar::setImmagine()
             modificaImmagine->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Femmina.png"));
             pImmagine=":Risorse/Immagini Avatar/Mostro Femmina.png";
         }
+    } else {
+        modificaImmagine->setIcon(QIcon());
     }
 }
 

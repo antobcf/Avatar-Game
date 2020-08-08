@@ -172,6 +172,8 @@ void CreaAvatar::setImmagine()
             inserisciImmagineButton->setIcon(QIcon(":Risorse/Immagini Avatar/Mostro Femmina.png"));
             pImmagine=":Risorse/Immagini Avatar/Mostro Femmina.png";
         }
+    } else {
+        inserisciImmagineButton->setIcon(QIcon());
     }
 }
 

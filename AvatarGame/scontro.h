@@ -29,6 +29,8 @@ private:
     QFormLayout* formPowerupDx;
     QLabel* powerup1selezionatoDx;
     QLabel* powerup2selezionatoDx;
+    QLabel* powerup3selezionatoDx;
+    QLabel* powerup4selezionatoDx;
     QFormLayout* formMediaDx;
     QLabel* mediaDx;
     QString* forza;
@@ -37,9 +39,11 @@ private:
     QString* scienza;
     QString* lvl;
     QString* valoreSpeciale;
+    QString* valoreSpeciale2;
     QString* exp;
     QString* terrenoPreferito;
-    QLabel* fotoAvatar;
+    QLabel* fotoAvatar1;
+    QLabel* fotoAvatar2;
 
 public:
     Scontro(QWidget * = nullptr);
@@ -60,6 +64,8 @@ public:
     QFormLayout* getFormPowerupDx() const;
     QLabel* getPowerup1selezionatoDx() const;
     QLabel* getPowerup2selezionatoDx() const;
+    QLabel* getPowerup3selezionatoDx() const;
+    QLabel* getPowerup4selezionatoDx() const;
     QFormLayout* getFormMediaDx() const;
     QLabel* getMediaDx() const;
     QString* getForza() const;
@@ -68,9 +74,11 @@ public:
     QString* getScienza() const;
     QString* getLvl() const;
     QString* getValoreSpeciale() const;
+    QString* getValoreSpeciale2() const;
     QString* getExp() const;
     QString* getTerrenoPreferito() const;
-    QLabel* getFotoAvatar() const;
+    QLabel* getFotoAvatar1() const;
+    QLabel* getFotoAvatar2() const;
 
 public slots:
 

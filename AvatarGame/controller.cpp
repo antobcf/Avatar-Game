@@ -462,6 +462,7 @@ void Controller::modificaAvatar()
         vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Mostro Maschio.png"));
         vistaModifica->show();
     }
+
 }
 
 void Controller::scontroTraAvatar()

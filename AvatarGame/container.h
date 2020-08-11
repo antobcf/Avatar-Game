@@ -191,6 +191,7 @@ int Container<T>::counter() {
     return i;
 }
 
+
 template <class T>
 void Container<T>::remove() {
     if(isEmpty()) {

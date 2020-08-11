@@ -942,7 +942,10 @@ void Controller::salva()
     }
 }
 
+void Controller::ordinaNome()
+{
 
+}
 
 void Controller::setAvatarGameStyle()
 {

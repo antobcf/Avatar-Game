@@ -56,7 +56,7 @@ public slots:
     void salva();
 
     //void ordinaMedia();
-
+    void ordinaNome();
 
 signals:
 

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--!!!Non commentare il documento!!!-->
 <start>
-    <Alieno Nome="" Descrizione="" Livello="1" Exp="0" Forza="10" Magia="1" Difesa="15" Scienza="10" Sesso="true" Percorso=":Risorse/Immagini Avatar/Alieno.png" Media="9" Terreno="Regno dello spazio" Barriera="true" Laser="false" Amuleto="true" Chip="false" Ufo="10"/>
-    <Elfo Nome="gfgfg" Descrizione="" Livello="1" Exp="0" Forza="6" Magia="10" Difesa="16" Scienza="10" Sesso="true" Percorso=":Risorse/Immagini Avatar/Elfo Maschio.png" Media="10.5" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="true" Libro="true" Trasparentia="10"/>
+    <Alieno Nome="sdsdd" Descrizione="" Livello="1" Exp="0" Forza="5" Magia="3" Difesa="10" Scienza="8" Sesso="true" Percorso=":Risorse/Immagini Avatar/Umano Maschio.png" Media="6.5" Terreno="Regno dello spazio" Barriera="false" Laser="false" Amuleto="false" Chip="false" Ufo="8"/>
+    <Elfo Nome="ciaos" Descrizione="" Livello="1" Exp="0" Forza="10" Magia="5" Difesa="17" Scienza="10" Sesso="false" Percorso=":Risorse/Immagini Avatar/Mostro Femmina.png" Media="10.5" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="false" Libro="false" Trasparentia="10"/>
+    <Elfo Nome="mannaggia" Descrizione="" Livello="1" Exp="0" Forza="7" Magia="2" Difesa="20" Scienza="11" Sesso="true" Percorso=":Risorse/Immagini Avatar/Nano Maschio.png" Media="10" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="true" Libro="true" Trasparentia="20"/>
+    <Nano Nome="che palle" Descrizione="" Livello="1" Exp="0" Forza="7" Magia="2" Difesa="20" Scienza="11" Sesso="true" Percorso=":Risorse/Immagini Avatar/Nano Maschio.png" Media="10" Terreno="Regno del sottosuolo" Scudo="false" Spada="false" Anello="true" Libro="true" Corteccia="20"/>
 </start>

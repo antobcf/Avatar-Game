@@ -15,7 +15,7 @@ Scontro::Scontro(QWidget *parent) :
     vs(new QLabel("VS", this)),
     terreno(new QLabel("Terreno", this)),
     bottoneHomeScontro(new QPushButton("Home", this)),
-    bottoneCambioAvatar(new QPushButton("Avatar casuale", this)),
+    bottoneCambioAvatar(new QPushButton("Cambia personaggio", this)),
     bottoneCombatti(new QPushButton("Combatti", this)),
 
     nomeAvatarDx(new QLabel("Avatar2", this)),

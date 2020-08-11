@@ -55,6 +55,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaScontro->getBottoneCombatti(),SIGNAL(clicked()),this,SLOT(mostraFineScontro()));
+    connect(vistaScontro->getBottoneCambioAvatar(),SIGNAL(clicked()),this,SLOT(mostraLista()));
 
     //CONNECT FINE SCONTRO
     connect(vistaFineScontro->getHomeFine(),SIGNAL(clicked()),this,SLOT(mostraHome()));

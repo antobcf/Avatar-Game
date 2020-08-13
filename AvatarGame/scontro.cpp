@@ -13,7 +13,7 @@ Scontro::Scontro(QWidget *parent) :
     mediaSx(new QLabel(this)),
 
     vs(new QLabel("VS", this)),
-    terreno(new QLabel("Terreno", this)),
+    terreno(new QLabel(this)),
     bottoneHomeScontro(new QPushButton("Home", this)),
     bottoneCambioAvatar(new QPushButton("Cambia personaggio", this)),
     bottoneCombatti(new QPushButton("Combatti", this)),

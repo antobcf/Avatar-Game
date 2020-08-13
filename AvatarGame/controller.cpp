@@ -561,8 +561,6 @@ void Controller::scontroTraAvatar()
     }
 
 
-    //scontro();
-
     //Avversario random
     int max = modello->getLista()->counter();
     int numeroCasuale = rand()%(max);
@@ -629,6 +627,20 @@ void Controller::scontroTraAvatar()
         m->GetAmuleto() ? vistaScontro->getPowerup3selezionatoDx()->setText("Amuleto"), vistaScontro->getPowerup3selezionatoDx()->show() : (vistaScontro->getPowerup3selezionatoDx()->setText(""));
         m->GetChip() ? vistaScontro->getPowerup4selezionatoDx()->setText("Chip"), vistaScontro->getPowerup4selezionatoDx()->show() : (vistaScontro->getPowerup4selezionatoDx()->setText(""));
         std::string valoreSpeciale2 = (std::to_string(m->GetPorta()));
+    }
+
+    //Terreno casuale
+    int numeroC = rand() % 5;
+    if(numeroC == 0) {
+        vistaScontro->getTerreno()->setText("Regno incantato");
+    } else if(numeroC == 1) {
+        vistaScontro->getTerreno()->setText("Regno del sottosuolo");
+    } else if(numeroC == 2) {
+        vistaScontro->getTerreno()->setText("Regno delle macchine");
+    } else if(numeroC == 3) {
+        vistaScontro->getTerreno()->setText("Regno dello spazio");
+    } else {
+        vistaScontro->getTerreno()->setText("Regno dei demoni");
     }
 
 }
@@ -1102,28 +1114,119 @@ void Controller::scontro()
         }
     }
 
-    double mediaa = player->getMedia();
-    std::cout<<mediaa;
+    //Cambio stats in base a terreno
+    std::string campo = vistaScontro->getTerreno()->text().toStdString();
+    if(player->getTerreno() == campo) {
+        player->setForza(player->getForza()+1);
+        player->setMagia(player->getMagia()+1);
+        player->setDifesa(player->getDifesa()+1);
+        player->setScienza(player->getScienza()+1);
+    }
+    if(CPU->getTerreno() == campo) {
+        CPU->setForza(CPU->getForza()+1);
+        CPU->setMagia(CPU->getMagia()+1);
+        CPU->setDifesa(CPU->getDifesa()+1);
+        CPU->setScienza(CPU->getScienza()+1);
+    }
 
-//    std::string mediaP = player->getTipo();
-//    std::string mediaCPU = CPU->getTerreno();
-//    std::string nome1 = player->GetNome();
-//    std::string nome2 = CPU->GetNome();
+    int forzaP = player->getForza();
+    int forzaCPU = CPU->getForza();
+    int difesaP = player->getDifesa();
+    int difesaCPU = CPU->getDifesa();
+    int scienzaP = player->getScienza();
+    int scienzaCPU = CPU->getScienza();
+    int magiaP = player->getMagia();
+    int magiaCPU = CPU->getMagia();
+    double mediaP = player->getMedia();
+    double mediaCPU = CPU->getMedia();
 
-//    if(mediaP>mediaCPU) {
-//        int x = 10;
-//        player->SetExp(player->GetExp()+10);
-//        QMessageBox::about(this, "Complimenti", QString("Hai vinto la battaglia e hai guadagnato %1 punti esperienza").arg(x));
-//    } else {
-//        int x = 10;
-//        player->SetExp(player->GetExp()-10);
-//        QMessageBox::about(this, "Mannaggia", QString("Hai perso la battaglia e hai perso %1 punti esperienza").arg(x));
-//    }
+    int valoreSP;
+    int valoreSCPU;
+    Elfo* e = dynamic_cast<Elfo*>(player);
+    Nano* n = dynamic_cast<Nano*>(player);
+    Umano* u = dynamic_cast<Umano*>(player);
+    Alieno* a = dynamic_cast<Alieno*>(player);
+    Mostro* m = dynamic_cast<Mostro*>(player);
+    Elfo* ec = dynamic_cast<Elfo*>(CPU);
+    Nano* nc = dynamic_cast<Nano*>(CPU);
+    Umano* uc = dynamic_cast<Umano*>(CPU);
+    Alieno* ac = dynamic_cast<Alieno*>(CPU);
+    Mostro* mc = dynamic_cast<Mostro*>(CPU);
 
-    //std::cout<<mediaP<<std::endl<<mediaCPU<<std::endl<<nome1<<std::endl<<nome2<<std::endl;
+    if(e) {
+        valoreSP = e->GetTrasparentia();
+    } else if(n) {
+        valoreSP = n->GetCorteccia();
+    } else if(u) {
+        valoreSP = u->GetIngegno();
+    } else if(a) {
+        valoreSP = a->GetUfo();
+    } else if(m) {
+        valoreSP = m->GetPorta();
+    }
 
-//    std::string nomeElfo = player->GetNome();
-//    std::cout<<nomeElfo<<std::endl;
+    if(ec) {
+        valoreSCPU = ec->GetTrasparentia();
+    } else if(nc) {
+        valoreSCPU = nc->GetCorteccia();
+    } else if(uc) {
+        valoreSCPU = uc->GetIngegno();
+    } else if(ac) {
+        valoreSCPU = ac->GetUfo();
+    } else if(mc) {
+        valoreSCPU = mc->GetPorta();
+    }
+
+    //per ottenere il valore speciale devo controllare se casta e fare poi il get
+
+    int punteggio = 0;
+    if(forzaP > forzaCPU) {
+        punteggio++;
+    } else if(forzaP < forzaCPU) {
+        punteggio--;
+    }
+
+    if(difesaP > difesaCPU) {
+        punteggio++;
+    } else if(difesaP < difesaCPU) {
+        punteggio--;
+    }
+
+    if(scienzaP > scienzaCPU) {
+        punteggio++;
+    } else if(scienzaP < scienzaCPU) {
+        punteggio--;
+    }
+
+    if(magiaP > magiaCPU) {
+        punteggio++;
+    } else if(magiaP < magiaCPU) {
+        punteggio--;
+    }
+
+    if(valoreSP > valoreSCPU) {
+        punteggio++;
+    } else if(valoreSP < valoreSCPU) {
+        punteggio--;
+    }
+
+
+    if(punteggio>0) {
+        int x = 40;
+        player->SetExp(40);
+        int exp = player->GetExp();
+        QMessageBox::about(this, "Complimenti", QString("Hai vinto la battaglia e hai guadagnato %1 punti esperienza e la tua exp è %2").arg(x).arg(exp));
+        modello->salvare();
+    } else if(punteggio<0){
+        int x = 10;
+        if(player->GetExp()>10) {
+            player->SetExp(-10);
+        }
+        QMessageBox::about(this, "Mannaggia", QString("Hai perso la battaglia e hai perso %1 punti esperienza").arg(x));
+        modello->salvare();
+    }
+
+    scontroTraAvatar();
 
 }
 

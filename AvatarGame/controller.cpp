@@ -1177,8 +1177,6 @@ void Controller::scontro()
         valoreSCPU = mc->GetPorta();
     }
 
-    //per ottenere il valore speciale devo controllare se casta e fare poi il get
-
     int punteggio = 0;
     if(forzaP > forzaCPU) {
         punteggio++;
@@ -1224,6 +1222,23 @@ void Controller::scontro()
         }
         QMessageBox::about(this, "Mannaggia", QString("Hai perso la battaglia e hai perso %1 punti esperienza").arg(x));
         modello->salvare();
+    } else {
+        if(mediaP > mediaCPU) {
+            int x = 40;
+            player->SetExp(40);
+            int exp = player->GetExp();
+            QMessageBox::about(this, "Complimenti", QString("Hai vinto la battaglia e hai guadagnato %1 punti esperienza e la tua exp è %2").arg(x).arg(exp));
+            modello->salvare();
+        } else if(mediaP < mediaCPU) {
+            int x = 10;
+            if(player->GetExp()>10) {
+                player->SetExp(-10);
+            }
+            QMessageBox::about(this, "Mannaggia", QString("Hai perso la battaglia e hai perso %1 punti esperienza").arg(x));
+            modello->salvare();
+        } else {
+            QMessageBox::about(this, "Pace e amore", "It's a tie");
+        }
     }
 
     scontroTraAvatar();

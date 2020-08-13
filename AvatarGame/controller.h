@@ -54,9 +54,10 @@ public slots:
     void caricaDb();
     void carica();
     void salva();
+    void scontro();
 
     //void ordinaMedia();
-    void ordinaNome();
+    //void ordinaNome();
 
 signals:
 

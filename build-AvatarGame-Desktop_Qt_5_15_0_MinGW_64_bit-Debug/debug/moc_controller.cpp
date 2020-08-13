@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Controller_t {
     QByteArrayData data[19];
-    char stringdata0[225];
+    char stringdata0[222];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -50,7 +50,7 @@ QT_MOC_LITERAL(14, 178, 13), // "ricercaAvatar"
 QT_MOC_LITERAL(15, 192, 8), // "caricaDb"
 QT_MOC_LITERAL(16, 201, 6), // "carica"
 QT_MOC_LITERAL(17, 208, 5), // "salva"
-QT_MOC_LITERAL(18, 214, 10) // "ordinaNome"
+QT_MOC_LITERAL(18, 214, 7) // "scontro"
 
     },
     "Controller\0mostraHome\0\0mostraCrea\0"
@@ -58,7 +58,7 @@ QT_MOC_LITERAL(18, 214, 10) // "ordinaNome"
     "infoPopHome\0infoPopLista\0inserisciAvatar\0"
     "modificaAvatar\0scontroTraAvatar\0"
     "rimuoviAvatar\0svuotaElenco\0ricercaAvatar\0"
-    "caricaDb\0carica\0salva\0ordinaNome"
+    "caricaDb\0carica\0salva\0scontro"
 };
 #undef QT_MOC_LITERAL
 
@@ -138,7 +138,7 @@ void Controller::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: _t->caricaDb(); break;
         case 14: _t->carica(); break;
         case 15: _t->salva(); break;
-        case 16: _t->ordinaNome(); break;
+        case 16: _t->scontro(); break;
         default: ;
         }
     }

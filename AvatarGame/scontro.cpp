@@ -77,7 +77,6 @@ Scontro::Scontro(QWidget *parent) :
     layoutScontroDx->addLayout(formMediaDx);
     formMediaDx->addRow("Media: ", mediaDx);
 
-    //fotoAvatar->setFixedSize(150,150);
 }
 
 QLabel *Scontro::getNomeAvatarSx() const

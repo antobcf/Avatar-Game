@@ -54,7 +54,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
 
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
-    connect(vistaScontro->getBottoneCombatti(),SIGNAL(clicked()),this,SLOT(mostraFineScontro()));
+    connect(vistaScontro->getBottoneCombatti(),SIGNAL(clicked()),this,SLOT(scontro()));
     connect(vistaScontro->getBottoneCambioAvatar(),SIGNAL(clicked()),this,SLOT(mostraLista()));
 
     //CONNECT FINE SCONTRO
@@ -464,6 +464,8 @@ void Controller::modificaAvatar()
         vistaModifica->show();
     }
 
+
+
 }
 
 void Controller::scontroTraAvatar()
@@ -558,11 +560,14 @@ void Controller::scontroTraAvatar()
         vistaScontro->show();
     }
 
+
+    //scontro();
+
     //Avversario random
     int max = modello->getLista()->counter();
     int numeroCasuale = rand()%(max);
     ElencoAvatar* itemCasuale = nullptr;
-    Avatar* itemB= nullptr;
+    Avatar* itemB = nullptr;
     itemCasuale = vistaLista->getElenco()->itemCasuale(numeroCasuale);
     itemB = itemCasuale->getItem();
     //agiungere controllo diversità player1 e avversario qui
@@ -583,6 +588,7 @@ void Controller::scontroTraAvatar()
     QPixmap fotoPix2(foto2);
     vistaScontro->getFotoAvatar2()->setPixmap(fotoPix2);
     vistaScontro->getFotoAvatar2()->setPixmap(fotoPix2.scaled(200,200, Qt::AspectRatioMode::KeepAspectRatio));
+
 
     if(dynamic_cast<Elfo*>(itemB)) {
         Elfo* e = static_cast<Elfo*>(itemB);
@@ -942,10 +948,189 @@ void Controller::salva()
     }
 }
 
-void Controller::ordinaNome()
+void Controller::scontro()
 {
+    std::string nome = vistaScontro->getNomeAvatarSx()->text().toStdString();
+    std::string nomeCPU = vistaScontro->getNomeAvatarDx()->text().toStdString();
+
+    Avatar* player = nullptr;
+    Avatar* CPU = nullptr;
+
+    Avatar* item = new Elfo(nome);
+    Avatar* item2 = new Nano(nome);
+    Avatar* item3 = new Umano(nome);
+    Avatar* item4 = new Alieno(nome);
+    Avatar* item5 = new Mostro(nome);
+
+    if(modello->getLista()->ricerca(item)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item == *(*val)) {
+                player = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item2)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item2 == *(*val)) {
+                player = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item3)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item3 == *(*val)) {
+                player = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item4)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item4 == *(*val)) {
+                player = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item5)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item5 == *(*val)) {
+                player = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    }
+
+    Avatar* itemCPU = new Elfo(nomeCPU);
+    Avatar* item2CPU = new Nano(nomeCPU);
+    Avatar* item3CPU = new Umano(nomeCPU);
+    Avatar* item4CPU = new Alieno(nomeCPU);
+    Avatar* item5CPU = new Mostro(nomeCPU);
+
+    if(modello->getLista()->ricerca(itemCPU)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*itemCPU == *(*val)) {
+                CPU = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item2CPU)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item2CPU == *(*val)) {
+                CPU = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item3CPU)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item3CPU == *(*val)) {
+                CPU = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item4CPU)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item4CPU == *(*val)) {
+                CPU = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    } else if(modello->getLista()->ricerca(item5CPU)) {
+        bool trovato = false;
+
+        Container<Avatar*>::iteratoreConst val = modello->beginConst();
+        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+
+        while(val != valFin && !trovato) {
+            if(*item5CPU == *(*val)) {
+                CPU = *val;
+                trovato = true;
+            }
+            ++val;
+        }
+    }
+
+    double mediaa = player->getMedia();
+    std::cout<<mediaa;
+
+//    std::string mediaP = player->getTipo();
+//    std::string mediaCPU = CPU->getTerreno();
+//    std::string nome1 = player->GetNome();
+//    std::string nome2 = CPU->GetNome();
+
+//    if(mediaP>mediaCPU) {
+//        int x = 10;
+//        player->SetExp(player->GetExp()+10);
+//        QMessageBox::about(this, "Complimenti", QString("Hai vinto la battaglia e hai guadagnato %1 punti esperienza").arg(x));
+//    } else {
+//        int x = 10;
+//        player->SetExp(player->GetExp()-10);
+//        QMessageBox::about(this, "Mannaggia", QString("Hai perso la battaglia e hai perso %1 punti esperienza").arg(x));
+//    }
+
+    //std::cout<<mediaP<<std::endl<<mediaCPU<<std::endl<<nome1<<std::endl<<nome2<<std::endl;
+
+//    std::string nomeElfo = player->GetNome();
+//    std::cout<<nomeElfo<<std::endl;
 
 }
+
+//void Controller::ordinaNome()
+//{
+
+//}
 
 void Controller::setAvatarGameStyle()
 {

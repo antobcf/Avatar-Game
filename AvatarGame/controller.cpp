@@ -394,7 +394,7 @@ void Controller::modificaAvatar()
             vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(trasparentia));
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
-            //vistaModifica->setWindowIcon(percorsoFoto);
+            vistaModifica->setWindowIcon(QIcon(percorsoFoto));
             vistaModifica->show();
 
         } else if(dynamic_cast<Nano*>(itemA)) {

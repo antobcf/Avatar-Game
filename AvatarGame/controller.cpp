@@ -1161,7 +1161,7 @@ void Controller::scontro()
         valoreSP = u->GetIngegno();
     } else if(a) {
         valoreSP = a->GetUfo();
-    } else if(m) {
+    } else {
         valoreSP = m->GetPorta();
     }
 
@@ -1173,7 +1173,7 @@ void Controller::scontro()
         valoreSCPU = uc->GetIngegno();
     } else if(ac) {
         valoreSCPU = ac->GetUfo();
-    } else if(mc) {
+    } else {
         valoreSCPU = mc->GetPorta();
     }
 
@@ -1209,9 +1209,11 @@ void Controller::scontro()
     }
 
 
+
+
     if(punteggio>0) {
         int x = 40;
-        player->SetExp(40);
+        player->SetExp(player->GetExp()+40);
         int exp = player->GetExp();
         QMessageBox::about(this, "Complimenti", QString("Hai vinto la battaglia e hai guadagnato %1 punti esperienza e la tua exp è %2").arg(x).arg(exp));
         modello->salvare();

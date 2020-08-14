@@ -94,10 +94,11 @@ unsigned int Avatar::GetExp() const {
 }
 
 void Avatar::SetExp(unsigned int e) { //forse non va bene ma bisogna farla "normale"
-    exp = exp+e;
-    if(exp >99){
-        SetLvl(livello+1);
-        exp = exp -100;
+    if(e > 99) {
+        exp = e - 100;
+        SetLvl(GetLiv()+1);
+    } else {
+        exp = e;
     }
 }
 

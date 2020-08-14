@@ -89,7 +89,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Umano");
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
-    calcoloValori();
+    //calcoloValori();
 
     modificaImmagine->setIconSize(QSize(100,100));
     modificaImmagine->setFixedSize(QSize(120,120));
@@ -701,6 +701,7 @@ void ModificaAvatar::calcoloValori()
     double scienza = getValoreScienza()->text().toUInt();
     unsigned int livello = getLvl()->text().toUInt();
     unsigned int valoreExtra = getValoreSpeciale()->text().toUInt();
+    bool scudo = getPowerUp1();
 
     if(indexAttuale == 1) {
         forza = livello*6;
@@ -719,7 +720,6 @@ void ModificaAvatar::calcoloValori()
         if(powerUp4->isChecked()) {
             scienza += 5;
         }
-
         valoreExtra = magia/livello;
 
     } else
@@ -770,15 +770,15 @@ void ModificaAvatar::calcoloValori()
         if(powerUp5->isChecked()) {
             forza+=7;
         }
-        magia = livello*1;
+        magia = livello*10;
         if(powerUp6->isChecked()) {
             magia += 6;
         }
-        difesa = livello*7;
+        difesa = livello*0;
         if(powerUp7->isChecked()) {
             difesa += 8;
         }
-        scienza = livello*10;
+        scienza = livello*7;
         if(powerUp8->isChecked()) {
             scienza += 9;
         }
@@ -791,15 +791,15 @@ void ModificaAvatar::calcoloValori()
         if(powerUp5->isChecked()) {
             forza+=7;
         }
-        magia = livello*5;
+        magia = livello*0;
         if(powerUp6->isChecked()) {
             magia += 6;
         }
-        difesa = livello*9;
+        difesa = livello*5;
         if(powerUp7->isChecked()) {
             difesa += 8;
         }
-        scienza = livello*1;
+        scienza = livello*9;
         if(powerUp8->isChecked()) {
             scienza += 9;
         }

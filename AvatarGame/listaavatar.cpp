@@ -17,7 +17,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     tipoMostro(new QCheckBox("Mostro", this)),
     bottoneModifica(new QPushButton("Modifica", this)),
     bottoneRimuovi(new QPushButton("Rimuovi", this)),
-    bottoneRimuoviTutto(new QPushButton("Rimuovi tutto", this)),
     bottoneAvvioGioco(new QPushButton("Gioca", this)),
     bottoneInfoLista(new QPushButton("?", this)),
 
@@ -60,7 +59,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutCheckBox->addWidget(tipoMostro);
     layoutDx->addWidget(bottoneModifica);
     layoutDx->addWidget(bottoneRimuovi);
-    layoutDx->addWidget(bottoneRimuoviTutto);
     layoutDx->addWidget(bottoneAvvioGioco);
     layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
     bottoneInfoLista->setFixedSize(25,25);
@@ -144,10 +142,6 @@ QPushButton *ListaAvatar::getBottoneRimuovi() const
    return bottoneRimuovi;
 }
 
-QPushButton *ListaAvatar::getBottoneRimuoviTutto() const
-{
-   return bottoneRimuoviTutto;
-}
 
 QPushButton *ListaAvatar::getBottoneGioca() const
 {

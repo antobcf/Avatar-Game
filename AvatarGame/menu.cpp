@@ -37,5 +37,6 @@ Menu::Menu(QWidget* p):
 
     connect(sviluppatori,SIGNAL(triggered()),parent,SLOT(mostraSviluppatori()));
     connect(infoSistema,SIGNAL(triggered()),parent,SLOT(mostraInfoSistema()));
+
 }
 

@@ -707,7 +707,7 @@ void CreaAvatar::calcoloValori()
     double scienza = 0;
     unsigned int livello = 1;
     unsigned int esperienza = 0;
-    unsigned int valoreExtra = 0;
+    double valoreExtra = 0;
     std::string terreno;
 
     if(indexAttuale == 1) {
@@ -728,7 +728,7 @@ void CreaAvatar::calcoloValori()
             scienza += 5;
         }
         terreno = "Regno incantato";
-        valoreExtra = magia/livello;
+        valoreExtra = (magia+difesa)*livello*0.05;
 
     } else
     if(indexAttuale == 2) {
@@ -749,7 +749,7 @@ void CreaAvatar::calcoloValori()
             scienza += 5;
         }
         terreno = "Regno del sottosuolo";
-        valoreExtra = difesa/livello;
+        valoreExtra = (forza+difesa)*livello*0.05;
 
     } else
     if(indexAttuale == 3) {
@@ -770,7 +770,7 @@ void CreaAvatar::calcoloValori()
             scienza += 5;
         }
         terreno = "Regno delle macchine";
-        valoreExtra = scienza/livello;
+        valoreExtra = (difesa+scienza)*livello*0.05;
 
     } else
     if(indexAttuale == 4) {
@@ -791,7 +791,7 @@ void CreaAvatar::calcoloValori()
             scienza += 9;
         }
         terreno = "Regno dello spazio";
-        valoreExtra = scienza/livello;
+        valoreExtra = (forza+scienza)*livello*0.05;
 
     } else
     if(indexAttuale == 5) {
@@ -812,7 +812,7 @@ void CreaAvatar::calcoloValori()
             scienza += 9;
         }
         terreno = "Regno dei demoni";
-        valoreExtra = forza/livello;
+        valoreExtra = (forza+difesa)*livello*0.05;
 
     }
 
@@ -825,5 +825,5 @@ void CreaAvatar::calcoloValori()
     terrenoPreferito->setText(QString::fromStdString(terreno));
     lvl->setText(QString::number(livello));
     exp->setText(QString::number(esperienza));
-    valoreSpeciale->setText(QString::number(valoreExtra));
+    valoreSpeciale->setText(QString::number(valoreExtra,'f',1));
 }

@@ -80,6 +80,8 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
     formCrea->addRow("Nome:", inserisciNome);
 
+    setFixedSize(450,400);
+
     boxDescrizione->setMaximumSize(300,200);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
 
@@ -700,7 +702,7 @@ void ModificaAvatar::calcoloValori()
     double difesa = getValoreDifesa()->text().toUInt();
     double scienza = getValoreScienza()->text().toUInt();
     unsigned int livello = getLvl()->text().toUInt();
-    unsigned int valoreExtra = getValoreSpeciale()->text().toUInt();
+    double valoreExtra = getValoreSpeciale()->text().toDouble();
 
 
     if(indexAttuale == 1) {
@@ -720,7 +722,7 @@ void ModificaAvatar::calcoloValori()
         if(powerUp4->isChecked()) {
             scienza += 5;
         }
-        valoreExtra = magia/livello;
+        valoreExtra = (magia+difesa)*livello*0.05;
 
     } else
     if(indexAttuale == 2) {
@@ -741,7 +743,7 @@ void ModificaAvatar::calcoloValori()
             scienza += 5;
         }
 
-        valoreExtra = difesa/livello;
+        valoreExtra = (forza+difesa)*livello*0.05;
 
     } else
     if(indexAttuale == 3) {
@@ -762,7 +764,7 @@ void ModificaAvatar::calcoloValori()
             scienza += 5;
         }
 
-        valoreExtra = scienza/livello;
+        valoreExtra = (difesa+scienza)*livello*0.05;
 
     } else
     if(indexAttuale == 4) {
@@ -783,7 +785,7 @@ void ModificaAvatar::calcoloValori()
             scienza += 9;
         }
 
-        valoreExtra = scienza/livello;
+        valoreExtra = (forza+scienza)*livello*0.05;
 
     } else
     if(indexAttuale == 5) {
@@ -803,7 +805,7 @@ void ModificaAvatar::calcoloValori()
         if(powerUp8->isChecked()) {
             scienza += 9;
         }
-        valoreExtra = forza/livello;
+        valoreExtra = (forza+difesa)*livello*0.05;
 
     }
 
@@ -814,7 +816,7 @@ void ModificaAvatar::calcoloValori()
     valoreScienza->setText(QString::number(scienza));
     valoreMedia->setText(QString::number(media,'f',1));
     lvl->setText(QString::number(livello));
-    valoreSpeciale->setText(QString::number(valoreExtra));
+    valoreSpeciale->setText(QString::number(valoreExtra,'f',1));
 }
 
 

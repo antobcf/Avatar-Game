@@ -83,11 +83,11 @@ public:
 
 class Elfo: public Terrestre {
 private:
-    unsigned int trasparentia;
+    double trasparentia;
 public:
-    Elfo(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, unsigned int tr = 0): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), trasparentia(tr) {}
-    unsigned int GetTrasparentia() const;
-    void setTrasparentia(int);
+    Elfo(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, double tr = 0): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), trasparentia(tr) {}
+    double GetTrasparentia() const;
+    void setTrasparentia(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
@@ -95,11 +95,11 @@ public:
 
 class Nano: public Terrestre {
 private:
-    unsigned int corteccia;
+    double corteccia;
 public:
-    Nano(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, unsigned int cor = 0): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), corteccia(cor) {}
-    unsigned int GetCorteccia() const;
-    void setCorteccia(int);
+    Nano(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, double cor = 0): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), corteccia(cor) {}
+    double GetCorteccia() const;
+    void setCorteccia(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
@@ -107,11 +107,11 @@ public:
 
 class Umano: public Terrestre {
 private:
-    unsigned int ingegnoScientifico;
+    double ingegnoScientifico;
 public:
-    Umano(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, unsigned int is = 20): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), ingegnoScientifico(is) {}
-    unsigned int GetIngegno() const;
-    void setIngegno(int);
+    Umano(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, double is = 20): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), ingegnoScientifico(is) {}
+    double GetIngegno() const;
+    void setIngegno(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
@@ -142,11 +142,11 @@ public:
 
 class Alieno: public NOTerrestre {
 private:
-    unsigned int ufo;
+    double ufo;
 public:
-    Alieno(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool ba = false, bool las = false, bool am = false, bool ch = false, unsigned int ufo = 30): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,ba,las,am,ch), ufo(ufo) {}
-    unsigned int GetUfo() const;
-    void setUfo(int);
+    Alieno(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool ba = false, bool las = false, bool am = false, bool ch = false, double ufo = 30): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,ba,las,am,ch), ufo(ufo) {}
+    double GetUfo() const;
+    void setUfo(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
@@ -154,11 +154,11 @@ public:
 
 class Mostro: public NOTerrestre {
 private:
-    unsigned int portaDemoniaca;
+    double portaDemoniaca;
 public:
-    Mostro(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool ba = false, bool las = false, bool am = false, bool ch = false, unsigned int pd = 60): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,ba,las,am,ch), portaDemoniaca(pd) {}
-    unsigned int GetPorta() const;
-    void setPorta(int);
+    Mostro(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool ba = false, bool las = false, bool am = false, bool ch = false, double pd = 60): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,ba,las,am,ch), portaDemoniaca(pd) {}
+    double GetPorta() const;
+    void setPorta(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;

@@ -33,7 +33,6 @@ private:
     QCheckBox* tipoMostro;
     QPushButton* bottoneModifica;
     QPushButton* bottoneRimuovi;
-    QPushButton* bottoneRimuoviTutto;
     QPushButton* bottoneAvvioGioco;
     QPushButton* bottoneInfoLista;
 
@@ -56,7 +55,6 @@ public:
     QCheckBox* getTipoMostro() const;
     QPushButton* getBottoneModifica() const;
     QPushButton* getBottoneRimuovi() const;
-    QPushButton* getBottoneRimuoviTutto() const;
     QPushButton* getBottoneGioca() const;
     QPushButton* getBottoneInfoLista() const;
     item* getElenco() const;

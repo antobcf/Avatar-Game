@@ -40,7 +40,7 @@ unsigned int Avatar::getScienza() const
 
 double Avatar::getMedia() const
 {
-    return media;
+    return  media;
 }
 
 std::string Avatar::getTerreno() const
@@ -171,11 +171,11 @@ void Terrestre::SetLibro(bool lib) {
 }
 
 //Metodi della classe Elfo
-unsigned int Elfo::GetTrasparentia() const {
+double Elfo::GetTrasparentia() const {
     return trasparentia;
 }
 
-void Elfo::setTrasparentia(int t) {
+void Elfo::setTrasparentia(double t) {
     trasparentia = t;
 }
 
@@ -196,11 +196,11 @@ std::string Elfo::datiAvatar()
 }
 
 //Metodi della classe Nano
-unsigned int Nano::GetCorteccia() const {
+double Nano::GetCorteccia() const {
     return corteccia;
 }
 
-void Nano::setCorteccia(int c) {
+void Nano::setCorteccia(double c) {
     corteccia = c;
 }
 
@@ -221,11 +221,11 @@ std::string Nano::datiAvatar()
 }
 
 //Metodi della classe Umano
-unsigned int Umano::GetIngegno() const {
+double Umano::GetIngegno() const {
     return ingegnoScientifico;
 }
 
-void Umano::setIngegno(int i) {
+void Umano::setIngegno(double i) {
     ingegnoScientifico = i;
 }
 
@@ -284,11 +284,11 @@ void NOTerrestre::SetChip(bool ch) {
 }
 
 //Metodi della classe Alieno
-unsigned int Alieno::GetUfo() const {
+double Alieno::GetUfo() const {
     return ufo;
 }
 
-void Alieno::setUfo(int u)
+void Alieno::setUfo(double u)
 {
     ufo = u;
 }
@@ -310,11 +310,11 @@ std::string Alieno::datiAvatar()
 }
 
 //Metodi della classe Mostro
-unsigned int Mostro::GetPorta() const {
+double Mostro::GetPorta() const {
     return portaDemoniaca;
 }
 
-void Mostro::setPorta(int p) {
+void Mostro::setPorta(double p) {
     portaDemoniaca = p;
 }
 

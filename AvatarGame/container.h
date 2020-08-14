@@ -73,7 +73,6 @@ public:
     void remove(); //rimuove valore in testa
     void removeElement(const T&);
     bool ricerca(const T&) const;
-    void clean(); //svuota contenitore
     T ricercaNome(T); //servirebbe per cercare un personaggio, ma non riesco a farlo andare
     iteratore begin();
     iteratore end();
@@ -271,18 +270,7 @@ bool Container<T>::ricerca(const T & r) const
     return false;
 }
 
-template <class T>
-void Container<T>::clean() {
-    if(isEmpty()) {
-        std::cout<<"è già vuoto"<<std::endl;
-        return;
-        //eccezione
-    }
-    //std::cout<<"arrivo qua?"<<std::endl;
-    while(!isEmpty()) {
-        remove();
-    }
-}
+
 
 //METODI NODO
 template <class T>

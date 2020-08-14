@@ -16,7 +16,6 @@ void item::insertAvatar(Avatar* avatar)
 
 ElencoAvatar *item::itemAttuale() const
 {
-    //std::cout<<currentRow()<<std::endl; ritorna la riga dell'avatar
     return static_cast<ElencoAvatar*>(QListWidget::currentItem());
 }
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--!!!Non commentare il documento!!!-->
 <start>
-    <Nano Nome="asd" Descrizione="" Livello="2" Exp="20" Forza="16" Magia="12" Difesa="32" Scienza="14" Sesso="true" Percorso=":Risorse/Immagini Avatar/Nano Maschio.png" Media="16.5" Terreno="Regno del sottosuolo" Scudo="false" Spada="true" Anello="true" Libro="false" Corteccia="15"/>
-    <Elfo Nome="elfetta" Descrizione="" Livello="5" Exp="40" Forza="38" Magia="56" Difesa="30" Scienza="25" Sesso="false" Percorso=":Risorse/Immagini Avatar/Elfo Femmina.png" Media="37.3" Terreno="Regno incantato" Scudo="true" Spada="true" Anello="false" Libro="false" Trasparentia="11"/>
+    <Umano Nome="asdasdasd" Descrizione="" Livello="3" Exp="50" Forza="23" Magia="15" Difesa="24" Scienza="24" Sesso="false" Percorso=":Risorse/Immagini Avatar/Umano Femmina.png" Media="21.5" Terreno="Regno delle macchine" Scudo="true" Spada="true" Anello="false" Libro="false" Ingegnoscientifico="8"/>
+    <Mostro Nome="sadasdas" Descrizione="" Livello="22" Exp="20" Forza="220" Magia="6" Difesa="118" Scienza="198" Sesso="false" Percorso=":Risorse/Immagini Avatar/Mostro Femmina.png" Media="135.5" Terreno="Regno dei demoni" Barriera="false" Laser="true" Amuleto="true" Chip="false" Portademoniaca="10"/>
+    <Alieno Nome="vuk" Descrizione="" Livello="1" Exp="0" Forza="10" Magia="10" Difesa="8" Scienza="7" Sesso="true" Percorso=":Risorse/Immagini Avatar/Alieno.png" Media="8.8" Terreno="Regno dello spazio" Barriera="true" Laser="false" Amuleto="true" Chip="false" Ufo="7"/>
 </start>

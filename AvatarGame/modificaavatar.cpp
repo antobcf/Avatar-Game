@@ -701,7 +701,7 @@ void ModificaAvatar::calcoloValori()
     double scienza = getValoreScienza()->text().toUInt();
     unsigned int livello = getLvl()->text().toUInt();
     unsigned int valoreExtra = getValoreSpeciale()->text().toUInt();
-    bool scudo = getPowerUp1();
+
 
     if(indexAttuale == 1) {
         forza = livello*6;

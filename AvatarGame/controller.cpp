@@ -464,8 +464,6 @@ void Controller::modificaAvatar()
         vistaModifica->show();
     }
 
-
-
 }
 
 void Controller::scontroTraAvatar()
@@ -1114,20 +1112,7 @@ void Controller::scontro()
         }
     }
 
-    //Cambio stats in base a terreno
-    std::string campo = vistaScontro->getTerreno()->text().toStdString();
-    if(player->getTerreno() == campo) {
-        player->setForza(player->getForza()+1);
-        player->setMagia(player->getMagia()+1);
-        player->setDifesa(player->getDifesa()+1);
-        player->setScienza(player->getScienza()+1);
-    }
-    if(CPU->getTerreno() == campo) {
-        CPU->setForza(CPU->getForza()+1);
-        CPU->setMagia(CPU->getMagia()+1);
-        CPU->setDifesa(CPU->getDifesa()+1);
-        CPU->setScienza(CPU->getScienza()+1);
-    }
+
 
     int forzaP = player->getForza();
     int forzaCPU = CPU->getForza();
@@ -1139,6 +1124,21 @@ void Controller::scontro()
     int magiaCPU = CPU->getMagia();
     double mediaP = player->getMedia();
     double mediaCPU = CPU->getMedia();
+
+    //Cambio stats in base a terreno
+    std::string campo = vistaScontro->getTerreno()->text().toStdString();
+    if(player->getTerreno() == campo) {
+        forzaP=forzaP+1;
+        difesaP=difesaP+1;
+        magiaP=magiaP+1;
+        scienzaP=scienzaP+1;
+    }
+    if(CPU->getTerreno() == campo) {
+        forzaCPU=forzaCPU+1;
+        difesaCPU=difesaCPU+1;
+        magiaCPU=magiaCPU+1;
+        scienzaCPU=scienzaCPU+1;
+    }
 
     int valoreSP;
     int valoreSCPU;
@@ -1208,33 +1208,113 @@ void Controller::scontro()
         punteggio--;
     }
 
-
-
+    if(player->getTerreno() == campo) {
+        forzaP=forzaP-1;
+        difesaP=difesaP-1;
+        magiaP=magiaP-1;
+        scienzaP=scienzaP-1;
+    }
 
     if(punteggio>0) {
         int x = 40;
+        if(player->GetExp()>59) {
+            if(e) {
+                player->setForza(forzaP+6);
+                player->setMagia(magiaP+10);
+                player->setDifesa(difesaP+6);
+                player->setScienza(scienzaP+5);
+
+            } else if(n) {
+                player->setForza(forzaP+7);
+                player->setMagia(magiaP+2);
+                player->setDifesa(difesaP+10);
+                player->setScienza(scienzaP+6);
+
+            } else if(u) {
+                player->setForza(forzaP+5);
+                player->setMagia(magiaP+3);
+                player->setDifesa(difesaP+8);
+                player->setScienza(scienzaP+8);
+
+            } else if(a) {
+                player->setForza(forzaP+3);
+                player->setMagia(magiaP+10);
+                player->setDifesa(difesaP+0);
+                player->setScienza(scienzaP+7);
+
+            } else if(m) {
+                player->setForza(forzaP+10);
+                player->setMagia(magiaP+0);
+                player->setDifesa(difesaP+5);
+                player->setScienza(scienzaP+9);
+
+            }
+            double newF = player->getForza();
+            double newM = player->getMagia();
+            double newD = player->getDifesa();
+            double newS = player->getScienza();
+            mediaP = (newF + newM + newD + newS)/4;
+            player->setMedia(mediaP);
+            std::cout<<mediaP<<std::endl;
+        }
         player->SetExp(player->GetExp()+40);
         int exp = player->GetExp();
         QMessageBox::about(this, "Complimenti", QString("Hai vinto la battaglia e hai guadagnato %1 punti esperienza e la tua exp è %2").arg(x).arg(exp));
         modello->salvare();
     } else if(punteggio<0){
         int x = 10;
-        if(player->GetExp()>10) {
-            player->SetExp(-10);
+        if(player->GetExp()>9) {
+            player->SetExp(player->GetExp()-10);
         }
         QMessageBox::about(this, "Mannaggia", QString("Hai perso la battaglia e hai perso %1 punti esperienza").arg(x));
         modello->salvare();
     } else {
         if(mediaP > mediaCPU) {
             int x = 40;
-            player->SetExp(40);
+            if(player->GetExp()>59) {
+                if(e) {
+                    player->setForza(forzaP+6);
+                    player->setMagia(magiaP+10);
+                    player->setDifesa(difesaP+6);
+                    player->setScienza(scienzaP+5);
+
+                } else if(n) {
+                    player->setForza(forzaP+7);
+                    player->setMagia(magiaP+2);
+                    player->setDifesa(difesaP+10);
+                    player->setScienza(scienzaP+6);
+
+                } else if(u) {
+                    player->setForza(forzaP+5);
+                    player->setMagia(magiaP+3);
+                    player->setDifesa(difesaP+8);
+                    player->setScienza(scienzaP+8);
+
+                } else if(a) {
+                    player->setForza(forzaP+3);
+                    player->setMagia(magiaP+10);
+                    player->setDifesa(difesaP+0);
+                    player->setScienza(scienzaP+7);
+
+                } else if(m) {
+                    player->setForza(forzaP+10);
+                    player->setMagia(magiaP+0);
+                    player->setDifesa(difesaP+5);
+                    player->setScienza(scienzaP+9);
+
+                }
+                mediaP = (player->getForza()+player->getMagia()+player->getDifesa()+player->getScienza())/4;
+                player->setMedia(mediaP);
+
+            }
+            player->SetExp(player->GetExp()+40);
             int exp = player->GetExp();
             QMessageBox::about(this, "Complimenti", QString("Hai vinto la battaglia e hai guadagnato %1 punti esperienza e la tua exp è %2").arg(x).arg(exp));
             modello->salvare();
         } else if(mediaP < mediaCPU) {
             int x = 10;
-            if(player->GetExp()>10) {
-                player->SetExp(-10);
+            if(player->GetExp()>9) {
+                player->SetExp(player->GetExp()-10);
             }
             QMessageBox::about(this, "Mannaggia", QString("Hai perso la battaglia e hai perso %1 punti esperienza").arg(x));
             modello->salvare();

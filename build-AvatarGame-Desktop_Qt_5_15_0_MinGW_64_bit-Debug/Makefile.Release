@@ -186,7 +186,8 @@ release/qrc_risorse.cpp: ../AvatarGame/risorse.qrc \
 		../AvatarGame/Risorse/Immagini\ Avatar/Mostro\ Maschio.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Elfo\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Umano\ Maschio.png \
-		../AvatarGame/Risorse/Immagini\ Avatar/Alieno.png
+		../AvatarGame/Risorse/Immagini\ Avatar/Alieno.png \
+		C:/Users/anton/Downloads/vs.png
 	C:\Qt\5.15.0\mingw81_64\bin\rcc.exe -name risorse ..\AvatarGame\risorse.qrc -o release\qrc_risorse.cpp
 
 compiler_moc_predefs_make_all: release/moc_predefs.h

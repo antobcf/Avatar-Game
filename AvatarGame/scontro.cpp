@@ -16,6 +16,7 @@ Scontro::Scontro(QWidget *parent) :
     terreno(new QLabel(this)),
     bottoneHomeScontro(new QPushButton("Home", this)),
     bottoneCambioAvatar(new QPushButton("Cambia personaggio", this)),
+    bottoneCambioAvversario(new QPushButton("Cambia avversario", this)),
     bottoneCombatti(new QPushButton("Combatti", this)),
 
     nomeAvatarDx(new QLabel("Avatar2", this)),
@@ -46,9 +47,11 @@ Scontro::Scontro(QWidget *parent) :
 
     layoutTastiNavigazione->addWidget(bottoneHomeScontro);
     layoutTastiNavigazione->addWidget(bottoneCambioAvatar);
-    const QSize dimBottoneHomeCambio = QSize(100,30); //funzia?
-    bottoneCambioAvatar->setFixedSize(dimBottoneHomeCambio);
+    layoutTastiNavigazione->addWidget(bottoneCambioAvversario);
+    const QSize dimBottoneHomeCambio = QSize(120,40); //funzia?
     bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
+    bottoneCambioAvatar->setFixedSize(dimBottoneHomeCambio);
+    bottoneCambioAvversario->setFixedSize(dimBottoneHomeCambio);
     bottoneCombatti->setFixedSize(130,60);
 
     layoutScontroSx->addWidget(fotoAvatar1);
@@ -137,6 +140,11 @@ QPushButton *Scontro::getBottoneCombatti() const
 QPushButton *Scontro::getBottoneCambioAvatar() const
 {
     return bottoneCambioAvatar;
+}
+
+QPushButton *Scontro::getBottoneCambioAvversario() const
+{
+    return bottoneCambioAvversario;
 }
 
 QPushButton *Scontro::getBottoneHomeScontro() const

@@ -24,6 +24,7 @@ private:
     QLabel* terreno;
     QPushButton* bottoneHomeScontro;
     QPushButton* bottoneCambioAvatar;
+    QPushButton* bottoneCambioAvversario;
     QPushButton* bottoneCombatti;
     QLabel* nomeAvatarDx;
     QFormLayout* formPowerupDx;
@@ -59,6 +60,7 @@ public:
     QLabel* getTerreno() const;
     QPushButton* getBottoneCombatti() const;
     QPushButton* getBottoneCambioAvatar() const;
+    QPushButton* getBottoneCambioAvversario() const;
     QPushButton* getBottoneHomeScontro() const;
     QLabel* getNomeAvatarDx() const;
     QFormLayout* getFormPowerupDx() const;

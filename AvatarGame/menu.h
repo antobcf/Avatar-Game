@@ -18,7 +18,6 @@ private:
     QAction* esci;
     QAction* nuovo;
     QAction* carica;
-    QAction* salva;
     QAction* lista;
     QAction* sviluppatori;
     QAction* infoSistema;

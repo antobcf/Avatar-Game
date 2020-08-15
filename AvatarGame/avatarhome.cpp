@@ -8,13 +8,11 @@ AvatarHome::AvatarHome(QWidget* p):
     titoloGioco(new QLabel("Inserire logo", p))
 {    
 
-    const QSize dimBottone = QSize(90,50);
+    const QSize dimBottone = QSize(120,60);
     bottoneCrea->setFixedSize(dimBottone);
     bottoneGioca->setFixedSize(dimBottone);
-    bottoneInfo->setFixedSize(25,25);
+    bottoneInfo->setFixedSize(30,30);
     titoloGioco->setAlignment(Qt::AlignCenter);
-
-    //setStyleSheet bottoni o tramite fogli di stile
 
     QVBoxLayout* layoutHome = new QVBoxLayout(this);
     QHBoxLayout* layoutBottoniSopra = new QHBoxLayout();

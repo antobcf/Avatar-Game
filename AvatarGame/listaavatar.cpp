@@ -3,10 +3,10 @@
 
 ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton("Home", this)),
-    ordinaLista(new QLabel("Ordina per", this)),
-    ordinaNome(new QPushButton("Nome", this)),
-    ordinaLivello(new QPushButton("Livello", this)),
-    ordinaMedia(new QPushButton("Media", this)),
+    //ordinaLista(new QLabel("Ordina per", this)),
+    //ordinaNome(new QPushButton("Nome", this)),
+    //ordinaLivello(new QPushButton("Livello", this)),
+    //ordinaMedia(new QPushButton("Media", this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
     formLista(new QFormLayout),
     cercaNome(new QLineEdit(this)),
@@ -26,41 +26,52 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     QHBoxLayout* layoutListaAvatar = new QHBoxLayout(this);
     QVBoxLayout* layoutSelezioneAvatar = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
-    QHBoxLayout* layoutOrdina = new QHBoxLayout();
+    //QHBoxLayout* layoutOrdina = new QHBoxLayout();
+    QHBoxLayout* layoutRicerca = new QHBoxLayout();
     QHBoxLayout* layoutCheckBox = new QHBoxLayout();
     QVBoxLayout* layoutincolonnamento = new QVBoxLayout();
 
     layoutListaAvatar->addLayout(layoutSelezioneAvatar);
     layoutListaAvatar->addLayout(layoutDx);
 
-    layoutSelezioneAvatar->addWidget(bottoneHome);
-    layoutSelezioneAvatar->addLayout(layoutOrdina);
-    layoutOrdina->addWidget(ordinaLista);
-    layoutOrdina->addWidget(ordinaNome);
-    layoutOrdina->addWidget(ordinaMedia);
-    layoutOrdina->addWidget(ordinaLivello);
+    layoutSelezioneAvatar->addLayout(layoutCheckBox);
+    //layoutSelezioneAvatar->addLayout(layoutOrdina);
+    //layoutOrdina->addWidget(ordinaLista);
+    //layoutOrdina->addWidget(ordinaNome);
+    //layoutOrdina->addWidget(ordinaMedia);
+    //layoutOrdina->addWidget(ordinaLivello);
 
     //scroll area
     layoutSelezioneAvatar->addLayout(layoutincolonnamento);
     layoutincolonnamento->addWidget(elenco);
     elenco->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     elenco->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    elenco->setFixedWidth(500);
 
     connect(elenco,SIGNAL(itemSelectionChanged()),this,SLOT(avatarSelezionato()));
 
-    formLista->addRow("Cerca:", cercaNome);
-    layoutDx->addLayout(formLista);
-    layoutDx->addWidget(avviaRicerca);
-    layoutDx->addLayout(layoutCheckBox);
+    layoutDx->addLayout(layoutRicerca);
+    formLista->addRow(cercaNome);
+    layoutRicerca->addLayout(formLista);
+    layoutRicerca->addWidget(avviaRicerca);
     layoutCheckBox->addWidget(tipoElfo);
     layoutCheckBox->addWidget(tipoNano);
     layoutCheckBox->addWidget(tipoUmano);
     layoutCheckBox->addWidget(tipoAlieno);
     layoutCheckBox->addWidget(tipoMostro);
-    layoutDx->addWidget(bottoneModifica);
-    layoutDx->addWidget(bottoneRimuovi);
-    layoutDx->addWidget(bottoneAvvioGioco);
-    layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
+    layoutDx->addWidget(bottoneModifica, 0, Qt::AlignCenter);
+    layoutDx->addWidget(bottoneRimuovi, 0, Qt::AlignCenter);
+    layoutDx->addWidget(bottoneAvvioGioco, 0, Qt::AlignCenter);
+    layoutDx->addWidget(bottoneHome, 0, Qt::AlignLeft);
+    layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignBottom);
+
+    const QSize sizeB = QSize(120,60);
+    bottoneHome->setFixedSize(30,30);
+    bottoneModifica->setFixedSize(sizeB);
+    bottoneRimuovi->setFixedSize(sizeB);
+    bottoneAvvioGioco->setFixedSize(sizeB);
+    cercaNome->setFixedHeight(30);
+    avviaRicerca->setFixedSize(120,30);
     bottoneInfoLista->setFixedSize(25,25);
 
     cercaNome->setPlaceholderText("Nome");
@@ -72,25 +83,25 @@ QPushButton *ListaAvatar::getBottoneHome() const
     return bottoneHome;
 }
 
-QLabel *ListaAvatar::getOrdinaLista() const
-{
-    return ordinaLista;
-}
+//QLabel *ListaAvatar::getOrdinaLista() const
+//{
+//    return ordinaLista;
+//}
 
-QPushButton *ListaAvatar::getOrdinaNome() const
-{
-    return ordinaNome;
-}
+//QPushButton *ListaAvatar::getOrdinaNome() const
+//{
+//    return ordinaNome;
+//}
 
-QPushButton *ListaAvatar::getOrdinaLivello() const
-{
-    return ordinaLivello;
-}
+//QPushButton *ListaAvatar::getOrdinaLivello() const
+//{
+//    return ordinaLivello;
+//}
 
-QPushButton *ListaAvatar::getOrdinaMedia() const
-{
-    return ordinaMedia;
-}
+//QPushButton *ListaAvatar::getOrdinaMedia() const
+//{
+//    return ordinaMedia;
+//}
 
 QPushButton *ListaAvatar::getAvviaRicerca() const
 {

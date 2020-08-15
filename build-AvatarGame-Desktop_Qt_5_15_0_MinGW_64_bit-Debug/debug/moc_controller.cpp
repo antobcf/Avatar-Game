@@ -133,6 +133,7 @@ void Controller::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->modificaAvatar(); break;
         case 9: _t->scontroTraAvatar(); break;
         case 10: _t->rimuoviAvatar(); break;
+        //case 11: _t->svuotaElenco(); break;
         case 12: _t->ricercaAvatar(); break;
         case 13: _t->caricaDb(); break;
         case 14: _t->carica(); break;

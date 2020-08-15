@@ -8,7 +8,6 @@ Menu::Menu(QWidget* p):
     esci(new QAction("Esci", p)),
     nuovo(new QAction("Nuovo", p)),
     carica(new QAction("Carica", p)),
-    salva(new QAction("Salva", p)),
     lista(new QAction("Lista", p)),
     sviluppatori(new QAction("Contatti Sviluppatori", p)),
     infoSistema(new QAction("Informazioni di Sistema", p)),
@@ -21,7 +20,6 @@ Menu::Menu(QWidget* p):
 
     personaggio->addAction(nuovo);
     personaggio->addAction(carica);
-    personaggio->addAction(salva);
     personaggio->addAction(lista);
     addMenu(personaggio);
 

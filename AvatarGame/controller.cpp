@@ -578,6 +578,14 @@ void Controller::scontroTraAvatar()
         Avatar* itemB = nullptr;
         itemCasuale = vistaLista->getElenco()->itemCasuale(numeroCasuale);
         itemB = itemCasuale->getItem();
+//        while(itemA == itemB) {
+//            int numeroCasuale = rand()%(max);
+//            ElencoAvatar* itemCasuale = nullptr;
+//            Avatar* itemB = nullptr;
+//            itemCasuale = vistaLista->getElenco()->itemCasuale(numeroCasuale);
+//            itemB = itemCasuale->getItem();
+//        }
+
         //agiungere controllo diversità player1 e avversario qui
 
         vistaScontro->getNomeAvatarDx()->setText(QString::fromStdString(itemB->GetNome()));
@@ -1355,7 +1363,7 @@ void Controller::setAvatarGameStyle()
 
     //setStyleSheet(styleSheet);
 
-    //setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
+    setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
 }
 
 

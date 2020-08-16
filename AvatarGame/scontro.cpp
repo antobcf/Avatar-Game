@@ -48,7 +48,7 @@ Scontro::Scontro(QWidget *parent) :
     layoutTastiNavigazione->addWidget(bottoneHomeScontro);
     layoutTastiNavigazione->addWidget(bottoneCambioAvatar);
     layoutTastiNavigazione->addWidget(bottoneCambioAvversario);
-    const QSize dimBottoneHomeCambio = QSize(120,40); //funzia?
+    const QSize dimBottoneHomeCambio = QSize(120,40);
     bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
     bottoneCambioAvatar->setFixedSize(dimBottoneHomeCambio);
     bottoneCambioAvversario->setFixedSize(dimBottoneHomeCambio);

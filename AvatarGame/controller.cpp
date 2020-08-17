@@ -498,7 +498,6 @@ void Controller::scontroTraAvatar()
         //Avversario random
         int max = modello->getLista()->counter();
         int numeroCasuale = rand()%(max);
-        std::cout<<numeroCasuale;
         ElencoAvatar* itemCasuale = nullptr;
         Avatar* itemB = nullptr;
         itemCasuale = vistaLista->getElenco()->itemCasuale(numeroCasuale);

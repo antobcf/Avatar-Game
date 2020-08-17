@@ -47,6 +47,8 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutCheckBox->addWidget(tipoAlieno);
     layoutCheckBox->addWidget(tipoMostro);
     layoutCheckBox->addWidget(cercaNome);
+    cercaNome->setFixedHeight(30);
+    cercaNome->setPlaceholderText("Nome");
     layoutCheckBox->addWidget(avviaRicerca);
     layoutCheckBox->addWidget(pulisciFiltri);
     layoutDx->addWidget(bottoneModifica, 0, Qt::AlignCenter);
@@ -54,20 +56,20 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneAvvioGioco, 0, Qt::AlignCenter);
     layoutDx->addLayout(layoutBottom);
     layoutBottom->addWidget(bottoneHome);
-    layoutBottom->addWidget(bottoneInfoLista);
+    layoutBottom->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
 
     const QSize sizeB = QSize(120,60);
     const QSize sizeC = QSize(120,30);
     bottoneModifica->setFixedSize(sizeB);
     bottoneRimuovi->setFixedSize(sizeB);
     bottoneAvvioGioco->setFixedSize(sizeB);
-    cercaNome->setFixedHeight(30);
     avviaRicerca->setFixedSize(sizeC);
     pulisciFiltri->setFixedSize(sizeC);
-    bottoneInfoLista->setFixedSize(25,25);
-
-    cercaNome->setPlaceholderText("Nome");
-
+    bottoneInfoLista->setFixedSize(30,30);
+    bottoneInfoLista->setStyleSheet(
+            "border: 0.5px solid black;"
+            "border-radius: 15px;"
+            );
 }
 
 QCheckBox *ListaAvatar::getTipoElfo() const

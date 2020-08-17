@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CreaAvatar_t {
-    QByteArrayData data[16];
-    char stringdata0[170];
+    QByteArrayData data[15];
+    char stringdata0[152];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,15 +46,14 @@ QT_MOC_LITERAL(10, 94, 9), // "groupTipo"
 QT_MOC_LITERAL(11, 104, 10), // "resetTutto"
 QT_MOC_LITERAL(12, 115, 10), // "resetCheck"
 QT_MOC_LITERAL(13, 126, 13), // "calcoloValori"
-QT_MOC_LITERAL(14, 140, 17), // "inserisciImmagine"
-QT_MOC_LITERAL(15, 158, 11) // "setImmagine"
+QT_MOC_LITERAL(14, 140, 11) // "setImmagine"
 
     },
     "CreaAvatar\0checkUno\0\0checkDue\0checkTre\0"
     "checkQuattro\0checkCinque\0checkSei\0"
     "checkSette\0checkOtto\0groupTipo\0"
     "resetTutto\0resetCheck\0calcoloValori\0"
-    "inserisciImmagine\0setImmagine"
+    "setImmagine"
 };
 #undef QT_MOC_LITERAL
 
@@ -64,7 +63,7 @@ static const uint qt_meta_data_CreaAvatar[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -72,23 +71,21 @@ static const uint qt_meta_data_CreaAvatar[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   84,    2, 0x0a /* Public */,
-       3,    0,   85,    2, 0x0a /* Public */,
-       4,    0,   86,    2, 0x0a /* Public */,
-       5,    0,   87,    2, 0x0a /* Public */,
-       6,    0,   88,    2, 0x0a /* Public */,
-       7,    0,   89,    2, 0x0a /* Public */,
-       8,    0,   90,    2, 0x0a /* Public */,
-       9,    0,   91,    2, 0x0a /* Public */,
-      10,    0,   92,    2, 0x0a /* Public */,
-      11,    0,   93,    2, 0x0a /* Public */,
-      12,    0,   94,    2, 0x0a /* Public */,
-      13,    0,   95,    2, 0x0a /* Public */,
-      14,    0,   96,    2, 0x0a /* Public */,
-      15,    0,   97,    2, 0x0a /* Public */,
+       1,    0,   79,    2, 0x0a /* Public */,
+       3,    0,   80,    2, 0x0a /* Public */,
+       4,    0,   81,    2, 0x0a /* Public */,
+       5,    0,   82,    2, 0x0a /* Public */,
+       6,    0,   83,    2, 0x0a /* Public */,
+       7,    0,   84,    2, 0x0a /* Public */,
+       8,    0,   85,    2, 0x0a /* Public */,
+       9,    0,   86,    2, 0x0a /* Public */,
+      10,    0,   87,    2, 0x0a /* Public */,
+      11,    0,   88,    2, 0x0a /* Public */,
+      12,    0,   89,    2, 0x0a /* Public */,
+      13,    0,   90,    2, 0x0a /* Public */,
+      14,    0,   91,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -124,8 +121,7 @@ void CreaAvatar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 9: _t->resetTutto(); break;
         case 10: _t->resetCheck(); break;
         case 11: _t->calcoloValori(); break;
-        case 12: _t->inserisciImmagine(); break;
-        case 13: _t->setImmagine(); break;
+        case 12: _t->setImmagine(); break;
         default: ;
         }
     }
@@ -161,13 +157,13 @@ int CreaAvatar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 13)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 14;
+        _id -= 13;
     }
     return _id;
 }

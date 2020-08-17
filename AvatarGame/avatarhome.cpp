@@ -22,7 +22,10 @@ AvatarHome::AvatarHome(QWidget* p):
     layoutBottoniSopra->addWidget(bottoneCrea);
     layoutHome->addLayout(layoutBottoniSopra);
     layoutHome->addWidget(bottoneInfo, 0, Qt::AlignRight);
-
+    bottoneInfo->setStyleSheet(
+            "border: 0.5px solid black;"
+            "border-radius: 15px;"
+            );
 }
 
 QPushButton *AvatarHome::getBottoneCrea() const

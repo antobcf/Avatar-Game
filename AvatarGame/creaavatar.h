@@ -32,6 +32,7 @@ private:
     QLabel* exp;
     QLabel* labelSesso;
     QLabel* terrenoPreferito;
+    QLabel* immagineAvatar;
     QLineEdit* inserisciNome;
     QPushButton* bottoneHome;
     QPushButton* bottoneCreaDef;
@@ -47,7 +48,6 @@ private:
     QGroupBox* boxValori;
     QTextEdit* boxDescrizione;
     QComboBox* sceltaTipo;
-    QPushButton* inserisciImmagineButton;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
     QString pImmagine;
@@ -66,6 +66,7 @@ public:
     QLabel* getExp() const;
     QLabel* getLabelSesso() const;
     QLabel* getTerrenoPreferito() const;
+    QLabel* getImmagineAvatar() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneCreaDef() const;
@@ -81,7 +82,6 @@ public:
     QGroupBox* getBoxValori() const;
     QTextEdit* getBoxDescrizione() const;
     QComboBox* getSceltaTipo() const;
-    QPushButton* getImmagineAvatar() const;
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
 
@@ -102,7 +102,6 @@ public slots:
     void resetCheck() const;
     void calcoloValori();
 
-    void inserisciImmagine();
     void setImmagine();
 };
 

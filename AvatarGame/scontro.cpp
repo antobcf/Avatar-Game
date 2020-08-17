@@ -12,7 +12,7 @@ Scontro::Scontro(QWidget *parent) :
     titoloMediaSx(new QLabel("Media:", this)),
     mediaSx(new QLabel(this)),
 
-    vs(new QLabel("VS", this)),
+    vs(new QLabel(this)),
     terreno(new QLabel(this)),
     bottoneHomeScontro(new QPushButton("Home", this)),
     bottoneCambioAvatar(new QPushButton("Cambia avatar", this)),
@@ -82,6 +82,9 @@ Scontro::Scontro(QWidget *parent) :
     layoutScontroDx->addLayout(formMediaDx);
     formMediaDx->addRow("Media: ", mediaDx);
 
+    QPixmap *p=new QPixmap(":/Risorse/Immagini Avatar/vs");
+    QPixmap p1(p->scaled(70,70, Qt::IgnoreAspectRatio));
+    vs->setPixmap(p1);
 }
 
 QLabel *Scontro::getNomeAvatarSx() const

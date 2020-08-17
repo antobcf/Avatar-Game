@@ -526,6 +526,7 @@ void Controller::scontroTraAvatar()
             vistaScontro->getFotoAvatar1()->setPixmap(fotoPix);
             vistaScontro->getFotoAvatar1()->setPixmap(fotoPix.scaled(200,200, Qt::AspectRatioMode::KeepAspectRatio));
 
+
         //    unsigned int Lvl = vistaCrea->getLvl()->text().toUInt();
         //    if (Lvl>99){
         //        QMessageBox::about(this, "Errore", "Il livello dell'avatar è al massimo.\nScegli un altro avatar");

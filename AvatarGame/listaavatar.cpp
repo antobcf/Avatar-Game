@@ -3,10 +3,6 @@
 
 ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton("Home", this)),
-    //ordinaLista(new QLabel("Ordina per", this)),
-    //ordinaNome(new QPushButton("Nome", this)),
-    //ordinaLivello(new QPushButton("Livello", this)),
-    //ordinaMedia(new QPushButton("Media", this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
     formLista(new QFormLayout),
     cercaNome(new QLineEdit(this)),
@@ -30,16 +26,12 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     QHBoxLayout* layoutRicerca = new QHBoxLayout();
     QHBoxLayout* layoutCheckBox = new QHBoxLayout();
     QVBoxLayout* layoutincolonnamento = new QVBoxLayout();
+    QHBoxLayout* layoutBottom = new QHBoxLayout();
 
     layoutListaAvatar->addLayout(layoutSelezioneAvatar);
     layoutListaAvatar->addLayout(layoutDx);
 
     layoutSelezioneAvatar->addLayout(layoutCheckBox);
-    //layoutSelezioneAvatar->addLayout(layoutOrdina);
-    //layoutOrdina->addWidget(ordinaLista);
-    //layoutOrdina->addWidget(ordinaNome);
-    //layoutOrdina->addWidget(ordinaMedia);
-    //layoutOrdina->addWidget(ordinaLivello);
 
     //scroll area
     layoutSelezioneAvatar->addLayout(layoutincolonnamento);
@@ -62,11 +54,11 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutDx->addWidget(bottoneModifica, 0, Qt::AlignCenter);
     layoutDx->addWidget(bottoneRimuovi, 0, Qt::AlignCenter);
     layoutDx->addWidget(bottoneAvvioGioco, 0, Qt::AlignCenter);
-    layoutDx->addWidget(bottoneHome, 0, Qt::AlignLeft);
-    layoutDx->addWidget(bottoneInfoLista, 0, Qt::AlignBottom);
+    layoutDx->addLayout(layoutBottom);
+    layoutBottom->addWidget(bottoneHome);
+    layoutBottom->addWidget(bottoneInfoLista);
 
     const QSize sizeB = QSize(120,60);
-    bottoneHome->setFixedSize(30,30);
     bottoneModifica->setFixedSize(sizeB);
     bottoneRimuovi->setFixedSize(sizeB);
     bottoneAvvioGioco->setFixedSize(sizeB);
@@ -82,26 +74,6 @@ QPushButton *ListaAvatar::getBottoneHome() const
 {
     return bottoneHome;
 }
-
-//QLabel *ListaAvatar::getOrdinaLista() const
-//{
-//    return ordinaLista;
-//}
-
-//QPushButton *ListaAvatar::getOrdinaNome() const
-//{
-//    return ordinaNome;
-//}
-
-//QPushButton *ListaAvatar::getOrdinaLivello() const
-//{
-//    return ordinaLivello;
-//}
-
-//QPushButton *ListaAvatar::getOrdinaMedia() const
-//{
-//    return ordinaMedia;
-//}
 
 QPushButton *ListaAvatar::getAvviaRicerca() const
 {

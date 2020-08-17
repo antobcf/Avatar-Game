@@ -19,10 +19,6 @@ class ListaAvatar : public QWidget
     Q_OBJECT
 private:
     QPushButton* bottoneHome;
-    //QLabel* ordinaLista;
-    //QPushButton* ordinaNome;
-    //QPushButton* ordinaLivello;
-    //QPushButton* ordinaMedia;
     QPushButton* avviaRicerca;
     QFormLayout* formLista;
     QLineEdit* cercaNome;
@@ -41,10 +37,6 @@ private:
 public:
     ListaAvatar(QWidget * = nullptr);
     QPushButton* getBottoneHome() const;
-    //QLabel* getOrdinaLista() const;
-    //QPushButton* getOrdinaNome() const;
-    //QPushButton* getOrdinaLivello() const;
-    //QPushButton* getOrdinaMedia() const;
     QPushButton* getAvviaRicerca() const;
     QFormLayout* getFormLista() const;
     QLineEdit* getCercaNome() const;

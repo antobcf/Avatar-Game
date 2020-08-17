@@ -2,7 +2,7 @@
 
 ModificaAvatar::ModificaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),
-    maxPowerUp(new QLabel("Scegli massimo 2 power Up", this)),
+    maxPowerUp(new QLabel("Scegli massimo due Power Up:", this)),
     lvl(new QLabel("LVL", this)),
     valoreForza(new QLabel(this)), //qui il valore cambia in base al personaggio e al power up quindi vedere come fare
     valoreScienza(new QLabel(this)),
@@ -82,7 +82,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 
     setFixedSize(450,400);
 
-    boxDescrizione->setMaximumSize(300,200);
+    boxDescrizione->setMaximumSize(250,150);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
 
     sceltaTipo->addItem("Scegli tipo");

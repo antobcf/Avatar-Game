@@ -2,7 +2,7 @@
 
 CreaAvatar::CreaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),
-    maxPowerUp(new QLabel("Scegli massimo 2 power Up", this)),
+    maxPowerUp(new QLabel("Scegli massimo due Power Up:", this)),
     lvl(new QLabel(this)),
     valoreForza(new QLabel(this)),
     valoreMagia(new QLabel(this)),

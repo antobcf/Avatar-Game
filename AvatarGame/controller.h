@@ -9,6 +9,8 @@
 #include "modificaavatar.h"
 #include "scontro.h"
 #include "finescontro.h"
+#include "elencoavatar.h" //prova
+
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -49,7 +51,6 @@ public slots:
     void modificaAvatar();
     void scontroTraAvatar();
     void rimuoviAvatar();
-    void svuotaElenco();
     void ricercaAvatar();
     void caricaDb();
     void carica();

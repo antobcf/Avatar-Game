@@ -1,5 +1,6 @@
 debug/controller.o
 debug/creaavatar.o
+debug/eccezioni.o
 debug/elencoavatar.o
 debug/finescontro.o
 debug/gerarchia.o

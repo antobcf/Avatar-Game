@@ -65,6 +65,7 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneAvvioGioco->setFixedSize(sizeB);
     avviaRicerca->setFixedSize(sizeC);
     pulisciFiltri->setFixedSize(sizeC);
+    bottoneHome->setFixedHeight(30);
     bottoneInfoLista->setFixedSize(30,30);
     bottoneInfoLista->setStyleSheet(
             "border: 0.5px solid black;"

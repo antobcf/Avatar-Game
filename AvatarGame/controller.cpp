@@ -48,7 +48,6 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(scontroTraAvatar()));
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
-    //connect(vistaLista->getPulisciFiltri(),SIGNAL(clicked()),this,SLOT(resetRicerca()));
     connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
 
     //CONNECT SCONTRO

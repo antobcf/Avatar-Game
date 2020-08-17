@@ -1,5 +1,6 @@
 release/controller.o
 release/creaavatar.o
+release/eccezioni.o
 release/elencoavatar.o
 release/finescontro.o
 release/gerarchia.o

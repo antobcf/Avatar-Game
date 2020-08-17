@@ -4,7 +4,7 @@
 ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton("Home", this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
-    formLista(new QFormLayout),
+    pulisciFiltri(new QPushButton("Pulisci filtri",this)),
     cercaNome(new QLineEdit(this)),
     tipoElfo(new QCheckBox("Elfo", this)),
     tipoNano(new QCheckBox("Nano", this)),
@@ -19,22 +19,21 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     elenco(new item(this))
 
 {
-    QHBoxLayout* layoutListaAvatar = new QHBoxLayout(this);
-    QVBoxLayout* layoutSelezioneAvatar = new QVBoxLayout();
+    QVBoxLayout* layoutListaAvatar = new QVBoxLayout(this);
+    QVBoxLayout* layoutSx = new QVBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
-    //QHBoxLayout* layoutOrdina = new QHBoxLayout();
-    QHBoxLayout* layoutRicerca = new QHBoxLayout();
+    QHBoxLayout* layoutSelezioneAvatar = new QHBoxLayout();
     QHBoxLayout* layoutCheckBox = new QHBoxLayout();
     QVBoxLayout* layoutincolonnamento = new QVBoxLayout();
     QHBoxLayout* layoutBottom = new QHBoxLayout();
 
+    layoutListaAvatar->addLayout(layoutCheckBox);
     layoutListaAvatar->addLayout(layoutSelezioneAvatar);
-    layoutListaAvatar->addLayout(layoutDx);
-
-    layoutSelezioneAvatar->addLayout(layoutCheckBox);
+    layoutSelezioneAvatar->addLayout(layoutSx);
+    layoutSelezioneAvatar->addLayout(layoutDx);
 
     //scroll area
-    layoutSelezioneAvatar->addLayout(layoutincolonnamento);
+    layoutSx->addLayout(layoutincolonnamento);
     layoutincolonnamento->addWidget(elenco);
     elenco->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     elenco->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -42,15 +41,14 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
 
     connect(elenco,SIGNAL(itemSelectionChanged()),this,SLOT(avatarSelezionato()));
 
-    layoutDx->addLayout(layoutRicerca);
-    formLista->addRow(cercaNome);
-    layoutRicerca->addLayout(formLista);
-    layoutRicerca->addWidget(avviaRicerca);
     layoutCheckBox->addWidget(tipoElfo);
     layoutCheckBox->addWidget(tipoNano);
     layoutCheckBox->addWidget(tipoUmano);
     layoutCheckBox->addWidget(tipoAlieno);
     layoutCheckBox->addWidget(tipoMostro);
+    layoutCheckBox->addWidget(cercaNome);
+    layoutCheckBox->addWidget(avviaRicerca);
+    layoutCheckBox->addWidget(pulisciFiltri);
     layoutDx->addWidget(bottoneModifica, 0, Qt::AlignCenter);
     layoutDx->addWidget(bottoneRimuovi, 0, Qt::AlignCenter);
     layoutDx->addWidget(bottoneAvvioGioco, 0, Qt::AlignCenter);
@@ -59,35 +57,17 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutBottom->addWidget(bottoneInfoLista);
 
     const QSize sizeB = QSize(120,60);
+    const QSize sizeC = QSize(120,30);
     bottoneModifica->setFixedSize(sizeB);
     bottoneRimuovi->setFixedSize(sizeB);
     bottoneAvvioGioco->setFixedSize(sizeB);
     cercaNome->setFixedHeight(30);
-    avviaRicerca->setFixedSize(120,30);
+    avviaRicerca->setFixedSize(sizeC);
+    pulisciFiltri->setFixedSize(sizeC);
     bottoneInfoLista->setFixedSize(25,25);
 
     cercaNome->setPlaceholderText("Nome");
 
-}
-
-QPushButton *ListaAvatar::getBottoneHome() const
-{
-    return bottoneHome;
-}
-
-QPushButton *ListaAvatar::getAvviaRicerca() const
-{
-    return avviaRicerca;
-}
-
-QFormLayout *ListaAvatar::getFormLista() const
-{
-    return formLista;
-}
-
-QLineEdit *ListaAvatar::getCercaNome() const
-{
-    return cercaNome;
 }
 
 QCheckBox *ListaAvatar::getTipoElfo() const
@@ -115,6 +95,21 @@ QCheckBox *ListaAvatar::getTipoMostro() const
     return tipoMostro;
 }
 
+QLineEdit *ListaAvatar::getCercaNome() const
+{
+    return cercaNome;
+}
+
+QPushButton *ListaAvatar::getAvviaRicerca() const
+{
+    return avviaRicerca;
+}
+
+QPushButton *ListaAvatar::getPulisciFiltri() const
+{
+    return pulisciFiltri;
+}
+
 QPushButton *ListaAvatar::getBottoneModifica() const
 {
    return bottoneModifica;
@@ -125,10 +120,14 @@ QPushButton *ListaAvatar::getBottoneRimuovi() const
    return bottoneRimuovi;
 }
 
-
 QPushButton *ListaAvatar::getBottoneGioca() const
 {
     return bottoneAvvioGioco;
+}
+
+QPushButton *ListaAvatar::getBottoneHome() const
+{
+    return bottoneHome;
 }
 
 QPushButton *ListaAvatar::getBottoneInfoLista() const

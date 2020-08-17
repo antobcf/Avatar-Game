@@ -20,6 +20,7 @@ class ListaAvatar : public QWidget
 private:
     QPushButton* bottoneHome;
     QPushButton* avviaRicerca;
+    QPushButton* pulisciFiltri;
     QFormLayout* formLista;
     QLineEdit* cercaNome;
     QCheckBox* tipoElfo;
@@ -36,18 +37,18 @@ private:
 
 public:
     ListaAvatar(QWidget * = nullptr);
-    QPushButton* getBottoneHome() const;
-    QPushButton* getAvviaRicerca() const;
-    QFormLayout* getFormLista() const;
-    QLineEdit* getCercaNome() const;
     QCheckBox* getTipoElfo() const;
     QCheckBox* getTipoNano() const;
     QCheckBox* getTipoUmano() const;
     QCheckBox* getTipoAlieno() const;
     QCheckBox* getTipoMostro() const;
+    QLineEdit* getCercaNome() const;
+    QPushButton* getAvviaRicerca() const;
+    QPushButton* getPulisciFiltri() const;
     QPushButton* getBottoneModifica() const;
     QPushButton* getBottoneRimuovi() const;
     QPushButton* getBottoneGioca() const;
+    QPushButton* getBottoneHome() const;
     QPushButton* getBottoneInfoLista() const;
     item* getElenco() const;
 

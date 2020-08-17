@@ -4,18 +4,18 @@
 
 Scontro::Scontro(QWidget *parent) :
     nomeAvatarSx(new QLabel("Avatar1", this)),
-    formPowerupSx(new QFormLayout),
+    powerupSx(new QLabel("PowerUp:", this)),
     powerup1selezionatoSx(new QLabel(this)),
     powerup2selezionatoSx(new QLabel(this)),
     powerup3selezionatoSx(new QLabel(this)),
     powerup4selezionatoSx(new QLabel(this)),
-    formMediaSx(new QFormLayout),
+    titoloMediaSx(new QLabel("Media:", this)),
     mediaSx(new QLabel(this)),
 
     vs(new QLabel("VS", this)),
     terreno(new QLabel(this)),
     bottoneHomeScontro(new QPushButton("Home", this)),
-    bottoneCambioAvatar(new QPushButton("Cambia personaggio", this)),
+    bottoneCambioAvatar(new QPushButton("Cambia avatar", this)),
     bottoneCambioAvversario(new QPushButton("Cambia avversario", this)),
     bottoneCombatti(new QPushButton("Combatti", this)),
 
@@ -34,7 +34,8 @@ Scontro::Scontro(QWidget *parent) :
     QHBoxLayout* layoutTastiNavigazione = new QHBoxLayout();
     QHBoxLayout* layoutCombattimento = new QHBoxLayout();
     QVBoxLayout* layoutScontroSx = new QVBoxLayout();
-    QVBoxLayout* layoutPowerupSx = new QVBoxLayout();
+    //QVBoxLayout* layoutPowerupSx = new QVBoxLayout();
+    //QVBoxLayout* layoutMediaSx = new QVBoxLayout();
     QVBoxLayout* layoutScontroCentrale = new QVBoxLayout();
     QVBoxLayout* layoutScontroDx = new QVBoxLayout();
     QVBoxLayout* layoutPowerupDx = new QVBoxLayout();
@@ -45,25 +46,26 @@ Scontro::Scontro(QWidget *parent) :
     layoutCombattimento->addLayout(layoutScontroCentrale);
     layoutCombattimento->addLayout(layoutScontroDx);
 
-    layoutTastiNavigazione->addWidget(bottoneHomeScontro);
     layoutTastiNavigazione->addWidget(bottoneCambioAvatar);
+    layoutTastiNavigazione->addWidget(bottoneHomeScontro);
     layoutTastiNavigazione->addWidget(bottoneCambioAvversario);
     const QSize dimBottoneHomeCambio = QSize(120,40);
-    bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
     bottoneCambioAvatar->setFixedSize(dimBottoneHomeCambio);
+    bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
     bottoneCambioAvversario->setFixedSize(dimBottoneHomeCambio);
     bottoneCombatti->setFixedSize(130,60);
 
     layoutScontroSx->addWidget(fotoAvatar1);
     layoutScontroSx->addWidget(nomeAvatarSx, 0, Qt::AlignCenter);
-    layoutScontroSx->addLayout(formPowerupSx);
-    layoutPowerupSx->addWidget(powerup1selezionatoSx);
-    layoutPowerupSx->addWidget(powerup2selezionatoSx);
-    layoutPowerupSx->addWidget(powerup3selezionatoSx);
-    layoutPowerupSx->addWidget(powerup4selezionatoSx);
-    formPowerupSx->addRow("Powerup: ", layoutPowerupSx);
-    layoutScontroSx->addLayout(formMediaSx);
-    formMediaSx->addRow("Media: ", mediaSx);
+    //layoutScontroSx->addLayout(layoutPowerupSx);
+    layoutScontroSx->addWidget(powerupSx);
+    layoutScontroSx->addWidget(powerup1selezionatoSx);
+    layoutScontroSx->addWidget(powerup2selezionatoSx);
+    layoutScontroSx->addWidget(powerup3selezionatoSx);
+    layoutScontroSx->addWidget(powerup4selezionatoSx);
+    //layoutScontroSx->addLayout(layoutMediaSx);
+    layoutScontroSx->addWidget(titoloMediaSx);
+    layoutScontroSx->addWidget(mediaSx);
 
     layoutScontroCentrale->addWidget(vs, 0, Qt::AlignCenter);
     layoutScontroCentrale->addWidget(terreno, 0, Qt::AlignCenter);
@@ -87,11 +89,6 @@ QLabel *Scontro::getNomeAvatarSx() const
     return nomeAvatarSx;
 }
 
-QFormLayout *Scontro::getFormPowerupSx() const
-{
-    return formPowerupSx;
-}
-
 QLabel *Scontro::getPowerup1selezionatoSx() const
 {
     return powerup1selezionatoSx;
@@ -110,11 +107,6 @@ QLabel *Scontro::getPowerup3selezionatoSx() const
 QLabel *Scontro::getPowerup4selezionatoSx() const
 {
     return powerup4selezionatoSx;
-}
-
-QFormLayout *Scontro::getFormMediaSx() const
-{
-    return formMediaSx;
 }
 
 QLabel *Scontro::getMediaSx() const

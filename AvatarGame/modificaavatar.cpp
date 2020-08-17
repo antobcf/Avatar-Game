@@ -77,7 +77,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutValori->addWidget(terrenoPreferito);
     layoutDx->addWidget(resetCampi);
 
-    formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
+    formCrea->addRow("Tipo di Avatar:", sceltaTipo);
     formCrea->addRow("Nome:", inserisciNome);
 
     setFixedSize(450,400);

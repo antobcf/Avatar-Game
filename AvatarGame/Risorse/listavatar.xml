@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--!!!Non commentare il documento!!!-->
 <start>
-    <Nano Nome="fdfdfd" Descrizione="fsd" Livello="1" Exp="40" Forza="7" Magia="8" Difesa="20" Scienza="6" Sesso="false" Percorso=":Risorse/Immagini Avatar/Nano Femmina.png" Media="10.3" Terreno="Regno del sottosuolo" Scudo="false" Spada="true" Anello="true" Libro="false" Corteccia="1.4"/>
     <Elfo Nome="sdfsdfda" Descrizione="" Livello="1" Exp="0" Forza="6" Magia="16" Difesa="6" Scienza="5" Sesso="true" Percorso=":Risorse/Immagini Avatar/Elfo Maschio.png" Media="8.3" Terreno="Regno incantato" Scudo="false" Spada="true" Anello="false" Libro="false" Trasparentia="1.1"/>
     <Umano Nome="dfsfds" Descrizione="" Livello="1" Exp="0" Forza="5" Magia="9" Difesa="10" Scienza="8" Sesso="true" Percorso=":Risorse/Immagini Avatar/Umano Maschio.png" Media="8" Terreno="Regno delle macchine" Scudo="false" Spada="true" Anello="true" Libro="false" Ingegnoscientifico="0.9"/>
     <Mostro Nome="dfdfdf" Descrizione="" Livello="1" Exp="0" Forza="10" Magia="6" Difesa="13" Scienza="9" Sesso="true" Percorso=":Risorse/Immagini Avatar/Mostro Maschio.png" Media="9.5" Terreno="Regno dei demoni" Barriera="false" Laser="true" Amuleto="true" Chip="false" Portademoniaca="1.2"/>

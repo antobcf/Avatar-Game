@@ -13,12 +13,12 @@ class Scontro : public QWidget
     Q_OBJECT
 private:
     QLabel* nomeAvatarSx;
-    QFormLayout* formPowerupSx;
+    QLabel* powerupSx;
     QLabel* powerup1selezionatoSx;
     QLabel* powerup2selezionatoSx;
     QLabel* powerup3selezionatoSx;
     QLabel* powerup4selezionatoSx;
-    QFormLayout* formMediaSx;
+    QLabel* titoloMediaSx;
     QLabel* mediaSx;
     QLabel* vs;
     QLabel* terreno;
@@ -49,12 +49,10 @@ private:
 public:
     Scontro(QWidget * = nullptr);
     QLabel* getNomeAvatarSx() const;
-    QFormLayout* getFormPowerupSx() const;
     QLabel* getPowerup1selezionatoSx() const;
     QLabel* getPowerup2selezionatoSx() const;
     QLabel* getPowerup3selezionatoSx() const;
     QLabel* getPowerup4selezionatoSx() const;
-    QFormLayout* getFormMediaSx() const;
     QLabel* getMediaSx() const;
     QLabel* getVs() const;
     QLabel* getTerreno() const;

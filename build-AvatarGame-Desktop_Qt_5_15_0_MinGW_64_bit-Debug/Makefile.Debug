@@ -179,6 +179,7 @@ debug/qrc_risorse.cpp: ../AvatarGame/risorse.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../AvatarGame/Risorse/style.css \
 		../AvatarGame/Risorse/Immagini\ Avatar/Elfo\ Maschio.png \
+		../AvatarGame/Risorse/Immagini\ Avatar/vs.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Nano\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Mostro\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Umano\ Femmina.png \

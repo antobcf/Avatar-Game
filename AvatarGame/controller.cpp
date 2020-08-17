@@ -899,9 +899,19 @@ void Controller::salva()
     int index = vistaModifica->getSceltaTipo()->currentIndex();
 
     std::string nome = vistaModifica->getInserisciNome()->text().toStdString();
+    Avatar* item = new Elfo(nome);
+    Avatar* item2 = new Nano(nome);
+    Avatar* item3 = new Umano(nome);
+    Avatar* item4 = new Alieno(nome);
+    Avatar* item5 = new Mostro(nome);
+
+
     if(nome == "" || index == 0)
         QMessageBox::warning(this, "Attenzione", "Compila tutti i campi");
-    else {
+    else if(modello->getLista()->ricerca(item)) {
+
+    } else {
+
         itemA->SetNome(nome);
         itemA->setDescrizione(vistaModifica->getBoxDescrizione()->toPlainText().toStdString());
         itemA->SetLvl(vistaModifica->getLvl()->text().toUInt());
@@ -1361,7 +1371,7 @@ void Controller::setAvatarGameStyle()
     file.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(file.readAll());
 
-    //setStyleSheet(styleSheet);
+    setStyleSheet(styleSheet);
 
     setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
 }

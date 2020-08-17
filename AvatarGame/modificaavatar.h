@@ -23,6 +23,7 @@ class ModificaAvatar : public QDialog
     Q_OBJECT
 private:
     QFormLayout* formCrea;
+    QLabel* tipoAvatar;
     QLabel* maxPowerUp;
     QLabel* lvl;
     QLabel* valoreForza;
@@ -34,6 +35,7 @@ private:
     QLabel* exp;
     QLabel* labelSesso;
     QLabel* terrenoPreferito;
+    QLabel* immagineAvatar;
     QLineEdit* inserisciNome;
     QPushButton* bottoneSalvaModifiche;
     QPushButton* resetCampi;
@@ -47,8 +49,6 @@ private:
     QCheckBox* powerUp8;
     QGroupBox* boxValori;
     QTextEdit* boxDescrizione;
-    QComboBox* sceltaTipo;
-    QPushButton* modificaImmagine;
     QRadioButton* sessoM;
     QRadioButton* sessoF;
     QString pImmagine;
@@ -56,6 +56,7 @@ private:
 public:
     ModificaAvatar(QWidget * = nullptr);
     QFormLayout* getFormCrea() const;
+    QLabel* getTipoAvatar() const;
     QLabel* getMaxPowerUp() const;
     QLabel* getLvl() const;
     QLabel* getValoreForza() const;
@@ -67,6 +68,7 @@ public:
     QLabel* getExp() const;
     QLabel* getLabelSesso() const;
     QLabel* getTerrenoPreferito() const;
+    QLabel* getImmagineAvatar() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneSalvaModifiche() const;
@@ -81,8 +83,6 @@ public:
     QCheckBox* getPowerUp8() const;
     QGroupBox* getBoxValori() const;
     QTextEdit* getBoxDescrizione() const;
-    QComboBox* getSceltaTipo() const;
-    QLabel* getImmagineAvatar() const;
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
     QString getPercorsoImmagine() const;
@@ -104,7 +104,6 @@ public slots:
     void resetCheck() const;
     void calcoloValori();
 
-    void cambiaImmagine();
     void setImmagine();
 };
 

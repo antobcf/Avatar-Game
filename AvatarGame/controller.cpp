@@ -384,7 +384,7 @@ void Controller::modificaAvatar()
         if(dynamic_cast<Elfo*>(itemA)) {
             Elfo* e = static_cast<Elfo*>(itemA);
 
-            vistaModifica->getSceltaTipo()->setCurrentIndex(1);
+            vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
             e->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true), vistaModifica->checkUno() : vistaModifica->getPowerUp1()->setChecked(false);
             e->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true), vistaModifica->checkDue() : vistaModifica->getPowerUp2()->setChecked(false);
@@ -401,7 +401,7 @@ void Controller::modificaAvatar()
         } else if(dynamic_cast<Nano*>(itemA)) {
             Nano* n = static_cast<Nano*>(itemA);
 
-            vistaModifica->getSceltaTipo()->setCurrentIndex(2);
+            vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
             n->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true), vistaModifica->checkUno() : vistaModifica->getPowerUp1()->setChecked(false);
             n->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true), vistaModifica->checkDue() : vistaModifica->getPowerUp2()->setChecked(false);
@@ -418,7 +418,7 @@ void Controller::modificaAvatar()
         } else if(dynamic_cast<Umano*>(itemA)) {
             Umano* u = static_cast<Umano*>(itemA);
 
-            vistaModifica->getSceltaTipo()->setCurrentIndex(3);
+            vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
             u->GetScu() ? vistaModifica->getPowerUp1()->setChecked(true), vistaModifica->checkUno() : vistaModifica->getPowerUp1()->setChecked(false);
             u->GetSpada() ? vistaModifica->getPowerUp2()->setChecked(true), vistaModifica->checkDue() : vistaModifica->getPowerUp2()->setChecked(false);
@@ -435,7 +435,7 @@ void Controller::modificaAvatar()
         } else if(dynamic_cast<Alieno*>(itemA)) {
             Alieno* a = static_cast<Alieno*>(itemA);
 
-            vistaModifica->getSceltaTipo()->setCurrentIndex(4);
+            vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
             a->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true), vistaModifica->checkCinque() : vistaModifica->getPowerUp5()->setChecked(false);
             a->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true), vistaModifica->checkSei() : vistaModifica->getPowerUp6()->setChecked(false);
@@ -453,7 +453,7 @@ void Controller::modificaAvatar()
         } else if(dynamic_cast<Mostro*>(itemA)) {
             Mostro* m = static_cast<Mostro*>(itemA);
 
-            vistaModifica->getSceltaTipo()->setCurrentIndex(5);
+            vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
             m->GetBar() ? vistaModifica->getPowerUp5()->setChecked(true), vistaModifica->checkCinque() : vistaModifica->getPowerUp5()->setChecked(false);
             m->GetLaser() ? vistaModifica->getPowerUp6()->setChecked(true), vistaModifica->checkSei() : vistaModifica->getPowerUp6()->setChecked(false);
@@ -897,8 +897,6 @@ void Controller::salva()
     aux = vistaLista->getElenco()->itemAttuale();
     itemA = aux->getItem();
 
-    int index = vistaModifica->getSceltaTipo()->currentIndex();
-
     std::string nome = vistaModifica->getInserisciNome()->text().toStdString();
     Avatar* item = new Elfo(nome);
     Avatar* item2 = new Nano(nome);
@@ -907,7 +905,7 @@ void Controller::salva()
     Avatar* item5 = new Mostro(nome);
 
 
-    if(nome == "" || index == 0)
+    if(nome == "")
         QMessageBox::warning(this, "Attenzione", "Compila tutti i campi");
     else if(modello->getLista()->ricerca(item)) {
         bool match = false;

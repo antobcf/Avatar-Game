@@ -48,7 +48,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(scontroTraAvatar()));
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
-
+    //connect(vistaLista->getPulisciFiltri(),SIGNAL(clicked()),this,SLOT(resetRicerca()));
     connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
 
     //CONNECT SCONTRO
@@ -897,6 +897,7 @@ void Controller::salva()
     aux = vistaLista->getElenco()->itemAttuale();
     itemA = aux->getItem();
 
+    std::string nomeOriginale = itemA->GetNome();
     std::string nome = vistaModifica->getInserisciNome()->text().toStdString();
     Avatar* item = new Elfo(nome);
     Avatar* item2 = new Nano(nome);
@@ -905,62 +906,65 @@ void Controller::salva()
     Avatar* item5 = new Mostro(nome);
 
 
+
     if(nome == "")
         QMessageBox::warning(this, "Attenzione", "Compila tutti i campi");
-    else if(modello->getLista()->ricerca(item)) {
-        bool match = false;
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-        while(val != valFin && !match) {
-            if(*item == *(*val)) {
-                match = true;
-                QMessageBox::warning(this, "Errore",  "Nome già usato");
+    else if(nome != nomeOriginale) {
+        if(modello->getLista()->ricerca(item)) {
+            bool match = false;
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+            while(val != valFin && !match) {
+                if(*item == *(*val)) {
+                    match = true;
+                    QMessageBox::warning(this, "Errore",  "Nome già usato");
+                }
+                ++val;
             }
-            ++val;
-        }
-    } else if(modello->getLista()->ricerca(item2)) {
-        bool match = false;
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-        while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
-                match = true;
-                QMessageBox::warning(this, "Errore",  "Nome già usato");
+        } else if(modello->getLista()->ricerca(item2)) {
+            bool match = false;
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+            while(val != valFin && !match) {
+                if(*item2 == *(*val)) {
+                    match = true;
+                    QMessageBox::warning(this, "Errore",  "Nome già usato");
+                }
+                ++val;
             }
-            ++val;
-        }
-    } else if(modello->getLista()->ricerca(item3)) {
-        bool match = false;
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-        while(val != valFin && !match) {
-            if(*item3 == *(*val)) {
-                match = true;
-                QMessageBox::warning(this, "Errore",  "Nome già usato");
+        } else if(modello->getLista()->ricerca(item3)) {
+            bool match = false;
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+            while(val != valFin && !match) {
+                if(*item3 == *(*val)) {
+                    match = true;
+                    QMessageBox::warning(this, "Errore",  "Nome già usato");
+                }
+                ++val;
             }
-            ++val;
-        }
-    } else if(modello->getLista()->ricerca(item4)) {
-        bool match = false;
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-        while(val != valFin && !match) {
-            if(*item4 == *(*val)) {
-                match = true;
-                QMessageBox::warning(this, "Errore",  "Nome già usato");
+        } else if(modello->getLista()->ricerca(item4)) {
+            bool match = false;
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+            while(val != valFin && !match) {
+                if(*item4 == *(*val)) {
+                    match = true;
+                    QMessageBox::warning(this, "Errore",  "Nome già usato");
+                }
+                ++val;
             }
-            ++val;
-        }
-    } else if(modello->getLista()->ricerca(item5)) {
-        bool match = false;
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-        while(val != valFin && !match) {
-            if(*item5 == *(*val)) {
-                match = true;
-                QMessageBox::warning(this, "Errore",  "Nome già usato");
+        } else if(modello->getLista()->ricerca(item5)) {
+            bool match = false;
+            Container<Avatar*>::iteratoreConst val = modello->beginConst();
+            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+            while(val != valFin && !match) {
+                if(*item5 == *(*val)) {
+                    match = true;
+                    QMessageBox::warning(this, "Errore",  "Nome già usato");
+                }
+                ++val;
             }
-            ++val;
         }
     } else {
 

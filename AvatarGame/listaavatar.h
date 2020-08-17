@@ -36,7 +36,7 @@ private:
     item* elenco;
 
 public:
-    ListaAvatar(QWidget * = nullptr);
+    ListaAvatar(QWidget * = nullptr); //ordinare
     QCheckBox* getTipoElfo() const;
     QCheckBox* getTipoNano() const;
     QCheckBox* getTipoUmano() const;
@@ -56,6 +56,7 @@ public:
 public slots:
     void avatarSelezionato() const;
     void resetLista() const;
+    void resetRicerca() const;
 };
 
 #endif // LISTAAVATAR_H

@@ -8,6 +8,15 @@ QPushButton:hover{
 	background-color: rgb(2,225,255);
 }
 
+QPushButton#info{
+	border: 0.5px solid black;
+	border-radius: 15px;
+}
+
+QLabel#titoliScontro{
+	font-weight: bold
+}
+
 QMenuBar {
 	border-top: 0.5px solid black;
 }

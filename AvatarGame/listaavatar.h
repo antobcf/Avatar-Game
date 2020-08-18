@@ -21,7 +21,6 @@ private:
     QPushButton* bottoneHome;
     QPushButton* avviaRicerca;
     QPushButton* pulisciFiltri;
-    QFormLayout* formLista;
     QLineEdit* cercaNome;
     QCheckBox* tipoElfo;
     QCheckBox* tipoNano;
@@ -36,7 +35,7 @@ private:
     item* elenco;
 
 public:
-    ListaAvatar(QWidget * = nullptr); //ordinare
+    ListaAvatar(QWidget * = nullptr);
     QCheckBox* getTipoElfo() const;
     QCheckBox* getTipoNano() const;
     QCheckBox* getTipoUmano() const;

@@ -2,7 +2,5 @@
 <!--!!!Non commentare il documento!!!-->
 <start>
     <Alieno Nome="alieno" Descrizione="" Livello="1" Exp="0" Forza="3" Magia="10" Difesa="8" Scienza="7" Sesso="true" Percorso=":Risorse/Immagini Avatar/Alieno.png" Media="7" Terreno="Regno dello spazio" Barriera="false" Laser="false" Amuleto="true" Chip="false" Ufo="0.5"/>
-    <Elfo Nome="elfo" Descrizione="" Livello="2" Exp="20" Forza="12" Magia="20" Difesa="22" Scienza="15" Sesso="false" Percorso=":Risorse/Immagini Avatar/Elfo Femmina.png" Media="17.25" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="true" Libro="true" Trasparentia="25.2"/>
-    <Nano Nome="nano" Descrizione="" Livello="1" Exp="0" Forza="7" Magia="2" Difesa="20" Scienza="6" Sesso="true" Percorso=":Risorse/Immagini Avatar/Nano Maschio.png" Media="8.8" Terreno="Regno del sottosuolo" Scudo="false" Spada="false" Anello="true" Libro="false" Corteccia="1.4"/>
     <Umano Nome="umano" Descrizione="" Livello="1" Exp="0" Forza="13" Magia="9" Difesa="8" Scienza="8" Sesso="true" Percorso=":Risorse/Immagini Avatar/Umano Maschio.png" Media="9.5" Terreno="Regno delle macchine" Scudo="true" Spada="true" Anello="false" Libro="false" Ingegnoscientifico="0.8"/>
 </start>

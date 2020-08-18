@@ -1,7 +1,7 @@
 #include "avatarhome.h"
 
 AvatarHome::AvatarHome(QWidget* p):
-    QWidget(p),
+    parent(p),
     bottoneCrea(new QPushButton("Crea Avatar", p)),
     bottoneGioca(new QPushButton("Gioca", p)),
     bottoneInfo(new QPushButton("?", p)),

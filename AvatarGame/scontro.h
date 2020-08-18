@@ -27,12 +27,12 @@ private:
     QPushButton* bottoneCambioAvversario;
     QPushButton* bottoneCombatti;
     QLabel* nomeAvatarDx;
-    QFormLayout* formPowerupDx;
+    QLabel* powerupDx;
     QLabel* powerup1selezionatoDx;
     QLabel* powerup2selezionatoDx;
     QLabel* powerup3selezionatoDx;
     QLabel* powerup4selezionatoDx;
-    QFormLayout* formMediaDx;
+    QLabel* titoloMediaDx;
     QLabel* mediaDx;
     QString* forza;
     QString* magia;
@@ -49,10 +49,12 @@ private:
 public:
     Scontro(QWidget * = nullptr);
     QLabel* getNomeAvatarSx() const;
+    QLabel* getPowerupSx() const;
     QLabel* getPowerup1selezionatoSx() const;
     QLabel* getPowerup2selezionatoSx() const;
     QLabel* getPowerup3selezionatoSx() const;
     QLabel* getPowerup4selezionatoSx() const;
+    QLabel* getTitoloMediaSx() const;
     QLabel* getMediaSx() const;
     QLabel* getVs() const;
     QLabel* getTerreno() const;
@@ -61,12 +63,12 @@ public:
     QPushButton* getBottoneCambioAvversario() const;
     QPushButton* getBottoneHomeScontro() const;
     QLabel* getNomeAvatarDx() const;
-    QFormLayout* getFormPowerupDx() const;
+    QLabel* getPowerupDx() const;
     QLabel* getPowerup1selezionatoDx() const;
     QLabel* getPowerup2selezionatoDx() const;
     QLabel* getPowerup3selezionatoDx() const;
     QLabel* getPowerup4selezionatoDx() const;
-    QFormLayout* getFormMediaDx() const;
+    QLabel* getTitoloMediaDx() const;
     QLabel* getMediaDx() const;
     QString* getForza() const;
     QString* getMagia() const;

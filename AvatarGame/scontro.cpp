@@ -20,12 +20,12 @@ Scontro::Scontro(QWidget *parent) :
     bottoneCombatti(new QPushButton("Combatti", this)),
 
     nomeAvatarDx(new QLabel("Avatar2", this)),
-    formPowerupDx(new QFormLayout),
+    powerupDx(new QLabel("PowerUp:", this)),
     powerup1selezionatoDx(new QLabel(this)),
     powerup2selezionatoDx(new QLabel(this)),
     powerup3selezionatoDx(new QLabel(this)),
     powerup4selezionatoDx(new QLabel(this)),
-    formMediaDx(new QFormLayout),
+    titoloMediaDx(new QLabel("Media:", this)),
     mediaDx(new QLabel(this)),
     fotoAvatar1(new QLabel(this)),
     fotoAvatar2(new QLabel(this))
@@ -34,11 +34,8 @@ Scontro::Scontro(QWidget *parent) :
     QHBoxLayout* layoutTastiNavigazione = new QHBoxLayout();
     QHBoxLayout* layoutCombattimento = new QHBoxLayout();
     QVBoxLayout* layoutScontroSx = new QVBoxLayout();
-    //QVBoxLayout* layoutPowerupSx = new QVBoxLayout();
-    //QVBoxLayout* layoutMediaSx = new QVBoxLayout();
     QVBoxLayout* layoutScontroCentrale = new QVBoxLayout();
     QVBoxLayout* layoutScontroDx = new QVBoxLayout();
-    QVBoxLayout* layoutPowerupDx = new QVBoxLayout();
 
     layoutScontro->addLayout(layoutTastiNavigazione);
     layoutScontro->addLayout(layoutCombattimento);
@@ -57,15 +54,13 @@ Scontro::Scontro(QWidget *parent) :
 
     layoutScontroSx->addWidget(fotoAvatar1);
     layoutScontroSx->addWidget(nomeAvatarSx, 0, Qt::AlignCenter);
-    //layoutScontroSx->addLayout(layoutPowerupSx);
-    layoutScontroSx->addWidget(powerupSx);
-    layoutScontroSx->addWidget(powerup1selezionatoSx);
-    layoutScontroSx->addWidget(powerup2selezionatoSx);
-    layoutScontroSx->addWidget(powerup3selezionatoSx);
-    layoutScontroSx->addWidget(powerup4selezionatoSx);
-    //layoutScontroSx->addLayout(layoutMediaSx);
-    layoutScontroSx->addWidget(titoloMediaSx);
-    layoutScontroSx->addWidget(mediaSx);
+    layoutScontroSx->addWidget(powerupSx, 0, Qt::AlignCenter);
+    layoutScontroSx->addWidget(powerup1selezionatoSx, 0, Qt::AlignCenter);
+    layoutScontroSx->addWidget(powerup2selezionatoSx, 0, Qt::AlignCenter);
+    layoutScontroSx->addWidget(powerup3selezionatoSx, 0, Qt::AlignCenter);
+    layoutScontroSx->addWidget(powerup4selezionatoSx, 0, Qt::AlignCenter);
+    layoutScontroSx->addWidget(titoloMediaSx, 0, Qt::AlignCenter);
+    layoutScontroSx->addWidget(mediaSx, 0, Qt::AlignCenter);
 
     layoutScontroCentrale->addWidget(vs, 0, Qt::AlignCenter);
     layoutScontroCentrale->addWidget(terreno, 0, Qt::AlignCenter);
@@ -73,14 +68,13 @@ Scontro::Scontro(QWidget *parent) :
 
     layoutScontroDx->addWidget(fotoAvatar2);
     layoutScontroDx->addWidget(nomeAvatarDx, 0, Qt::AlignCenter);
-    layoutScontroDx->addLayout(formPowerupDx);
-    layoutPowerupDx->addWidget(powerup1selezionatoDx);
-    layoutPowerupDx->addWidget(powerup2selezionatoDx);
-    layoutPowerupDx->addWidget(powerup3selezionatoDx);
-    layoutPowerupDx->addWidget(powerup4selezionatoDx);
-    formPowerupDx->addRow("Powerup: ", layoutPowerupDx);
-    layoutScontroDx->addLayout(formMediaDx);
-    formMediaDx->addRow("Media: ", mediaDx);
+    layoutScontroDx->addWidget(powerupDx, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(powerup1selezionatoDx, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(powerup2selezionatoDx, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(powerup3selezionatoDx, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(powerup4selezionatoDx, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(titoloMediaDx, 0, Qt::AlignCenter);
+    layoutScontroDx->addWidget(mediaDx, 0, Qt::AlignCenter);
 
     QPixmap *p=new QPixmap(":/Risorse/Immagini Avatar/vs");
     QPixmap p1(p->scaled(70,70, Qt::IgnoreAspectRatio));
@@ -90,6 +84,11 @@ Scontro::Scontro(QWidget *parent) :
 QLabel *Scontro::getNomeAvatarSx() const
 {
     return nomeAvatarSx;
+}
+
+QLabel *Scontro::getPowerupSx() const
+{
+    return powerupSx;
 }
 
 QLabel *Scontro::getPowerup1selezionatoSx() const
@@ -110,6 +109,11 @@ QLabel *Scontro::getPowerup3selezionatoSx() const
 QLabel *Scontro::getPowerup4selezionatoSx() const
 {
     return powerup4selezionatoSx;
+}
+
+QLabel *Scontro::getTitoloMediaSx() const
+{
+    return titoloMediaSx;
 }
 
 QLabel *Scontro::getMediaSx() const
@@ -152,9 +156,9 @@ QLabel *Scontro::getNomeAvatarDx() const
     return nomeAvatarDx;
 }
 
-QFormLayout *Scontro::getFormPowerupDx() const
+QLabel *Scontro::getPowerupDx() const
 {
-    return formPowerupDx;
+    return powerupDx;
 }
 
 QLabel *Scontro::getPowerup1selezionatoDx() const
@@ -177,9 +181,9 @@ QLabel *Scontro::getPowerup4selezionatoDx() const
     return powerup4selezionatoDx;
 }
 
-QFormLayout *Scontro::getFormMediaDx() const
+QLabel *Scontro::getTitoloMediaDx() const
 {
-    return formMediaDx;
+    return titoloMediaSx;
 }
 
 QLabel *Scontro::getMediaDx() const

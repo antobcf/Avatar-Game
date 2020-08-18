@@ -183,6 +183,8 @@ void CreaAvatar::setImmagine()
             immagineAvatar->setPixmap(mostroF1);
             pImmagine=":Risorse/Immagini Avatar/Mostro Femmina.png";
         }
+    } else {
+        immagineAvatar->clear();
     }
 }
 

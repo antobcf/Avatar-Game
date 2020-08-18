@@ -58,8 +58,6 @@ public slots:
     void scontro();
     void resetRicerca();
 
-    //void ordinaMedia();
-    //void ordinaNome();
 
 signals:
 

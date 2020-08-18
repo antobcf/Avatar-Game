@@ -55,11 +55,13 @@ Scontro::Scontro(QWidget *parent) :
     layoutScontroSx->addWidget(fotoAvatar1);
     layoutScontroSx->addWidget(nomeAvatarSx, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(powerupSx, 0, Qt::AlignCenter);
+    powerupSx->setStyleSheet("font-weight: bold;");
     layoutScontroSx->addWidget(powerup1selezionatoSx, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(powerup2selezionatoSx, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(powerup3selezionatoSx, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(powerup4selezionatoSx, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(titoloMediaSx, 0, Qt::AlignCenter);
+    titoloMediaSx->setStyleSheet("font-weight: bold;");
     layoutScontroSx->addWidget(mediaSx, 0, Qt::AlignCenter);
 
     layoutScontroCentrale->addWidget(vs, 0, Qt::AlignCenter);
@@ -69,11 +71,13 @@ Scontro::Scontro(QWidget *parent) :
     layoutScontroDx->addWidget(fotoAvatar2);
     layoutScontroDx->addWidget(nomeAvatarDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(powerupDx, 0, Qt::AlignCenter);
+    powerupDx->setStyleSheet("font-weight: bold;");
     layoutScontroDx->addWidget(powerup1selezionatoDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(powerup2selezionatoDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(powerup3selezionatoDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(powerup4selezionatoDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(titoloMediaDx, 0, Qt::AlignCenter);
+    titoloMediaDx->setStyleSheet("font-weight: bold;");
     layoutScontroDx->addWidget(mediaDx, 0, Qt::AlignCenter);
 
     QPixmap *p=new QPixmap(":/Risorse/Immagini Avatar/vs");

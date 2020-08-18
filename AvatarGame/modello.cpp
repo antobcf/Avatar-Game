@@ -28,46 +28,46 @@ void Modello::salvare()
         const QString tipo = QString::fromStdString(salvaElemento->getTerrNon());
         const QString tipoAvatar = QString::fromStdString(salvaElemento->getTipo());
         reader.writeEmptyElement(tipoAvatar);
-        reader.writeAttribute("Nome", QString::fromStdString(salvaElemento->GetNome()));
+        reader.writeAttribute("Nome", QString::fromStdString(salvaElemento->getNome()));
         reader.writeAttribute("Descrizione", QString::fromStdString(salvaElemento->getDescrizione()));
-        reader.writeAttribute("Livello", QString("%1").arg(salvaElemento->GetLiv()));
-        reader.writeAttribute("Exp", QString("%1").arg(salvaElemento->GetExp()));
+        reader.writeAttribute("Livello", QString("%1").arg(salvaElemento->getLiv()));
+        reader.writeAttribute("Exp", QString("%1").arg(salvaElemento->getExp()));
         reader.writeAttribute("Forza", QString("%1").arg(salvaElemento->getForza()));
         reader.writeAttribute("Magia", QString("%1").arg(salvaElemento->getMagia()));
         reader.writeAttribute("Difesa", QString("%1").arg(salvaElemento->getDifesa()));
         reader.writeAttribute("Scienza", QString("%1").arg(salvaElemento->getScienza()));
-        reader.writeAttribute("Sesso", salvaElemento->GetSesso() ? "true" : "false");
+        reader.writeAttribute("Sesso", salvaElemento->getSesso() ? "true" : "false");
         reader.writeAttribute("Percorso", QString::fromStdString(salvaElemento->getPercorsoImmagine()));
         reader.writeAttribute("Media", QString("%1").arg(salvaElemento->getMedia())); //è un double quindio non so se vada bene
         reader.writeAttribute("Terreno", QString::fromStdString(salvaElemento->getTerreno()));
         if(tipo == "Terrestre") {
             const Terrestre* tipoTerrestre = static_cast<const Terrestre*>(salvaElemento);
-            reader.writeAttribute("Scudo", tipoTerrestre->GetScu() ? "true" : "false");
-            reader.writeAttribute("Spada", tipoTerrestre->GetSpada() ? "true" : "false");
-            reader.writeAttribute("Anello", tipoTerrestre->GetAnello() ? "true" : "false");
-            reader.writeAttribute("Libro", tipoTerrestre->GetLibro() ? "true" : "false");
+            reader.writeAttribute("Scudo", tipoTerrestre->getScu() ? "true" : "false");
+            reader.writeAttribute("Spada", tipoTerrestre->getSpada() ? "true" : "false");
+            reader.writeAttribute("Anello", tipoTerrestre->getAnello() ? "true" : "false");
+            reader.writeAttribute("Libro", tipoTerrestre->getLibro() ? "true" : "false");
             if(tipoAvatar == "Elfo") {
                 const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre); //o salvaElemento??
-                reader.writeAttribute("Trasparentia", QString("%1").arg(tipoElfo->GetTrasparentia()));
+                reader.writeAttribute("Trasparentia", QString("%1").arg(tipoElfo->getTrasparentia()));
             } else if(tipoAvatar == "Nano") {
                 const Nano* tipoNano = static_cast<const Nano*>(tipoTerrestre);
-                reader.writeAttribute("Corteccia", QString("%1").arg(tipoNano->GetCorteccia()));
+                reader.writeAttribute("Corteccia", QString("%1").arg(tipoNano->getCorteccia()));
             } else if(tipoAvatar == "Umano") {
                 const Umano* tipoUmano = static_cast<const Umano*>(tipoTerrestre);
-                reader.writeAttribute("Ingegnoscientifico", QString("%1").arg(tipoUmano->GetIngegno()));
+                reader.writeAttribute("Ingegnoscientifico", QString("%1").arg(tipoUmano->getIngegno()));
             }
         } else if (tipo == "Non terrestre") {
             const NOTerrestre* tipoNoTerrestre = static_cast<const NOTerrestre*>(salvaElemento);
-            reader.writeAttribute("Barriera", tipoNoTerrestre->GetBar() ? "true" : "false");
-            reader.writeAttribute("Laser", tipoNoTerrestre->GetLaser() ? "true" : "false");
-            reader.writeAttribute("Amuleto", tipoNoTerrestre->GetAmuleto() ? "true" : "false");
-            reader.writeAttribute("Chip", tipoNoTerrestre->GetChip() ? "true" : "false");
+            reader.writeAttribute("Barriera", tipoNoTerrestre->getBar() ? "true" : "false");
+            reader.writeAttribute("Laser", tipoNoTerrestre->getLaser() ? "true" : "false");
+            reader.writeAttribute("Amuleto", tipoNoTerrestre->getAmuleto() ? "true" : "false");
+            reader.writeAttribute("Chip", tipoNoTerrestre->getChip() ? "true" : "false");
             if(tipoAvatar == "Alieno") {
                 const Alieno* tipoAlieno = static_cast<const Alieno*>(tipoNoTerrestre);
-                reader.writeAttribute("Ufo", QString("%1").arg(tipoAlieno->GetUfo()));
+                reader.writeAttribute("Ufo", QString("%1").arg(tipoAlieno->getUfo()));
             } else if(tipoAvatar == "Mostro") {
                 const Mostro* tipoMostro = static_cast<const Mostro*>(tipoNoTerrestre);
-                reader.writeAttribute("Portademoniaca", QString("%1").arg(tipoMostro->GetPorta())); //con lo spazio tra porta e demoniaca non funziona
+                reader.writeAttribute("Portademoniaca", QString("%1").arg(tipoMostro->getPorta())); //con lo spazio tra porta e demoniaca non funziona
             }
         }
 

@@ -1,15 +1,15 @@
 #include "gerarchia.h"
 
 //Metodi della classe Avatar
-unsigned int Avatar::GetLiv() const{
+unsigned int Avatar::getLiv() const{
     return livello;
 }
 
-bool Avatar::GetSesso() const {
+bool Avatar::getSesso() const {
     return sesso;
 }
 
-std::string Avatar::GetNome() const {
+std::string Avatar::getNome() const {
     return nome;
 }
 
@@ -53,7 +53,7 @@ std::string Avatar::getPercorsoImmagine() const
     return percorsoImmagine;
 }
 
-void Avatar::SetNome(std::string n) {
+void Avatar::setNome(std::string n) {
     nome = n;
 }
 
@@ -62,7 +62,7 @@ void Avatar::setDescrizione(std::string d)
     descrizione = d;
 }
 
-void Avatar::SetLvl(unsigned int lvl) {
+void Avatar::setLvl(unsigned int lvl) {
     livello=lvl;
 }
 
@@ -85,18 +85,18 @@ void Avatar::setScienza(int s)
     scienza = s;
 }
 
-void Avatar::SetSesso(bool s) {
+void Avatar::setSesso(bool s) {
     sesso=s;
 }
 
-unsigned int Avatar::GetExp() const {
+unsigned int Avatar::getExp() const {
     return exp;
 }
 
-void Avatar::SetExp(unsigned int e) { //forse non va bene ma bisogna farla "normale"
+void Avatar::setExp(unsigned int e) { //forse non va bene ma bisogna farla "normale"
     if(e > 99) {
         exp = e - 100;
-        SetLvl(GetLiv()+1);
+        setLvl(getLiv()+1);
     } else {
         exp = e;
     }
@@ -124,10 +124,10 @@ bool Avatar::operator==(const Avatar & a) const
 
 std::string Avatar::datiAvatar()
 {
-    return ("Tipo Avatar: "+getTipo()).append("   Nome: "+GetNome()).append("   Sesso: ").append(GetSesso() ? "Maschio" : "Femmina")
+    return ("Tipo Avatar: "+getTipo()).append("   Nome: "+getNome()).append("   Sesso: ").append(getSesso() ? "Maschio" : "Femmina")
             .append("\nForza: "+std::to_string(getForza())).append("   Magia: "+std::to_string(getMagia()))
             .append("\nDifesa: "+std::to_string(getDifesa())).append("   Scienza: "+std::to_string(getScienza()))
-            .append("\nMedia: "+std::to_string(getMedia())).append("   Lvl: "+std::to_string(GetLiv()))
+            .append("\nMedia: "+std::to_string(getMedia())).append("   Lvl: "+std::to_string(getLiv()))
             .append("\nStoria: "+getDescrizione());
 }
 
@@ -138,40 +138,40 @@ std::string Terrestre::getTerrNon() const
     return "Terrestre";
 }
 
-bool Terrestre::GetScu() const {
+bool Terrestre::getScu() const {
     return scudo;
 }
 
-bool Terrestre::GetSpada() const {
+bool Terrestre::getSpada() const {
     return spada;
 }
 
-bool Terrestre::GetAnello() const {
+bool Terrestre::getAnello() const {
     return anello;
 }
 
-bool Terrestre::GetLibro() const {
+bool Terrestre::getLibro() const {
     return libro;
 }
 
-void Terrestre::SetScudo(bool s) {
+void Terrestre::setScudo(bool s) {
     scudo=s;
 }
 
-void Terrestre::SetSpada(bool sp) {
+void Terrestre::setSpada(bool sp) {
     spada=sp;
 }
 
-void Terrestre::SetAnello(bool a) {
+void Terrestre::setAnello(bool a) {
     anello=a;
 }
 
-void Terrestre::SetLibro(bool lib) {
+void Terrestre::setLibro(bool lib) {
     libro=lib;
 }
 
 //Metodi della classe Elfo
-double Elfo::GetTrasparentia() const {
+double Elfo::getTrasparentia() const {
     return trasparentia;
 }
 
@@ -192,11 +192,11 @@ bool Elfo::operator==(const Avatar & a) const {
 std::string Elfo::datiAvatar()
 {
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nTrasparentia: "+std::to_string(GetTrasparentia()));
+    return dati.append("\nTrasparentia: "+std::to_string(getTrasparentia()));
 }
 
 //Metodi della classe Nano
-double Nano::GetCorteccia() const {
+double Nano::getCorteccia() const {
     return corteccia;
 }
 
@@ -217,11 +217,11 @@ bool Nano::operator==(const Avatar & a) const {
 std::string Nano::datiAvatar()
 {
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nCorteccia: "+std::to_string(GetCorteccia()));
+    return dati.append("\nCorteccia: "+std::to_string(getCorteccia()));
 }
 
 //Metodi della classe Umano
-double Umano::GetIngegno() const {
+double Umano::getIngegno() const {
     return ingegnoScientifico;
 }
 
@@ -242,7 +242,7 @@ bool Umano::operator==(const Avatar & a) const {
 std::string Umano::datiAvatar()
 {
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nIngegno Scientifico: "+std::to_string(GetIngegno()));
+    return dati.append("\nIngegno Scientifico: "+std::to_string(getIngegno()));
 }
 
 //Metodi della classe NOTerrestre
@@ -251,40 +251,40 @@ std::string NOTerrestre::getTerrNon() const
     return "Non terrestre";
 }
 
-bool NOTerrestre::GetBar() const {
+bool NOTerrestre::getBar() const {
     return barriera;
 }
 
-bool NOTerrestre::GetLaser() const {
+bool NOTerrestre::getLaser() const {
     return laser;
 }
 
-bool NOTerrestre::GetAmuleto() const {
+bool NOTerrestre::getAmuleto() const {
     return amuleto;
 }
 
-bool NOTerrestre::GetChip() const {
+bool NOTerrestre::getChip() const {
     return chip;
 }
 
-void NOTerrestre::SetBarriera(bool ba) {
+void NOTerrestre::setBarriera(bool ba) {
     barriera=ba;
 }
 
-void NOTerrestre::SetLaser(bool las) {
+void NOTerrestre::setLaser(bool las) {
     laser=las;
 }
 
-void NOTerrestre::SetAmuleto(bool am) {
+void NOTerrestre::setAmuleto(bool am) {
     amuleto=am;
 }
 
-void NOTerrestre::SetChip(bool ch) {
+void NOTerrestre::setChip(bool ch) {
     chip=ch;
 }
 
 //Metodi della classe Alieno
-double Alieno::GetUfo() const {
+double Alieno::getUfo() const {
     return ufo;
 }
 
@@ -306,11 +306,11 @@ bool Alieno::operator==(const Avatar & a) const {
 std::string Alieno::datiAvatar()
 {
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nUfo: "+std::to_string(GetUfo()));
+    return dati.append("\nUfo: "+std::to_string(getUfo()));
 }
 
 //Metodi della classe Mostro
-double Mostro::GetPorta() const {
+double Mostro::getPorta() const {
     return portaDemoniaca;
 }
 
@@ -331,5 +331,5 @@ bool Mostro::operator==(const Avatar & a) const {
 std::string Mostro::datiAvatar()
 {
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nPorta Demoniaca: "+std::to_string(GetPorta()));
+    return dati.append("\nPorta Demoniaca: "+std::to_string(getPorta()));
 }

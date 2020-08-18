@@ -26,10 +26,10 @@ public:
     //GET
     virtual std::string getTerrNon() const = 0;
     virtual std::string getTipo() const = 0;
-    unsigned int GetLiv() const;
-    bool GetSesso() const;
-    unsigned int GetExp() const;
-    std::string GetNome() const;
+    unsigned int getLiv() const;
+    bool getSesso() const;
+    unsigned int getExp() const;
+    std::string getNome() const;
     std::string getDescrizione() const;
     unsigned int getForza() const;
     unsigned int getMagia() const;
@@ -40,11 +40,11 @@ public:
     std::string getPercorsoImmagine() const;
 
     //SET
-    void SetNome(std::string);
+    void setNome(std::string);
     void setDescrizione(std::string);
-    void SetLvl(unsigned int);
-    void SetSesso(bool);
-    void SetExp(unsigned int);
+    void setLvl(unsigned int);
+    void setSesso(bool);
+    void setExp(unsigned int);
     void setForza(int);
     void setMagia(int);
     void setDifesa(int);
@@ -68,16 +68,16 @@ public:
     Terrestre(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), scudo(sc), spada(sp), anello(a), libro(lib) {}
     //GET
     virtual std::string getTerrNon() const override;
-    bool GetScu() const;
-    bool GetSpada() const;
-    bool GetAnello() const;
-    bool GetLibro() const;
+    bool getScu() const;
+    bool getSpada() const;
+    bool getAnello() const;
+    bool getLibro() const;
 
     //SET
-    void SetScudo(bool);
-    void SetSpada(bool);
-    void SetAnello(bool);
-    void SetLibro(bool);
+    void setScudo(bool);
+    void setSpada(bool);
+    void setAnello(bool);
+    void setLibro(bool);
 
 };
 
@@ -86,7 +86,7 @@ private:
     double trasparentia;
 public:
     Elfo(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, double tr = 0): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), trasparentia(tr) {}
-    double GetTrasparentia() const;
+    double getTrasparentia() const;
     void setTrasparentia(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
@@ -98,7 +98,7 @@ private:
     double corteccia;
 public:
     Nano(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, double cor = 0): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), corteccia(cor) {}
-    double GetCorteccia() const;
+    double getCorteccia() const;
     void setCorteccia(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
@@ -110,7 +110,7 @@ private:
     double ingegnoScientifico;
 public:
     Umano(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sc = false, bool sp = false, bool a = false, bool lib = false, double is = 20): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sc,sp,a,lib), ingegnoScientifico(is) {}
-    double GetIngegno() const;
+    double getIngegno() const;
     void setIngegno(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
@@ -127,16 +127,16 @@ public:
     NOTerrestre(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool ba = false, bool las = false, bool am = false, bool ch = false): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), barriera(ba), laser(las), amuleto(am), chip(ch) {}
     //GET
     virtual std::string getTerrNon() const override;
-    bool GetBar() const;
-    bool GetLaser() const;
-    bool GetAmuleto() const;
-    bool GetChip() const;
+    bool getBar() const;
+    bool getLaser() const;
+    bool getAmuleto() const;
+    bool getChip() const;
 
     //SET
-    void SetBarriera(bool);
-    void SetLaser(bool);
-    void SetAmuleto(bool);
-    void SetChip(bool);
+    void setBarriera(bool);
+    void setLaser(bool);
+    void setAmuleto(bool);
+    void setChip(bool);
 
 };
 
@@ -145,7 +145,7 @@ private:
     double ufo;
 public:
     Alieno(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool ba = false, bool las = false, bool am = false, bool ch = false, double ufo = 30): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,ba,las,am,ch), ufo(ufo) {}
-    double GetUfo() const;
+    double getUfo() const;
     void setUfo(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
@@ -157,7 +157,7 @@ private:
     double portaDemoniaca;
 public:
     Mostro(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool ba = false, bool las = false, bool am = false, bool ch = false, double pd = 60): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,ba,las,am,ch), portaDemoniaca(pd) {}
-    double GetPorta() const;
+    double getPorta() const;
     void setPorta(double);
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;

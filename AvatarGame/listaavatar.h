@@ -56,7 +56,6 @@ public:
 public slots:
     void avatarSelezionato() const;
     void resetLista() const;
-    void resetRicerca() const;
 };
 
 #endif // LISTAAVATAR_H

@@ -56,6 +56,7 @@ public slots:
     void carica();
     void salva();
     void scontro();
+    void resetRicerca();
 
     //void ordinaMedia();
     //void ordinaNome();

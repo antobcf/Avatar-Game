@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--!!!Non commentare il documento!!!-->
 <start>
-    <Elfo Nome="sdfsdfda" Descrizione="" Livello="1" Exp="0" Forza="6" Magia="16" Difesa="6" Scienza="5" Sesso="true" Percorso=":Risorse/Immagini Avatar/Elfo Maschio.png" Media="8.3" Terreno="Regno incantato" Scudo="false" Spada="true" Anello="false" Libro="false" Trasparentia="1.1"/>
-    <Mostro Nome="dfdfdfa" Descrizione="" Livello="5" Exp="40" Forza="50" Magia="6" Difesa="33" Scienza="45" Sesso="true" Percorso=":Risorse/Immagini Avatar/Mostro Maschio.png" Media="33.5" Terreno="Regno dei demoni" Barriera="false" Laser="true" Amuleto="true" Chip="false" Portademoniaca="1.2"/>
-    <Umano Nome="ghj" Descrizione="wertyhjk" Livello="1" Exp="0" Forza="5" Magia="9" Difesa="8" Scienza="13" Sesso="true" Percorso=":Risorse/Immagini Avatar/Umano Maschio.png" Media="8.8" Terreno="Regno delle macchine" Scudo="false" Spada="true" Anello="false" Libro="true" Ingegnoscientifico="1.1"/>
-    <Elfo Nome="poi" Descrizione="lll" Livello="1" Exp="0" Forza="14" Magia="10" Difesa="6" Scienza="10" Sesso="false" Percorso=":Risorse/Immagini Avatar/Elfo Femmina.png" Media="10" Terreno="Regno incantato" Scudo="true" Spada="false" Anello="false" Libro="true" Trasparentia="0.8"/>
+    <Alieno Nome="alieno" Descrizione="" Livello="1" Exp="0" Forza="3" Magia="10" Difesa="8" Scienza="7" Sesso="true" Percorso=":Risorse/Immagini Avatar/Alieno.png" Media="7" Terreno="Regno dello spazio" Barriera="false" Laser="false" Amuleto="true" Chip="false" Ufo="0.5"/>
+    <Elfo Nome="elfo" Descrizione="" Livello="1" Exp="0" Forza="6" Magia="10" Difesa="16" Scienza="10" Sesso="false" Percorso=":Risorse/Immagini Avatar/Elfo Femmina.png" Media="10.5" Terreno="Regno incantato" Scudo="false" Spada="false" Anello="true" Libro="true" Trasparentia="1.3"/>
+    <Nano Nome="nano" Descrizione="" Livello="1" Exp="0" Forza="7" Magia="2" Difesa="20" Scienza="6" Sesso="true" Percorso=":Risorse/Immagini Avatar/Nano Maschio.png" Media="8.8" Terreno="Regno del sottosuolo" Scudo="false" Spada="false" Anello="true" Libro="false" Corteccia="1.4"/>
+    <Umano Nome="umano" Descrizione="" Livello="1" Exp="0" Forza="13" Magia="9" Difesa="8" Scienza="8" Sesso="true" Percorso=":Risorse/Immagini Avatar/Umano Maschio.png" Media="9.5" Terreno="Regno delle macchine" Scudo="true" Spada="true" Anello="false" Libro="false" Ingegnoscientifico="0.8"/>
 </start>

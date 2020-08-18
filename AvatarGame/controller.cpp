@@ -49,6 +49,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
     connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
+    connect(vistaLista->getPulisciFiltri(),SIGNAL(clicked()),this,SLOT(resetRicerca()));
 
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -483,7 +484,7 @@ void Controller::scontroTraAvatar()
 
 
     if(vistaLista->getElenco()->itemAttuale() == nullptr) {
-        QMessageBox::warning(this, "Attenzione", "Non hai selezionato alcun avatar da modificare");
+        QMessageBox::warning(this, "Attenzione", "Non hai selezionato alcun avatar");
     } else if(modello->getLista()->counter() < 2) {
         QMessageBox::warning(this, "Attenzione", "Non ci sono abbastanza avversari. \nCrea un nuovo Avatar");
     } else {
@@ -664,9 +665,9 @@ void Controller::scontroTraAvatar()
 
 void Controller::rimuoviAvatar()
 {
-//    if(vistaLista->getElenco()->itemAttuale() == nullptr) {
-//        QMessageBox::warning(this, "Attenzione", "Non hai selezionato alcun avatar da modificare");
-//    } else {
+    if(vistaLista->getElenco()->itemAttuale() == nullptr) {
+        QMessageBox::warning(this, "Attenzione", "Non hai selezionato alcun avatar da eliminare");
+    } else {
 
 
         ElencoAvatar* aux = nullptr;
@@ -685,7 +686,7 @@ void Controller::rimuoviAvatar()
         vistaLista->getBottoneRimuovi()->setEnabled(false);
         vistaLista->getBottoneModifica()->setEnabled(false);
         vistaLista->getBottoneGioca()->setEnabled(false);
-
+    }
 }
 
 void Controller::ricercaAvatar()
@@ -746,7 +747,7 @@ void Controller::ricercaAvatar()
         Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
         while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
+            if(*item3 == *(*val)) {
                 vistaLista->getElenco()->insertAvatar(*val);
                 match = true;
             }
@@ -762,7 +763,7 @@ void Controller::ricercaAvatar()
         Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
         while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
+            if(*item4 == *(*val)) {
                 vistaLista->getElenco()->insertAvatar(*val);
                 match = true;
             }
@@ -778,7 +779,7 @@ void Controller::ricercaAvatar()
         Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
         while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
+            if(*item5 == *(*val)) {
                 vistaLista->getElenco()->insertAvatar(*val);
                 match = true;
             }
@@ -799,6 +800,7 @@ void Controller::caricaDb()
 
 void Controller::carica()
 {
+    vistaLista->getCercaNome()->clear();
     if(destinazione!="") {
         if(!(vistaLista->getTipoElfo()->isChecked()) && !(vistaLista->getTipoNano()->isChecked()) &&
                 !(vistaLista->getTipoUmano()->isChecked()) && !(vistaLista->getTipoAlieno()->isChecked()) &&
@@ -1415,6 +1417,12 @@ void Controller::scontro()
 
     scontroTraAvatar();
 
+}
+
+void Controller::resetRicerca()
+{
+    vistaLista->getElenco()->clear();
+    carica();
 }
 
 void Controller::setAvatarGameStyle()

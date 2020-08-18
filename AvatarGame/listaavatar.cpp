@@ -39,7 +39,9 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     elenco->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     elenco->setFixedWidth(500);
 
-    connect(pulisciFiltri,SIGNAL(clicked()),this,SLOT(resetRicerca()));
+
+    connect(elenco,SIGNAL(itemSelectionChanged()), this, SLOT(avatarSelezionato()));
+    connect(pulisciFiltri,SIGNAL(clicked()),this,SLOT(resetLista()));
 
     layoutCheckBox->addWidget(tipoElfo);
     layoutCheckBox->addWidget(tipoNano);
@@ -163,7 +165,4 @@ void ListaAvatar::resetLista() const
     tipoMostro->setChecked(false);
 }
 
-void ListaAvatar::resetRicerca() const
-{
-    cercaNome->clear();
-}
+

@@ -10,7 +10,6 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaLista(new ListaAvatar(this)),
     vistaModifica(new ModificaAvatar(this)),
     vistaScontro(new Scontro(this)),
-    vistaFineScontro(new FineScontro(this)),
     modello(m),
     destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
 {
@@ -45,7 +44,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getAvviaRicerca(),SIGNAL(clicked()),this,SLOT(ricercaAvatar()));
     connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(modificaAvatar()));
     connect(vistaLista->getBottoneRimuovi(),SIGNAL(clicked()),this,SLOT(rimuoviAvatar()));
-    connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(scontroTraAvatar()));
+    connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
     connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
@@ -56,11 +55,6 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaScontro->getBottoneCombatti(),SIGNAL(clicked()),this,SLOT(scontro()));
     connect(vistaScontro->getBottoneCambioAvatar(),SIGNAL(clicked()),this,SLOT(mostraLista()));
     connect(vistaScontro->getBottoneCambioAvversario(),SIGNAL(clicked()),this,SLOT(scontroTraAvatar()));
-
-    //CONNECT FINE SCONTRO
-    connect(vistaFineScontro->getHomeFine(),SIGNAL(clicked()),this,SLOT(mostraHome()));
-    connect(vistaFineScontro->getCambioAvatarFine(),SIGNAL(clicked()),this,SLOT(mostraLista()));
-    connect(vistaFineScontro->getContinuaFine(),SIGNAL(clicked()),this,SLOT(mostraScontro()));
 
     setAvatarGameStyle();
 
@@ -73,22 +67,19 @@ Controller::~Controller()
 
 void Controller::mostraHome()
 {
-    vistaHome->show();
     vistaCrea->hide();
     vistaLista->hide();
     vistaModifica->hide();
     vistaScontro->hide();
-    vistaFineScontro->hide();
+    vistaHome->show();
 }
 
 void Controller::mostraCrea() {
-    vistaCrea->show();
     vistaHome->hide();
     vistaLista->hide();
     vistaModifica->hide();
     vistaScontro->hide();
-    vistaFineScontro->hide();
-
+    vistaCrea->show();
     vistaCrea->resetTutto();
 }
 
@@ -97,31 +88,20 @@ void Controller::mostraLista() {
     vistaCrea->hide();
     vistaModifica->hide();
     vistaScontro->hide();
-    vistaFineScontro->hide();
     vistaLista->resetLista();
     vistaLista->show();
     carica();
 }
 
-void Controller::mostraScontro() { //forse inutile
-    vistaScontro->show();
+void Controller::mostraScontro() {
+    scontroTraAvatar();
     vistaModifica->hide();
     vistaLista->hide();
     vistaHome->hide();
     vistaCrea->hide();
-    vistaFineScontro->hide();
+    vistaScontro->show();
 }
 
-void Controller::mostraFineScontro() {
-    vistaFineScontro->setModal(true);
-    vistaFineScontro->setWindowTitle("Fine Scontro");
-    vistaFineScontro->show();
-    vistaScontro->show();
-    vistaModifica->hide();
-    vistaLista->hide();
-    vistaHome->hide();
-    vistaCrea->hide();
-}
 
 void Controller::infoPopHome()
 {
@@ -153,7 +133,7 @@ void Controller::inserisciAvatar()
 
     int index = vistaCrea->getSceltaTipo()->currentIndex();
 
-    //parte che manda avviso se nome già usato
+    //Controllo nome gia' esistente
     Avatar* item = new Elfo(nome);
     Avatar* item2 = new Nano(nome);
     Avatar* item3 = new Umano(nome);
@@ -247,11 +227,11 @@ void Controller::inserisciAvatar()
             ++val;
         }
     }
-    //parte per campi non compilati
+
+    //Campi non compilati
     else if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked())) || index == 0) {
         QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
-    } else { //parte per creazione avatar
-
+    } else {
 
         if(index == 1 || index == 2 || index == 3) {
             bool scudo;
@@ -482,11 +462,10 @@ void Controller::scontroTraAvatar()
     vistaScontro->getPowerup3selezionatoDx()->hide();
     vistaScontro->getPowerup4selezionatoDx()->hide();
 
-
     if(vistaLista->getElenco()->itemAttuale() == nullptr) {
         QMessageBox::warning(this, "Attenzione", "Non hai selezionato alcun avatar");
     } else if(modello->getLista()->counter() < 2) {
-        QMessageBox::warning(this, "Attenzione", "Non ci sono abbastanza avversari. \nCrea un nuovo Avatar");
+        QMessageBox::warning(this, "Attenzione", "Non ci sono abbastanza avversari.\nCrea un nuovo Avatar");
     } else {
 
         ElencoAvatar* aux = nullptr;
@@ -520,7 +499,6 @@ void Controller::scontroTraAvatar()
             std::string exp = (std::to_string(itemA->getExp()));
             std::string terrenoPreferito = (itemA->getTerreno());
 
-            //foto
             QString foto = QString::fromStdString(itemA->getPercorsoImmagine());
             QPixmap fotoPix(foto);
             vistaScontro->getFotoAvatar1()->setPixmap(fotoPix);
@@ -585,8 +563,6 @@ void Controller::scontroTraAvatar()
                 vistaScontro->show();
             }
 
-
-
             vistaScontro->getNomeAvatarDx()->setText(QString::fromStdString(itemB->getNome()));
             std::string media2 = (std::to_string(itemB->getMedia()));
             vistaScontro->getMediaDx()->setText(QString::fromStdString(media2));
@@ -598,7 +574,6 @@ void Controller::scontroTraAvatar()
             std::string exp2 = (std::to_string(itemB->getExp()));
             std::string terrenoPreferito2 = (itemB->getTerreno());
 
-            //foto
             QString foto2 = QString::fromStdString(itemB->getPercorsoImmagine());
             QPixmap fotoPix2(foto2);
             vistaScontro->getFotoAvatar2()->setPixmap(fotoPix2);
@@ -669,7 +644,6 @@ void Controller::rimuoviAvatar()
         QMessageBox::warning(this, "Attenzione", "Non hai selezionato alcun avatar da eliminare");
     } else {
 
-
         ElencoAvatar* aux = nullptr;
         Avatar* item = nullptr;
 
@@ -720,7 +694,6 @@ void Controller::ricercaAvatar()
             }
             ++val;
         }
-
     } else if(modello->getLista()->ricerca(item2)) {
         vistaLista->getElenco()->clear();
         modello->setPercorso(destinazione.toStdString());
@@ -785,9 +758,7 @@ void Controller::ricercaAvatar()
             }
             ++val;
         }
-    }
-
-    else {
+    } else {
         QMessageBox::warning(this, "Errore",  "Non è stato trovato nessun Avatar");
     }
 }
@@ -906,8 +877,6 @@ void Controller::salva()
     Avatar* item4 = new Alieno(nome);
     Avatar* item5 = new Mostro(nome);
 
-
-
     if(nome == "")
         QMessageBox::warning(this, "Attenzione", "Compila tutti i campi");
     else if(nome != nomeOriginale) {
@@ -968,7 +937,6 @@ void Controller::salva()
             }
         }
     } else {
-
         itemA->setNome(nome);
         itemA->setDescrizione(vistaModifica->getBoxDescrizione()->toPlainText().toStdString());
         itemA->setLvl(vistaModifica->getLvl()->text().toUInt());
@@ -1204,8 +1172,6 @@ void Controller::scontro()
         }
     }
 
-
-
     int forzaP = player->getForza();
     int forzaCPU = CPU->getForza();
     int difesaP = player->getDifesa();
@@ -1217,7 +1183,7 @@ void Controller::scontro()
     double mediaP = player->getMedia();
     double mediaCPU = CPU->getMedia();
 
-    //Cambio stats in base a terreno
+    //Cambio statistiche in base a terreno
     std::string campo = vistaScontro->getTerreno()->text().toStdString();
     if(player->getTerreno() == campo) {
         forzaP=forzaP+1;
@@ -1232,6 +1198,7 @@ void Controller::scontro()
         scienzaCPU=scienzaCPU+1;
     }
 
+    //Valore speciale player e CPU
     double valoreSP;
     double valoreSCPU;
     Elfo* e = dynamic_cast<Elfo*>(player);
@@ -1269,6 +1236,7 @@ void Controller::scontro()
         valoreSCPU = mc->getPorta();
     }
 
+    //Scontro
     int punteggio = 0;
     if(forzaP > forzaCPU) {
         punteggio++;
@@ -1354,6 +1322,7 @@ void Controller::scontro()
         int lvl = player->getLiv();
         QMessageBox::about(this, "Vittoria", QString("Complimenti!\nHai vinto la battaglia e hai guadagnato %1 punti esperienza.\nOra hai %2 punti esperienza e il tuo avatar è al livello %3.").arg(x).arg(exp).arg(lvl));
         modello->salvare();
+
     } else if(punteggio<0){
         int x = 10;
         if(player->getExp()>9) {
@@ -1361,6 +1330,7 @@ void Controller::scontro()
         }
         QMessageBox::about(this, "Sconfitta", QString("Peccato, hai perso la battaglia.\nNon demoralizzarti, hai perso solo %1 punti esperienza.").arg(x));
         modello->salvare();
+
     } else {
         if(mediaP > mediaCPU) {
             int x = 40;
@@ -1405,6 +1375,7 @@ void Controller::scontro()
             int lvl = player->getLiv();
             QMessageBox::about(this, "Vittoria", QString("Complimenti!\nHai vinto la battaglia e hai guadagnato %1 punti esperienza.\nOra hai %2 punti esperienza e il tuo avatar è al livello %3.").arg(x).arg(exp).arg(lvl));
             modello->salvare();
+
         } else if(mediaP < mediaCPU) {
             int x = 10;
             if(player->getExp()>9) {
@@ -1412,6 +1383,7 @@ void Controller::scontro()
             }
             QMessageBox::about(this, "Sconfitta", QString("Peccato, hai perso la battaglia.\nNon demoralizzarti, hai perso solo %1 punti esperienza.").arg(x));
             modello->salvare();
+
         } else {
             QMessageBox::about(this, "Pareggio", "Ok. Parità./nI tuoi valori sono rimasti invariati.");
         }

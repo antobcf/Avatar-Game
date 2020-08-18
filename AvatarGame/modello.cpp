@@ -165,7 +165,7 @@ void Modello::caricare()
 
 void Modello::rimuovi(Avatar* a)
 {
-    lista->removeElement(a);
+    lista->rimuovi(a);
 }
 
 void Modello::rimuoviTutto()

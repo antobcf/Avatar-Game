@@ -68,12 +68,9 @@ public:
 
     //METODI CONTAINER
     Container(): primo(nullptr), ultimo(nullptr) {} //la definizione sicuro non va qui, il nullptr serve?
-    bool isEmpty() const;//controlla se il container è vuoto
     void inserisci(const T&);//metodo per l'inserimento alla fine della lista di un nuovo elemento
-    void remove(); //rimuove valore in testa
-    void removeElement(const T&);
+    void rimuovi(const T&);
     bool ricerca(const T&) const;
-    T ricercaNome(T); //servirebbe per cercare un personaggio, ma non riesco a farlo andare
     iteratore begin();
     iteratore end();
     int counter();
@@ -136,14 +133,6 @@ bool Container<T>::smartP::operator!=(const smartP& s) const {
 }
 
 //METODI CONTAINER
-template <class T>
-bool Container<T>::isEmpty() const {
-    if(!(primo.ptr)) {
-        //std::cout<<"prova"<<std::endl;
-        return true;
-    }
-    return false;
-}
 
 template <class T>
 void Container<T>::inserisci(const T& p) {
@@ -154,22 +143,6 @@ void Container<T>::inserisci(const T& p) {
     } else {
         (ultimo->prev)->next = ultimo;
     }
-}
-
-template <class T>
-T Container<T>::ricercaNome(T n) {
-    smartP scorri=primo;
-    smartP salva=nullptr;
-    while(scorri->next!=nullptr){
-        if((scorri.ptr)->info==n){
-            salva=scorri;
-            std::cout<<"BELLAAAA"<<std::endl;
-            return (salva.ptr)->info;
-        }
-        scorri=scorri->next;
-    }
-    //qua ci va un eccezione nel caso in cui non esista il nodo che cerchiamo mi sa
-    return nullptr;
 }
 
 template <class T>
@@ -190,31 +163,8 @@ int Container<T>::counter() {
     return i;
 }
 
-
-template <class T>
-void Container<T>::remove() {
-    if(isEmpty()) {
-        std::cout<<"è già vuoto"<<std::endl;
-        return;
-//da mettere eccezione
-    }
-    //std::cout<<"arrivo qua?"<<std::endl;
-    if((primo.ptr)->next==nullptr) {
-        primo=nullptr;
-        //std::cout<<"arrivo qua? if"<<std::endl;
-    } else {
-        //std::cout<<"arrivo qua? else"<<std::endl;
-        smartP p=primo.ptr;
-        //std::cout<<"arrivo qua? else2"<<std::endl;
-        primo=(primo.ptr)->next;
-        //std::cout<<"arrivo qua? else3"<<std::endl;
-        //delete p.ptr;
-        //std::cout<<"arrivo qua? else4"<<std::endl;
-    }
-}
-
 template<class T>
-void Container<T>::removeElement(const T& t) {
+void Container<T>::rimuovi(const T& t) {
     smartP p = primo; //lo uso per scorrere la lista
     smartP z; //punta al nodo precedente
     smartP prec = nullptr; //è il nodo precedente a p

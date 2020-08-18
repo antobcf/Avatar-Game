@@ -23,7 +23,7 @@ AvatarHome::AvatarHome(QWidget* p):
     layoutHome->addLayout(layoutBottoniSopra);
     layoutHome->addWidget(bottoneInfo, 0, Qt::AlignRight);
     bottoneInfo->setStyleSheet(
-            "border: 0.5px solid black;"
+            "border: 0.5px solid black;" //si puo mettere qui
             "border-radius: 15px;"
             );
 }

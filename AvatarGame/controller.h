@@ -9,8 +9,6 @@
 #include "modificaavatar.h"
 #include "scontro.h"
 #include "finescontro.h"
-#include "elencoavatar.h" //prova
-
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -30,7 +28,6 @@ private:
     ListaAvatar* vistaLista;
     ModificaAvatar* vistaModifica;
     Scontro* vistaScontro;
-    FineScontro* vistaFineScontro;
     Modello* modello;
     QString destinazione;
     void setAvatarGameStyle();
@@ -39,12 +36,12 @@ public:
     Controller(Modello *, QWidget *parent = nullptr);
     ~Controller();
     Modello *getModello();
+
 public slots:
     void mostraHome();
     void mostraCrea();
     void mostraLista();
     void mostraScontro();
-    void mostraFineScontro();
     void infoPopHome();
     void infoPopLista();
     void inserisciAvatar();

@@ -124,10 +124,17 @@ bool Avatar::operator==(const Avatar & a) const
 
 std::string Avatar::datiAvatar()
 {
+    std::string m = std::to_string(getMedia());
+    if(getMedia() < 10) {
+        m.resize(3);
+    } else if(getMedia() < 100) {
+        m.resize(4);
+    } else
+        m.resize(5);
     return ("Tipo Avatar: "+getTipo()).append("   Nome: "+getNome()).append("   Sesso: ").append(getSesso() ? "Maschio" : "Femmina")
             .append("\nForza: "+std::to_string(getForza())).append("   Magia: "+std::to_string(getMagia()))
             .append("\nDifesa: "+std::to_string(getDifesa())).append("   Scienza: "+std::to_string(getScienza()))
-            .append("\nMedia: "+std::to_string(getMedia())).append("   Lvl: "+std::to_string(getLiv()))
+            .append("\nMedia: "+m).append("   Lvl: "+std::to_string(getLiv()))
             .append("\nStoria: "+getDescrizione());
 }
 
@@ -191,8 +198,15 @@ bool Elfo::operator==(const Avatar & a) const {
 
 std::string Elfo::datiAvatar()
 {
+    std::string t = std::to_string(getTrasparentia());
+    if(getTrasparentia() < 10) {
+        t.resize(3);
+    } else if(getTrasparentia() < 100) {
+        t.resize(4);
+    } else
+        t.resize(5);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nTrasparentia: "+std::to_string(getTrasparentia()));
+    return dati.append("\nTrasparentia: "+t);
 }
 
 //Metodi della classe Nano
@@ -216,8 +230,15 @@ bool Nano::operator==(const Avatar & a) const {
 
 std::string Nano::datiAvatar()
 {
+    std::string c = std::to_string(getCorteccia());
+    if(getCorteccia() < 10) {
+        c.resize(3);
+    } else if(getCorteccia() < 100) {
+        c.resize(4);
+    } else
+        c.resize(5);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nCorteccia: "+std::to_string(getCorteccia()));
+    return dati.append("\nCorteccia: "+c);
 }
 
 //Metodi della classe Umano
@@ -241,8 +262,15 @@ bool Umano::operator==(const Avatar & a) const {
 
 std::string Umano::datiAvatar()
 {
+    std::string u = std::to_string(getIngegno());
+    if(getIngegno() < 10) {
+        u.resize(3);
+    } else if(getIngegno() < 100) {
+        u.resize(4);
+    } else
+        u.resize(5);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nIngegno Scientifico: "+std::to_string(getIngegno()));
+    return dati.append("\nIngegno Scientifico: "+u);
 }
 
 //Metodi della classe NOTerrestre
@@ -305,8 +333,15 @@ bool Alieno::operator==(const Avatar & a) const {
 
 std::string Alieno::datiAvatar()
 {
+    std::string a = std::to_string(getUfo());
+    if(getUfo() < 10) {
+        a.resize(3);
+    } else if(getUfo() < 100) {
+        a.resize(4);
+    } else
+        a.resize(5);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nUfo: "+std::to_string(getUfo()));
+    return dati.append("\nUfo: "+a);
 }
 
 //Metodi della classe Mostro
@@ -330,6 +365,13 @@ bool Mostro::operator==(const Avatar & a) const {
 
 std::string Mostro::datiAvatar()
 {
+    std::string m = std::to_string(getPorta());
+    if(getPorta() < 10) {
+        m.resize(3);
+    } else if(getPorta() < 100) {
+        m.resize(4);
+    } else
+        m.resize(5);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nPorta Demoniaca: "+std::to_string(getPorta()));
+    return dati.append("\nPorta Demoniaca: "+m);
 }

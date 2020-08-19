@@ -20,7 +20,6 @@ SOURCES += \
     creaavatar.cpp \
     eccezioni.cpp \
     elencoavatar.cpp \
-    finescontro.cpp \
     gerarchia.cpp \
     infosistema.cpp \
     item.cpp \
@@ -40,7 +39,6 @@ HEADERS += \
     creaavatar.h \
     eccezioni.h \
     elencoavatar.h \
-    finescontro.h \
     gerarchia.h \
     infosistema.h \
     item.h \

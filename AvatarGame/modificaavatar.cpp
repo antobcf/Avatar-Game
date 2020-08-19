@@ -18,13 +18,13 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     inserisciNome(new QLineEdit(this)),
     bottoneSalvaModifiche(new QPushButton("Salva modifiche", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
-    powerUp1(new QCheckBox("Scudo", this)),
-    powerUp2(new QCheckBox("Spada", this)),
-    powerUp3(new QCheckBox("Anello", this)),
+    powerUp1(new QCheckBox("Spada", this)),
+    powerUp2(new QCheckBox("Anello", this)),
+    powerUp3(new QCheckBox("Scudo", this)),
     powerUp4(new QCheckBox("Libro", this)),
-    powerUp5(new QCheckBox("Barriera", this)),
-    powerUp6(new QCheckBox("Laser", this)),
-    powerUp7(new QCheckBox("Amuleto", this)),
+    powerUp5(new QCheckBox("Laser", this)),
+    powerUp6(new QCheckBox("Amuleto", this)),
+    powerUp7(new QCheckBox("Barriera", this)),
     powerUp8(new QCheckBox("Chip", this)),
     boxValori(new QGroupBox("Statistiche", this)),
     boxDescrizione(new QTextEdit(this)),
@@ -686,14 +686,13 @@ void ModificaAvatar::resetCheck() const
 
 void ModificaAvatar::calcoloValori()
 {
-    std::string tipo = tipoAvatar->text().toStdString();
-    double forza = getValoreForza()->text().toUInt();
-    double magia = getValoreMagia()->text().toUInt();
-    double difesa = getValoreDifesa()->text().toUInt();
-    double scienza = getValoreScienza()->text().toUInt();
+    std::string tipo = tipoAvatar->text().toStdString();    
+    double forza = 0;
+    double magia = 0;
+    double difesa = 0;
+    double scienza = 0;
     unsigned int livello = getLvl()->text().toUInt();
-    double valoreExtra = getValoreSpeciale()->text().toDouble();
-
+    double valoreExtra = 0;
 
     if(tipo == "Elfo") {
         forza = livello*6;

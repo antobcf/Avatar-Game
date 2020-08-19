@@ -1,5 +1,4 @@
 #include "scontro.h"
-#include "finescontro.h"
 #include "controller.h"
 
 Scontro::Scontro(QWidget *parent) :

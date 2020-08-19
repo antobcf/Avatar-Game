@@ -8,7 +8,6 @@
 #include "listaavatar.h"
 #include "modificaavatar.h"
 #include "scontro.h"
-#include "finescontro.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -54,7 +53,7 @@ public slots:
     void salva();
     void scontro();
     void resetRicerca();
-
+    void calcoloValori(Avatar*);
 
 signals:
 

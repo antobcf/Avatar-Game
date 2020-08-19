@@ -93,10 +93,12 @@ unsigned int Avatar::getExp() const {
     return exp;
 }
 
-void Avatar::setExp(unsigned int e) { //forse non va bene ma bisogna farla "normale"
+void Avatar::setExp(unsigned int e) {
     if(e > 99) {
         exp = e - 100;
         setLvl(getLiv()+1);
+        if(e > 99)
+            setExp(exp);
     } else {
         exp = e;
     }
@@ -203,8 +205,10 @@ std::string Elfo::datiAvatar()
         t.resize(3);
     } else if(getTrasparentia() < 100) {
         t.resize(4);
-    } else
+    } else if(getTrasparentia() < 1000) {
         t.resize(5);
+    } else
+        t.resize(6);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nTrasparentia: "+t);
 }
@@ -235,8 +239,10 @@ std::string Nano::datiAvatar()
         c.resize(3);
     } else if(getCorteccia() < 100) {
         c.resize(4);
-    } else
+    } else if(getCorteccia() < 1000) {
         c.resize(5);
+    } else
+        c.resize(6);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nCorteccia: "+c);
 }
@@ -267,8 +273,11 @@ std::string Umano::datiAvatar()
         u.resize(3);
     } else if(getIngegno() < 100) {
         u.resize(4);
-    } else
+    } else if(getIngegno() < 1000) {
         u.resize(5);
+    } else {
+        u.resize(6);
+}
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nIngegno Scientifico: "+u);
 }
@@ -338,8 +347,10 @@ std::string Alieno::datiAvatar()
         a.resize(3);
     } else if(getUfo() < 100) {
         a.resize(4);
-    } else
+    } else if(getUfo() < 1000) {
         a.resize(5);
+    } else
+        a.resize(6);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nUfo: "+a);
 }
@@ -370,8 +381,10 @@ std::string Mostro::datiAvatar()
         m.resize(3);
     } else if(getPorta() < 100) {
         m.resize(4);
-    } else
+    } else if(getPorta() < 1000) {
         m.resize(5);
+    } else
+        m.resize(6);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nPorta Demoniaca: "+m);
 }

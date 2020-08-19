@@ -51,7 +51,7 @@ Scontro::Scontro(QWidget *parent) :
     bottoneCambioAvversario->setFixedSize(dimBottoneHomeCambio);
     bottoneCombatti->setFixedSize(130,60);
 
-    layoutScontroSx->addWidget(fotoAvatar1);
+    layoutScontroSx->addWidget(fotoAvatar1, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(nomeAvatarSx, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(powerupSx, 0, Qt::AlignCenter);
     layoutScontroSx->addWidget(powerup1selezionatoSx, 0, Qt::AlignCenter);
@@ -65,7 +65,7 @@ Scontro::Scontro(QWidget *parent) :
     layoutScontroCentrale->addWidget(terreno, 0, Qt::AlignCenter);
     layoutScontroCentrale->addWidget(bottoneCombatti, 0, Qt::AlignCenter);
 
-    layoutScontroDx->addWidget(fotoAvatar2);
+    layoutScontroDx->addWidget(fotoAvatar2, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(nomeAvatarDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(powerupDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(powerup1selezionatoDx, 0, Qt::AlignCenter);

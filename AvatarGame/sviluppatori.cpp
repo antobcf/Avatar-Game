@@ -1,9 +1,14 @@
 #include "sviluppatori.h"
 
 Sviluppatori::Sviluppatori(QWidget *parent) :
-    testoSviluppatori(new QLabel("Gli sviluppatori di questo gioco sono Antonio Belculfinè e Luca Modica", this))
+    immagineSviluppatori(new QLabel(this)),
+    testoSviluppatori(new QLabel("Gli sviluppatori di questo gioco sono Antonio Belculfinè e Luca Modica.", this))
 {
-    QHBoxLayout* layoutSviluppatori = new QHBoxLayout(this);
+    QVBoxLayout* layoutSviluppatori = new QVBoxLayout(this);
+
+    QPixmap *y=new QPixmap(":/Risorse/Immagini Avatar/logo_titolo");
+    QPixmap y1(y->scaled(400,400, Qt::IgnoreAspectRatio));
+    immagineSviluppatori->setPixmap(y1);
 
     layoutSviluppatori->addWidget(testoSviluppatori);
 }

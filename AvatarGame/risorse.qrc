@@ -11,5 +11,7 @@
         <file>Risorse/Immagini Avatar/Umano Maschio.png</file>
         <file>Risorse/style.css</file>
         <file>Risorse/Immagini Avatar/vs.png</file>
+        <file>Risorse/Immagini Avatar/logo_titolo.png</file>
+        <file>Risorse/Immagini Avatar/logo.png</file>
     </qresource>
 </RCC>

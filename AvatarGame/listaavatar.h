@@ -20,7 +20,7 @@ class ListaAvatar : public QWidget
 private:
     QPushButton* bottoneHome;
     QPushButton* avviaRicerca;
-    QPushButton* pulisciFiltri;
+    QPushButton* azzeraRicerca;
     QLineEdit* cercaNome;
     QCheckBox* tipoElfo;
     QCheckBox* tipoNano;
@@ -43,7 +43,7 @@ public:
     QCheckBox* getTipoMostro() const;
     QLineEdit* getCercaNome() const;
     QPushButton* getAvviaRicerca() const;
-    QPushButton* getPulisciFiltri() const;
+    QPushButton* getAzzeraRicerca() const;
     QPushButton* getBottoneModifica() const;
     QPushButton* getBottoneRimuovi() const;
     QPushButton* getBottoneGioca() const;

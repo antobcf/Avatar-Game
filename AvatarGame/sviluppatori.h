@@ -9,6 +9,7 @@ class Sviluppatori : public QDialog
 {
     Q_OBJECT
 private:
+    QLabel* immagineSviluppatori;
     QLabel* testoSviluppatori;
 
 public:

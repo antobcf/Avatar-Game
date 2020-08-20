@@ -45,10 +45,10 @@ Scontro::Scontro(QWidget *parent) :
     layoutTastiNavigazione->addWidget(bottoneCambioAvatar);
     layoutTastiNavigazione->addWidget(bottoneHomeScontro);
     layoutTastiNavigazione->addWidget(bottoneCambioAvversario);
-    const QSize dimBottoneHomeCambio = QSize(120,40);
-    bottoneCambioAvatar->setFixedSize(dimBottoneHomeCambio);
-    bottoneHomeScontro->setFixedSize(dimBottoneHomeCambio);
-    bottoneCambioAvversario->setFixedSize(dimBottoneHomeCambio);
+    const QSize dimBottoneScontro = QSize(120,40);
+    bottoneCambioAvatar->setFixedSize(dimBottoneScontro);
+    bottoneHomeScontro->setFixedSize(dimBottoneScontro);
+    bottoneCambioAvversario->setFixedSize(dimBottoneScontro);
     bottoneCombatti->setFixedSize(130,60);
 
     layoutScontroSx->addWidget(fotoAvatar1, 0, Qt::AlignCenter);
@@ -81,7 +81,7 @@ Scontro::Scontro(QWidget *parent) :
     titoloMediaDx->setObjectName("titoliScontro");
 
     QPixmap *p=new QPixmap(":/Risorse/Immagini Avatar/vs");
-    QPixmap p1(p->scaled(70,70, Qt::IgnoreAspectRatio));
+    QPixmap p1(p->scaled(85,85, Qt::IgnoreAspectRatio));
     vs->setPixmap(p1);
 }
 

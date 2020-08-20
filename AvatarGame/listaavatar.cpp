@@ -4,7 +4,7 @@
 ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton("Home", this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
-    pulisciFiltri(new QPushButton("Pulisci filtri",this)), //filtri?
+    azzeraRicerca(new QPushButton("Azzera ricera",this)),
     cercaNome(new QLineEdit(this)),
     tipoElfo(new QCheckBox("Elfo", this)),
     tipoNano(new QCheckBox("Nano", this)),
@@ -41,8 +41,9 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
 
 
     connect(elenco,SIGNAL(itemSelectionChanged()), this, SLOT(avatarSelezionato()));
-    connect(pulisciFiltri,SIGNAL(clicked()),this,SLOT(resetLista()));
+    connect(azzeraRicerca,SIGNAL(clicked()),this,SLOT(resetLista()));
 
+    layoutCheckBox->addWidget(bottoneHome);
     layoutCheckBox->addWidget(tipoElfo);
     layoutCheckBox->addWidget(tipoNano);
     layoutCheckBox->addWidget(tipoUmano);
@@ -52,12 +53,11 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     cercaNome->setFixedHeight(30);
     cercaNome->setPlaceholderText("Nome");
     layoutCheckBox->addWidget(avviaRicerca);
-    layoutCheckBox->addWidget(pulisciFiltri);
+    layoutCheckBox->addWidget(azzeraRicerca);
     layoutDx->addWidget(bottoneModifica, 0, Qt::AlignCenter);
     layoutDx->addWidget(bottoneRimuovi, 0, Qt::AlignCenter);
     layoutDx->addWidget(bottoneAvvioGioco, 0, Qt::AlignCenter);
     layoutDx->addLayout(layoutBottom);
-    layoutBottom->addWidget(bottoneHome);
     layoutBottom->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
 
     const QSize sizeB = QSize(120,60);
@@ -66,13 +66,10 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneRimuovi->setFixedSize(sizeB);
     bottoneAvvioGioco->setFixedSize(sizeB);
     avviaRicerca->setFixedSize(sizeC);
-    pulisciFiltri->setFixedSize(sizeC);
+    azzeraRicerca->setFixedSize(sizeC);
     bottoneHome->setFixedHeight(30);
     bottoneInfoLista->setFixedSize(30,30);
-    bottoneInfoLista->setStyleSheet(
-            "border: 0.5px solid black;"
-            "border-radius: 15px;"
-            );
+    bottoneInfoLista->setObjectName("info");
 }
 
 QCheckBox *ListaAvatar::getTipoElfo() const
@@ -110,9 +107,9 @@ QPushButton *ListaAvatar::getAvviaRicerca() const
     return avviaRicerca;
 }
 
-QPushButton *ListaAvatar::getPulisciFiltri() const
+QPushButton *ListaAvatar::getAzzeraRicerca() const
 {
-    return pulisciFiltri;
+    return azzeraRicerca;
 }
 
 QPushButton *ListaAvatar::getBottoneModifica() const

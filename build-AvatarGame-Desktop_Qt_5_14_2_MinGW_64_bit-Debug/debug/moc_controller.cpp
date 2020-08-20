@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Controller_t {
     QByteArrayData data[21];
-    char stringdata0[242];
+    char stringdata0[245];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,30 +38,30 @@ QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 10), // "mostraCrea"
 QT_MOC_LITERAL(4, 34, 11), // "mostraLista"
 QT_MOC_LITERAL(5, 46, 13), // "mostraScontro"
-QT_MOC_LITERAL(6, 60, 11), // "infoPopHome"
-QT_MOC_LITERAL(7, 72, 12), // "infoPopLista"
-QT_MOC_LITERAL(8, 85, 15), // "inserisciAvatar"
-QT_MOC_LITERAL(9, 101, 14), // "modificaAvatar"
-QT_MOC_LITERAL(10, 116, 16), // "scontroTraAvatar"
-QT_MOC_LITERAL(11, 133, 13), // "rimuoviAvatar"
-QT_MOC_LITERAL(12, 147, 13), // "ricercaAvatar"
-QT_MOC_LITERAL(13, 161, 8), // "caricaDb"
-QT_MOC_LITERAL(14, 170, 6), // "carica"
-QT_MOC_LITERAL(15, 177, 5), // "salva"
-QT_MOC_LITERAL(16, 183, 7), // "scontro"
-QT_MOC_LITERAL(17, 191, 12), // "resetRicerca"
-QT_MOC_LITERAL(18, 204, 13), // "calcoloValori"
-QT_MOC_LITERAL(19, 218, 7), // "Avatar*"
-QT_MOC_LITERAL(20, 226, 15) // "sviluppatoriPop"
+QT_MOC_LITERAL(6, 60, 18), // "mostraSviluppatori"
+QT_MOC_LITERAL(7, 79, 11), // "infoPopHome"
+QT_MOC_LITERAL(8, 91, 12), // "infoPopLista"
+QT_MOC_LITERAL(9, 104, 15), // "inserisciAvatar"
+QT_MOC_LITERAL(10, 120, 14), // "modificaAvatar"
+QT_MOC_LITERAL(11, 135, 16), // "scontroTraAvatar"
+QT_MOC_LITERAL(12, 152, 13), // "rimuoviAvatar"
+QT_MOC_LITERAL(13, 166, 13), // "ricercaAvatar"
+QT_MOC_LITERAL(14, 180, 8), // "caricaDb"
+QT_MOC_LITERAL(15, 189, 6), // "carica"
+QT_MOC_LITERAL(16, 196, 5), // "salva"
+QT_MOC_LITERAL(17, 202, 7), // "scontro"
+QT_MOC_LITERAL(18, 210, 12), // "resetRicerca"
+QT_MOC_LITERAL(19, 223, 13), // "calcoloValori"
+QT_MOC_LITERAL(20, 237, 7) // "Avatar*"
 
     },
     "Controller\0mostraHome\0\0mostraCrea\0"
-    "mostraLista\0mostraScontro\0infoPopHome\0"
-    "infoPopLista\0inserisciAvatar\0"
+    "mostraLista\0mostraScontro\0mostraSviluppatori\0"
+    "infoPopHome\0infoPopLista\0inserisciAvatar\0"
     "modificaAvatar\0scontroTraAvatar\0"
     "rimuoviAvatar\0ricercaAvatar\0caricaDb\0"
     "carica\0salva\0scontro\0resetRicerca\0"
-    "calcoloValori\0Avatar*\0sviluppatoriPop"
+    "calcoloValori\0Avatar*"
 };
 #undef QT_MOC_LITERAL
 
@@ -95,8 +95,8 @@ static const uint qt_meta_data_Controller[] = {
       15,    0,  117,    2, 0x0a /* Public */,
       16,    0,  118,    2, 0x0a /* Public */,
       17,    0,  119,    2, 0x0a /* Public */,
-      18,    1,  120,    2, 0x0a /* Public */,
-      20,    0,  123,    2, 0x0a /* Public */,
+      18,    0,  120,    2, 0x0a /* Public */,
+      19,    1,  121,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -115,8 +115,8 @@ static const uint qt_meta_data_Controller[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 19,    2,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 20,    2,
 
        0        // eod
 };
@@ -131,20 +131,20 @@ void Controller::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->mostraCrea(); break;
         case 2: _t->mostraLista(); break;
         case 3: _t->mostraScontro(); break;
-        case 4: _t->infoPopHome(); break;
-        case 5: _t->infoPopLista(); break;
-        case 6: _t->inserisciAvatar(); break;
-        case 7: _t->modificaAvatar(); break;
-        case 8: _t->scontroTraAvatar(); break;
-        case 9: _t->rimuoviAvatar(); break;
-        case 10: _t->ricercaAvatar(); break;
-        case 11: _t->caricaDb(); break;
-        case 12: _t->carica(); break;
-        case 13: _t->salva(); break;
-        case 14: _t->scontro(); break;
-        case 15: _t->resetRicerca(); break;
-        case 16: _t->calcoloValori((*reinterpret_cast< Avatar*(*)>(_a[1]))); break;
-        case 17: _t->sviluppatoriPop(); break;
+        case 4: _t->mostraSviluppatori(); break;
+        case 5: _t->infoPopHome(); break;
+        case 6: _t->infoPopLista(); break;
+        case 7: _t->inserisciAvatar(); break;
+        case 8: _t->modificaAvatar(); break;
+        case 9: _t->scontroTraAvatar(); break;
+        case 10: _t->rimuoviAvatar(); break;
+        case 11: _t->ricercaAvatar(); break;
+        case 12: _t->caricaDb(); break;
+        case 13: _t->carica(); break;
+        case 14: _t->salva(); break;
+        case 15: _t->scontro(); break;
+        case 16: _t->resetRicerca(); break;
+        case 17: _t->calcoloValori((*reinterpret_cast< Avatar*(*)>(_a[1]))); break;
         default: ;
         }
     }

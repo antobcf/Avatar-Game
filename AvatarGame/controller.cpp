@@ -10,6 +10,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaLista(new ListaAvatar(this)),
     vistaModifica(new ModificaAvatar(this)),
     vistaScontro(new Scontro(this)),
+    vistaSviluppatori(new Sviluppatori(this)),
     modello(m),
     destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
 {
@@ -22,6 +23,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaCrea->hide();
     vistaLista->hide();
     vistaModifica->hide();
+    vistaSviluppatori->hide();
     vistaScontro->hide();
     setLayout(layoutPrincipale);
     carica();
@@ -48,7 +50,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneHome(),SIGNAL(clicked()),this,SLOT(mostraHome()));
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
     connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
-    connect(vistaLista->getPulisciFiltri(),SIGNAL(clicked()),this,SLOT(resetRicerca()));
+    connect(vistaLista->getAzzeraRicerca(),SIGNAL(clicked()),this,SLOT(resetRicerca()));
 
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -65,12 +67,12 @@ Controller::~Controller()
 
 }
 
-void Controller::mostraHome()
-{
+void Controller::mostraHome(){
     vistaCrea->hide();
     vistaLista->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+    vistaSviluppatori->hide();
     vistaHome->show();
 }
 
@@ -79,6 +81,7 @@ void Controller::mostraCrea() {
     vistaLista->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+    vistaSviluppatori->hide();
     vistaCrea->show();
     vistaCrea->resetTutto();
 }
@@ -88,6 +91,7 @@ void Controller::mostraLista() {
     vistaCrea->hide();
     vistaModifica->hide();
     vistaScontro->hide();
+    vistaSviluppatori->hide();
     vistaLista->resetLista();
     vistaLista->show();
     carica();
@@ -98,7 +102,15 @@ void Controller::mostraScontro() {
     vistaLista->hide();
     vistaHome->hide();
     vistaCrea->hide();
+    vistaSviluppatori->hide();
     vistaScontro->show();
+}
+
+void Controller::mostraSviluppatori() {
+    vistaSviluppatori->setModal(true);
+    vistaSviluppatori->setWindowTitle("Info sviluppatori");
+    vistaSviluppatori->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/logo.png"));
+    vistaSviluppatori->show();
 }
 
 
@@ -112,10 +124,10 @@ void Controller::infoPopLista()
     QMessageBox::about(this,"Info","In questa schermata puoi interagire con\ni tuoi avatar. Puoi cercarli per nome o per tipo,\npuoi modificarli, eliminarli oppure puoi iniziare\nun nuovo scontro.");
 }
 
-void Controller::sviluppatoriPop()
-{
-    QMessageBox::about(this,"Info Sviluppatori","A questa applicazione hanno lavorato Antonio Belculfinè e Luca Modica");
-}
+//void Controller::sviluppatoriPop()
+//{
+//    QMessageBox::about(this,"Info Sviluppatori","A questa applicazione hanno lavorato Antonio Belculfinè e Luca Modica");
+//}
 
 void Controller::inserisciAvatar()
 {
@@ -234,7 +246,7 @@ void Controller::inserisciAvatar()
 
     //Campi non compilati
     else if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked())) || index == 0) {
-        QMessageBox::warning(this, "Compila tutti i campi", "per creare un nuovo Avatar");
+        QMessageBox::warning(this, "Attenzione!", "Compila tutti i campi per creare un nuovo Avatar");
     } else {
 
         if(index == 1 || index == 2 || index == 3) {
@@ -339,7 +351,7 @@ void Controller::modificaAvatar()
     Avatar* itemA = nullptr;
 
     if(vistaLista->getElenco()->itemAttuale() == nullptr) {
-        QMessageBox::warning(this, "Attenzione", "Non hai selezionato alcun avatar da modificare");
+        QMessageBox::warning(this, "Attenzione!", "Non hai selezionato alcun avatar da modificare");
     } else {
         aux = vistaLista->getElenco()->itemAttuale();
         itemA = aux->getItem();
@@ -1604,7 +1616,7 @@ void Controller::setAvatarGameStyle()
 
     setStyleSheet(styleSheet);
 
-    setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
+    setWindowIcon(QIcon(":/Risorse/Immagini Avatar/logo.png"));
 }
 
 

@@ -112,6 +112,11 @@ void Controller::infoPopLista()
     QMessageBox::about(this,"Info","In questa schermata puoi interagire con\ni tuoi avatar. Puoi cercarli per nome o per tipo,\npuoi modificarli, eliminarli oppure puoi iniziare\nun nuovo scontro.");
 }
 
+void Controller::sviluppatoriPop()
+{
+    QMessageBox::about(this,"Info Sviluppatori","A questa applicazione hanno lavorato Antonio Belculfinè e Luca Modica");
+}
+
 void Controller::inserisciAvatar()
 {
     std::string nome = vistaCrea->getInserisciNome()->text().toStdString();

@@ -2,7 +2,6 @@ release/controller.o
 release/creaavatar.o
 release/eccezioni.o
 release/elencoavatar.o
-release/finescontro.o
 release/gerarchia.o
 release/infosistema.o
 release/item.o
@@ -18,7 +17,6 @@ release/qrc_risorse.o
 release/moc_avatarhome.o
 release/moc_controller.o
 release/moc_creaavatar.o
-release/moc_finescontro.o
 release/moc_infosistema.o
 release/moc_item.o
 release/moc_listaavatar.o

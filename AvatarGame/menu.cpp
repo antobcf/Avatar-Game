@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "controller.h"
 
 Menu::Menu(QWidget* p):
     parent(p),
@@ -33,8 +34,9 @@ Menu::Menu(QWidget* p):
     connect(lista,SIGNAL(triggered()),parent,SLOT(mostraLista()));
     connect(carica,SIGNAL(triggered()),parent,SLOT(caricaDb()));
 
-    connect(sviluppatori,SIGNAL(triggered()),parent,SLOT(mostraSviluppatori())); //dov'e' questa funzione?
+    connect(sviluppatori,SIGNAL(triggered()),parent,SLOT(sviluppatoriPop)); //dov'e' questa funzione?
     connect(infoSistema,SIGNAL(triggered()),parent,SLOT(mostraInfoSistema())); //dov'e' questa funzione?
-
 }
+
+
 

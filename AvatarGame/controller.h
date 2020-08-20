@@ -54,6 +54,7 @@ public slots:
     void scontro();
     void resetRicerca();
     void calcoloValori(Avatar*);
+    void sviluppatoriPop();
 
 signals:
 

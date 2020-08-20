@@ -2,7 +2,6 @@ debug/controller.o
 debug/creaavatar.o
 debug/eccezioni.o
 debug/elencoavatar.o
-debug/finescontro.o
 debug/gerarchia.o
 debug/infosistema.o
 debug/item.o
@@ -18,7 +17,6 @@ debug/qrc_risorse.o
 debug/moc_avatarhome.o
 debug/moc_controller.o
 debug/moc_creaavatar.o
-debug/moc_finescontro.o
 debug/moc_infosistema.o
 debug/moc_item.o
 debug/moc_listaavatar.o

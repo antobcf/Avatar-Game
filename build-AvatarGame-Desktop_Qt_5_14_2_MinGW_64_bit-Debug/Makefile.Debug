@@ -179,6 +179,7 @@ debug/qrc_risorse.cpp: ../AvatarGame/risorse.qrc \
 		../AvatarGame/Risorse/Immagini\ Avatar/Elfo\ Maschio.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/logo_titolo.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/vs.png \
+		../AvatarGame/Risorse/Immagini\ Avatar/home.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Nano\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Mostro\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/logo.png \
@@ -524,6 +525,7 @@ debug/moc_controller.cpp: ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
 		debug/moc_predefs.h \
 		C:/Qt/5.14.2/mingw73_64/bin/moc.exe
@@ -1850,6 +1852,7 @@ debug/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\controller.o ..\AvatarGame\controller.cpp
 
@@ -2753,6 +2756,7 @@ debug/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/QApplication \
 		C:/Qt/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
@@ -3086,6 +3090,7 @@ debug/menu.o: ../AvatarGame/menu.cpp ../AvatarGame/menu.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\menu.o ..\AvatarGame\menu.cpp
 
@@ -3528,6 +3533,7 @@ debug/scontro.o: ../AvatarGame/scontro.cpp ../AvatarGame/scontro.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/QTimer \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qtimer.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtCore/qbasictimer.h \
+		../AvatarGame/sviluppatori.h \
 		C:/Qt/5.14.2/mingw73_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\scontro.o ..\AvatarGame\scontro.cpp
 

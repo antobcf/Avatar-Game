@@ -281,30 +281,20 @@ void Controller::inserisciAvatar()
                 double trasparentia = vistaCrea->getValoreSpeciale()->text().toDouble();
                 Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, trasparentia);
                 modello->getLista()->inserisci(personaggio);
-                modello->salvare();
-                carica();
-                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
-                vistaCrea->hide();
-                vistaLista->show();
             } else if(index == 2) {
                 double corteccia = vistaCrea->getValoreSpeciale()->text().toDouble();
                 Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, corteccia);
                 modello->getLista()->inserisci(personaggio);
-                modello->salvare();
-                carica();
-                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
-                vistaCrea->hide();
-                vistaLista->show();
             } else if(index == 3) {
                 double ingegnoScientifico = vistaCrea->getValoreSpeciale()->text().toDouble();
                 Umano* personaggio = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, ingegnoScientifico);
                 modello->getLista()->inserisci(personaggio);
-                modello->salvare();
-                carica();
-                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
-                vistaCrea->hide();
-                vistaLista->show();
             }
+            modello->salvare();
+            carica();
+            QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            vistaCrea->hide();
+            vistaLista->show();
 
         } else if (index == 4 || index == 5) {
             bool laser;
@@ -330,22 +320,17 @@ void Controller::inserisciAvatar()
             if(index == 4) {
                 double ufo = vistaCrea->getValoreSpeciale()->text().toDouble();
                 Alieno* personaggio = new Alieno(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, laser, amuleto, barriera, chip, ufo);
-                modello->getLista()->inserisci(personaggio);
-                modello->salvare();
-                carica();
-                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
-                vistaCrea->hide();
-                vistaLista->show();
+                modello->getLista()->inserisci(personaggio);          
             } else if(index == 5) {
                 double portaDemoniaca = vistaCrea->getValoreSpeciale()->text().toDouble();
                 Mostro* personaggio = new Mostro(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, laser, amuleto, barriera, chip, portaDemoniaca);
                 modello->getLista()->inserisci(personaggio);
-                modello->salvare();
-                carica();
-                QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
-                vistaCrea->hide();
-                vistaLista->show();
             }
+            modello->salvare();
+            carica();
+            QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            vistaCrea->hide();
+            vistaLista->show();
         }
     }
 }

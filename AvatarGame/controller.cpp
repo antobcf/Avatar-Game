@@ -392,7 +392,7 @@ void Controller::modificaAvatar()
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Elfo Maschio.png"));
-            vistaModifica->show();
+
 
         } else if(dynamic_cast<Nano*>(itemA)) {
             Nano* n = static_cast<Nano*>(itemA);
@@ -417,7 +417,7 @@ void Controller::modificaAvatar()
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Nano Maschio.png"));
-            vistaModifica->show();
+
 
         } else if(dynamic_cast<Umano*>(itemA)) {
             Umano* u = static_cast<Umano*>(itemA);
@@ -442,7 +442,7 @@ void Controller::modificaAvatar()
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
-            vistaModifica->show();
+
 
         } else if(dynamic_cast<Alieno*>(itemA)) {
             Alieno* a = static_cast<Alieno*>(itemA);
@@ -468,8 +468,6 @@ void Controller::modificaAvatar()
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Alieno.png"));
 
-            vistaModifica->show();
-
         } else if(dynamic_cast<Mostro*>(itemA)) {
             Mostro* m = static_cast<Mostro*>(itemA);
 
@@ -493,8 +491,9 @@ void Controller::modificaAvatar()
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Mostro Maschio.png"));
-            vistaModifica->show();
+
         }
+        vistaModifica->show();
     }
 
 }
@@ -569,8 +568,7 @@ void Controller::scontroTraAvatar()
                     e->getScu() ? vistaScontro->getPowerup3selezionatoSx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     e->getLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
                     std::string valoreSpeciale = (std::to_string(e->getTrasparentia()));
-                    vistaLista->hide();
-                    vistaScontro->show();
+
 
                 } else if(dynamic_cast<Nano*>(itemA)) {
                     Nano* n = static_cast<Nano*>(itemA);
@@ -579,8 +577,7 @@ void Controller::scontroTraAvatar()
                     n->getScu() ? vistaScontro->getPowerup3selezionatoSx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     n->getLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
                     std::string valoreSpeciale = (std::to_string(n->getCorteccia()));
-                    vistaLista->hide();
-                    vistaScontro->show();
+
 
                 } else if(dynamic_cast<Umano*>(itemA)) {
                     Umano* u = static_cast<Umano*>(itemA);
@@ -589,8 +586,7 @@ void Controller::scontroTraAvatar()
                     u->getScu() ? vistaScontro->getPowerup3selezionatoSx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     u->getLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
                     std::string valoreSpeciale = (std::to_string(u->getIngegno()));
-                    vistaLista->hide();
-                    vistaScontro->show();
+
 
                 } else if(dynamic_cast<Alieno*>(itemA)) {
                     Alieno* a = static_cast<Alieno*>(itemA);
@@ -599,8 +595,7 @@ void Controller::scontroTraAvatar()
                     a->getBar() ? vistaScontro->getPowerup3selezionatoSx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     a->getChip() ? vistaScontro->getPowerup4selezionatoSx()->setText("Chip"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
                     std::string valoreSpeciale = (std::to_string(a->getUfo()));
-                    vistaLista->hide();
-                    vistaScontro->show();
+
 
                 } else if(dynamic_cast<Mostro*>(itemA)) {
                     Mostro* m = static_cast<Mostro*>(itemA);
@@ -609,9 +604,10 @@ void Controller::scontroTraAvatar()
                     m->getBar() ? vistaScontro->getPowerup3selezionatoSx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     m->getChip() ? vistaScontro->getPowerup4selezionatoSx()->setText("Chip"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
                     std::string valoreSpeciale = (std::to_string(m->getPorta()));
-                    vistaLista->hide();
-                    vistaScontro->show();
+
                 }
+                vistaLista->hide();
+                vistaScontro->show();
 
                 vistaScontro->getNomeAvatarDx()->setText(QString::fromStdString(itemB->getNome()));
                 std::string media2 = (std::to_string(itemB->getMedia()));
@@ -937,7 +933,7 @@ void Controller::salva()
 
     if(nome == "")
         QMessageBox::warning(this, "Attenzione", "Compila tutti i campi");
-    else if(nome != nomeOriginale) {
+    if(nome != nomeOriginale) {
         if(modello->getLista()->ricerca(item)) {
             bool match = false;
             Container<Avatar*>::iteratoreConst val = modello->beginConst();
@@ -946,6 +942,7 @@ void Controller::salva()
                 if(*item == *(*val)) {
                     match = true;
                     QMessageBox::warning(this, "Errore",  "Nome già usato");
+                    return;
                 }
                 ++val;
             }
@@ -957,6 +954,7 @@ void Controller::salva()
                 if(*item2 == *(*val)) {
                     match = true;
                     QMessageBox::warning(this, "Errore",  "Nome già usato");
+                    return;
                 }
                 ++val;
             }
@@ -968,6 +966,7 @@ void Controller::salva()
                 if(*item3 == *(*val)) {
                     match = true;
                     QMessageBox::warning(this, "Errore",  "Nome già usato");
+                    return;
                 }
                 ++val;
             }
@@ -979,6 +978,7 @@ void Controller::salva()
                 if(*item4 == *(*val)) {
                     match = true;
                     QMessageBox::warning(this, "Errore",  "Nome già usato");
+                    return;
                 }
                 ++val;
             }
@@ -990,11 +990,13 @@ void Controller::salva()
                 if(*item5 == *(*val)) {
                     match = true;
                     QMessageBox::warning(this, "Errore",  "Nome già usato");
+                    return;
                 }
                 ++val;
             }
         }
-    } else {
+    }
+
         itemA->setNome(nome);
         itemA->setDescrizione(vistaModifica->getBoxDescrizione()->toPlainText().toStdString());
         itemA->setLvl(vistaModifica->getLvl()->text().toUInt());
@@ -1016,10 +1018,7 @@ void Controller::salva()
             e->setScudo(vistaModifica->getPowerUp3()->isChecked());
             e->setLibro(vistaModifica->getPowerUp4()->isChecked());
             e->setTrasparentia(vistaModifica->getValoreSpeciale()->text().toDouble());
-            modello->salvare();
-            carica();
-            vistaModifica->close();
-            QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
 
         } else if(dynamic_cast<Nano*>(itemA)) {
             Nano* n = static_cast<Nano*>(itemA);
@@ -1029,10 +1028,7 @@ void Controller::salva()
             n->setScudo(vistaModifica->getPowerUp3()->isChecked());
             n->setLibro(vistaModifica->getPowerUp4()->isChecked());
             n->setCorteccia(vistaModifica->getValoreSpeciale()->text().toDouble());
-            modello->salvare();
-            carica();
-            vistaModifica->close();
-            QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
 
         } else if(dynamic_cast<Umano*>(itemA)) {
             Umano* u = static_cast<Umano*>(itemA);
@@ -1042,10 +1038,7 @@ void Controller::salva()
             u->setScudo(vistaModifica->getPowerUp3()->isChecked());
             u->setLibro(vistaModifica->getPowerUp4()->isChecked());
             u->setIngegno(vistaModifica->getValoreSpeciale()->text().toDouble());
-            modello->salvare();
-            carica();
-            vistaModifica->close();
-            QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
 
         } else if(dynamic_cast<Alieno*>(itemA)) {
             Alieno* a = static_cast<Alieno*>(itemA);
@@ -1055,10 +1048,7 @@ void Controller::salva()
             a->setBarriera(vistaModifica->getPowerUp7()->isChecked());
             a->setChip(vistaModifica->getPowerUp8()->isChecked());
             a->setUfo(vistaModifica->getValoreSpeciale()->text().toDouble());
-            modello->salvare();
-            carica();
-            vistaModifica->close();
-            QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
 
         } else if(dynamic_cast<Mostro*>(itemA)) {
             Mostro* m = static_cast<Mostro*>(itemA);
@@ -1068,12 +1058,13 @@ void Controller::salva()
             m->setBarriera(vistaModifica->getPowerUp7()->isChecked());
             m->setChip(vistaModifica->getPowerUp8()->isChecked());
             m->setPorta(vistaModifica->getValoreSpeciale()->text().toDouble());
-            modello->salvare();
-            carica();
-            vistaModifica->close();
-            QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
         }
-    }
+        modello->salvare();
+        carica();
+        vistaModifica->close();
+        QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
+
 }
 
 void Controller::scontro()

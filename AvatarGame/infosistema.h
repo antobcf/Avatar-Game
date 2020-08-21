@@ -3,16 +3,16 @@
 
 #include <QDialog>
 #include <QLabel>
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 
-class infoSistema : public QDialog
+class InfoSistema : public QDialog
 {
     Q_OBJECT
 private:
     QLabel* testoSistema;
 
 public:
-    infoSistema(QWidget * = nullptr);
+    InfoSistema(QWidget * = nullptr);
 
 public slots:
 

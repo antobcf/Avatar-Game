@@ -10,7 +10,16 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     valoreScienza(new QLabel(this)),
     valoreMedia(new QLabel(this)),
     valoreSpeciale(new QLabel(this)),
-    exp(new QLabel( this)),
+    exp(new QLabel(this)),
+    nomeLvl(new QLabel("LVL:", this)),
+    nomeForza(new QLabel("Forza:", this)),
+    nomeMagia(new QLabel("Magia:", this)),
+    nomeDifesa(new QLabel("Difesa:", this)),
+    nomeScienza(new QLabel("Scienza:", this)),
+    nomeMedia(new QLabel("Media:", this)),
+    nomeSpeciale(new QLabel("Valore\nspeciale:", this)),
+    nomeExp(new QLabel("Exp:", this)),
+    nomeTerreno(new QLabel("Terreno\npreferito:", this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     terrenoPreferito(new QLabel(this)),
     immagineAvatar(new QLabel(this)),
@@ -39,15 +48,14 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     QVBoxLayout* layoutDx = new QVBoxLayout();
     QHBoxLayout* layoutSesso = new QHBoxLayout();
     QHBoxLayout* layoutPu = new QHBoxLayout();
+    QHBoxLayout* layoutNV = new QHBoxLayout();
+    QVBoxLayout* layoutNomi = new QVBoxLayout();
     QVBoxLayout* layoutValori = new QVBoxLayout();
-
-    boxValori->setLayout(layoutValori);
 
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
     layoutSx->addWidget(bottoneHome);
     layoutSx->addLayout(formCrea);
-
 
     layoutSx->addWidget(sceltaTipo);
     layoutSx->addLayout(layoutSesso);
@@ -68,8 +76,20 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutSx->addWidget(boxDescrizione);
     layoutSx->addWidget(bottoneCreaDef);
     layoutDx->addWidget(immagineAvatar);
-    layoutDx->addLayout(layoutValori);
+    boxValori->setLayout(layoutNV);
     layoutDx->addWidget(boxValori);
+    layoutDx->addLayout(layoutNV);
+    layoutNV->addLayout(layoutNomi);
+    layoutNV->addLayout(layoutValori);
+    layoutNomi->addWidget(nomeForza);
+    layoutNomi->addWidget(nomeMagia);
+    layoutNomi->addWidget(nomeDifesa);
+    layoutNomi->addWidget(nomeScienza);
+    layoutNomi->addWidget(nomeMedia);
+    layoutNomi->addWidget(nomeSpeciale);
+    layoutNomi->addWidget(nomeLvl);
+    layoutNomi->addWidget(nomeExp);
+    layoutNomi->addWidget(nomeTerreno);
     layoutValori->addWidget(valoreForza);
     layoutValori->addWidget(valoreMagia);
     layoutValori->addWidget(valoreDifesa);
@@ -85,7 +105,9 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
     formCrea->addRow("Nome:", inserisciNome);
 
-    boxDescrizione->setMaximumSize(300,200);
+    boxValori->setFixedWidth(180);
+    layoutValori->setAlignment(Qt::AlignHCenter);
+    boxDescrizione->setMaximumSize(400,200);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
 
     powerUp5->hide();
@@ -255,6 +277,51 @@ QLabel *CreaAvatar::getTerrenoPreferito() const
 QLabel *CreaAvatar::getImmagineAvatar() const
 {
     return immagineAvatar;
+}
+
+QLabel *CreaAvatar::getNomeLvl() const
+{
+    return nomeLvl;
+}
+
+QLabel *CreaAvatar::getNomeForza() const
+{
+    return nomeForza;
+}
+
+QLabel *CreaAvatar::getNomeMagia() const
+{
+    return nomeMagia;
+}
+
+QLabel *CreaAvatar::getNomeDifesa() const
+{
+    return nomeDifesa;
+}
+
+QLabel *CreaAvatar::getNomeScienza() const
+{
+    return nomeScienza;
+}
+
+QLabel *CreaAvatar::getNomeMedia() const
+{
+    return nomeMedia;
+}
+
+QLabel *CreaAvatar::getNomeSpeciale() const
+{
+    return nomeSpeciale;
+}
+
+QLabel *CreaAvatar::getNomeExp() const
+{
+    return nomeExp;
+}
+
+QLabel *CreaAvatar::getNomeTerreno() const
+{
+    return nomeTerreno;
 }
 
 QLineEdit *CreaAvatar::getInserisciNome() const

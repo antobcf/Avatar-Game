@@ -2,7 +2,7 @@
 
 Sviluppatori::Sviluppatori(QWidget *parent) :
     immagineSviluppatori(new QLabel(this)),
-    testoSviluppatori(new QLabel("Gli sviluppatori di questo gioco sono Antonio Belculfinè e Luca Modica.", this))
+    testoSviluppatori(new QLabel(this))
 {
     QVBoxLayout* layoutSviluppatori = new QVBoxLayout(this);
 
@@ -11,4 +11,5 @@ Sviluppatori::Sviluppatori(QWidget *parent) :
     immagineSviluppatori->setPixmap(y1);
 
     layoutSviluppatori->addWidget(testoSviluppatori);
+    testoSviluppatori->setText("Gli sviluppatori di questo gioco sono Antonio Belculfinè e Luca Modica.");
 }

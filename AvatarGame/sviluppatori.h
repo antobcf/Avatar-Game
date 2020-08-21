@@ -3,7 +3,7 @@
 
 #include <QDialog>
 #include <QLabel>
-#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 class Sviluppatori : public QDialog
 {

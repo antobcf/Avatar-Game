@@ -229,6 +229,51 @@ QLabel *ModificaAvatar::getExp() const
     return exp;
 }
 
+QLabel *ModificaAvatar::getNomeLvl() const
+{
+    return nomeLvl;
+}
+
+QLabel *ModificaAvatar::getNomeForza() const
+{
+    return nomeForza;
+}
+
+QLabel *ModificaAvatar::getNomeMagia() const
+{
+    return nomeMagia;
+}
+
+QLabel *ModificaAvatar::getNomeDifesa() const
+{
+    return nomeDifesa;
+}
+
+QLabel *ModificaAvatar::getNomeScienza() const
+{
+    return nomeScienza;
+}
+
+QLabel *ModificaAvatar::getNomeMedia() const
+{
+    return nomeMedia;
+}
+
+QLabel *ModificaAvatar::getNomeSpeciale() const
+{
+    return nomeSpeciale;
+}
+
+QLabel *ModificaAvatar::getNomeExp() const
+{
+    return nomeExp;
+}
+
+QLabel *ModificaAvatar::getNomeTerreno() const
+{
+    return nomeTerreno;
+}
+
 QLabel *ModificaAvatar::getLabelSesso() const
 {
     return labelSesso;

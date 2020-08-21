@@ -177,9 +177,12 @@ release/qrc_risorse.cpp: ../AvatarGame/risorse.qrc \
 		C:/Qt/5.15.0/mingw81_64/bin/rcc.exe \
 		../AvatarGame/Risorse/style.css \
 		../AvatarGame/Risorse/Immagini\ Avatar/Elfo\ Maschio.png \
+		../AvatarGame/Risorse/Immagini\ Avatar/logo_titolo.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/vs.png \
+		../AvatarGame/Risorse/Immagini\ Avatar/home.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Nano\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Mostro\ Femmina.png \
+		../AvatarGame/Risorse/Immagini\ Avatar/logo.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Umano\ Femmina.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Nano\ Maschio.png \
 		../AvatarGame/Risorse/Immagini\ Avatar/Mostro\ Maschio.png \
@@ -520,6 +523,8 @@ release/moc_controller.cpp: ../AvatarGame/controller.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
+		../AvatarGame/infosistema.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QIcon \
 		release/moc_predefs.h \
 		C:/Qt/5.15.0/mingw81_64/bin/moc.exe
@@ -793,7 +798,7 @@ release/moc_infosistema.cpp: ../AvatarGame/infosistema.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
@@ -1612,7 +1617,7 @@ release/moc_sviluppatori.cpp: ../AvatarGame/sviluppatori.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
@@ -1837,6 +1842,8 @@ release/controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
+		../AvatarGame/infosistema.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\controller.o ..\AvatarGame\controller.cpp
 
@@ -2240,7 +2247,7 @@ release/infosistema.o: ../AvatarGame/infosistema.cpp ../AvatarGame/infosistema.h
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
@@ -2734,6 +2741,8 @@ release/main.o: ../AvatarGame/main.cpp ../AvatarGame/modello.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
 		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
+		../AvatarGame/infosistema.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QIcon \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QApplication \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qapplication.h \
@@ -2981,7 +2990,93 @@ release/menu.o: ../AvatarGame/menu.cpp ../AvatarGame/menu.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QWidget \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QMessageBox \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qmessagebox.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdialog.h
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qdialog.h \
+		../AvatarGame/controller.h \
+		../AvatarGame/modello.h \
+		../AvatarGame/container.h \
+		../AvatarGame/gerarchia.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QSaveFile \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qsavefile.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QFile \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QXmlStreamWriter \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qxmlstream.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QDebug \
+		../AvatarGame/avatarhome.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QPushButton \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QLabel \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlabel.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qframe.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QVBoxLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayout.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGridLayout \
+		../AvatarGame/creaavatar.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QLineEdit \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextcursor.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextformat.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qpen.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextoption.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QCheckBox \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QGroupBox \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qgroupbox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QTextEdit \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtextedit.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qtextdocument.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QComboBox \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qcombobox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/qvalidator.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qslider.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qstyle.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/QImage \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QFormLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qformlayout.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QRadioButton \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qradiobutton.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QFileDialog \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qdir.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qfileinfo.h \
+		../AvatarGame/listaavatar.h \
+		../AvatarGame/item.h \
+		../AvatarGame/elencoavatar.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QListWidgetItem \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlistview.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QListWidget \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QScrollBar \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qscrollbar.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QScrollArea \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qscrollarea.h \
+		../AvatarGame/modificaavatar.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QDialog \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QString \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/QTimer \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
+		../AvatarGame/scontro.h \
+		../AvatarGame/sviluppatori.h \
+		../AvatarGame/infosistema.h \
+		C:/Qt/5.15.0/mingw81_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\menu.o ..\AvatarGame\menu.cpp
 
 release/modello.o: ../AvatarGame/modello.cpp ../AvatarGame/modello.h \
@@ -3421,6 +3516,8 @@ release/scontro.o: ../AvatarGame/scontro.cpp ../AvatarGame/scontro.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/QTimer \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qtimer.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtCore/qbasictimer.h \
+		../AvatarGame/sviluppatori.h \
+		../AvatarGame/infosistema.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtGui/QIcon
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\scontro.o ..\AvatarGame\scontro.cpp
 
@@ -3532,7 +3629,7 @@ release/sviluppatori.o: ../AvatarGame/sviluppatori.cpp ../AvatarGame/sviluppator
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QLabel \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlabel.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qframe.h \
-		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayout.h \
 		C:/Qt/5.15.0/mingw81_64/include/QtWidgets/qlayoutitem.h \

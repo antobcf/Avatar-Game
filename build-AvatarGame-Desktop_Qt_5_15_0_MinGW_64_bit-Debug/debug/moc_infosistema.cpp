@@ -21,25 +21,25 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_infoSistema_t {
+struct qt_meta_stringdata_InfoSistema_t {
     QByteArrayData data[1];
     char stringdata0[12];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_infoSistema_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_InfoSistema_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_infoSistema_t qt_meta_stringdata_infoSistema = {
+static const qt_meta_stringdata_InfoSistema_t qt_meta_stringdata_InfoSistema = {
     {
-QT_MOC_LITERAL(0, 0, 11) // "infoSistema"
+QT_MOC_LITERAL(0, 0, 11) // "InfoSistema"
 
     },
-    "infoSistema"
+    "InfoSistema"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_infoSistema[] = {
+static const uint qt_meta_data_InfoSistema[] = {
 
  // content:
        8,       // revision
@@ -55,7 +55,7 @@ static const uint qt_meta_data_infoSistema[] = {
        0        // eod
 };
 
-void infoSistema::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void InfoSistema::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     Q_UNUSED(_o);
     Q_UNUSED(_id);
@@ -63,30 +63,30 @@ void infoSistema::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject infoSistema::staticMetaObject = { {
+QT_INIT_METAOBJECT const QMetaObject InfoSistema::staticMetaObject = { {
     QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_infoSistema.data,
-    qt_meta_data_infoSistema,
+    qt_meta_stringdata_InfoSistema.data,
+    qt_meta_data_InfoSistema,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *infoSistema::metaObject() const
+const QMetaObject *InfoSistema::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *infoSistema::qt_metacast(const char *_clname)
+void *InfoSistema::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_infoSistema.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_InfoSistema.stringdata0))
         return static_cast<void*>(this);
     return QDialog::qt_metacast(_clname);
 }
 
-int infoSistema::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int InfoSistema::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
     return _id;

@@ -33,6 +33,15 @@ private:
     QLabel* valoreMedia;
     QLabel* valoreSpeciale;
     QLabel* exp;
+    QLabel* nomeLvl;
+    QLabel* nomeForza;
+    QLabel* nomeMagia;
+    QLabel* nomeDifesa;
+    QLabel* nomeScienza;
+    QLabel* nomeMedia;
+    QLabel* nomeSpeciale;
+    QLabel* nomeExp;
+    QLabel* nomeTerreno;
     QLabel* labelSesso;
     QLabel* terrenoPreferito;
     QLabel* immagineAvatar;
@@ -66,6 +75,15 @@ public:
     QLabel* getValoreMedia() const;
     QLabel* getValoreSpeciale() const;
     QLabel* getExp() const;
+    QLabel* getNomeLvl() const;
+    QLabel* getNomeForza() const;
+    QLabel* getNomeMagia() const;
+    QLabel* getNomeDifesa() const;
+    QLabel* getNomeScienza() const;
+    QLabel* getNomeMedia() const;
+    QLabel* getNomeSpeciale() const;
+    QLabel* getNomeExp() const;
+    QLabel* getNomeTerreno() const;
     QLabel* getLabelSesso() const;
     QLabel* getTerrenoPreferito() const;
     QLabel* getImmagineAvatar() const;
@@ -88,7 +106,6 @@ public:
     QString getPercorsoImmagine() const;
 
     void inserisciPercorso(std::string);
-
 
 public slots:
     void checkUno();

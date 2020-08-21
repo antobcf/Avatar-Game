@@ -9,6 +9,7 @@
 #include "modificaavatar.h"
 #include "scontro.h"
 #include "sviluppatori.h"
+#include "infosistema.h"
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -29,6 +30,7 @@ private:
     ModificaAvatar* vistaModifica;
     Scontro* vistaScontro;
     Sviluppatori* vistaSviluppatori;
+    InfoSistema* vistaInfo;
     Modello* modello;
     QString destinazione;
     void setAvatarGameStyle();
@@ -44,6 +46,7 @@ public slots:
     void mostraLista();
     void mostraScontro();
     void mostraSviluppatori();
+    void mostraInformazioniSistema();
     void infoPopHome();
     void infoPopLista();
     void inserisciAvatar();

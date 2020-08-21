@@ -1,9 +1,10 @@
 #include "infosistema.h"
 
-infoSistema::infoSistema(QWidget *parent) :
-    testoSistema(new QLabel("Stai usando la versione 1.0.0 del gioco", this))
+InfoSistema::InfoSistema(QWidget *parent) :
+    testoSistema(new QLabel(this))
 {
-    QHBoxLayout* layoutSistema = new QHBoxLayout(this);
+    QVBoxLayout* layoutSistema = new QVBoxLayout(this);
 
     layoutSistema->addWidget(testoSistema);
+    testoSistema->setText("Stai usando la versione 1.0.0 del gioco");
 }

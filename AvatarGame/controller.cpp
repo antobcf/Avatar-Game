@@ -1,6 +1,5 @@
 #include "controller.h"
 
-
 Controller::Controller(Modello* m, QWidget *parent) :
     QWidget(parent),
     layoutPrincipale(new QVBoxLayout(this)),
@@ -111,6 +110,14 @@ void Controller::mostraSviluppatori() {
     vistaSviluppatori->setWindowTitle("Info sviluppatori");
     vistaSviluppatori->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/logo.png"));
     vistaSviluppatori->show();
+}
+
+void Controller::mostraInformazioniSistema()
+{
+    vistaInfo->setModal(true);
+    vistaInfo->setWindowTitle("Informazioni di sistema");
+    vistaInfo->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/logo.png"));
+    vistaInfo->show();
 }
 
 
@@ -1608,7 +1615,7 @@ void Controller::calcoloValori(Avatar* x)
 
 void Controller::setAvatarGameStyle()
 {
-    setFixedSize(QSize(800,500));
+    setFixedSize(QSize(1000,650));
 
     QFile file(":/Risorse/style.css");
     file.open(QFile::ReadOnly);

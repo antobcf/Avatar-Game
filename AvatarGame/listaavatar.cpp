@@ -39,7 +39,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     elenco->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     elenco->setFixedWidth(500);
 
-
     connect(elenco,SIGNAL(itemSelectionChanged()), this, SLOT(avatarSelezionato()));
     connect(azzeraRicerca,SIGNAL(clicked()),this,SLOT(resetLista()));
 

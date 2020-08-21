@@ -12,6 +12,15 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     valoreMedia(new QLabel(this)),
     valoreSpeciale(new QLabel(this)),
     exp(new QLabel(this)),
+    nomeLvl(new QLabel("LVL:", this)),
+    nomeForza(new QLabel("Forza:", this)),
+    nomeMagia(new QLabel("Magia:", this)),
+    nomeDifesa(new QLabel("Difesa:", this)),
+    nomeScienza(new QLabel("Scienza:", this)),
+    nomeMedia(new QLabel("Media:", this)),
+    nomeSpeciale(new QLabel("V. Speciale:", this)),
+    nomeExp(new QLabel("Exp:", this)),
+    nomeTerreno(new QLabel("Terreno:", this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     terrenoPreferito(new QLabel(this)),
     immagineAvatar(new QLabel(this)),
@@ -37,17 +46,17 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     QVBoxLayout* layoutDx = new QVBoxLayout();
     QHBoxLayout* layoutSesso = new QHBoxLayout();
     QHBoxLayout* layoutPu = new QHBoxLayout();
+    QHBoxLayout* layoutNV = new QHBoxLayout();
+    QVBoxLayout* layoutNomi = new QVBoxLayout();
     QVBoxLayout* layoutValori = new QVBoxLayout();
-
-    boxValori->setLayout(layoutValori);
 
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
     layoutSx->addLayout(formCrea);
 
     layoutSx->addWidget(tipoAvatar);
+    layoutSx->addWidget(labelSesso);
     layoutSx->addLayout(layoutSesso);
-    layoutSesso->addWidget(labelSesso);
     layoutSesso->addWidget(sessoM);
     layoutSesso->addWidget(sessoF);
     layoutSx->addWidget(inserisciNome);
@@ -64,6 +73,20 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutSx->addWidget(boxDescrizione);
     layoutSx->addWidget(bottoneSalvaModifiche);
     layoutDx->addWidget(immagineAvatar);
+    boxValori->setLayout(layoutNV);
+    layoutDx->addWidget(boxValori);
+    layoutDx->addLayout(layoutNV);
+    layoutNV->addLayout(layoutNomi);
+    layoutNV->addLayout(layoutValori);
+    layoutNomi->addWidget(nomeForza);
+    layoutNomi->addWidget(nomeMagia);
+    layoutNomi->addWidget(nomeDifesa);
+    layoutNomi->addWidget(nomeScienza);
+    layoutNomi->addWidget(nomeMedia);
+    layoutNomi->addWidget(nomeSpeciale);
+    layoutNomi->addWidget(nomeLvl);
+    layoutNomi->addWidget(nomeExp);
+    layoutNomi->addWidget(nomeTerreno);
     layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
     layoutValori->addWidget(valoreForza);
@@ -80,7 +103,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     formCrea->addRow("Tipo di Avatar:", tipoAvatar);
     formCrea->addRow("Nome:", inserisciNome);
 
-    setFixedSize(450,400);
+    setFixedSize(450,430);
 
     boxDescrizione->setMaximumSize(250,150);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");

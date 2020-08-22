@@ -102,9 +102,10 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     formCrea->addRow("Tipo di Avatar:", tipoAvatar);
     formCrea->addRow("Nome:", inserisciNome);
 
-    setFixedSize(450,430);
+    setFixedSize(540,480);
 
-    boxDescrizione->setMaximumSize(250,150);
+    boxDescrizione->setFixedHeight(150);
+    boxDescrizione->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
 
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));

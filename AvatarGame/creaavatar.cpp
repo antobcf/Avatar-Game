@@ -105,8 +105,9 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
     formCrea->addRow("Nome:", inserisciNome);
 
-    boxValori->setFixedWidth(180);
-    boxDescrizione->setMaximumSize(400,200);
+    boxValori->setFixedWidth(260);
+    boxDescrizione->setFixedHeight(200);
+    boxDescrizione->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
 
     powerUp5->hide();

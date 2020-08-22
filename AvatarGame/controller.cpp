@@ -339,6 +339,12 @@ void Controller::modificaAvatar()
 {
     vistaModifica->resetTutto();
 
+    QFile file(":/Risorse/style.css");
+    file.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(file.readAll());
+
+    setStyleSheet(styleSheet);
+
     ElencoAvatar* aux = nullptr;
     Avatar* itemA = nullptr;
 

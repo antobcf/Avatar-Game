@@ -152,6 +152,8 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     nomeExp->setObjectName("grassetto");
     nomeTerreno->setObjectName("grassetto");
 
+    inserisciNome->setMaxLength(6);
+
 }
 
 

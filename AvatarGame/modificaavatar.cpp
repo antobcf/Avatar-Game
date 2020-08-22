@@ -132,6 +132,8 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     nomeLvl->setObjectName("grassetto");
     nomeExp->setObjectName("grassetto");
     nomeTerreno->setObjectName("grassetto");
+
+    inserisciNome->setMaxLength(6);
 }
 
 

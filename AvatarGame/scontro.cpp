@@ -75,10 +75,10 @@ Scontro::Scontro(QWidget *parent) :
     layoutScontroDx->addWidget(titoloMediaDx, 0, Qt::AlignCenter);
     layoutScontroDx->addWidget(mediaDx, 0, Qt::AlignCenter);
 
-    powerupSx->setObjectName("titoliScontro");
-    titoloMediaSx->setObjectName("titoliScontro");
-    powerupDx->setObjectName("titoliScontro");
-    titoloMediaDx->setObjectName("titoliScontro");
+    powerupSx->setObjectName("grassetto");
+    titoloMediaSx->setObjectName("grassetto");
+    powerupDx->setObjectName("grassetto");
+    titoloMediaDx->setObjectName("grassetto");
 
     QPixmap *p=new QPixmap(":/Risorse/Immagini Avatar/vs");
     QPixmap p1(p->scaled(85,85, Qt::IgnoreAspectRatio));

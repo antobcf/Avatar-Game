@@ -121,6 +121,16 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
 
     immagineAvatar->setFixedSize(150,150);
+
+    nomeForza->setObjectName("grassetto");
+    nomeMagia->setObjectName("grassetto");
+    nomeDifesa->setObjectName("grassetto");
+    nomeScienza->setObjectName("grassetto");
+    nomeMedia->setObjectName("grassetto");
+    nomeSpeciale->setObjectName("grassetto");
+    nomeLvl->setObjectName("grassetto");
+    nomeExp->setObjectName("grassetto");
+    nomeTerreno->setObjectName("grassetto");
 }
 
 

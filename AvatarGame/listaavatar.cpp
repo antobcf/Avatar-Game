@@ -2,7 +2,7 @@
 
 
 ListaAvatar::ListaAvatar(QWidget *parent) :
-    bottoneHome(new QPushButton("Home", this)),
+    bottoneHome(new QPushButton(this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
     azzeraRicerca(new QPushButton("Azzera ricera",this)),
     cercaNome(new QLineEdit(this)),
@@ -69,6 +69,10 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome->setFixedHeight(30);
     bottoneInfoLista->setFixedSize(30,30);
     bottoneInfoLista->setObjectName("info");
+
+    bottoneHome->setIcon(QIcon(":/Risorse/Immagini Avatar/home.png"));
+    bottoneHome->setIconSize(QSize(30, 30));
+    bottoneHome->setFixedSize(40,40);
 }
 
 QCheckBox *ListaAvatar::getTipoElfo() const

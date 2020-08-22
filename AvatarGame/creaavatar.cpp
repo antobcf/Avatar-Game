@@ -141,6 +141,16 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
 
     immagineAvatar->setFixedSize(150,150);
 
+    nomeForza->setObjectName("grassetto");
+    nomeMagia->setObjectName("grassetto");
+    nomeDifesa->setObjectName("grassetto");
+    nomeScienza->setObjectName("grassetto");
+    nomeMedia->setObjectName("grassetto");
+    nomeSpeciale->setObjectName("grassetto");
+    nomeLvl->setObjectName("grassetto");
+    nomeExp->setObjectName("grassetto");
+    nomeTerreno->setObjectName("grassetto");
+
 }
 
 

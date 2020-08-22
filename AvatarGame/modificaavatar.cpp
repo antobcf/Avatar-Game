@@ -74,8 +74,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutSx->addWidget(bottoneSalvaModifiche);
     layoutDx->addWidget(immagineAvatar);
     boxValori->setLayout(layoutNV);
-    layoutDx->addWidget(boxValori);
-    layoutDx->addLayout(layoutNV);
+    //layoutDx->addLayout(layoutNV);
     layoutNV->addLayout(layoutNomi);
     layoutNV->addLayout(layoutValori);
     layoutNomi->addWidget(nomeForza);
@@ -87,7 +86,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutNomi->addWidget(nomeLvl);
     layoutNomi->addWidget(nomeExp);
     layoutNomi->addWidget(nomeTerreno);
-    layoutDx->addLayout(layoutValori);
+    //layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
     layoutValori->addWidget(valoreForza);
     layoutValori->addWidget(valoreScienza);

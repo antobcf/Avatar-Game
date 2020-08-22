@@ -78,7 +78,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutDx->addWidget(immagineAvatar);
     boxValori->setLayout(layoutNV);
     layoutDx->addWidget(boxValori);
-    layoutDx->addLayout(layoutNV);
+    //layoutDx->addLayout(layoutNV);
     layoutNV->addLayout(layoutNomi);
     layoutNV->addLayout(layoutValori);
     layoutNomi->addWidget(nomeForza);

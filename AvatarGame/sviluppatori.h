@@ -16,6 +16,4 @@ public:
     Sviluppatori(QWidget * = nullptr);
 
 };
-
-
 #endif // SVILUPPATORI_H

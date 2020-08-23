@@ -34,15 +34,6 @@ private:
     QLabel* powerup4selezionatoDx;
     QLabel* titoloMediaDx;
     QLabel* mediaDx;
-    QString* forza;
-    QString* magia;
-    QString* difesa;
-    QString* scienza;
-    QString* lvl;
-    QString* valoreSpeciale;
-    QString* valoreSpeciale2;
-    QString* exp;
-    QString* terrenoPreferito;
     QLabel* fotoAvatar1;
     QLabel* fotoAvatar2;
 
@@ -70,15 +61,6 @@ public:
     QLabel* getPowerup4selezionatoDx() const;
     QLabel* getTitoloMediaDx() const;
     QLabel* getMediaDx() const;
-//    QString* getForza() const;
-//    QString* getMagia() const;
-//    QString* getDifesa() const;
-//    QString* getScienza() const;
-//    QString* getLvl() const;
-//    QString* getValoreSpeciale() const;
-//    QString* getValoreSpeciale2() const;
-//    QString* getExp() const;
-//    QString* getTerrenoPreferito() const;
     QLabel* getFotoAvatar1() const;
     QLabel* getFotoAvatar2() const;
 

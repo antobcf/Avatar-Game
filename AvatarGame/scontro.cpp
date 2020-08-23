@@ -195,31 +195,6 @@ QLabel *Scontro::getMediaDx() const
     return mediaDx;
 }
 
-//QString *Scontro::getForza() const
-//{
-//    return forza;
-//}
-
-//QString *Scontro::getMagia() const
-//{
-//    return magia;
-//}
-
-//QString *Scontro::getDifesa() const
-//{
-//    return difesa;
-//}
-
-//QString *Scontro::getScienza() const
-//{
-//    return scienza;
-//}
-
-//QString *Scontro::getValoreSpeciale2() const
-//{
-//    return valoreSpeciale2;
-//}
-
 QLabel *Scontro::getFotoAvatar1() const
 {
     return fotoAvatar1;

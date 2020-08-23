@@ -917,138 +917,139 @@ void Controller::salva()
 
     if(nome == "")
         QMessageBox::warning(this, "Attenzione", "Compila tutti i campi");
-    if(nome != nomeOriginale) {
-        if(modello->getLista()->ricerca(item)) {
-            bool match = false;
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-            while(val != valFin && !match) {
-                if(*item == *(*val)) {
-                    match = true;
-                    QMessageBox::warning(this, "Errore",  "Nome già usato");
-                    return;
+    else {
+        if(nome != nomeOriginale) {
+            if(modello->getLista()->ricerca(item)) {
+                bool match = false;
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+                while(val != valFin && !match) {
+                    if(*item == *(*val)) {
+                        match = true;
+                        QMessageBox::warning(this, "Errore",  "Nome già usato");
+                        return;
+                    }
+                    ++val;
                 }
-                ++val;
-            }
-        } else if(modello->getLista()->ricerca(item2)) {
-            bool match = false;
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-            while(val != valFin && !match) {
-                if(*item2 == *(*val)) {
-                    match = true;
-                    QMessageBox::warning(this, "Errore",  "Nome già usato");
-                    return;
+            } else if(modello->getLista()->ricerca(item2)) {
+                bool match = false;
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+                while(val != valFin && !match) {
+                    if(*item2 == *(*val)) {
+                        match = true;
+                        QMessageBox::warning(this, "Errore",  "Nome già usato");
+                        return;
+                    }
+                    ++val;
                 }
-                ++val;
-            }
-        } else if(modello->getLista()->ricerca(item3)) {
-            bool match = false;
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-            while(val != valFin && !match) {
-                if(*item3 == *(*val)) {
-                    match = true;
-                    QMessageBox::warning(this, "Errore",  "Nome già usato");
-                    return;
+            } else if(modello->getLista()->ricerca(item3)) {
+                bool match = false;
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+                while(val != valFin && !match) {
+                    if(*item3 == *(*val)) {
+                        match = true;
+                        QMessageBox::warning(this, "Errore",  "Nome già usato");
+                        return;
+                    }
+                    ++val;
                 }
-                ++val;
-            }
-        } else if(modello->getLista()->ricerca(item4)) {
-            bool match = false;
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-            while(val != valFin && !match) {
-                if(*item4 == *(*val)) {
-                    match = true;
-                    QMessageBox::warning(this, "Errore",  "Nome già usato");
-                    return;
+            } else if(modello->getLista()->ricerca(item4)) {
+                bool match = false;
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+                while(val != valFin && !match) {
+                    if(*item4 == *(*val)) {
+                        match = true;
+                        QMessageBox::warning(this, "Errore",  "Nome già usato");
+                        return;
+                    }
+                    ++val;
                 }
-                ++val;
-            }
-        } else if(modello->getLista()->ricerca(item5)) {
-            bool match = false;
-            Container<Avatar*>::iteratoreConst val = modello->beginConst();
-            Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-            while(val != valFin && !match) {
-                if(*item5 == *(*val)) {
-                    match = true;
-                    QMessageBox::warning(this, "Errore",  "Nome già usato");
-                    return;
+            } else if(modello->getLista()->ricerca(item5)) {
+                bool match = false;
+                Container<Avatar*>::iteratoreConst val = modello->beginConst();
+                Container<Avatar*>::iteratoreConst valFin = modello->endConst();
+                while(val != valFin && !match) {
+                    if(*item5 == *(*val)) {
+                        match = true;
+                        QMessageBox::warning(this, "Errore",  "Nome già usato");
+                        return;
+                    }
+                    ++val;
                 }
-                ++val;
             }
         }
+
+            itemA->setNome(nome);
+            itemA->setDescrizione(vistaModifica->getBoxDescrizione()->toPlainText().toStdString());
+            itemA->setLvl(vistaModifica->getLvl()->text().toUInt());
+            itemA->setExp(vistaModifica->getExp()->text().toUInt());
+            itemA->setForza(vistaModifica->getValoreForza()->text().toUInt());
+            itemA->setMagia(vistaModifica->getValoreMagia()->text().toUInt());
+            itemA->setDifesa(vistaModifica->getValoreDifesa()->text().toUInt());
+            itemA->setScienza(vistaModifica->getValoreScienza()->text().toUInt());
+            itemA->setMedia(vistaModifica->getValoreMedia()->text().toDouble());
+            itemA->setTerreno(vistaModifica->getTerrenoPreferito()->text().toStdString());
+            itemA->setSesso(vistaModifica->getSessoM()->isChecked());
+            itemA->setPercorsoImmagine(vistaModifica->getPercorsoImmagine().toStdString());
+
+            if(dynamic_cast<Elfo*>(itemA)) {
+                Elfo* e = static_cast<Elfo*>(itemA);
+
+                e->setSpada(vistaModifica->getPowerUp1()->isChecked());
+                e->setAnello(vistaModifica->getPowerUp2()->isChecked());
+                e->setScudo(vistaModifica->getPowerUp3()->isChecked());
+                e->setLibro(vistaModifica->getPowerUp4()->isChecked());
+                e->setTrasparentia(vistaModifica->getValoreSpeciale()->text().toDouble());
+
+
+            } else if(dynamic_cast<Nano*>(itemA)) {
+                Nano* n = static_cast<Nano*>(itemA);
+
+                n->setSpada(vistaModifica->getPowerUp1()->isChecked());
+                n->setAnello(vistaModifica->getPowerUp2()->isChecked());
+                n->setScudo(vistaModifica->getPowerUp3()->isChecked());
+                n->setLibro(vistaModifica->getPowerUp4()->isChecked());
+                n->setCorteccia(vistaModifica->getValoreSpeciale()->text().toDouble());
+
+
+            } else if(dynamic_cast<Umano*>(itemA)) {
+                Umano* u = static_cast<Umano*>(itemA);
+
+                u->setSpada(vistaModifica->getPowerUp1()->isChecked());
+                u->setAnello(vistaModifica->getPowerUp2()->isChecked());
+                u->setScudo(vistaModifica->getPowerUp3()->isChecked());
+                u->setLibro(vistaModifica->getPowerUp4()->isChecked());
+                u->setIngegno(vistaModifica->getValoreSpeciale()->text().toDouble());
+
+
+            } else if(dynamic_cast<Alieno*>(itemA)) {
+                Alieno* a = static_cast<Alieno*>(itemA);
+
+                a->setLaser(vistaModifica->getPowerUp5()->isChecked());
+                a->setAmuleto(vistaModifica->getPowerUp6()->isChecked());
+                a->setBarriera(vistaModifica->getPowerUp7()->isChecked());
+                a->setChip(vistaModifica->getPowerUp8()->isChecked());
+                a->setUfo(vistaModifica->getValoreSpeciale()->text().toDouble());
+
+
+            } else if(dynamic_cast<Mostro*>(itemA)) {
+                Mostro* m = static_cast<Mostro*>(itemA);
+
+                m->setLaser(vistaModifica->getPowerUp5()->isChecked());
+                m->setAmuleto(vistaModifica->getPowerUp6()->isChecked());
+                m->setBarriera(vistaModifica->getPowerUp7()->isChecked());
+                m->setChip(vistaModifica->getPowerUp8()->isChecked());
+                m->setPorta(vistaModifica->getValoreSpeciale()->text().toDouble());
+
+            }
+            modello->salvare();
+            carica();
+            vistaModifica->close();
+            QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
     }
-
-        itemA->setNome(nome);
-        itemA->setDescrizione(vistaModifica->getBoxDescrizione()->toPlainText().toStdString());
-        itemA->setLvl(vistaModifica->getLvl()->text().toUInt());
-        itemA->setExp(vistaModifica->getExp()->text().toUInt());
-        itemA->setForza(vistaModifica->getValoreForza()->text().toUInt());
-        itemA->setMagia(vistaModifica->getValoreMagia()->text().toUInt());
-        itemA->setDifesa(vistaModifica->getValoreDifesa()->text().toUInt());
-        itemA->setScienza(vistaModifica->getValoreScienza()->text().toUInt());
-        itemA->setMedia(vistaModifica->getValoreMedia()->text().toDouble());
-        itemA->setTerreno(vistaModifica->getTerrenoPreferito()->text().toStdString());
-        itemA->setSesso(vistaModifica->getSessoM()->isChecked());
-        itemA->setPercorsoImmagine(vistaModifica->getPercorsoImmagine().toStdString());
-
-        if(dynamic_cast<Elfo*>(itemA)) {
-            Elfo* e = static_cast<Elfo*>(itemA);
-
-            e->setSpada(vistaModifica->getPowerUp1()->isChecked());
-            e->setAnello(vistaModifica->getPowerUp2()->isChecked());
-            e->setScudo(vistaModifica->getPowerUp3()->isChecked());
-            e->setLibro(vistaModifica->getPowerUp4()->isChecked());
-            e->setTrasparentia(vistaModifica->getValoreSpeciale()->text().toDouble());
-
-
-        } else if(dynamic_cast<Nano*>(itemA)) {
-            Nano* n = static_cast<Nano*>(itemA);
-
-            n->setSpada(vistaModifica->getPowerUp1()->isChecked());
-            n->setAnello(vistaModifica->getPowerUp2()->isChecked());
-            n->setScudo(vistaModifica->getPowerUp3()->isChecked());
-            n->setLibro(vistaModifica->getPowerUp4()->isChecked());
-            n->setCorteccia(vistaModifica->getValoreSpeciale()->text().toDouble());
-
-
-        } else if(dynamic_cast<Umano*>(itemA)) {
-            Umano* u = static_cast<Umano*>(itemA);
-
-            u->setSpada(vistaModifica->getPowerUp1()->isChecked());
-            u->setAnello(vistaModifica->getPowerUp2()->isChecked());
-            u->setScudo(vistaModifica->getPowerUp3()->isChecked());
-            u->setLibro(vistaModifica->getPowerUp4()->isChecked());
-            u->setIngegno(vistaModifica->getValoreSpeciale()->text().toDouble());
-
-
-        } else if(dynamic_cast<Alieno*>(itemA)) {
-            Alieno* a = static_cast<Alieno*>(itemA);
-
-            a->setLaser(vistaModifica->getPowerUp5()->isChecked());
-            a->setAmuleto(vistaModifica->getPowerUp6()->isChecked());
-            a->setBarriera(vistaModifica->getPowerUp7()->isChecked());
-            a->setChip(vistaModifica->getPowerUp8()->isChecked());
-            a->setUfo(vistaModifica->getValoreSpeciale()->text().toDouble());
-
-
-        } else if(dynamic_cast<Mostro*>(itemA)) {
-            Mostro* m = static_cast<Mostro*>(itemA);
-
-            m->setLaser(vistaModifica->getPowerUp5()->isChecked());
-            m->setAmuleto(vistaModifica->getPowerUp6()->isChecked());
-            m->setBarriera(vistaModifica->getPowerUp7()->isChecked());
-            m->setChip(vistaModifica->getPowerUp8()->isChecked());
-            m->setPorta(vistaModifica->getValoreSpeciale()->text().toDouble());
-
-        }
-        modello->salvare();
-        carica();
-        vistaModifica->close();
-        QMessageBox::about(this, "Modifica effettuta", "L'Avatar è stato correttamente modificato :)");
-
 }
 
 void Controller::scontro()

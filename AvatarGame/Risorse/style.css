@@ -13,12 +13,6 @@ QPushButton#info{
 	border-radius: 15px;
 }
 
-QPushButton#modifica{
-	margin: 0;
-	padding: 0;
-	background-color: rgb(2,172,255);
-}
-
 QLabel#grassetto{
         font-weight: bold;
 }

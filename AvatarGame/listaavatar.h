@@ -31,7 +31,6 @@ private:
     QPushButton* bottoneRimuovi;
     QPushButton* bottoneAvvioGioco;
     QPushButton* bottoneInfoLista;
-
     item* elenco;
 
 public:

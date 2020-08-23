@@ -1,6 +1,5 @@
 #include "listaavatar.h"
 
-
 ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton(this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
@@ -15,7 +14,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneRimuovi(new QPushButton("Rimuovi", this)),
     bottoneAvvioGioco(new QPushButton("Gioca", this)),
     bottoneInfoLista(new QPushButton("?", this)),
-
     elenco(new item(this))
 
 {
@@ -32,7 +30,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutSelezioneAvatar->addLayout(layoutSx);
     layoutSelezioneAvatar->addLayout(layoutDx);
 
-    //scroll area
     layoutSx->addLayout(layoutincolonnamento);
     layoutincolonnamento->addWidget(elenco);
     elenco->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -165,5 +162,3 @@ void ListaAvatar::resetLista() const
     tipoAlieno->setChecked(false);
     tipoMostro->setChecked(false);
 }
-
-

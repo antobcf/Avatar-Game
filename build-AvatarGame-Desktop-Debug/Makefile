@@ -52,7 +52,6 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../AvatarGame/controller.cpp \
 		../AvatarGame/creaavatar.cpp \
-		../AvatarGame/eccezioni.cpp \
 		../AvatarGame/elencoavatar.cpp \
 		../AvatarGame/gerarchia.cpp \
 		../AvatarGame/infosistema.cpp \
@@ -77,7 +76,6 @@ SOURCES       = ../AvatarGame/controller.cpp \
 		moc_sviluppatori.cpp
 OBJECTS       = controller.o \
 		creaavatar.o \
-		eccezioni.o \
 		elencoavatar.o \
 		gerarchia.o \
 		infosistema.o \
@@ -155,6 +153,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../AvatarGame/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -178,7 +177,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../AvatarGame/container.h \
 		../AvatarGame/controller.h \
 		../AvatarGame/creaavatar.h \
-		../AvatarGame/eccezioni.h \
 		../AvatarGame/elencoavatar.h \
 		../AvatarGame/gerarchia.h \
 		../AvatarGame/infosistema.h \
@@ -190,7 +188,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../AvatarGame/scontro.h \
 		../AvatarGame/sviluppatori.h ../AvatarGame/controller.cpp \
 		../AvatarGame/creaavatar.cpp \
-		../AvatarGame/eccezioni.cpp \
 		../AvatarGame/elencoavatar.cpp \
 		../AvatarGame/gerarchia.cpp \
 		../AvatarGame/infosistema.cpp \
@@ -268,6 +265,7 @@ Makefile: ../AvatarGame/AvatarGame.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -347,6 +345,7 @@ Makefile: ../AvatarGame/AvatarGame.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/lin
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -387,8 +386,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../AvatarGame/risorse.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../AvatarGame/avatarhome.h ../AvatarGame/container.h ../AvatarGame/controller.h ../AvatarGame/creaavatar.h ../AvatarGame/eccezioni.h ../AvatarGame/elencoavatar.h ../AvatarGame/gerarchia.h ../AvatarGame/infosistema.h ../AvatarGame/item.h ../AvatarGame/listaavatar.h ../AvatarGame/menu.h ../AvatarGame/modello.h ../AvatarGame/modificaavatar.h ../AvatarGame/scontro.h ../AvatarGame/sviluppatori.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../AvatarGame/controller.cpp ../AvatarGame/creaavatar.cpp ../AvatarGame/eccezioni.cpp ../AvatarGame/elencoavatar.cpp ../AvatarGame/gerarchia.cpp ../AvatarGame/infosistema.cpp ../AvatarGame/item.cpp ../AvatarGame/listaavatar.cpp ../AvatarGame/main.cpp ../AvatarGame/avatarhome.cpp ../AvatarGame/menu.cpp ../AvatarGame/modello.cpp ../AvatarGame/modificaavatar.cpp ../AvatarGame/scontro.cpp ../AvatarGame/sviluppatori.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../AvatarGame/avatarhome.h ../AvatarGame/container.h ../AvatarGame/controller.h ../AvatarGame/creaavatar.h ../AvatarGame/elencoavatar.h ../AvatarGame/gerarchia.h ../AvatarGame/infosistema.h ../AvatarGame/item.h ../AvatarGame/listaavatar.h ../AvatarGame/menu.h ../AvatarGame/modello.h ../AvatarGame/modificaavatar.h ../AvatarGame/scontro.h ../AvatarGame/sviluppatori.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../AvatarGame/controller.cpp ../AvatarGame/creaavatar.cpp ../AvatarGame/elencoavatar.cpp ../AvatarGame/gerarchia.cpp ../AvatarGame/infosistema.cpp ../AvatarGame/item.cpp ../AvatarGame/listaavatar.cpp ../AvatarGame/main.cpp ../AvatarGame/avatarhome.cpp ../AvatarGame/menu.cpp ../AvatarGame/modello.cpp ../AvatarGame/modificaavatar.cpp ../AvatarGame/scontro.cpp ../AvatarGame/sviluppatori.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -531,9 +530,6 @@ controller.o: ../AvatarGame/controller.cpp ../AvatarGame/controller.h \
 
 creaavatar.o: ../AvatarGame/creaavatar.cpp ../AvatarGame/creaavatar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o creaavatar.o ../AvatarGame/creaavatar.cpp
-
-eccezioni.o: ../AvatarGame/eccezioni.cpp ../AvatarGame/eccezioni.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o eccezioni.o ../AvatarGame/eccezioni.cpp
 
 elencoavatar.o: ../AvatarGame/elencoavatar.cpp ../AvatarGame/elencoavatar.h \
 		../AvatarGame/gerarchia.h \

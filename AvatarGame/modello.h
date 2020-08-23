@@ -22,7 +22,6 @@ public:
     void salvare();
     void caricare();
     void rimuovi(Avatar* =nullptr);
-    void rimuoviTutto();
     void setPercorso(std::string);
     Container<Avatar*>* getLista() const;
     Container<Avatar*>::iteratore begin();

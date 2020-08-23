@@ -6,8 +6,6 @@ Sviluppatori::Sviluppatori(QWidget *parent) :
 {
     QVBoxLayout* layoutSviluppatori = new QVBoxLayout(this);
 
-
-
     layoutSviluppatori->addWidget(testoSviluppatori);
     testoSviluppatori->setText("Il seguente software è stato sviluppato da:\n- Antonio Belculfinè\n- Luca Modica");
 }

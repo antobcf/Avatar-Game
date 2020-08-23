@@ -25,8 +25,5 @@ public:
     QPushButton* getBottoneGioca() const;
     QPushButton* getBottoneInfo() const;
 
-public slots:
-
-
 };
 #endif // AVATARHOME_H

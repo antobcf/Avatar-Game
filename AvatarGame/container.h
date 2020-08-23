@@ -11,7 +11,7 @@ private:
     class smartP {
         public:
             nodo* ptr;
-            smartP(nodo* p=0); //agisce da convertitore da nodo* a smartP e funziona anche da costruttore senza argomenti
+            smartP(nodo* p=0);
             smartP(const smartP&);
             ~smartP();
             smartP& operator=(const smartP&);
@@ -26,7 +26,7 @@ private:
         T info;
         smartP prev, next;
         nodo();
-        nodo(const T&, const smartP&, const smartP&); //vanno gli & su smartP?
+        nodo(const T&, const smartP&, const smartP&);
         int riferimenti;
     };
     smartP primo;
@@ -35,7 +35,7 @@ private:
 public:
     class iteratore {
     private:
-        smartP* punt; //forse ci va *
+        smartP* punt;
         bool pte; //vero se past the end
     public:
         iteratore();
@@ -51,7 +51,7 @@ public:
 
     class iteratoreConst {
     private:
-        const smartP* punt; //forse ci va *
+        const smartP* punt;
         bool pte; //vero se past the end
     public:
         iteratoreConst();
@@ -67,8 +67,9 @@ public:
     };
 
     //METODI CONTAINER
-    Container(): primo(nullptr), ultimo(nullptr) {} //la definizione sicuro non va qui, il nullptr serve?
-    void inserisci(const T&);//metodo per l'inserimento alla fine della lista di un nuovo elemento
+
+    Container(): primo(nullptr), ultimo(nullptr) {}
+    void inserisci(const T&);
     void rimuovi(const T&);
     bool ricerca(const T&) const;
     iteratore begin();
@@ -79,18 +80,19 @@ public:
 };
 
 //METODI SMARTP
+
 template  <class T>
-Container<T>::smartP::smartP(nodo* p):ptr(p) { //COSTRUTTORE
+Container<T>::smartP::smartP(nodo* p):ptr(p) {
     if(ptr) ptr->riferimenti++;
 }
 
 template  <class T>
-Container<T>::smartP::smartP(const smartP& s):ptr(s.ptr) { //COSTRUTTORE DI COPIA
+Container<T>::smartP::smartP(const smartP& s):ptr(s.ptr) {
     if(ptr) ptr->riferimenti++;
 }
 
 template <class T>
-Container<T>::smartP::~smartP() { //DISTRUTTORE
+Container<T>::smartP::~smartP() {
     if(ptr) {
         ptr->riferimenti--;
         if(ptr->riferimenti==0)
@@ -99,7 +101,7 @@ Container<T>::smartP::~smartP() { //DISTRUTTORE
 }
 
 template  <class T>
-typename Container<T>::smartP& Container<T>::smartP::operator=(const smartP& s) { //ASSEGNAZIONE
+typename Container<T>::smartP& Container<T>::smartP::operator=(const smartP& s) {
     if(this!=&s) {
         nodo* t=ptr;
         ptr=s.ptr;
@@ -165,19 +167,19 @@ int Container<T>::counter() {
 
 template<class T>
 void Container<T>::rimuovi(const T& t) {
-    smartP p = primo; //lo uso per scorrere la lista
-    smartP z; //punta al nodo precedente
-    smartP prec = nullptr; //è il nodo precedente a p
-    smartP o = primo; //mi salvo il valore originale in prima posizione
+    smartP p = primo;
+    smartP z;
+    smartP prec = nullptr;
+    smartP o = primo;
     primo = 0;
 
     while(p!=0 && !((p.ptr)->info==t)) {
         z = new nodo((p.ptr)->info, (p.ptr)->prev, (p.ptr)->next);
 
-        if((p.ptr)->prev == nullptr) //se ci troviamo nella posizione iniziale, allora q diventa primo perchè p diventerà il valore successivo
+        if((p.ptr)->prev == nullptr)
             primo = z;
         else {
-            (prec.ptr)->next=z; //se non siamo nella posizione iniziale, facciamo i dovuti spostamenti
+            (prec.ptr)->next=z;
             (z.ptr)->prev=prec;
         }
 
@@ -185,21 +187,21 @@ void Container<T>::rimuovi(const T& t) {
         p = p.ptr->next;
     }
 
-    if(p==0) { //cioè se scorro tutta la lista e p mi va a puntare al next di ultimo e quindi non ho trovato s nella lista
+    if(p==0) {
         primo = o;
     } else {
         if(prec==nullptr && (p.ptr)->next == nullptr)
-            primo = ultimo = nullptr; //c'era sono un elemento nella lista e noi lo abbiamo tolto
+            primo = ultimo = nullptr;
         else {
-            if(prec == nullptr) {//l'oggettto era nella prima posizione
+            if(prec == nullptr) {
                 primo=p.ptr->next;
-                (primo.ptr)->prev = nullptr; //il primo non lo facciamo puntare a nulla cosi si rimuove dalla lista
+                (primo.ptr)->prev = nullptr;
             } else {
                 if(p->next!=nullptr) {
                     (prec.ptr)->next=p.ptr->next;
                     (p.ptr)->next->prev=prec;
                 } else {
-                    (prec.ptr)->next= p.ptr->next; //cioe nullptr
+                    (prec.ptr)->next= p.ptr->next;
                     ultimo = prec;
                 }
             }
@@ -223,6 +225,7 @@ bool Container<T>::ricerca(const T & r) const
 
 
 //METODI NODO
+
 template <class T>
 Container<T>::nodo::nodo():riferimenti(0) {}
 
@@ -230,6 +233,7 @@ template <class T>
 Container<T>::nodo::nodo(const T& t, const smartP& p, const smartP& n) : info(t), prev(p), next(n), riferimenti(0) {}
 
 //METODI ITERATORE
+
 template <class T>
 Container<T>::iteratore::iteratore(): punt(nullptr), pte(false) {}
 
@@ -295,8 +299,8 @@ typename Container<T>::iteratore Container<T>::end(){
     return iteratore(&(ultimo->next), true);
 }
 
-
 //METODI ITERATORE COSTANTE
+
 template <class T>
 Container<T>::iteratoreConst::iteratoreConst(): punt(nullptr), pte(false) {}
 

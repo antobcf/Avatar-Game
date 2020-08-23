@@ -64,7 +64,6 @@ private:
     QString pImmagine;
     void setStyleModifica();
 
-
 public:
     ModificaAvatar(QWidget * = nullptr);
     QFormLayout* getFormCrea() const;
@@ -108,7 +107,6 @@ public:
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
     QString getPercorsoImmagine() const;
-
     void inserisciPercorso(std::string);
 
 public slots:

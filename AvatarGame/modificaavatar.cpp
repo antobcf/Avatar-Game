@@ -888,7 +888,6 @@ void ModificaAvatar::calcoloValori()
             scienza += 9;
         }
         valoreExtra = (forza+difesa)*livello*0.05;
-
     }
 
     double media = (forza+magia+difesa+scienza)/4;

@@ -12,7 +12,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaSviluppatori(new Sviluppatori(this)),
     vistaInfo(new InfoSistema(this)),
     modello(m),
-    destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
+    destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/Risorse", "File XML(*.xml)"))
 {
     layoutPrincipale->setMenuBar(menuGenerale);
     layoutPrincipale->addWidget(vistaHome);
@@ -247,7 +247,6 @@ void Controller::inserisciAvatar()
         }
     }
 
-    //Campi non compilati
     else if(nome == "" || (!(vistaCrea->getSessoM()->isChecked()) && !(vistaCrea->getSessoF()->isChecked())) || index == 0) {
         QMessageBox::warning(this, "Attenzione!", "Compila tutti i campi per creare un nuovo Avatar");
     } else {
@@ -398,7 +397,6 @@ void Controller::modificaAvatar()
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Elfo Maschio.png"));
 
-
         } else if(dynamic_cast<Nano*>(itemA)) {
             Nano* n = static_cast<Nano*>(itemA);
 
@@ -425,7 +423,6 @@ void Controller::modificaAvatar()
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Nano Maschio.png"));
 
-
         } else if(dynamic_cast<Umano*>(itemA)) {
             Umano* u = static_cast<Umano*>(itemA);
 
@@ -451,7 +448,6 @@ void Controller::modificaAvatar()
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
-
 
         } else if(dynamic_cast<Alieno*>(itemA)) {
             Alieno* a = static_cast<Alieno*>(itemA);
@@ -508,7 +504,6 @@ void Controller::modificaAvatar()
         }
         vistaModifica->show();
     }
-
 }
 
 void Controller::scontroTraAvatar()
@@ -538,7 +533,8 @@ void Controller::scontroTraAvatar()
             QMessageBox::warning(this, "Attenzione", "L'avatar selezionato è al livello massimo.\nSeleziona un altro avatar.");
         } else {
             mostraScontro();
-            //Avversario random
+
+            //Avversario casuale
             int max = modello->getLista()->counter();
             int numeroCasuale = rand()%(max);
             ElencoAvatar* itemCasuale = nullptr;
@@ -1005,7 +1001,6 @@ void Controller::salva()
                 e->setLibro(vistaModifica->getPowerUp4()->isChecked());
                 e->setTrasparentia(vistaModifica->getValoreSpeciale()->text().toDouble());
 
-
             } else if(dynamic_cast<Nano*>(itemA)) {
                 Nano* n = static_cast<Nano*>(itemA);
 
@@ -1014,7 +1009,6 @@ void Controller::salva()
                 n->setScudo(vistaModifica->getPowerUp3()->isChecked());
                 n->setLibro(vistaModifica->getPowerUp4()->isChecked());
                 n->setCorteccia(vistaModifica->getValoreSpeciale()->text().toDouble());
-
 
             } else if(dynamic_cast<Umano*>(itemA)) {
                 Umano* u = static_cast<Umano*>(itemA);
@@ -1025,7 +1019,6 @@ void Controller::salva()
                 u->setLibro(vistaModifica->getPowerUp4()->isChecked());
                 u->setIngegno(vistaModifica->getValoreSpeciale()->text().toDouble());
 
-
             } else if(dynamic_cast<Alieno*>(itemA)) {
                 Alieno* a = static_cast<Alieno*>(itemA);
 
@@ -1035,7 +1028,6 @@ void Controller::salva()
                 a->setChip(vistaModifica->getPowerUp8()->isChecked());
                 a->setUfo(vistaModifica->getValoreSpeciale()->text().toDouble());
 
-
             } else if(dynamic_cast<Mostro*>(itemA)) {
                 Mostro* m = static_cast<Mostro*>(itemA);
 
@@ -1044,7 +1036,6 @@ void Controller::salva()
                 m->setBarriera(vistaModifica->getPowerUp7()->isChecked());
                 m->setChip(vistaModifica->getPowerUp8()->isChecked());
                 m->setPorta(vistaModifica->getValoreSpeciale()->text().toDouble());
-
             }
             modello->salvare();
             carica();
@@ -1442,7 +1433,7 @@ void Controller::calcoloValori(Avatar* x)
     double difesa = 0;
     double scienza = 0;
     unsigned int exp = x->getExp();
-    x->setExp(exp); //In caso il foglio xml abbia un exp > 99, viene modificato anche il lvl. Per questo il get del lvl viene fatto dopo questa istruzione
+    x->setExp(exp);
     unsigned int livello = x->getLiv();
     double valoreExtra = 0;
     std::string terreno;

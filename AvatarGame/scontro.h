@@ -70,19 +70,17 @@ public:
     QLabel* getPowerup4selezionatoDx() const;
     QLabel* getTitoloMediaDx() const;
     QLabel* getMediaDx() const;
-    QString* getForza() const;
-    QString* getMagia() const;
-    QString* getDifesa() const;
-    QString* getScienza() const;
-    QString* getLvl() const;
-    QString* getValoreSpeciale() const;
-    QString* getValoreSpeciale2() const;
-    QString* getExp() const;
-    QString* getTerrenoPreferito() const;
+//    QString* getForza() const;
+//    QString* getMagia() const;
+//    QString* getDifesa() const;
+//    QString* getScienza() const;
+//    QString* getLvl() const;
+//    QString* getValoreSpeciale() const;
+//    QString* getValoreSpeciale2() const;
+//    QString* getExp() const;
+//    QString* getTerrenoPreferito() const;
     QLabel* getFotoAvatar1() const;
     QLabel* getFotoAvatar2() const;
-
-public slots:
 
 };
 

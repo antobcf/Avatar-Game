@@ -10,14 +10,12 @@ Scontro::Scontro(QWidget *parent) :
     powerup4selezionatoSx(new QLabel(this)),
     titoloMediaSx(new QLabel("Media:", this)),
     mediaSx(new QLabel(this)),
-
     vs(new QLabel(this)),
     terreno(new QLabel(this)),
     bottoneHomeScontro(new QPushButton(this)),
     bottoneCambioAvatar(new QPushButton("Cambia avatar", this)),
     bottoneCambioAvversario(new QPushButton("Cambia avversario", this)),
     bottoneCombatti(new QPushButton("Combatti", this)),
-
     nomeAvatarDx(new QLabel("Avatar2", this)),
     powerupDx(new QLabel("PowerUp:", this)),
     powerup1selezionatoDx(new QLabel(this)),
@@ -197,30 +195,30 @@ QLabel *Scontro::getMediaDx() const
     return mediaDx;
 }
 
-QString *Scontro::getForza() const
-{
-    return forza;
-}
+//QString *Scontro::getForza() const
+//{
+//    return forza;
+//}
 
-QString *Scontro::getMagia() const
-{
-    return magia;
-}
+//QString *Scontro::getMagia() const
+//{
+//    return magia;
+//}
 
-QString *Scontro::getDifesa() const
-{
-    return difesa;
-}
+//QString *Scontro::getDifesa() const
+//{
+//    return difesa;
+//}
 
-QString *Scontro::getScienza() const
-{
-    return scienza;
-}
+//QString *Scontro::getScienza() const
+//{
+//    return scienza;
+//}
 
-QString *Scontro::getValoreSpeciale2() const
-{
-    return valoreSpeciale2;
-}
+//QString *Scontro::getValoreSpeciale2() const
+//{
+//    return valoreSpeciale2;
+//}
 
 QLabel *Scontro::getFotoAvatar1() const
 {
@@ -231,5 +229,3 @@ QLabel *Scontro::getFotoAvatar2() const
 {
     return fotoAvatar2;
 }
-
-

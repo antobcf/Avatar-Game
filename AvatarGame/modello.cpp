@@ -168,17 +168,6 @@ void Modello::rimuovi(Avatar* a)
     lista->rimuovi(a);
 }
 
-void Modello::rimuoviTutto()
-{
-    Container<Avatar*>::iteratore inizio = lista->begin();
-    Container<Avatar*>::iteratore fine = lista->end();
-
-    if(inizio != fine) {
-        rimuovi(*inizio);
-        ++inizio;
-    }
-}
-
 void Modello::setPercorso(std::string p)
 {
     percorso = p;

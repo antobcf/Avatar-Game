@@ -15,8 +15,6 @@ private:
 public:
     Sviluppatori(QWidget * = nullptr);
 
-public slots:
-
 };
 
 

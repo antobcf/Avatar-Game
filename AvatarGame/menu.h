@@ -25,10 +25,6 @@ private:
 
 public:
     Menu(QWidget* parent = nullptr);
-    //mancano i get
-
-public slots:
-
 };
 
 #endif // MENU_H

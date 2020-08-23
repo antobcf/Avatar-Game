@@ -14,8 +14,6 @@ private:
 public:
     InfoSistema(QWidget * = nullptr);
 
-public slots:
-
 };
 
 #endif // INFOSISTEMA_H

@@ -104,8 +104,6 @@ public:
     QComboBox* getSceltaTipo() const;
     QRadioButton* getSessoM() const;
     QRadioButton* getSessoF() const;
-
-    //void inserisciPercorso(std::string);
     QString getPercorso() const;
 
 public slots:
@@ -121,7 +119,6 @@ public slots:
     void resetTutto() const;
     void resetCheck() const;
     void calcoloValori();
-
     void setImmagine();
 };
 

@@ -4,7 +4,7 @@
 #include <iostream>
 #include "container.h"
 
-class Avatar { //classe base astratta e polimorfa
+class Avatar {
 private:
     std::string nome;
     std::string descrizione;

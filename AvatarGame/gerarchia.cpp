@@ -136,8 +136,7 @@ std::string Avatar::datiAvatar()
     return ("Tipo Avatar: "+getTipo()).append("   Nome: "+getNome()).append("   Sesso: ").append(getSesso() ? "Maschio" : "Femmina")
             .append("\nForza: "+std::to_string(getForza())).append("   Magia: "+std::to_string(getMagia()))
             .append("\nDifesa: "+std::to_string(getDifesa())).append("   Scienza: "+std::to_string(getScienza()))
-            .append("\nMedia: "+m).append("   Lvl: "+std::to_string(getLiv()))
-            .append("\nStoria: "+getDescrizione());
+            .append("\nMedia: "+m).append("   Lvl: "+std::to_string(getLiv()));
 }
 
 
@@ -210,7 +209,7 @@ std::string Elfo::datiAvatar()
     } else
         t.resize(6);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nTrasparentia: "+t);
+    return dati.append("\nTrasparentia: "+t).append("\nStoria: "+getDescrizione());
 }
 
 //Metodi della classe Nano
@@ -244,7 +243,7 @@ std::string Nano::datiAvatar()
     } else
         c.resize(6);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nCorteccia: "+c);
+    return dati.append("\nCorteccia: "+c).append("\nStoria: "+getDescrizione());
 }
 
 //Metodi della classe Umano
@@ -279,7 +278,7 @@ std::string Umano::datiAvatar()
         u.resize(6);
 }
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nIngegno Scientifico: "+u);
+    return dati.append("\nIngegno Scientifico: "+u).append("\nStoria: "+getDescrizione());
 }
 
 //Metodi della classe NOTerrestre
@@ -352,7 +351,7 @@ std::string Alieno::datiAvatar()
     } else
         a.resize(6);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nUfo: "+a);
+    return dati.append("\nUfo: "+a).append("\nStoria: "+getDescrizione());
 }
 
 //Metodi della classe Mostro
@@ -386,5 +385,5 @@ std::string Mostro::datiAvatar()
     } else
         m.resize(6);
     std::string dati = Avatar::datiAvatar();
-    return dati.append("\nPorta Demoniaca: "+m);
+    return dati.append("\nPorta Demoniaca: "+m).append("\nStoria: "+getDescrizione());
 }

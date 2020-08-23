@@ -45,6 +45,7 @@ private:
     QLabel* labelSesso;
     QLabel* terrenoPreferito;
     QLabel* immagineAvatar;
+    QLabel* nome;
     QLineEdit* inserisciNome;
     QPushButton* bottoneSalvaModifiche;
     QPushButton* resetCampi;
@@ -87,6 +88,7 @@ public:
     QLabel* getLabelSesso() const;
     QLabel* getTerrenoPreferito() const;
     QLabel* getImmagineAvatar() const;
+    QLabel* getNome() const;
     QLineEdit* getInserisciNome() const;
     QPushButton* getBottoneHome() const;
     QPushButton* getBottoneSalvaModifiche() const;

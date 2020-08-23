@@ -23,8 +23,9 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     terrenoPreferito(new QLabel(this)),
     immagineAvatar(new QLabel(this)),
+    nome(new QLabel("Nome:",this)),
     inserisciNome(new QLineEdit(this)),
-    bottoneHome(new QPushButton("Home", this)),
+    bottoneHome(new QPushButton(this)),
     bottoneCreaDef(new QPushButton("Crea Avatar", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
     powerUp1(new QCheckBox("Spada", this)),
@@ -45,24 +46,32 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
 
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
+    QHBoxLayout* layoutHomeNome = new QHBoxLayout();
+    QVBoxLayout* layoutHomeDestra = new QVBoxLayout();
+    QHBoxLayout* layoutNome = new QHBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
     QHBoxLayout* layoutSesso = new QHBoxLayout();
     QHBoxLayout* layoutPu = new QHBoxLayout();
     QHBoxLayout* layoutNV = new QHBoxLayout();
     QVBoxLayout* layoutNomi = new QVBoxLayout();
     QVBoxLayout* layoutValori = new QVBoxLayout();
+    QHBoxLayout* layoutBottoni = new QHBoxLayout();
 
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
-    layoutSx->addWidget(bottoneHome);
-    layoutSx->addLayout(formCrea);
+    layoutSx->addLayout(layoutHomeNome);
+    layoutHomeNome->addWidget(bottoneHome);
+    layoutHomeNome->addLayout(layoutHomeDestra);
+    layoutHomeDestra->addLayout(formCrea);
+    layoutHomeDestra->addLayout(layoutNome);
 
-    layoutSx->addWidget(sceltaTipo);
+    layoutHomeDestra->addWidget(sceltaTipo);
+    layoutNome->addWidget(nome);
+    layoutNome->addWidget(inserisciNome);
+    layoutSx->addWidget(labelSesso);
     layoutSx->addLayout(layoutSesso);
-    layoutSesso->addWidget(labelSesso);
     layoutSesso->addWidget(sessoM);
     layoutSesso->addWidget(sessoF);
-    layoutSx->addWidget(inserisciNome);
     layoutSx->addWidget(maxPowerUp);
     layoutSx->addLayout(layoutPu);
     layoutPu->addWidget(powerUp1);
@@ -74,11 +83,12 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutPu->addWidget(powerUp7);
     layoutPu->addWidget(powerUp8);
     layoutSx->addWidget(boxDescrizione);
-    layoutSx->addWidget(bottoneCreaDef);
-    layoutDx->addWidget(immagineAvatar);
+    layoutSx->addLayout(layoutBottoni);
+    layoutBottoni->addWidget(bottoneCreaDef);
+    layoutBottoni->addWidget(resetCampi);
+    layoutDx->addWidget(immagineAvatar,0, Qt::AlignHCenter);
     boxValori->setLayout(layoutNV);
     layoutDx->addWidget(boxValori);
-    //layoutDx->addLayout(layoutNV);
     layoutNV->addLayout(layoutNomi);
     layoutNV->addLayout(layoutValori);
     layoutNomi->addWidget(nomeForza);
@@ -99,16 +109,21 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutValori->addWidget(lvl);
     layoutValori->addWidget(exp);
     layoutValori->addWidget(terrenoPreferito);
-    layoutDx->addWidget(resetCampi);
-
 
     formCrea->addRow("Scegli il tipo di Avatar:", sceltaTipo);
-    formCrea->addRow("Nome:", inserisciNome);
 
-    boxValori->setFixedWidth(260);
-    boxDescrizione->setFixedHeight(200);
-    boxDescrizione->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
+    bottoneHome->setIcon(QIcon(":/Risorse/Immagini Avatar/home.png"));
+    bottoneHome->setIconSize(QSize(35,35));
+
+    bottoneHome->setFixedSize(50,50);
+    bottoneCreaDef->setFixedHeight(40);
+    resetCampi->setFixedHeight(40);
+    boxValori->setFixedWidth(270);
+    boxValori->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    boxDescrizione->setFixedHeight(250);
+    boxDescrizione->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    boxDescrizione->setPlaceholderText("Storia del tuo Avatar");
+    inserisciNome->setPlaceholderText("Inserisci nome");
 
     powerUp5->hide();
     powerUp6->hide();
@@ -122,7 +137,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     sceltaTipo->addItem("Alieno");
     sceltaTipo->addItem("Mostro");
 
-    sessoM->setChecked(true); //forse inutile
+    sessoM->setChecked(true);
 
     connect(sceltaTipo,SIGNAL(activated(int)),this,SLOT(groupTipo()));
 
@@ -140,7 +155,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(resetTutto()));
     connect(resetCampi,SIGNAL(clicked()),this,SLOT(calcoloValori()));
 
-    immagineAvatar->setFixedSize(150,150);
+    immagineAvatar->setFixedSize(200,200);
 
     nomeForza->setObjectName("grassetto");
     nomeMagia->setObjectName("grassetto");
@@ -152,8 +167,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     nomeExp->setObjectName("grassetto");
     nomeTerreno->setObjectName("grassetto");
 
-    inserisciNome->setMaxLength(6);
-
+    inserisciNome->setMaxLength(10);
 }
 
 
@@ -163,57 +177,57 @@ void CreaAvatar::setImmagine()
     if(indexAttuale == 1) {
         if(sessoM->isChecked()) {
             QPixmap *elfoM = new QPixmap(":Risorse/Immagini Avatar/Elfo Maschio.png");
-            QPixmap elfoM1(elfoM->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap elfoM1(elfoM->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(elfoM1);
             pImmagine=":Risorse/Immagini Avatar/Elfo Maschio.png";
         }
         else {
             QPixmap *elfoF = new QPixmap(":Risorse/Immagini Avatar/Elfo Femmina.png");
-            QPixmap elfoF1(elfoF->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap elfoF1(elfoF->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(elfoF1);
             pImmagine=":Risorse/Immagini Avatar/Elfo Femmina.png";
         }
     } else if(indexAttuale == 2) {
         if(sessoM->isChecked()) {
             QPixmap *nanoM = new QPixmap(":Risorse/Immagini Avatar/Nano Maschio.png");
-            QPixmap nanoM1(nanoM->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap nanoM1(nanoM->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(nanoM1);
             pImmagine=":Risorse/Immagini Avatar/Nano Maschio.png";
         }
         else {
             QPixmap *nanoF = new QPixmap(":Risorse/Immagini Avatar/Nano Femmina.png");
-            QPixmap nanoF1(nanoF->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap nanoF1(nanoF->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(nanoF1);
             pImmagine=":Risorse/Immagini Avatar/Nano Femmina.png";
         }
     } else if(indexAttuale == 3) {
         if(sessoM->isChecked()) {
             QPixmap *umanoM = new QPixmap(":Risorse/Immagini Avatar/Umano Maschio.png");
-            QPixmap umanoM1(umanoM->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap umanoM1(umanoM->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(umanoM1);
             pImmagine=":Risorse/Immagini Avatar/Umano Maschio.png";
         }
         else {
             QPixmap *umanoF = new QPixmap(":Risorse/Immagini Avatar/Umano Femmina.png");
-            QPixmap umanoF1(umanoF->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap umanoF1(umanoF->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(umanoF1);
             pImmagine=":Risorse/Immagini Avatar/Umano Femmina.png";
         }
     } else if(indexAttuale == 4) {
         QPixmap *alieno = new QPixmap(":Risorse/Immagini Avatar/Alieno.png");
-        QPixmap alieno1(alieno->scaled(150,150,Qt::KeepAspectRatio));
+        QPixmap alieno1(alieno->scaled(200,200,Qt::KeepAspectRatio));
         immagineAvatar->setPixmap(alieno1);
         pImmagine=":Risorse/Immagini Avatar/Alieno.png";
     } else if(indexAttuale == 5) {
         if(sessoM->isChecked()) {
             QPixmap *mostroM = new QPixmap(":Risorse/Immagini Avatar/Mostro Maschio.png");
-            QPixmap mostroM1(mostroM->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap mostroM1(mostroM->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(mostroM1);
             pImmagine=":Risorse/Immagini Avatar/Mostro Maschio.png";
         }
         else {
             QPixmap *mostroF = new QPixmap(":Risorse/Immagini Avatar/Mostro Femmina.png");
-            QPixmap mostroF1(mostroF->scaled(150,150,Qt::KeepAspectRatio));
+            QPixmap mostroF1(mostroF->scaled(200,200,Qt::KeepAspectRatio));
             immagineAvatar->setPixmap(mostroF1);
             pImmagine=":Risorse/Immagini Avatar/Mostro Femmina.png";
         }
@@ -289,6 +303,11 @@ QLabel *CreaAvatar::getTerrenoPreferito() const
 QLabel *CreaAvatar::getImmagineAvatar() const
 {
     return immagineAvatar;
+}
+
+QLabel *CreaAvatar::getNome() const
+{
+    return nome;
 }
 
 QLabel *CreaAvatar::getNomeLvl() const

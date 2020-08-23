@@ -24,6 +24,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     terrenoPreferito(new QLabel(this)),
     immagineAvatar(new QLabel(this)),
+    nome(new QLabel("Nome:", this)),
     inserisciNome(new QLineEdit(this)),
     bottoneSalvaModifiche(new QPushButton("Salva modifiche", this)),
     resetCampi(new QPushButton("Cancella tutto", this)),
@@ -43,23 +44,27 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 {
     QHBoxLayout* layoutCrea = new QHBoxLayout(this);
     QVBoxLayout* layoutSx = new QVBoxLayout();
+    QHBoxLayout* layoutNome = new QHBoxLayout();
     QVBoxLayout* layoutDx = new QVBoxLayout();
     QHBoxLayout* layoutSesso = new QHBoxLayout();
     QHBoxLayout* layoutPu = new QHBoxLayout();
     QHBoxLayout* layoutNV = new QHBoxLayout();
     QVBoxLayout* layoutNomi = new QVBoxLayout();
     QVBoxLayout* layoutValori = new QVBoxLayout();
+    QHBoxLayout* layoutBottoni = new QHBoxLayout();
 
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
     layoutSx->addLayout(formCrea);
+    layoutSx->addLayout(layoutNome);
 
     layoutSx->addWidget(tipoAvatar);
+    layoutNome->addWidget(nome);
+    layoutNome->addWidget(inserisciNome);
     layoutSx->addWidget(labelSesso);
     layoutSx->addLayout(layoutSesso);
     layoutSesso->addWidget(sessoM);
     layoutSesso->addWidget(sessoF);
-    layoutSx->addWidget(inserisciNome);
     layoutSx->addWidget(maxPowerUp);
     layoutSx->addLayout(layoutPu);
     layoutPu->addWidget(powerUp1);
@@ -71,10 +76,11 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutPu->addWidget(powerUp7);
     layoutPu->addWidget(powerUp8);
     layoutSx->addWidget(boxDescrizione);
-    layoutSx->addWidget(bottoneSalvaModifiche);
-    layoutDx->addWidget(immagineAvatar);
+    layoutSx->addLayout(layoutBottoni);
+    layoutBottoni->addWidget(bottoneSalvaModifiche);
+    layoutBottoni->addWidget(resetCampi);
+    layoutDx->addWidget(immagineAvatar,0, Qt::AlignCenter);
     boxValori->setLayout(layoutNV);
-    //layoutDx->addLayout(layoutNV);
     layoutNV->addLayout(layoutNomi);
     layoutNV->addLayout(layoutValori);
     layoutNomi->addWidget(nomeForza);
@@ -86,7 +92,6 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutNomi->addWidget(nomeLvl);
     layoutNomi->addWidget(nomeExp);
     layoutNomi->addWidget(nomeTerreno);
-    //layoutDx->addLayout(layoutValori);
     layoutDx->addWidget(boxValori);
     layoutValori->addWidget(valoreForza);
     layoutValori->addWidget(valoreScienza);
@@ -97,16 +102,17 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutValori->addWidget(lvl);
     layoutValori->addWidget(exp);
     layoutValori->addWidget(terrenoPreferito);
-    layoutDx->addWidget(resetCampi);
 
     formCrea->addRow("Tipo di Avatar:", tipoAvatar);
-    formCrea->addRow("Nome:", inserisciNome);
+    inserisciNome->setPlaceholderText("Inserisci nome");
 
-    setFixedSize(540,480);
-
-    boxDescrizione->setFixedHeight(150);
-    boxDescrizione->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-    boxDescrizione->setPlaceholderText("Descrizione storia del tuo Avatar");
+    setFixedSize(580,480);
+    bottoneSalvaModifiche->setFixedHeight(40);
+    resetCampi->setFixedHeight(40);
+    boxDescrizione->setFixedHeight(200);
+    boxDescrizione->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    boxDescrizione->setPlaceholderText("Storia del tuo Avatar");
+    boxValori->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     connect(powerUp1,SIGNAL(clicked()),this,SLOT(checkUno()));
     connect(powerUp2,SIGNAL(clicked()),this,SLOT(checkDue()));
@@ -133,7 +139,7 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     nomeExp->setObjectName("grassetto");
     nomeTerreno->setObjectName("grassetto");
 
-    inserisciNome->setMaxLength(6);
+    inserisciNome->setMaxLength(12);
 }
 
 
@@ -322,6 +328,11 @@ QLabel *ModificaAvatar::getTerrenoPreferito() const
 QLabel *ModificaAvatar::getImmagineAvatar() const
 {
     return immagineAvatar;
+}
+
+QLabel *ModificaAvatar::getNome() const
+{
+    return nome;
 }
 
 QLineEdit *ModificaAvatar::getInserisciNome() const

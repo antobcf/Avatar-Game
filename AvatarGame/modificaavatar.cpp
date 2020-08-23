@@ -1,4 +1,4 @@
- #include "modificaavatar.h"
+﻿ #include "modificaavatar.h"
 
 ModificaAvatar::ModificaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),
@@ -6,9 +6,9 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     maxPowerUp(new QLabel("Scegli massimo due Power Up:", this)),
     lvl(new QLabel("LVL", this)),
     valoreForza(new QLabel(this)),
+    valoreMagia(new QLabel(this)),
     valoreScienza(new QLabel(this)),
     valoreDifesa(new QLabel(this)),
-    valoreMagia(new QLabel(this)),
     valoreMedia(new QLabel(this)),
     valoreSpeciale(new QLabel(this)),
     exp(new QLabel(this)),
@@ -94,9 +94,9 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
     layoutNomi->addWidget(nomeTerreno);
     layoutDx->addWidget(boxValori);
     layoutValori->addWidget(valoreForza);
-    layoutValori->addWidget(valoreScienza);
     layoutValori->addWidget(valoreMagia);
     layoutValori->addWidget(valoreDifesa);
+    layoutValori->addWidget(valoreScienza);
     layoutValori->addWidget(valoreMedia);
     layoutValori->addWidget(valoreSpeciale);
     layoutValori->addWidget(lvl);

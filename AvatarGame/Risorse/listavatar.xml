@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--!!!Non commentare il documento!!!-->
 <start>
-    <Alieno Nome="ciao" Descrizione="" Livello="100" Exp="20" Forza="300" Magia="1006" Difesa="0" Scienza="709" Sesso="false" Percorso=":Risorse/Immagini Avatar/Alieno.png" Media="503.75" Terreno="Regno dello spazio" Laser="false" Amuleto="true" Barriera="false" Chip="true" Ufo="5045"/>
-    <Umano Nome="fdfdf" Descrizione="" Livello="1" Exp="30" Forza="5" Magia="9" Difesa="10" Scienza="8" Sesso="false" Percorso=":Risorse/Immagini Avatar/Umano Femmina.png" Media="8" Terreno="Regno delle macchine" Spada="false" Anello="true" Scudo="true" Libro="false" Ingegnoscientifico="0.9"/>
+    <Alieno Nome="ciao" Descrizione="" Livello="100" Exp="20" Forza="300" Magia="1000" Difesa="0" Scienza="700" Sesso="false" Percorso=":Risorse/Immagini Avatar/Alieno.png" Media="500" Terreno="Regno dello spazio" Laser="false" Amuleto="false" Barriera="false" Chip="false" Ufo="5000"/>
+    <Umano Nome="fdfdf" Descrizione="" Livello="1" Exp="30" Forza="5" Magia="9" Difesa="8" Scienza="8" Sesso="false" Percorso=":Risorse/Immagini Avatar/Umano Femmina.png" Media="7.5" Terreno="Regno delle macchine" Spada="false" Anello="true" Scudo="false" Libro="false" Ingegnoscientifico="0.8"/>
     <Mostro Nome="dsfdsfs" Descrizione="" Livello="1" Exp="0" Forza="10" Magia="6" Difesa="5" Scienza="18" Sesso="true" Percorso=":Risorse/Immagini Avatar/Mostro Maschio.png" Media="9.75" Terreno="Regno dei demoni" Laser="false" Amuleto="true" Barriera="false" Chip="true" Portademoniaca="0.75"/>
     <Nano Nome="c" Descrizione="" Livello="1" Exp="0" Forza="7" Magia="2" Difesa="20" Scienza="6" Sesso="false" Percorso=":Risorse/Immagini Avatar/Nano Femmina.png" Media="8.75" Terreno="Regno del sottosuolo" Spada="false" Anello="false" Scudo="true" Libro="false" Corteccia="1.35"/>
     <Elfo Nome="asdfgh" Descrizione="" Livello="1" Exp="40" Forza="6" Magia="10" Difesa="16" Scienza="10" Sesso="false" Percorso=":Risorse/Immagini Avatar/Elfo Femmina.png" Media="10.5" Terreno="Regno incantato" Spada="false" Anello="false" Scudo="true" Libro="true" Trasparentia="1.3"/>

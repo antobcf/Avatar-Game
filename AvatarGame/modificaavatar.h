@@ -27,9 +27,9 @@ private:
     QLabel* maxPowerUp;
     QLabel* lvl;
     QLabel* valoreForza;
+    QLabel* valoreMagia;
     QLabel* valoreScienza;
     QLabel* valoreDifesa;
-    QLabel* valoreMagia;
     QLabel* valoreMedia;
     QLabel* valoreSpeciale;
     QLabel* exp;
@@ -72,9 +72,9 @@ public:
     QLabel* getMaxPowerUp() const;
     QLabel* getLvl() const;
     QLabel* getValoreForza() const;
+    QLabel* getValoreMagia() const;
     QLabel* getValoreScienza() const;
     QLabel* getValoreDifesa() const;
-    QLabel* getValoreMagia() const;
     QLabel* getValoreMedia() const;
     QLabel* getValoreSpeciale() const;
     QLabel* getExp() const;

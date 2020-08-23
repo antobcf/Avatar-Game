@@ -21,9 +21,8 @@ private:
 
 public:
     virtual ~Avatar() = default;
-    //o metto tutti a zero o i valori di default tipo sesso va messo alla fine
     Avatar(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0"): nome(n), descrizione(ds), livello(lvl), exp(e),  forza(f), magia(m), difesa(d), scienza(s), media(med), terreno(t), sesso(sx), percorsoImmagine(p) {}
-    //GET
+
     virtual std::string getTerrNon() const = 0;
     virtual std::string getTipo() const = 0;
     unsigned int getLiv() const;
@@ -39,7 +38,6 @@ public:
     std::string getTerreno() const;
     std::string getPercorsoImmagine() const;
 
-    //SET
     void setNome(std::string);
     void setDescrizione(std::string);
     void setLvl(unsigned int);
@@ -52,7 +50,7 @@ public:
     void setMedia(double);
     void setTerreno(std::string);
     void setPercorsoImmagine(std::string);
-    //OPERATORI
+
     virtual bool operator==(const Avatar&) const;
 
     virtual std::string datiAvatar();
@@ -66,15 +64,13 @@ private:
     bool libro;
 public:
     Terrestre(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool sp = false, bool a = false, bool sc = false, bool lib = false): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), spada(sp), anello(a), scudo(sc), libro(lib) {}
-    //GET
-    virtual std::string getTerrNon() const override;
 
+    virtual std::string getTerrNon() const override;
     bool getSpada() const;
     bool getAnello() const;
     bool getScu() const;
     bool getLibro() const;
 
-    //SET
     void setSpada(bool);
     void setAnello(bool);
     void setScudo(bool);
@@ -126,14 +122,13 @@ private:
     bool chip;
 public:
     NOTerrestre(std::string n="0", std::string ds="0", unsigned int lvl=1, unsigned int e=0,  unsigned int f=0, unsigned int m=0, unsigned int d=0, unsigned int s=0, double med=0, std::string t="0", bool sx = true, std::string p="0", bool las = false, bool am = false, bool ba = false, bool ch = false): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p),  laser(las), amuleto(am), barriera(ba), chip(ch) {}
-    //GET
+
     virtual std::string getTerrNon() const override;
     bool getLaser() const;
     bool getAmuleto() const;
     bool getBar() const;
     bool getChip() const;
 
-    //SET    
     void setLaser(bool);
     void setAmuleto(bool);
     void setBarriera(bool);

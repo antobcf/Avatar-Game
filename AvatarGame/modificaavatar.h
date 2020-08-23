@@ -62,6 +62,8 @@ private:
     QRadioButton* sessoM;
     QRadioButton* sessoF;
     QString pImmagine;
+    void setStyleModifica();
+
 
 public:
     ModificaAvatar(QWidget * = nullptr);
@@ -122,7 +124,6 @@ public slots:
     void resetTutto() const;
     void resetCheck() const;
     void calcoloValori();
-
     void setImmagine();
 };
 

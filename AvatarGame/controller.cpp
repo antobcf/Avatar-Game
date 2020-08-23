@@ -1586,6 +1586,3 @@ void Controller::setAvatarGameStyle()
 
     setWindowIcon(QIcon(":/Risorse/Immagini Avatar/logo.png"));
 }
-
-
-

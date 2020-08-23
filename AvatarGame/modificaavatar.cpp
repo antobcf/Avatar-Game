@@ -129,26 +129,17 @@ ModificaAvatar::ModificaAvatar(QWidget *parent) :
 
     immagineAvatar->setFixedSize(150,150);
 
-//    nomeForza->setObjectName("grassetto");
-//    nomeMagia->setObjectName("grassetto");
-//    nomeDifesa->setObjectName("grassetto");
-//    nomeScienza->setObjectName("grassetto");
-//    nomeMedia->setObjectName("grassetto");
-//    nomeSpeciale->setObjectName("grassetto");
-//    nomeLvl->setObjectName("grassetto");
-//    nomeExp->setObjectName("grassetto");
-//    nomeTerreno->setObjectName("grassetto");
+    nomeForza->setObjectName("grassetto");
+    nomeMagia->setObjectName("grassetto");
+    nomeDifesa->setObjectName("grassetto");
+    nomeScienza->setObjectName("grassetto");
+    nomeMedia->setObjectName("grassetto");
+    nomeSpeciale->setObjectName("grassetto");
+    nomeLvl->setObjectName("grassetto");
+    nomeExp->setObjectName("grassetto");
+    nomeTerreno->setObjectName("grassetto");
 
-//    nomeForza->setStyleSheet("font-weight: bold");
-//    nomeDifesa->setStyleSheet("font-weight: bold");
-//    nomeMagia->setStyleSheet("font-weight: bold");
-//    nomeScienza->setStyleSheet("font-weight: bold");
-//    nomeExp->setStyleSheet("font-weight: bold");
-//    nomeLvl->setStyleSheet("font-weight: bold");
-//    nomeTerreno->setStyleSheet("font-weight: bold");
-//    nomeSpeciale->setStyleSheet("font-weight: bold");
-//    nomeMedia->setStyleSheet("font-weight: bold");
-    //bottoneSalvaModifiche->setObjectName("prova");
+    setStyleModifica();
 
     inserisciNome->setMaxLength(12);
 }
@@ -908,4 +899,13 @@ void ModificaAvatar::calcoloValori()
     valoreMedia->setText(QString::number(media,'f',2));
     lvl->setText(QString::number(livello));
     valoreSpeciale->setText(QString::number(valoreExtra,'f',2));
+}
+
+void ModificaAvatar::setStyleModifica()
+{
+    QFile file(":/Risorse/style.css");
+    file.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(file.readAll());
+
+    setStyleSheet(styleSheet);
 }

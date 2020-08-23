@@ -96,9 +96,13 @@ unsigned int Avatar::getExp() const {
 void Avatar::setExp(unsigned int e) {
     if(e > 99) {
         exp = e - 100;
-        setLvl(getLiv()+1);
-        if(e > 99)
-            setExp(exp);
+        if(getLiv()>99)
+            return;
+        else {
+            setLvl(getLiv()+1);
+            if(e > 99)
+                setExp(exp);
+        }
     } else {
         exp = e;
     }

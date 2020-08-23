@@ -10,6 +10,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     vistaModifica(new ModificaAvatar(this)),
     vistaScontro(new Scontro(this)),
     vistaSviluppatori(new Sviluppatori(this)),
+    vistaInfo(new InfoSistema(this)),
     modello(m),
     destinazione(QFileDialog::getOpenFileName(parent, "Scegli il tuo DB di Avatar", ":/listavatar", "File XML(*.xml)"))
 {
@@ -130,11 +131,6 @@ void Controller::infoPopLista()
 {
     QMessageBox::about(this,"Info","In questa schermata puoi interagire con\ni tuoi avatar. Puoi cercarli per nome o per tipo,\npuoi modificarli, eliminarli oppure puoi iniziare\nun nuovo scontro.");
 }
-
-//void Controller::sviluppatoriPop()
-//{
-//    QMessageBox::about(this,"Info Sviluppatori","A questa applicazione hanno lavorato Antonio Belculfinè e Luca Modica");
-//}
 
 void Controller::inserisciAvatar()
 {

@@ -6,10 +6,8 @@ Sviluppatori::Sviluppatori(QWidget *parent) :
 {
     QVBoxLayout* layoutSviluppatori = new QVBoxLayout(this);
 
-    QPixmap *y=new QPixmap(":/Risorse/Immagini Avatar/logo_titolo");
-    QPixmap y1(y->scaled(400,400, Qt::IgnoreAspectRatio));
-    immagineSviluppatori->setPixmap(y1);
+
 
     layoutSviluppatori->addWidget(testoSviluppatori);
-    testoSviluppatori->setText("Gli sviluppatori di questo gioco sono Antonio Belculfinè e Luca Modica.");
+    testoSviluppatori->setText("Il seguente software è stato sviluppato da:\n- Antonio Belculfinè\n- Luca Modica");
 }

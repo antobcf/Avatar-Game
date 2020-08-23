@@ -82,8 +82,8 @@ void Controller::mostraCrea() {
     vistaModifica->hide();
     vistaScontro->hide();
     vistaSviluppatori->hide();
-    vistaCrea->show();
     vistaCrea->resetTutto();
+    vistaCrea->show(); 
 }
 
 void Controller::mostraLista() {
@@ -329,6 +329,7 @@ void Controller::inserisciAvatar()
             vistaLista->show();
         }
     }
+
 }
 
 void Controller::modificaAvatar()
@@ -1445,6 +1446,8 @@ void Controller::calcoloValori(Avatar* x)
     unsigned int livello = x->getLiv();
     double valoreExtra = 0;
     std::string terreno;
+    std::string immagine;
+    bool sesso = x->getSesso();
 
     if(tipo == "Elfo") {
         Elfo* e = static_cast<Elfo*>(x);
@@ -1467,6 +1470,10 @@ void Controller::calcoloValori(Avatar* x)
         valoreExtra = (magia+difesa)*livello*0.05;
         e->setTrasparentia(valoreExtra);
         terreno = "Regno incantato";
+        if(sesso)
+            immagine = ":Risorse/Immagini Avatar/Elfo Maschio.png";
+        else
+            immagine = ":Risorse/Immagini Avatar/Elfo Femmina.png";
 
     } else
     if(tipo == "Nano") {
@@ -1491,6 +1498,10 @@ void Controller::calcoloValori(Avatar* x)
         valoreExtra = (forza+difesa)*livello*0.05;
         n->setCorteccia(valoreExtra);
         terreno = "Regno del sottosuolo";
+        if(sesso)
+            immagine = ":Risorse/Immagini Avatar/Nano Maschio.png";
+        else
+            immagine = ":Risorse/Immagini Avatar/Nano Femmina.png";
 
     } else
     if(tipo == "Umano") {
@@ -1515,6 +1526,10 @@ void Controller::calcoloValori(Avatar* x)
         valoreExtra = (difesa+scienza)*livello*0.05;
         u->setIngegno(valoreExtra);
         terreno = "Regno delle macchine";
+        if(sesso)
+            immagine = ":Risorse/Immagini Avatar/Umano Maschio.png";
+        else
+            immagine = ":Risorse/Immagini Avatar/Umano Femmina.png";
 
     } else
     if(tipo == "Alieno") {
@@ -1539,6 +1554,8 @@ void Controller::calcoloValori(Avatar* x)
         valoreExtra = (forza+scienza)*livello*0.05;
         a->setUfo(valoreExtra);
         terreno = "Regno dello spazio";
+        immagine = ":Risorse/Immagini Avatar/Alieno.png";
+
 
     } else
     if(tipo == "Mostro") {
@@ -1562,6 +1579,10 @@ void Controller::calcoloValori(Avatar* x)
         valoreExtra = (forza+difesa)*livello*0.05;
         m->setPorta(valoreExtra);
         terreno = "Regno dei demoni";
+        if(sesso)
+            immagine = ":Risorse/Immagini Avatar/Mostro Maschio.png";
+        else
+            immagine = ":Risorse/Immagini Avatar/Mostro Femmina.png";
     }
 
     double media = (forza+magia+difesa+scienza)/4;
@@ -1571,6 +1592,7 @@ void Controller::calcoloValori(Avatar* x)
     x->setScienza(scienza);
     x->setMedia(media);
     x->setTerreno(terreno);
+    x->setPercorsoImmagine(immagine);
     modello->salvare();
 }
 

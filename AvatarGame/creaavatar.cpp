@@ -776,7 +776,17 @@ void CreaAvatar::groupTipo()
 
 void CreaAvatar::resetTutto() const
 {
+    immagineAvatar->clear();
     inserisciNome->clear();
+    valoreForza->clear();
+    valoreMagia->clear();
+    valoreDifesa->clear();
+    valoreScienza->clear();
+    valoreMedia->clear();
+    valoreSpeciale->clear();
+    terrenoPreferito->clear();
+    lvl->clear();
+    exp->clear();
     resetCheck();
     boxDescrizione->clear();
     sceltaTipo->setCurrentIndex(0);

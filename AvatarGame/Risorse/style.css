@@ -9,7 +9,7 @@ QPushButton:hover{
 }
 
 QPushButton#info{
-	border: 0.5px solid black;
+        border: 0.5px solid rgb(2,106,169);
 	border-radius: 15px;
 }
 
@@ -20,7 +20,7 @@ QPushButton#modifica{
 }
 
 QLabel#grassetto{
-	font-weight: bold
+        font-weight: bold;
 }
 
 QMenuBar {

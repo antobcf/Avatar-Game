@@ -26,6 +26,7 @@ AvatarHome::AvatarHome(QWidget* p):
     QPixmap *y=new QPixmap(":/Risorse/Immagini Avatar/logo_titolo");
     QPixmap y1(y->scaled(400,400, Qt::IgnoreAspectRatio));
     titoloGioco->setPixmap(y1);
+
 }
 
 QPushButton *AvatarHome::getBottoneCrea() const

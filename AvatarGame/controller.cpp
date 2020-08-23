@@ -382,14 +382,16 @@ void Controller::modificaAvatar()
             e->getLibro() ? vistaModifica->getPowerUp4()->setChecked(true), vistaModifica->checkQuattro() : vistaModifica->getPowerUp4()->setChecked(false);
 
             std::string trasparentia = (std::to_string(e->getTrasparentia()));
-            if(e->getTrasparentia() < 10) {
-                trasparentia.resize(3);
-            } else if(e->getTrasparentia() < 100) {
+            if(e->getTrasparentia() < 1) {
                 trasparentia.resize(4);
-            } else if(e->getTrasparentia() < 1000) {
+            } else if(e->getTrasparentia() < 10) {
+                trasparentia.resize(4);
+            } else if(e->getTrasparentia() < 100) {
                 trasparentia.resize(5);
-            } else
+            } else if(e->getTrasparentia() < 1000) {
                 trasparentia.resize(6);
+            } else
+                trasparentia.resize(7);
             vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(trasparentia));
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
@@ -407,14 +409,16 @@ void Controller::modificaAvatar()
             n->getLibro() ? vistaModifica->getPowerUp4()->setChecked(true), vistaModifica->checkQuattro() : vistaModifica->getPowerUp4()->setChecked(false);
 
             std::string corteccia = (std::to_string(n->getCorteccia()));
-            if(n->getCorteccia() < 10) {
-                corteccia.resize(3);
-            } else if(n->getCorteccia() < 100) {
+            if(n->getCorteccia() < 1) {
                 corteccia.resize(4);
-            } else if(n->getCorteccia() < 1000) {
+            } else if(n->getCorteccia() < 10) {
+                corteccia.resize(4);
+            } else if(n->getCorteccia() < 100) {
                 corteccia.resize(5);
-            } else
+            } else if(n->getCorteccia() < 1000) {
                 corteccia.resize(6);
+            } else
+                corteccia.resize(7);
             vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(corteccia));
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
@@ -432,14 +436,16 @@ void Controller::modificaAvatar()
             u->getLibro() ? vistaModifica->getPowerUp4()->setChecked(true), vistaModifica->checkQuattro() : vistaModifica->getPowerUp4()->setChecked(false);
 
             std::string ingegno = (std::to_string(u->getIngegno()));
-            if(u->getIngegno() < 10) {
-                ingegno.resize(3);
-            } else if(u->getIngegno() < 100) {
+            if(u->getIngegno() < 1) {
                 ingegno.resize(4);
-            } else if(u->getIngegno() < 1000) {
+            } else if(u->getIngegno() < 10) {
+                ingegno.resize(4);
+            } else if(u->getIngegno() < 100) {
                 ingegno.resize(5);
-            } else
+            } else if(u->getIngegno() < 1000) {
                 ingegno.resize(6);
+            } else
+                ingegno.resize(7);
             vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ingegno));
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
@@ -457,14 +463,16 @@ void Controller::modificaAvatar()
             a->getChip() ? vistaModifica->getPowerUp8()->setChecked(true), vistaModifica->checkOtto() : vistaModifica->getPowerUp8()->setChecked(false);
 
             std::string ufo = (std::to_string(a->getUfo()));
-            if(a->getUfo() < 10) {
-                ufo.resize(3);
-            } else if(a->getUfo() < 100) {
+            if(a->getUfo() < 1) {
                 ufo.resize(4);
-            } else if(a->getUfo() < 1000) {
+            } else if(a->getUfo() < 10) {
+                ufo.resize(4);
+            } else if(a->getUfo() < 100) {
                 ufo.resize(5);
-            } else
+            } else if(a->getUfo() < 1000) {
                 ufo.resize(6);
+            } else
+                ufo.resize(7);
             vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(ufo));
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");
@@ -481,14 +489,16 @@ void Controller::modificaAvatar()
             m->getChip() ? vistaModifica->getPowerUp8()->setChecked(true), vistaModifica->checkOtto() : vistaModifica->getPowerUp8()->setChecked(false);
 
             std::string porta = (std::to_string(m->getPorta()));
-            if(m->getPorta() < 10) {
-                porta.resize(3);
-            } else if(m->getPorta() < 100) {
+            if(m->getPorta() < 1) {
                 porta.resize(4);
-            } else if(m->getPorta() < 1000) {
+            } else if(m->getPorta() < 10) {
+                porta.resize(4);
+            } else if(m->getPorta() < 100) {
                 porta.resize(5);
-            } else
+            } else if(m->getPorta() < 1000) {
                 porta.resize(6);
+            } else
+                porta.resize(7);
             vistaModifica->getValoreSpeciale()->setText(QString::fromStdString(porta));
             vistaModifica->setModal(true);
             vistaModifica->setWindowTitle("Modifica Avatar");

@@ -4,7 +4,7 @@
 ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton(this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
-    azzeraRicerca(new QPushButton("Azzera ricera",this)),
+    azzeraRicerca(new QPushButton("Azzera ricerca",this)),
     cercaNome(new QLineEdit(this)),
     tipoElfo(new QCheckBox("Elfo", this)),
     tipoNano(new QCheckBox("Nano", this)),
@@ -60,12 +60,11 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     layoutBottom->addWidget(bottoneInfoLista, 0, Qt::AlignRight);
 
     const QSize sizeB = QSize(120,60);
-    const QSize sizeC = QSize(120,30);
     bottoneModifica->setFixedSize(sizeB);
     bottoneRimuovi->setFixedSize(sizeB);
     bottoneAvvioGioco->setFixedSize(sizeB);
-    avviaRicerca->setFixedSize(sizeC);
-    azzeraRicerca->setFixedSize(sizeC);
+    avviaRicerca->setFixedSize(90,30);
+    azzeraRicerca->setFixedSize(120,30);
     bottoneHome->setFixedHeight(30);
     bottoneInfoLista->setFixedSize(30,30);
     bottoneInfoLista->setObjectName("info");
@@ -73,6 +72,8 @@ ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome->setIcon(QIcon(":/Risorse/Immagini Avatar/home.png"));
     bottoneHome->setIconSize(QSize(30, 30));
     bottoneHome->setFixedSize(40,40);
+
+    cercaNome->setMaxLength(12);
 }
 
 QCheckBox *ListaAvatar::getTipoElfo() const

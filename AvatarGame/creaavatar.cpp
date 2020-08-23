@@ -17,9 +17,9 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     nomeDifesa(new QLabel("Difesa:", this)),
     nomeScienza(new QLabel("Scienza:", this)),
     nomeMedia(new QLabel("Media:", this)),
-    nomeSpeciale(new QLabel("Valore\nspeciale:", this)),
+    nomeSpeciale(new QLabel("V. speciale:", this)),
     nomeExp(new QLabel("Exp:", this)),
-    nomeTerreno(new QLabel("Terreno\npreferito:", this)),
+    nomeTerreno(new QLabel("Terreno:", this)),
     labelSesso(new QLabel("Scegli il sesso del tuo Avatar: ", this)),
     terrenoPreferito(new QLabel(this)),
     immagineAvatar(new QLabel(this)),
@@ -90,7 +90,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     boxValori->setLayout(layoutNV);
     layoutDx->addWidget(boxValori);
     layoutNV->addLayout(layoutNomi);
-    layoutNV->addLayout(layoutValori);
+    layoutNV->addLayout(layoutValori);  
     layoutNomi->addWidget(nomeForza);
     layoutNomi->addWidget(nomeMagia);
     layoutNomi->addWidget(nomeDifesa);
@@ -114,12 +114,12 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
 
     bottoneHome->setIcon(QIcon(":/Risorse/Immagini Avatar/home.png"));
     bottoneHome->setIconSize(QSize(35,35));
-
     bottoneHome->setFixedSize(50,50);
     bottoneCreaDef->setFixedHeight(40);
     resetCampi->setFixedHeight(40);
     boxValori->setFixedWidth(270);
     boxValori->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    terrenoPreferito->setFixedWidth(150);
     boxDescrizione->setFixedHeight(250);
     boxDescrizione->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     boxDescrizione->setPlaceholderText("Storia del tuo Avatar");
@@ -167,7 +167,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     nomeExp->setObjectName("grassetto");
     nomeTerreno->setObjectName("grassetto");
 
-    inserisciNome->setMaxLength(10);
+    inserisciNome->setMaxLength(12);
 }
 
 
@@ -931,9 +931,9 @@ void CreaAvatar::calcoloValori()
     valoreMagia->setText(QString::number(magia));
     valoreDifesa->setText(QString::number(difesa));
     valoreScienza->setText(QString::number(scienza));
-    valoreMedia->setText(QString::number(media,'f',1));
+    valoreMedia->setText(QString::number(media,'f',2));
     terrenoPreferito->setText(QString::fromStdString(terreno));
     lvl->setText(QString::number(livello));
     exp->setText(QString::number(esperienza));
-    valoreSpeciale->setText(QString::number(valoreExtra,'f',1));
+    valoreSpeciale->setText(QString::number(valoreExtra,'f',2));
 }

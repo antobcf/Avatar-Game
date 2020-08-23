@@ -894,9 +894,9 @@ void ModificaAvatar::calcoloValori()
     valoreMagia->setText(QString::number(magia));
     valoreDifesa->setText(QString::number(difesa));
     valoreScienza->setText(QString::number(scienza));
-    valoreMedia->setText(QString::number(media,'f',1));
+    valoreMedia->setText(QString::number(media,'f',2));
     lvl->setText(QString::number(livello));
-    valoreSpeciale->setText(QString::number(valoreExtra,'f',1));
+    valoreSpeciale->setText(QString::number(valoreExtra,'f',2));
 }
 
 

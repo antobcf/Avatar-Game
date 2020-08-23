@@ -128,11 +128,11 @@ std::string Avatar::datiAvatar()
 {
     std::string m = std::to_string(getMedia());
     if(getMedia() < 10) {
-        m.resize(3);
-    } else if(getMedia() < 100) {
         m.resize(4);
-    } else
+    } else if(getMedia() < 100) {
         m.resize(5);
+    } else
+        m.resize(6);
     return ("Tipo Avatar: "+getTipo()).append("   Nome: "+getNome()).append("   Sesso: ").append(getSesso() ? "Maschio" : "Femmina")
             .append("\nForza: "+std::to_string(getForza())).append("   Magia: "+std::to_string(getMagia()))
             .append("\nDifesa: "+std::to_string(getDifesa())).append("   Scienza: "+std::to_string(getScienza()))
@@ -200,14 +200,16 @@ bool Elfo::operator==(const Avatar & a) const {
 std::string Elfo::datiAvatar()
 {
     std::string t = std::to_string(getTrasparentia());
-    if(getTrasparentia() < 10) {
-        t.resize(3);
-    } else if(getTrasparentia() < 100) {
+    if(getTrasparentia() < 1) {
         t.resize(4);
-    } else if(getTrasparentia() < 1000) {
+    } else if(getTrasparentia() < 10) {
+        t.resize(4);
+    } else if(getTrasparentia() < 100) {
         t.resize(5);
-    } else
+    } else if(getTrasparentia() < 1000) {
         t.resize(6);
+    } else
+        t.resize(7);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nTrasparentia: "+t).append("\nStoria: "+getDescrizione());
 }
@@ -234,14 +236,16 @@ bool Nano::operator==(const Avatar & a) const {
 std::string Nano::datiAvatar()
 {
     std::string c = std::to_string(getCorteccia());
-    if(getCorteccia() < 10) {
-        c.resize(3);
-    } else if(getCorteccia() < 100) {
+    if(getCorteccia() < 1) {
         c.resize(4);
-    } else if(getCorteccia() < 1000) {
+    } else if(getCorteccia() < 10) {
+        c.resize(4);
+    } else if(getCorteccia() < 100) {
         c.resize(5);
-    } else
+    } else if(getCorteccia() < 1000) {
         c.resize(6);
+    } else
+        c.resize(7);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nCorteccia: "+c).append("\nStoria: "+getDescrizione());
 }
@@ -268,14 +272,16 @@ bool Umano::operator==(const Avatar & a) const {
 std::string Umano::datiAvatar()
 {
     std::string u = std::to_string(getIngegno());
-    if(getIngegno() < 10) {
-        u.resize(3);
-    } else if(getIngegno() < 100) {
+    if(getIngegno() < 1) {
         u.resize(4);
-    } else if(getIngegno() < 1000) {
+    } else if(getIngegno() < 10) {
+        u.resize(4);
+    } else if(getIngegno() < 100) {
         u.resize(5);
-    } else {
+    } else if(getIngegno() < 1000) {
         u.resize(6);
+    } else {
+        u.resize(7);
 }
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nIngegno Scientifico: "+u).append("\nStoria: "+getDescrizione());
@@ -342,7 +348,9 @@ bool Alieno::operator==(const Avatar & a) const {
 std::string Alieno::datiAvatar()
 {
     std::string a = std::to_string(getUfo());
-    if(getUfo() < 10) {
+    if(getUfo() < 1) {
+        a.resize(4);
+    } else if(getUfo() < 10) {
         a.resize(3);
     } else if(getUfo() < 100) {
         a.resize(4);
@@ -376,14 +384,16 @@ bool Mostro::operator==(const Avatar & a) const {
 std::string Mostro::datiAvatar()
 {
     std::string m = std::to_string(getPorta());
-    if(getPorta() < 10) {
-        m.resize(3);
-    } else if(getPorta() < 100) {
+    if(getPorta() < 1) {
         m.resize(4);
-    } else if(getPorta() < 1000) {
+    } else if(getPorta() < 10) {
+        m.resize(4);
+    } else if(getPorta() < 100) {
         m.resize(5);
-    } else
+    } else if(getPorta() < 1000) {
         m.resize(6);
+    } else
+        m.resize(7);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nPorta Demoniaca: "+m).append("\nStoria: "+getDescrizione());
 }

@@ -1428,6 +1428,7 @@ void Controller::resetRicerca()
 void Controller::calcoloValori(Avatar* x)
 {
     std::string tipo = x->getTipo();
+    std::string terrNon = x-> getTerrNon();
     double forza = 0;
     double magia = 0;
     double difesa = 0;
@@ -1439,6 +1440,42 @@ void Controller::calcoloValori(Avatar* x)
     std::string terreno;
     std::string immagine;
     bool sesso = x->getSesso();
+
+    if(terrNon == "Terrestre") {
+        Terrestre* t = static_cast<Terrestre*>(x);
+        int aux = 0;
+        if(t->getSpada() == true)
+            aux+=1;
+        if(t->getAnello() == true)
+            aux+=1;
+        if(t->getScu() == true)
+            aux+=1;
+        if(t->getLibro() == true)
+            aux+=1;
+        if(aux>2) {
+            t->setSpada(false);
+            t->setAnello(false);
+            t->setScudo(false);
+            t->setLibro(false);
+        }
+    } else {
+        NOTerrestre* t = static_cast<NOTerrestre*>(x);
+        int aux = 0;
+        if(t->getLaser() == true)
+            aux+=1;
+        if(t->getAmuleto() == true)
+            aux+=1;
+        if(t->getBar() == true)
+            aux+=1;
+        if(t->getChip() == true)
+            aux+=1;
+        if(aux>2) {
+            t->setLaser(false);
+            t->setAmuleto(false);
+            t->setBarriera(false);
+            t->setChip(false);
+        }
+    }
 
     if(tipo == "Elfo") {
         Elfo* e = static_cast<Elfo*>(x);

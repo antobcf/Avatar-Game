@@ -1,4 +1,4 @@
-﻿ #include "GUI\modificaavatar.h"
+﻿ #include "modificaavatar.h"
 
 ModificaAvatar::ModificaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),

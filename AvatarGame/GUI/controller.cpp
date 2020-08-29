@@ -1,4 +1,4 @@
-#include "GUI\controller.h"
+#include "controller.h"
 
 Controller::Controller(Modello* m, QWidget *parent) :
     QWidget(parent),

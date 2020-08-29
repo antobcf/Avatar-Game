@@ -1,7 +1,7 @@
 #ifndef LISTAAVATAR_H
 #define LISTAAVATAR_H
 
-#include "GUI\item.h"
+#include "item.h"
 
 #include <QPushButton>
 #include <QVBoxLayout>

@@ -1,4 +1,4 @@
-#include "GUI\elencoavatar.h"
+#include "elencoavatar.h"
 
 ElencoAvatar::ElencoAvatar(QWidget * p, Avatar * i) : parent(p), item(i)
 {

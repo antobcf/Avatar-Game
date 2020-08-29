@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--!!!Non commentare il documento!!!-->
 <start>
     <Alieno Nome="Mars" Descrizione="Alieno proveniente da Marte, atterrato sulla Terra per impadronirsi del genere umano" Livello="100" Exp="20" Forza="300" Magia="1006" Difesa="0" Scienza="709" Sesso="false" Percorso=":Risorse/Immagini Avatar/Alieno.png" Media="503.75" Terreno="Regno dello spazio" Laser="false" Amuleto="true" Barriera="false" Chip="true" Ufo="5045"/>
     <Umano Nome="Adele" Descrizione="Coraggiosa guerriera pronta a proteggere il proprio villaggio dall'attacco di qualsiasi nemico" Livello="3" Exp="30" Forza="15" Magia="15" Difesa="24" Scienza="29" Sesso="false" Percorso=":Risorse/Immagini Avatar/Umano Femmina.png" Media="20.75" Terreno="Regno delle macchine" Spada="false" Anello="true" Scudo="false" Libro="true" Ingegnoscientifico="7.95"/>

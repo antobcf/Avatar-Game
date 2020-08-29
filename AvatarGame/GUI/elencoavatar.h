@@ -1,7 +1,7 @@
 #ifndef ELENCOAVATAR_H
 #define ELENCOAVATAR_H
 
-#include "Gerarchia\gerarchia.h"
+#include "Gerarchia/gerarchia.h"
 
 #include <QListWidgetItem>
 

@@ -16,36 +16,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    GUI\controller.cpp \
-    GUI\creaavatar.cpp \
-    GUI\elencoavatar.cpp \
-    Gerarchia\gerarchia.cpp \
-    GUI\infosistema.cpp \
-    GUI\item.cpp \
-    GUI\listaavatar.cpp \
+    GUI/controller.cpp \
+    GUI/creaavatar.cpp \
+    GUI/elencoavatar.cpp \
+    Gerarchia/gerarchia.cpp \
+    GUI/infosistema.cpp \
+    GUI/item.cpp \
+    GUI/listaavatar.cpp \
     main.cpp \
-    GUI\avatarhome.cpp \
-    GUI\menu.cpp \
+    GUI/avatarhome.cpp \
+    GUI/menu.cpp \
     modello.cpp \
-    GUI\modificaavatar.cpp \
-    GUI\scontro.cpp \
-    GUI\sviluppatori.cpp
+    GUI/modificaavatar.cpp \
+    GUI/scontro.cpp \
+    GUI/sviluppatori.cpp
 
 HEADERS += \
-    GUI\avatarhome.h \
-    Gerarchia\container.h \
-    GUI\controller.h \
-    GUI\creaavatar.h \
-    GUI\elencoavatar.h \
-    Gerarchia\gerarchia.h \
-    GUI\infosistema.h \
-    GUI\item.h \
-    GUI\listaavatar.h \
-    GUI\menu.h \
+    GUI/avatarhome.h \
+    Gerarchia/container.h \
+    GUI/controller.h \
+    GUI/creaavatar.h \
+    GUI/elencoavatar.h \
+    Gerarchia/gerarchia.h \
+    GUI/infosistema.h \
+    GUI/item.h \
+    GUI/listaavatar.h \
+    GUI/menu.h \
     modello.h \
-    GUI\modificaavatar.h \
-    GUI\scontro.h \
-    GUI\sviluppatori.h
+    GUI/modificaavatar.h \
+    GUI/scontro.h \
+    GUI/sviluppatori.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

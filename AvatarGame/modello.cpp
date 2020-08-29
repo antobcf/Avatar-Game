@@ -130,7 +130,7 @@ void Modello::caricare()
                     bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
                     bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
                     bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
-                    double ingegno = newAttributo.hasAttribute("Ingegnoscientifico") ? newAttributo.value("Ingegnoscientifico").toDouble() : 0; //qui invece avere lo spazio non conta nulla
+                    double ingegno = newAttributo.hasAttribute("Ingegnoscientifico") ? newAttributo.value("Ingegnoscientifico").toDouble() : 0;
                     inserire = new Umano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, ingegno);
                 } else if(reader.name() == "Alieno") {                    
                     bool laser = newAttributo.hasAttribute("Laser") ? newAttributo.value("Laser").toString() == "true" ? true : false : false;

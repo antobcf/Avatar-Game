@@ -1,4 +1,4 @@
-#include "gerarchia.h"
+#include "Gerarchia\gerarchia.h"
 #include <iostream>
 
 Avatar::Avatar(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p): nome(n), descrizione(ds), livello(lvl), exp(e),  forza(f), magia(m), difesa(d), scienza(s), media(med), terreno(t), sesso(sx), percorsoImmagine(p) {}

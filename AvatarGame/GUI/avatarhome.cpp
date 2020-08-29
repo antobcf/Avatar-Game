@@ -1,4 +1,4 @@
-#include "avatarhome.h"
+#include "GUI\avatarhome.h"
 
 AvatarHome::AvatarHome(QWidget* p):
     parent(p),

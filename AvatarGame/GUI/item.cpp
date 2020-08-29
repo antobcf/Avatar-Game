@@ -1,4 +1,4 @@
-#include "item.h"
+#include "GUI\item.h"
 
 item::item(QWidget* p) : parent(p)
 {

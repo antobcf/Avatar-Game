@@ -1,5 +1,5 @@
-#include "menu.h"
-#include "controller.h"
+#include "GUI\menu.h"
+#include "GUI\controller.h"
 
 Menu::Menu(QWidget* p):
     parent(p),

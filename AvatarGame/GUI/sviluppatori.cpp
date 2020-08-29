@@ -1,4 +1,4 @@
-#include "sviluppatori.h"
+#include "GUI\sviluppatori.h"
 
 Sviluppatori::Sviluppatori(QWidget *parent) :
     immagineSviluppatori(new QLabel(this)),

@@ -2,14 +2,14 @@
 #define CONTROLLER_H
 
 #include "modello.h"
-#include "menu.h"
-#include "avatarhome.h"
-#include "creaavatar.h"
-#include "listaavatar.h"
-#include "modificaavatar.h"
-#include "scontro.h"
-#include "sviluppatori.h"
-#include "infosistema.h"
+#include "GUI\menu.h"
+#include "GUI\avatarhome.h"
+#include "GUI\creaavatar.h"
+#include "GUI\listaavatar.h"
+#include "GUI\modificaavatar.h"
+#include "GUI\scontro.h"
+#include "GUI\sviluppatori.h"
+#include "GUI\infosistema.h"
 
 #include <QWidget>
 #include <QVBoxLayout>

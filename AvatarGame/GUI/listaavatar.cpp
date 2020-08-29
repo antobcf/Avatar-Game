@@ -1,4 +1,4 @@
-#include "listaavatar.h"
+#include "GUI\listaavatar.h"
 
 ListaAvatar::ListaAvatar(QWidget *parent) :
     bottoneHome(new QPushButton(this)),

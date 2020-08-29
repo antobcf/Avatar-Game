@@ -1,7 +1,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "elencoavatar.h"
+#include "GUI\elencoavatar.h"
 
 #include <QListWidget>
 #include <QScrollBar>

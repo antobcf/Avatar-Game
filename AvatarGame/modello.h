@@ -1,8 +1,8 @@
 #ifndef MODELLO_H
 #define MODELLO_H
 
-#include "container.h"
-#include "gerarchia.h"
+#include "Gerarchia\container.h"
+#include "Gerarchia\gerarchia.h"
 
 #include <QSaveFile>
 #include <QFile>

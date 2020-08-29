@@ -1,6 +1,6 @@
 #include "modello.h"
-#include "controller.h"
-#include "menu.h"
+#include "GUI\controller.h"
+#include "GUI\menu.h"
 
 #include <QApplication>
 

@@ -1,4 +1,4 @@
-#include "creaavatar.h"
+#include "GUI\creaavatar.h"
 
 CreaAvatar::CreaAvatar(QWidget *parent) :
     formCrea(new QFormLayout),

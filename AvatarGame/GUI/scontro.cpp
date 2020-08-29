@@ -1,5 +1,5 @@
-#include "scontro.h"
-#include "controller.h"
+#include "GUI\scontro.h"
+#include "GUI\controller.h"
 
 Scontro::Scontro(QWidget *parent) :
     nomeAvatarSx(new QLabel("Avatar1", this)),

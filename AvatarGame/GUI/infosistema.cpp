@@ -1,4 +1,4 @@
-#include "infosistema.h"
+#include "GUI\infosistema.h"
 
 InfoSistema::InfoSistema(QWidget *parent) :
     testoSistema(new QLabel(this))

@@ -16,36 +16,36 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    controller.cpp \
-    creaavatar.cpp \
-    elencoavatar.cpp \
-    gerarchia.cpp \
-    infosistema.cpp \
-    item.cpp \
-    listaavatar.cpp \
+    GUI\controller.cpp \
+    GUI\creaavatar.cpp \
+    GUI\elencoavatar.cpp \
+    Gerarchia\gerarchia.cpp \
+    GUI\infosistema.cpp \
+    GUI\item.cpp \
+    GUI\listaavatar.cpp \
     main.cpp \
-    avatarhome.cpp \
-    menu.cpp \
+    GUI\avatarhome.cpp \
+    GUI\menu.cpp \
     modello.cpp \
-    modificaavatar.cpp \
-    scontro.cpp \
-    sviluppatori.cpp
+    GUI\modificaavatar.cpp \
+    GUI\scontro.cpp \
+    GUI\sviluppatori.cpp
 
 HEADERS += \
-    avatarhome.h \
-    container.h \
-    controller.h \
-    creaavatar.h \
-    elencoavatar.h \
-    gerarchia.h \
-    infosistema.h \
-    item.h \
-    listaavatar.h \
-    menu.h \
+    GUI\avatarhome.h \
+    Gerarchia\container.h \
+    GUI\controller.h \
+    GUI\creaavatar.h \
+    GUI\elencoavatar.h \
+    Gerarchia\gerarchia.h \
+    GUI\infosistema.h \
+    GUI\item.h \
+    GUI\listaavatar.h \
+    GUI\menu.h \
     modello.h \
-    modificaavatar.h \
-    scontro.h \
-    sviluppatori.h
+    GUI\modificaavatar.h \
+    GUI\scontro.h \
+    GUI\sviluppatori.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

@@ -61,7 +61,6 @@ public slots:
     void resetRicerca();
     void calcoloValori(Avatar*);
 
-signals:
 
 };
 

@@ -38,7 +38,7 @@ void Modello::salvare()
         reader.writeAttribute("Scienza", QString("%1").arg(salvaElemento->getScienza()));
         reader.writeAttribute("Sesso", salvaElemento->getSesso() ? "true" : "false");
         reader.writeAttribute("Percorso", QString::fromStdString(salvaElemento->getPercorsoImmagine()));
-        reader.writeAttribute("Media", QString("%1").arg(salvaElemento->getMedia())); //è un double quindio non so se vada bene
+        reader.writeAttribute("Media", QString("%1").arg(salvaElemento->getMedia()));
         reader.writeAttribute("Terreno", QString::fromStdString(salvaElemento->getTerreno()));
         if(tipo == "Terrestre") {
             const Terrestre* tipoTerrestre = static_cast<const Terrestre*>(salvaElemento);
@@ -47,7 +47,7 @@ void Modello::salvare()
             reader.writeAttribute("Scudo", tipoTerrestre->getScu() ? "true" : "false");
             reader.writeAttribute("Libro", tipoTerrestre->getLibro() ? "true" : "false");
             if(tipoAvatar == "Elfo") {
-                const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre); //o salvaElemento??
+                const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre);
                 reader.writeAttribute("Trasparentia", QString("%1").arg(tipoElfo->getTrasparentia()));
             } else if(tipoAvatar == "Nano") {
                 const Nano* tipoNano = static_cast<const Nano*>(tipoTerrestre);
@@ -67,7 +67,7 @@ void Modello::salvare()
                 reader.writeAttribute("Ufo", QString("%1").arg(tipoAlieno->getUfo()));
             } else if(tipoAvatar == "Mostro") {
                 const Mostro* tipoMostro = static_cast<const Mostro*>(tipoNoTerrestre);
-                reader.writeAttribute("Portademoniaca", QString("%1").arg(tipoMostro->getPorta())); //con lo spazio tra porta e demoniaca non funziona
+                reader.writeAttribute("Portademoniaca", QString("%1").arg(tipoMostro->getPorta()));
             }
         }
 

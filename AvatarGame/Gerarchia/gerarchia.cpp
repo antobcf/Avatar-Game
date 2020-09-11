@@ -186,6 +186,11 @@ void Terrestre::setLibro(bool lib) {
     libro=lib;
 }
 
+bool Terrestre::operator==(const Terrestre & t) const
+{
+    return getNome() == t.getNome();
+}
+
 Elfo::Elfo(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib, bool las, bool am, bool ba, bool ch, double tr): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), trasparentia(tr) {}
 
 //Metodi della classe Elfo
@@ -202,9 +207,9 @@ std::string Elfo::getTipo() const
     return "Elfo";
 }
 
-bool Elfo::operator==(const Avatar & a) const {
+bool Elfo::operator==(const Terrestre & a) const {
     const Elfo* e = dynamic_cast<const Elfo*>(&a);
-    return e && Avatar::operator==(a);
+    return e && Terrestre::operator==(a);
 }
 
 std::string Elfo::datiAvatar()

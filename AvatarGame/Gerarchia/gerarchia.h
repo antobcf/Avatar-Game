@@ -76,6 +76,7 @@ public:
     void setScudo(bool);
     void setLibro(bool);
 
+    virtual bool operator==(const Terrestre&) const;
 };
 
 class NOTerrestre: public Avatar {
@@ -105,11 +106,10 @@ private:
     double trasparentia;
 public:
     Elfo(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false, bool = false, bool = false, bool = false, bool = false, double = 0);
-    virtual std::string getTerrNon() const override;
     double getTrasparentia() const;
     void setTrasparentia(double);
     virtual std::string getTipo() const override;
-    virtual bool operator==(const Avatar&) const override;
+    virtual bool operator==(const Terrestre&) const override;
     virtual std::string datiAvatar() override;
 };
 

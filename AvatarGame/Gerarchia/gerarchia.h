@@ -65,7 +65,7 @@ private:
 public:
     Terrestre(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false);
 
-    virtual std::string getTerrNon() const override;
+    virtual std::string getTerrNon() const;
     bool getSpada() const;
     bool getAnello() const;
     bool getScu() const;
@@ -78,11 +78,34 @@ public:
 
 };
 
-class Elfo: public Terrestre {
+class NOTerrestre: public Avatar {
+private:
+    bool laser;
+    bool amuleto;
+    bool barriera;
+    bool chip;
+public:
+    NOTerrestre(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false);
+
+    virtual std::string getTerrNon() const;
+    bool getLaser() const;
+    bool getAmuleto() const;
+    bool getBar() const;
+    bool getChip() const;
+
+    void setLaser(bool);
+    void setAmuleto(bool);
+    void setBarriera(bool);
+    void setChip(bool);
+
+};
+
+class Elfo: public Terrestre, public NOTerrestre {
 private:
     double trasparentia;
 public:
-    Elfo(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false, double = 0);
+    Elfo(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false, bool = false, bool = false, bool = false, bool = false, double = 0);
+    virtual std::string getTerrNon() const override;
     double getTrasparentia() const;
     void setTrasparentia(double);
     virtual std::string getTipo() const override;
@@ -114,27 +137,7 @@ public:
     virtual std::string datiAvatar() override;
 };
 
-class NOTerrestre: public Avatar {
-private:
-    bool laser;
-    bool amuleto;
-    bool barriera;
-    bool chip;
-public:
-    NOTerrestre(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false);
 
-    virtual std::string getTerrNon() const override;
-    bool getLaser() const;
-    bool getAmuleto() const;
-    bool getBar() const;
-    bool getChip() const;
-
-    void setLaser(bool);
-    void setAmuleto(bool);
-    void setBarriera(bool);
-    void setChip(bool);
-
-};
 
 class Alieno: public NOTerrestre {
 private:

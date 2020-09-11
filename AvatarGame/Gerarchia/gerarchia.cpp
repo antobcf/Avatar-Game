@@ -186,7 +186,7 @@ void Terrestre::setLibro(bool lib) {
     libro=lib;
 }
 
-Elfo::Elfo(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib , double tr): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), trasparentia(tr) {}
+Elfo::Elfo(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib, bool las, bool am, bool ba, bool ch, double tr): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), trasparentia(tr) {}
 
 //Metodi della classe Elfo
 double Elfo::getTrasparentia() const {

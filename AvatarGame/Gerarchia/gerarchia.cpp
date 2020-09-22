@@ -149,10 +149,10 @@ std::string Avatar::datiAvatar()
 Terrestre::Terrestre(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), spada(sp), anello(a), scudo(sc), libro(lib) {}
 
 //Metodi della classe Terrestre
-std::string Terrestre::getTerrNon() const
-{
-    return "Terrestre";
-}
+//std::string Terrestre::getTerrNon() const
+//{
+//    return "Terrestre";
+//}
 
 bool Terrestre::getScu() const {
     return scudo;
@@ -186,12 +186,7 @@ void Terrestre::setLibro(bool lib) {
     libro=lib;
 }
 
-bool Terrestre::operator==(const Terrestre & t) const
-{
-    return getNome() == t.getNome();
-}
-
-Elfo::Elfo(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib, bool las, bool am, bool ba, bool ch, double tr): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), trasparentia(tr) {}
+Elfo::Elfo(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib , bool las, bool am, bool ba, bool ch, double tr): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), trasparentia(tr) {}
 
 //Metodi della classe Elfo
 double Elfo::getTrasparentia() const {
@@ -207,9 +202,9 @@ std::string Elfo::getTipo() const
     return "Elfo";
 }
 
-bool Elfo::operator==(const Terrestre & a) const {
+bool Elfo::operator==(const Avatar & a) const {
     const Elfo* e = dynamic_cast<const Elfo*>(&a);
-    return e && Terrestre::operator==(a);
+    return e && Avatar::operator==(a);
 }
 
 std::string Elfo::datiAvatar()
@@ -229,7 +224,12 @@ std::string Elfo::datiAvatar()
     return dati.append("\nTrasparentia: "+t).append("\nStoria: "+getDescrizione());
 }
 
-Nano::Nano(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib , double cor): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), corteccia(cor) {}
+std::string Elfo::getTerrNon() const
+{
+    return "Fusione";
+}
+
+Nano::Nano(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib , double cor): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), corteccia(cor) {}
 
 //Metodi della classe Nano
 double Nano::getCorteccia() const {
@@ -267,7 +267,12 @@ std::string Nano::datiAvatar()
     return dati.append("\nCorteccia: "+c).append("\nStoria: "+getDescrizione());
 }
 
-Umano::Umano(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib , double is): Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), ingegnoScientifico(is) {}
+std::string Nano::getTerrNon() const
+{
+    return "Terrestre";
+}
+
+Umano::Umano(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib , double is): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), Terrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,sp,a,sc,lib), ingegnoScientifico(is) {}
 
 //Metodi della classe Umano
 double Umano::getIngegno() const {
@@ -306,13 +311,18 @@ std::string Umano::datiAvatar()
     return dati.append("\nIngegno Scientifico: "+u).append("\nStoria: "+getDescrizione());
 }
 
+std::string Umano::getTerrNon() const
+{
+    return "Terrestre";
+}
+
 NOTerrestre::NOTerrestre(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool las, bool am, bool ba, bool ch): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p),  laser(las), amuleto(am), barriera(ba), chip(ch) {}
 
 //Metodi della classe NOTerrestre
-std::string NOTerrestre::getTerrNon() const
-{
-    return "Non terrestre";
-}
+//std::string NOTerrestre::getTerrNon() const
+//{
+//    return "Non terrestre";
+//}
 
 bool NOTerrestre::getBar() const {
     return barriera;
@@ -346,7 +356,7 @@ void NOTerrestre::setChip(bool ch) {
     chip=ch;
 }
 
-Alieno::Alieno(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool las, bool am , bool ba, bool ch , double ufo): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), ufo(ufo) {}
+Alieno::Alieno(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool las, bool am , bool ba, bool ch , double ufo): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), ufo(ufo) {}
 
 //Metodi della classe Alieno
 double Alieno::getUfo() const {
@@ -385,7 +395,12 @@ std::string Alieno::datiAvatar()
     return dati.append("\nUfo: "+a).append("\nStoria: "+getDescrizione());
 }
 
-Mostro::Mostro(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool las, bool am, bool ba, bool ch, double pd): NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), portaDemoniaca(pd) {}
+std::string Alieno::getTerrNon() const
+{
+    return "Non terrestre";
+}
+
+Mostro::Mostro(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool las, bool am, bool ba, bool ch, double pd): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), NOTerrestre(n,ds,lvl,e,f,m,d,s,med,t,sx,p,las,am,ba,ch), portaDemoniaca(pd) {}
 
 //Metodi della classe Mostro
 double Mostro::getPorta() const {
@@ -421,4 +436,9 @@ std::string Mostro::datiAvatar()
         m.resize(7);
     std::string dati = Avatar::datiAvatar();
     return dati.append("\nPorta Demoniaca: "+m).append("\nStoria: "+getDescrizione());
+}
+
+std::string Mostro::getTerrNon() const
+{
+    return "Non terrestre";
 }

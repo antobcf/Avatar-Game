@@ -443,38 +443,76 @@ QRadioButton *CreaAvatar::getSessoF() const
 
 void CreaAvatar::checkUno()
 {
-    calcoloValori();
-    if(powerUp1->isChecked()) {
-        if(powerUp2->isChecked()) {
-            powerUp3->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp2->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp2->setEnabled(false);
-            powerUp3->setEnabled(false);
-            return;
+    int indexAttuale = sceltaTipo->currentIndex();
+    if(indexAttuale == 1) {
+        calcoloValori();
+        if(powerUp1->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp2->isChecked()) {
-            powerUp3->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp2->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp2->setEnabled(true);
-            powerUp3->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp1->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp3->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp3->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp3->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp3->setEnabled(true);
+                return;
+            }
         }
     }
 
@@ -482,38 +520,76 @@ void CreaAvatar::checkUno()
 
 void CreaAvatar::checkDue()
 {
-    calcoloValori();
-    if(powerUp2->isChecked()) {
-        if(powerUp1->isChecked()) {
-            powerUp3->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp1->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp1->setEnabled(false);
-            powerUp3->setEnabled(false);
-            return;
+    int indexAttuale = sceltaTipo->currentIndex();
+    if(indexAttuale == 1) {
+        calcoloValori();
+        if(powerUp2->isChecked()) {
+            if(powerUp1->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp1->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp1->isChecked()) {
-            powerUp3->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp1->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp1->setEnabled(true);
-            powerUp3->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp2->isChecked()) {
+            if(powerUp1->isChecked()) {
+                powerUp3->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp3->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp1->isChecked()) {
+                powerUp3->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp3->setEnabled(true);
+                return;
+            }
         }
     }
 }
@@ -672,76 +748,152 @@ void CreaAvatar::checkSei()
 
 void CreaAvatar::checkSette()
 {
-    calcoloValori();
-    if(powerUp7->isChecked()) {
-        if(powerUp6->isChecked()) {
-            powerUp5->setEnabled(false);
-            powerUp8->setEnabled(false);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp8->setEnabled(false);
-            return;
-        }
-        if(powerUp8->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp5->setEnabled(false);
-            return;
+    int indexAttuale = sceltaTipo->currentIndex();
+    if(indexAttuale == 1) {
+        calcoloValori();
+        if(powerUp7->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp1->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp1->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp6->isChecked()) {
-            powerUp5->setEnabled(true);
-            powerUp8->setEnabled(true);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp8->setEnabled(true);
-            return;
-        }
-        if(powerUp8->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp5->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp7->isChecked()) {
+            if(powerUp6->isChecked()) {
+                powerUp5->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp5->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp6->isChecked()) {
+                powerUp5->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp5->setEnabled(true);
+                return;
+            }
         }
     }
 }
 
 void CreaAvatar::checkOtto()
 {
-    calcoloValori();
-    if(powerUp8->isChecked()) {
-        if(powerUp6->isChecked()) {
-            powerUp7->setEnabled(false);
-            powerUp5->setEnabled(false);
-            return;
-        }
-        if(powerUp7->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp5->setEnabled(false);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp7->setEnabled(false);
-            return;
+    int indexAttuale = sceltaTipo->currentIndex();
+    if(indexAttuale == 1) {
+        calcoloValori();
+        if(powerUp8->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp1->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp1->setEnabled(false);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp1->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp1->setEnabled(true);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp6->isChecked()) {
-            powerUp7->setEnabled(true);
-            powerUp5->setEnabled(true);
-            return;
-        }
-        if(powerUp7->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp5->setEnabled(true);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp7->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp8->isChecked()) {
+            if(powerUp6->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp5->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp5->setEnabled(false);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp6->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp5->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp5->setEnabled(true);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     }
 }
@@ -749,7 +901,17 @@ void CreaAvatar::checkOtto()
 void CreaAvatar::groupTipo()
 {
     int indexAttuale = sceltaTipo->currentIndex();
-    if(indexAttuale == 1 || indexAttuale == 2 || indexAttuale == 3) {
+    if(indexAttuale == 1) {
+        powerUp5->hide();
+        powerUp6->hide();
+        powerUp7->show();
+        powerUp8->show();
+        powerUp1->show();
+        powerUp2->show();
+        powerUp3->hide();
+        powerUp4->hide();
+        resetCheck();
+    } else if(indexAttuale == 2 || indexAttuale == 3) {
         powerUp5->hide();
         powerUp6->hide();
         powerUp7->hide();
@@ -759,7 +921,7 @@ void CreaAvatar::groupTipo()
         powerUp3->show();
         powerUp4->show();
         resetCheck();
-     } else {
+     } else if (indexAttuale == 4 || indexAttuale == 5){
         powerUp1->hide();
         powerUp2->hide();
         powerUp3->hide();
@@ -840,11 +1002,11 @@ void CreaAvatar::calcoloValori()
             magia += 6;
         }
         difesa = 6;
-        if(powerUp3->isChecked()) {
+        if(powerUp7->isChecked()) {
             difesa += 10;
         }
         scienza = 5;
-        if(powerUp4->isChecked()) {
+        if(powerUp8->isChecked()) {
             scienza += 5;
         }
         terreno = "Regno incantato";

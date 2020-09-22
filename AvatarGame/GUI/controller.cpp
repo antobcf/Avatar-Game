@@ -160,9 +160,6 @@ void Controller::inserisciAvatar()
     Avatar* item5 = new Mostro(nome);
 
     if(modello->getLista()->ricerca(item)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
         bool match = false;
 
         Container<Avatar*>::iteratoreConst val = modello->beginConst();
@@ -170,7 +167,6 @@ void Controller::inserisciAvatar()
 
         while(val != valFin && !match) {
             if(*item == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
                 match = true;
                 QMessageBox::warning(this, "Errore",  "Nome già usato");
             }
@@ -178,9 +174,6 @@ void Controller::inserisciAvatar()
         }
 
     } else if(modello->getLista()->ricerca(item2)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
         bool match = false;
 
         Container<Avatar*>::iteratoreConst val = modello->beginConst();
@@ -188,58 +181,45 @@ void Controller::inserisciAvatar()
 
         while(val != valFin && !match) {
             if(*item2 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
                 match = true;
                 QMessageBox::warning(this, "Errore",  "Nome già usato");
             }
             ++val;
         }
     } else if(modello->getLista()->ricerca(item3)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
         bool match = false;
 
         Container<Avatar*>::iteratoreConst val = modello->beginConst();
         Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
         while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
+            if(*item3 == *(*val)) {
                 match = true;
                 QMessageBox::warning(this, "Errore",  "Nome già usato");
             }
             ++val;
         }
     } else if(modello->getLista()->ricerca(item4)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
         bool match = false;
 
         Container<Avatar*>::iteratoreConst val = modello->beginConst();
         Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
         while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
+            if(*item4 == *(*val)) {
                 match = true;
                 QMessageBox::warning(this, "Errore",  "Nome già usato");
             }
             ++val;
         }
     } else if(modello->getLista()->ricerca(item5)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
         bool match = false;
 
         Container<Avatar*>::iteratoreConst val = modello->beginConst();
         Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
         while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
+            if(*item5 == *(*val)) {
                 match = true;
                 QMessageBox::warning(this, "Errore",  "Nome già usato");
             }
@@ -251,7 +231,43 @@ void Controller::inserisciAvatar()
         QMessageBox::warning(this, "Attenzione!", "Compila tutti i campi per creare un nuovo Avatar");
     } else {
 
-        if(index == 1 || index == 2 || index == 3) {
+        if(index == 1) {
+            bool spada;
+            check = vistaCrea->getPowerUp1()->isChecked();
+            if(check == 1) spada = true;
+            else spada = false;
+
+            bool anello;
+            check = vistaCrea->getPowerUp2()->isChecked();
+            if(check == 1) anello = true;
+            else anello = false;
+
+            bool barriera;
+            check = vistaCrea->getPowerUp7()->isChecked();
+            if(check == 1) barriera = true;
+            else barriera = false;
+
+            bool chip;
+            check = vistaCrea->getPowerUp8()->isChecked();
+            if(check == 1) chip = true;
+            else chip = false;
+
+            bool scudo = false;
+            bool libro = false;
+            bool laser = false;
+            bool amuleto = false;
+
+            double trasparentia = vistaCrea->getValoreSpeciale()->text().toDouble();
+            Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, laser, amuleto, barriera, chip, trasparentia);
+            modello->getLista()->inserisci(personaggio);
+
+            modello->salvare();
+            carica();
+            QMessageBox::about(this, "Complimenti!", "Hai appena creato un nuovo Avatar");
+            vistaCrea->hide();
+            vistaLista->show();
+
+        } else if(index == 2 || index == 3) {
             bool spada;
             check = vistaCrea->getPowerUp1()->isChecked();
             if(check == 1) spada = true;
@@ -272,11 +288,7 @@ void Controller::inserisciAvatar()
             if(check == 1) libro = true;
             else libro = false;
 
-            if(index == 1) {
-                double trasparentia = vistaCrea->getValoreSpeciale()->text().toDouble();
-                Elfo* personaggio = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, trasparentia);
-                modello->getLista()->inserisci(personaggio);
-            } else if(index == 2) {
+            if(index == 2) {
                 double corteccia = vistaCrea->getValoreSpeciale()->text().toDouble();
                 Nano* personaggio = new Nano(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, corteccia);
                 modello->getLista()->inserisci(personaggio);
@@ -372,14 +384,14 @@ void Controller::modificaAvatar()
         vistaModifica->inserisciPercorso(percorsoFoto);
 
         if(dynamic_cast<Elfo*>(itemA)) {
-            Elfo* e = static_cast<Elfo*>(itemA);
+            Elfo* e = dynamic_cast<Elfo*>(itemA);
 
             vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
             e->getSpada() ? vistaModifica->getPowerUp1()->setChecked(true), vistaModifica->checkUno() : vistaModifica->getPowerUp1()->setChecked(false);
             e->getAnello() ? vistaModifica->getPowerUp2()->setChecked(true), vistaModifica->checkDue() : vistaModifica->getPowerUp2()->setChecked(false);
-            e->getScu() ? vistaModifica->getPowerUp3()->setChecked(true), vistaModifica->checkTre() : vistaModifica->getPowerUp3()->setChecked(false);
-            e->getLibro() ? vistaModifica->getPowerUp4()->setChecked(true), vistaModifica->checkQuattro() : vistaModifica->getPowerUp4()->setChecked(false);
+            e->getBar() ? vistaModifica->getPowerUp7()->setChecked(true), vistaModifica->checkSette() : vistaModifica->getPowerUp7()->setChecked(false);
+            e->getChip() ? vistaModifica->getPowerUp8()->setChecked(true), vistaModifica->checkOtto() : vistaModifica->getPowerUp8()->setChecked(false);
 
             std::string trasparentia = (std::to_string(e->getTrasparentia()));
             if(e->getTrasparentia() < 1) {
@@ -398,7 +410,7 @@ void Controller::modificaAvatar()
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Elfo Maschio.png"));
 
         } else if(dynamic_cast<Nano*>(itemA)) {
-            Nano* n = static_cast<Nano*>(itemA);
+            Nano* n = dynamic_cast<Nano*>(itemA);
 
             vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
@@ -424,7 +436,7 @@ void Controller::modificaAvatar()
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Nano Maschio.png"));
 
         } else if(dynamic_cast<Umano*>(itemA)) {
-            Umano* u = static_cast<Umano*>(itemA);
+            Umano* u = dynamic_cast<Umano*>(itemA);
 
             vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
@@ -450,7 +462,7 @@ void Controller::modificaAvatar()
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Umano Maschio.png"));
 
         } else if(dynamic_cast<Alieno*>(itemA)) {
-            Alieno* a = static_cast<Alieno*>(itemA);
+            Alieno* a = dynamic_cast<Alieno*>(itemA);
 
             vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
@@ -476,7 +488,7 @@ void Controller::modificaAvatar()
             vistaModifica->setWindowIcon(QIcon(":/Risorse/Immagini Avatar/Alieno.png"));
 
         } else if(dynamic_cast<Mostro*>(itemA)) {
-            Mostro* m = static_cast<Mostro*>(itemA);
+            Mostro* m = dynamic_cast<Mostro*>(itemA);
 
             vistaModifica->getTipoAvatar()->setText(QString::fromStdString(itemA->getTipo()));
             vistaModifica->groupTipo();
@@ -564,35 +576,35 @@ void Controller::scontroTraAvatar()
                 vistaScontro->getFotoAvatar1()->setPixmap(fotoPix.scaled(200,200, Qt::AspectRatioMode::KeepAspectRatio));
 
                 if(dynamic_cast<Elfo*>(itemA)) {
-                    Elfo* e = static_cast<Elfo*>(itemA);
+                    Elfo* e = dynamic_cast<Elfo*>(itemA);
                     e->getSpada() ? vistaScontro->getPowerup1selezionatoSx()->setText("Spada"), vistaScontro->getPowerup1selezionatoSx()->show(): (vistaScontro->getPowerup1selezionatoSx()->setText(""));
                     e->getAnello() ? vistaScontro->getPowerup2selezionatoSx()->setText("Anello"), vistaScontro->getPowerup2selezionatoSx()->show() : (vistaScontro->getPowerup2selezionatoSx()->setText(""));
-                    e->getScu() ? vistaScontro->getPowerup3selezionatoSx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
-                    e->getLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
+                    e->getBar() ? vistaScontro->getPowerup3selezionatoSx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
+                    e->getChip() ? vistaScontro->getPowerup4selezionatoSx()->setText("Chip"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
 
                 } else if(dynamic_cast<Nano*>(itemA)) {
-                    Nano* n = static_cast<Nano*>(itemA);
+                    Nano* n = dynamic_cast<Nano*>(itemA);
                     n->getSpada() ? vistaScontro->getPowerup1selezionatoSx()->setText("Spada"), vistaScontro->getPowerup1selezionatoSx()->show(): (vistaScontro->getPowerup1selezionatoSx()->setText(""));
                     n->getAnello() ? vistaScontro->getPowerup2selezionatoSx()->setText("Anello"), vistaScontro->getPowerup2selezionatoSx()->show() : (vistaScontro->getPowerup2selezionatoSx()->setText(""));
                     n->getScu() ? vistaScontro->getPowerup3selezionatoSx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     n->getLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
 
                 } else if(dynamic_cast<Umano*>(itemA)) {
-                    Umano* u = static_cast<Umano*>(itemA);
+                    Umano* u = dynamic_cast<Umano*>(itemA);
                     u->getSpada() ? vistaScontro->getPowerup1selezionatoSx()->setText("Spada"), vistaScontro->getPowerup1selezionatoSx()->show(): (vistaScontro->getPowerup1selezionatoSx()->setText(""));
                     u->getAnello() ? vistaScontro->getPowerup2selezionatoSx()->setText("Anello"), vistaScontro->getPowerup2selezionatoSx()->show() : (vistaScontro->getPowerup2selezionatoSx()->setText(""));
                     u->getScu() ? vistaScontro->getPowerup3selezionatoSx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     u->getLibro() ? vistaScontro->getPowerup4selezionatoSx()->setText("Libro"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
 
                 } else if(dynamic_cast<Alieno*>(itemA)) {
-                    Alieno* a = static_cast<Alieno*>(itemA);
+                    Alieno* a = dynamic_cast<Alieno*>(itemA);
                     a->getLaser() ? vistaScontro->getPowerup1selezionatoSx()->setText("Laser"), vistaScontro->getPowerup1selezionatoSx()->show() : (vistaScontro->getPowerup1selezionatoSx()->setText(""));
                     a->getAmuleto() ? vistaScontro->getPowerup2selezionatoSx()->setText("Amuleto"), vistaScontro->getPowerup2selezionatoSx()->show() : (vistaScontro->getPowerup2selezionatoSx()->setText(""));
                     a->getBar() ? vistaScontro->getPowerup3selezionatoSx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
                     a->getChip() ? vistaScontro->getPowerup4selezionatoSx()->setText("Chip"), vistaScontro->getPowerup4selezionatoSx()->show() : (vistaScontro->getPowerup4selezionatoSx()->setText(""));
 
                 } else if(dynamic_cast<Mostro*>(itemA)) {
-                    Mostro* m = static_cast<Mostro*>(itemA);
+                    Mostro* m = dynamic_cast<Mostro*>(itemA);
                     m->getLaser() ? vistaScontro->getPowerup1selezionatoSx()->setText("Laser"), vistaScontro->getPowerup1selezionatoSx()->show() : (vistaScontro->getPowerup1selezionatoSx()->setText(""));
                     m->getAmuleto() ? vistaScontro->getPowerup2selezionatoSx()->setText("Amuleto"), vistaScontro->getPowerup2selezionatoSx()->show() : (vistaScontro->getPowerup2selezionatoSx()->setText(""));
                     m->getBar() ? vistaScontro->getPowerup3selezionatoSx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoSx()->show() : (vistaScontro->getPowerup3selezionatoSx()->setText(""));
@@ -619,35 +631,35 @@ void Controller::scontroTraAvatar()
 
 
                 if(dynamic_cast<Elfo*>(itemB)) {
-                    Elfo* e = static_cast<Elfo*>(itemB);
+                    Elfo* e = dynamic_cast<Elfo*>(itemB);
                     e->getSpada() ? vistaScontro->getPowerup1selezionatoDx()->setText("Spada"), vistaScontro->getPowerup1selezionatoDx()->show(): (vistaScontro->getPowerup1selezionatoDx()->setText(""));
                     e->getAnello() ? vistaScontro->getPowerup2selezionatoDx()->setText("Anello"), vistaScontro->getPowerup2selezionatoDx()->show() : (vistaScontro->getPowerup2selezionatoDx()->setText(""));
-                    e->getScu() ? vistaScontro->getPowerup3selezionatoDx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoDx()->show() : (vistaScontro->getPowerup3selezionatoDx()->setText(""));
-                    e->getLibro() ? vistaScontro->getPowerup4selezionatoDx()->setText("Libro"), vistaScontro->getPowerup4selezionatoDx()->show() : (vistaScontro->getPowerup4selezionatoDx()->setText(""));
+                    e->getBar() ? vistaScontro->getPowerup3selezionatoDx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoDx()->show() : (vistaScontro->getPowerup3selezionatoDx()->setText(""));
+                    e->getChip() ? vistaScontro->getPowerup4selezionatoDx()->setText("Chip"), vistaScontro->getPowerup4selezionatoDx()->show() : (vistaScontro->getPowerup4selezionatoDx()->setText(""));
 
                 } else if(dynamic_cast<Nano*>(itemB)) {
-                    Nano* n = static_cast<Nano*>(itemB);
+                    Nano* n = dynamic_cast<Nano*>(itemB);
                     n->getSpada() ? vistaScontro->getPowerup1selezionatoDx()->setText("Spada"), vistaScontro->getPowerup1selezionatoDx()->show(): (vistaScontro->getPowerup1selezionatoDx()->setText(""));
                     n->getAnello() ? vistaScontro->getPowerup2selezionatoDx()->setText("Anello"), vistaScontro->getPowerup2selezionatoDx()->show() : (vistaScontro->getPowerup2selezionatoDx()->setText(""));
                     n->getScu() ? vistaScontro->getPowerup3selezionatoDx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoDx()->show() : (vistaScontro->getPowerup3selezionatoDx()->setText(""));
                     n->getLibro() ? vistaScontro->getPowerup4selezionatoDx()->setText("Libro"), vistaScontro->getPowerup4selezionatoDx()->show() : (vistaScontro->getPowerup4selezionatoDx()->setText(""));
 
                 } else if(dynamic_cast<Umano*>(itemB)) {
-                    Umano* u = static_cast<Umano*>(itemB);
+                    Umano* u = dynamic_cast<Umano*>(itemB);
                     u->getSpada() ? vistaScontro->getPowerup1selezionatoDx()->setText("Spada"), vistaScontro->getPowerup1selezionatoDx()->show(): (vistaScontro->getPowerup1selezionatoDx()->setText(""));
                     u->getAnello() ? vistaScontro->getPowerup2selezionatoDx()->setText("Anello"), vistaScontro->getPowerup2selezionatoDx()->show() : (vistaScontro->getPowerup2selezionatoDx()->setText(""));
                     u->getScu() ? vistaScontro->getPowerup3selezionatoDx()->setText("Scudo"), vistaScontro->getPowerup3selezionatoDx()->show() : (vistaScontro->getPowerup3selezionatoDx()->setText(""));
                     u->getLibro() ? vistaScontro->getPowerup4selezionatoDx()->setText("Libro"), vistaScontro->getPowerup4selezionatoDx()->show() : (vistaScontro->getPowerup4selezionatoDx()->setText(""));
 
                 } else if(dynamic_cast<Alieno*>(itemB)) {
-                    Alieno* a = static_cast<Alieno*>(itemB);
+                    Alieno* a = dynamic_cast<Alieno*>(itemB);
                     a->getLaser() ? vistaScontro->getPowerup1selezionatoDx()->setText("Laser"), vistaScontro->getPowerup1selezionatoDx()->show() : (vistaScontro->getPowerup1selezionatoDx()->setText(""));
                     a->getAmuleto() ? vistaScontro->getPowerup2selezionatoDx()->setText("Amuleto"), vistaScontro->getPowerup2selezionatoDx()->show() : (vistaScontro->getPowerup2selezionatoDx()->setText(""));
                     a->getBar() ? vistaScontro->getPowerup3selezionatoDx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoDx()->show() : (vistaScontro->getPowerup3selezionatoDx()->setText(""));
                     a->getChip() ? vistaScontro->getPowerup4selezionatoDx()->setText("Chip"), vistaScontro->getPowerup4selezionatoDx()->show() : (vistaScontro->getPowerup4selezionatoDx()->setText(""));
 
                 } else if(dynamic_cast<Mostro*>(itemB)) {
-                    Mostro* m = static_cast<Mostro*>(itemB);
+                    Mostro* m = dynamic_cast<Mostro*>(itemB);
                     m->getLaser() ? vistaScontro->getPowerup1selezionatoDx()->setText("Laser"), vistaScontro->getPowerup1selezionatoDx()->show() : (vistaScontro->getPowerup1selezionatoDx()->setText(""));
                     m->getAmuleto() ? vistaScontro->getPowerup2selezionatoDx()->setText("Amuleto"), vistaScontro->getPowerup2selezionatoDx()->show() : (vistaScontro->getPowerup2selezionatoDx()->setText(""));
                     m->getBar() ? vistaScontro->getPowerup3selezionatoDx()->setText("Barriera"), vistaScontro->getPowerup3selezionatoDx()->show() : (vistaScontro->getPowerup3selezionatoDx()->setText(""));
@@ -993,16 +1005,20 @@ void Controller::salva()
             itemA->setPercorsoImmagine(vistaModifica->getPercorsoImmagine().toStdString());
 
             if(dynamic_cast<Elfo*>(itemA)) {
-                Elfo* e = static_cast<Elfo*>(itemA);
+                Elfo* e = dynamic_cast<Elfo*>(itemA);
 
                 e->setSpada(vistaModifica->getPowerUp1()->isChecked());
                 e->setAnello(vistaModifica->getPowerUp2()->isChecked());
-                e->setScudo(vistaModifica->getPowerUp3()->isChecked());
-                e->setLibro(vistaModifica->getPowerUp4()->isChecked());
+                e->setScudo(false);
+                e->setLibro(false);
+                e->setLaser(false);
+                e->setAmuleto(false);
+                e->setBarriera(vistaModifica->getPowerUp7()->isChecked());
+                e->setChip(vistaModifica->getPowerUp8()->isChecked());
                 e->setTrasparentia(vistaModifica->getValoreSpeciale()->text().toDouble());
 
             } else if(dynamic_cast<Nano*>(itemA)) {
-                Nano* n = static_cast<Nano*>(itemA);
+                Nano* n = dynamic_cast<Nano*>(itemA);
 
                 n->setSpada(vistaModifica->getPowerUp1()->isChecked());
                 n->setAnello(vistaModifica->getPowerUp2()->isChecked());
@@ -1011,7 +1027,7 @@ void Controller::salva()
                 n->setCorteccia(vistaModifica->getValoreSpeciale()->text().toDouble());
 
             } else if(dynamic_cast<Umano*>(itemA)) {
-                Umano* u = static_cast<Umano*>(itemA);
+                Umano* u = dynamic_cast<Umano*>(itemA);
 
                 u->setSpada(vistaModifica->getPowerUp1()->isChecked());
                 u->setAnello(vistaModifica->getPowerUp2()->isChecked());
@@ -1020,7 +1036,7 @@ void Controller::salva()
                 u->setIngegno(vistaModifica->getValoreSpeciale()->text().toDouble());
 
             } else if(dynamic_cast<Alieno*>(itemA)) {
-                Alieno* a = static_cast<Alieno*>(itemA);
+                Alieno* a = dynamic_cast<Alieno*>(itemA);
 
                 a->setLaser(vistaModifica->getPowerUp5()->isChecked());
                 a->setAmuleto(vistaModifica->getPowerUp6()->isChecked());
@@ -1029,7 +1045,7 @@ void Controller::salva()
                 a->setUfo(vistaModifica->getValoreSpeciale()->text().toDouble());
 
             } else if(dynamic_cast<Mostro*>(itemA)) {
-                Mostro* m = static_cast<Mostro*>(itemA);
+                Mostro* m = dynamic_cast<Mostro*>(itemA);
 
                 m->setLaser(vistaModifica->getPowerUp5()->isChecked());
                 m->setAmuleto(vistaModifica->getPowerUp6()->isChecked());
@@ -1411,7 +1427,7 @@ void Controller::scontro()
             modello->salvare();
 
         } else {
-            QMessageBox::about(this, "Pareggio", "Ok. Parità./nI tuoi valori sono rimasti invariati.");
+            QMessageBox::about(this, "Pareggio", "Ok. Parità.\nI tuoi valori sono rimasti invariati.");
         }
     }
 
@@ -1442,7 +1458,7 @@ void Controller::calcoloValori(Avatar* x)
     bool sesso = x->getSesso();
 
     if(terrNon == "Terrestre") {
-        Terrestre* t = static_cast<Terrestre*>(x);
+        Terrestre* t = dynamic_cast<Terrestre*>(x);
         int aux = 0;
         if(t->getSpada() == true)
             aux+=1;
@@ -1458,8 +1474,8 @@ void Controller::calcoloValori(Avatar* x)
             t->setScudo(false);
             t->setLibro(false);
         }
-    } else {
-        NOTerrestre* t = static_cast<NOTerrestre*>(x);
+    } else if(terrNon == "Non terrestre"){
+        NOTerrestre* t = dynamic_cast<NOTerrestre*>(x);
         int aux = 0;
         if(t->getLaser() == true)
             aux+=1;
@@ -1475,10 +1491,27 @@ void Controller::calcoloValori(Avatar* x)
             t->setBarriera(false);
             t->setChip(false);
         }
+    } else {
+        Elfo* t = dynamic_cast<Elfo*>(x);
+        int aux = 0;
+        if(t->getSpada() == true)
+            aux+=1;
+        if(t->getAnello() == true)
+            aux+=1;
+        if(t->getBar() == true)
+            aux+=1;
+        if(t->getChip() == true)
+            aux+=1;
+        if(aux>2) {
+            t->setSpada(false);
+            t->setAnello(false);
+            t->setBarriera(false);
+            t->setChip(false);
+        }
     }
 
     if(tipo == "Elfo") {
-        Elfo* e = static_cast<Elfo*>(x);
+        Elfo* e = dynamic_cast<Elfo*>(x);
         forza = livello*6;
         if(e->getSpada()) {
             forza+=8;
@@ -1488,11 +1521,11 @@ void Controller::calcoloValori(Avatar* x)
             magia += 6;
         }
         difesa = livello*6;
-        if(e->getScu()) {
+        if(e->getBar()) {
             difesa += 10;
         }
         scienza = livello*5;
-        if(e->getLibro()) {
+        if(e->getChip()) {
             scienza += 5;
         }
         valoreExtra = (magia+difesa)*livello*0.05;
@@ -1505,7 +1538,7 @@ void Controller::calcoloValori(Avatar* x)
 
     } else
     if(tipo == "Nano") {
-        Nano* n = static_cast<Nano*>(x);
+        Nano* n = dynamic_cast<Nano*>(x);
         forza = livello*7;
         if(n->getSpada()) {
             forza+=8;
@@ -1533,7 +1566,7 @@ void Controller::calcoloValori(Avatar* x)
 
     } else
     if(tipo == "Umano") {
-        Umano* u = static_cast<Umano*>(x);
+        Umano* u = dynamic_cast<Umano*>(x);
         forza = livello*5;
         if(u->getSpada()) {
             forza+=8;
@@ -1561,7 +1594,7 @@ void Controller::calcoloValori(Avatar* x)
 
     } else
     if(tipo == "Alieno") {
-        Alieno* a =static_cast<Alieno*>(x);
+        Alieno* a =dynamic_cast<Alieno*>(x);
         forza = livello*3;
         if(a->getLaser()) {
             forza+=7;
@@ -1587,7 +1620,7 @@ void Controller::calcoloValori(Avatar* x)
 
     } else
     if(tipo == "Mostro") {
-        Mostro* m =static_cast<Mostro*>(x);
+        Mostro* m =dynamic_cast<Mostro*>(x);
         forza = livello*10;
         if(m->getLaser()) {
             forza+=7;

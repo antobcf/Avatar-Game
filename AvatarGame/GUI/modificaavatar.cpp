@@ -414,76 +414,152 @@ QRadioButton *ModificaAvatar::getSessoF() const
 
 void ModificaAvatar::checkUno()
 {
-    calcoloValori();
-    if(powerUp1->isChecked()) {
-        if(powerUp2->isChecked()) {
-            powerUp3->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp2->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp2->setEnabled(false);
-            powerUp3->setEnabled(false);
-            return;
+    std::string tipo = tipoAvatar->text().toStdString();
+    if(tipo == "Elfo") {
+        calcoloValori();
+        if(powerUp1->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp2->isChecked()) {
-            powerUp3->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp2->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp2->setEnabled(true);
-            powerUp3->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp1->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp3->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp3->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp3->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp3->setEnabled(true);
+                return;
+            }
         }
     }
 }
 
 void ModificaAvatar::checkDue()
 {
-    calcoloValori();
-    if(powerUp2->isChecked()) {
-        if(powerUp1->isChecked()) {
-            powerUp3->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp1->setEnabled(false);
-            powerUp4->setEnabled(false);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp1->setEnabled(false);
-            powerUp3->setEnabled(false);
-            return;
+    std::string tipo = tipoAvatar->text().toStdString();
+    if(tipo == "Elfo") {
+        calcoloValori();
+        if(powerUp2->isChecked()) {
+            if(powerUp1->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp1->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp1->isChecked()) {
-            powerUp3->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp3->isChecked()) {
-            powerUp1->setEnabled(true);
-            powerUp4->setEnabled(true);
-            return;
-        }
-        if(powerUp4->isChecked()) {
-            powerUp1->setEnabled(true);
-            powerUp3->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp2->isChecked()) {
+            if(powerUp1->isChecked()) {
+                powerUp3->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp4->setEnabled(false);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp3->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp1->isChecked()) {
+                powerUp3->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp3->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp4->setEnabled(true);
+                return;
+            }
+            if(powerUp4->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp3->setEnabled(true);
+                return;
+            }
         }
     }
 }
@@ -642,76 +718,152 @@ void ModificaAvatar::checkSei()
 
 void ModificaAvatar::checkSette()
 {
-    calcoloValori();
-    if(powerUp7->isChecked()) {
-        if(powerUp6->isChecked()) {
-            powerUp5->setEnabled(false);
-            powerUp8->setEnabled(false);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp8->setEnabled(false);
-            return;
-        }
-        if(powerUp8->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp5->setEnabled(false);
-            return;
+    std::string tipo = tipoAvatar->text().toStdString();
+    if(tipo == "Elfo") {
+        calcoloValori();
+        if(powerUp7->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp1->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp1->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp1->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp1->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp6->isChecked()) {
-            powerUp5->setEnabled(true);
-            powerUp8->setEnabled(true);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp8->setEnabled(true);
-            return;
-        }
-        if(powerUp8->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp5->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp7->isChecked()) {
+            if(powerUp6->isChecked()) {
+                powerUp5->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp8->setEnabled(false);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp5->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp6->isChecked()) {
+                powerUp5->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp8->setEnabled(true);
+                return;
+            }
+            if(powerUp8->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp5->setEnabled(true);
+                return;
+            }
         }
     }
 }
 
 void ModificaAvatar::checkOtto()
 {
-    calcoloValori();
-    if(powerUp8->isChecked()) {
-        if(powerUp6->isChecked()) {
-            powerUp7->setEnabled(false);
-            powerUp5->setEnabled(false);
-            return;
-        }
-        if(powerUp7->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp5->setEnabled(false);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(false);
-            powerUp7->setEnabled(false);
-            return;
+    std::string tipo = tipoAvatar->text().toStdString();
+    if(tipo == "Elfo") {
+        calcoloValori();
+        if(powerUp8->isChecked()) {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp1->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp1->setEnabled(false);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp2->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp1->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp1->setEnabled(true);
+                return;
+            }
+            if(powerUp1->isChecked()) {
+                powerUp2->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     } else {
-        if(powerUp6->isChecked()) {
-            powerUp7->setEnabled(true);
-            powerUp5->setEnabled(true);
-            return;
-        }
-        if(powerUp7->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp5->setEnabled(true);
-            return;
-        }
-        if(powerUp5->isChecked()) {
-            powerUp6->setEnabled(true);
-            powerUp7->setEnabled(true);
-            return;
+        calcoloValori();
+        if(powerUp8->isChecked()) {
+            if(powerUp6->isChecked()) {
+                powerUp7->setEnabled(false);
+                powerUp5->setEnabled(false);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp5->setEnabled(false);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(false);
+                powerUp7->setEnabled(false);
+                return;
+            }
+        } else {
+            if(powerUp6->isChecked()) {
+                powerUp7->setEnabled(true);
+                powerUp5->setEnabled(true);
+                return;
+            }
+            if(powerUp7->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp5->setEnabled(true);
+                return;
+            }
+            if(powerUp5->isChecked()) {
+                powerUp6->setEnabled(true);
+                powerUp7->setEnabled(true);
+                return;
+            }
         }
     }
 }
@@ -719,7 +871,17 @@ void ModificaAvatar::checkOtto()
 void ModificaAvatar::groupTipo()
 {
     std::string tipo = tipoAvatar->text().toStdString();
-    if(tipo == "Elfo" || tipo == "Nano" || tipo == "Umano") {
+    if(tipo == "Elfo") {
+        powerUp5->hide();
+        powerUp6->hide();
+        powerUp7->show();
+        powerUp8->show();
+        powerUp1->show();
+        powerUp2->show();
+        powerUp3->hide();
+        powerUp4->hide();
+        resetCheck();
+    } else if(tipo == "Nano" || tipo == "Umano") {
         powerUp5->hide();
         powerUp6->hide();
         powerUp7->hide();
@@ -729,7 +891,7 @@ void ModificaAvatar::groupTipo()
         powerUp3->show();
         powerUp4->show();
         resetCheck();
-     } else if(tipo == "Alieno" || tipo == "Mostro"){
+     } else if (tipo == "Alieno" || tipo == "Mostro"){
         powerUp1->hide();
         powerUp2->hide();
         powerUp3->hide();
@@ -797,11 +959,11 @@ void ModificaAvatar::calcoloValori()
             magia += 6;
         }
         difesa = livello*6;
-        if(powerUp3->isChecked()) {
+        if(powerUp7->isChecked()) {
             difesa += 10;
         }
         scienza = livello*5;
-        if(powerUp4->isChecked()) {
+        if(powerUp8->isChecked()) {
             scienza += 5;
         }
         valoreExtra = (magia+difesa)*livello*0.05;

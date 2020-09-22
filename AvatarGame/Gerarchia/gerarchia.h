@@ -21,7 +21,7 @@ private:
 
 public:
     virtual ~Avatar() = default;
-    Avatar(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0");
+    Avatar(std::string , std::string , unsigned int , unsigned int,  unsigned int , unsigned int , unsigned int , unsigned int , double , std::string , bool , std::string);
 
     virtual std::string getTerrNon() const = 0;
     virtual std::string getTipo() const = 0;
@@ -56,7 +56,7 @@ public:
     virtual std::string datiAvatar();
 };
 
-class Terrestre: public Avatar {
+class Terrestre: virtual public Avatar {
 private:
     bool spada;
     bool anello;
@@ -65,7 +65,6 @@ private:
 public:
     Terrestre(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false);
 
-    virtual std::string getTerrNon() const;
     bool getSpada() const;
     bool getAnello() const;
     bool getScu() const;
@@ -76,10 +75,9 @@ public:
     void setScudo(bool);
     void setLibro(bool);
 
-    virtual bool operator==(const Terrestre&) const;
 };
 
-class NOTerrestre: public Avatar {
+class NOTerrestre: virtual public Avatar {
 private:
     bool laser;
     bool amuleto;
@@ -88,7 +86,6 @@ private:
 public:
     NOTerrestre(std::string ="0", std::string ="0", unsigned int =1, unsigned int =0,  unsigned int =0, unsigned int =0, unsigned int =0, unsigned int =0, double =0, std::string ="0", bool = true, std::string ="0", bool = false, bool = false, bool = false, bool = false);
 
-    virtual std::string getTerrNon() const;
     bool getLaser() const;
     bool getAmuleto() const;
     bool getBar() const;
@@ -109,8 +106,9 @@ public:
     double getTrasparentia() const;
     void setTrasparentia(double);
     virtual std::string getTipo() const override;
-    virtual bool operator==(const Terrestre&) const override;
+    virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
+    virtual std::string getTerrNon() const override;
 };
 
 class Nano: public Terrestre {
@@ -123,6 +121,7 @@ public:
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
+    virtual std::string getTerrNon() const override;
 };
 
 class Umano: public Terrestre {
@@ -135,9 +134,8 @@ public:
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
+    virtual std::string getTerrNon() const override;
 };
-
-
 
 class Alieno: public NOTerrestre {
 private:
@@ -149,6 +147,7 @@ public:
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
+    virtual std::string getTerrNon() const override;
 };
 
 class Mostro: public NOTerrestre {
@@ -161,6 +160,7 @@ public:
     virtual std::string getTipo() const override;
     virtual bool operator==(const Avatar&) const override;
     virtual std::string datiAvatar() override;
+    virtual std::string getTerrNon() const override;
 };
 
 #endif // GERARCHIA_H

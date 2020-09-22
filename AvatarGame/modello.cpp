@@ -41,15 +41,12 @@ void Modello::salvare()
         reader.writeAttribute("Media", QString("%1").arg(salvaElemento->getMedia()));
         reader.writeAttribute("Terreno", QString::fromStdString(salvaElemento->getTerreno()));
         if(tipo == "Terrestre") {
-            const Terrestre* tipoTerrestre = static_cast<const Terrestre*>(salvaElemento);
+            const Terrestre* tipoTerrestre = dynamic_cast<const Terrestre*>(salvaElemento);
             reader.writeAttribute("Spada", tipoTerrestre->getSpada() ? "true" : "false");
             reader.writeAttribute("Anello", tipoTerrestre->getAnello() ? "true" : "false");
             reader.writeAttribute("Scudo", tipoTerrestre->getScu() ? "true" : "false");
             reader.writeAttribute("Libro", tipoTerrestre->getLibro() ? "true" : "false");
-            if(tipoAvatar == "Elfo") {
-                const Elfo* tipoElfo = static_cast<const Elfo*>(tipoTerrestre);
-                reader.writeAttribute("Trasparentia", QString("%1").arg(tipoElfo->getTrasparentia()));
-            } else if(tipoAvatar == "Nano") {
+            if(tipoAvatar == "Nano") {
                 const Nano* tipoNano = static_cast<const Nano*>(tipoTerrestre);
                 reader.writeAttribute("Corteccia", QString("%1").arg(tipoNano->getCorteccia()));
             } else if(tipoAvatar == "Umano") {
@@ -57,7 +54,7 @@ void Modello::salvare()
                 reader.writeAttribute("Ingegnoscientifico", QString("%1").arg(tipoUmano->getIngegno()));
             }
         } else if (tipo == "Non terrestre") {
-            const NOTerrestre* tipoNoTerrestre = static_cast<const NOTerrestre*>(salvaElemento);
+            const NOTerrestre* tipoNoTerrestre = dynamic_cast<const NOTerrestre*>(salvaElemento);
             reader.writeAttribute("Laser", tipoNoTerrestre->getLaser() ? "true" : "false");
             reader.writeAttribute("Amuleto", tipoNoTerrestre->getAmuleto() ? "true" : "false");
             reader.writeAttribute("Barriera", tipoNoTerrestre->getBar() ? "true" : "false");
@@ -69,6 +66,17 @@ void Modello::salvare()
                 const Mostro* tipoMostro = static_cast<const Mostro*>(tipoNoTerrestre);
                 reader.writeAttribute("Portademoniaca", QString("%1").arg(tipoMostro->getPorta()));
             }
+        } else if (tipo == "Fusione") {
+            const Elfo* tipoElfo = dynamic_cast<const Elfo*>(salvaElemento);
+            reader.writeAttribute("Spada", tipoElfo->getSpada() ? "true" : "false");
+            reader.writeAttribute("Anello", tipoElfo->getAnello() ? "true" : "false");
+            reader.writeAttribute("Scudo", "false");
+            reader.writeAttribute("Libro", "false");
+            reader.writeAttribute("Laser", "false");
+            reader.writeAttribute("Amuleto", "false");
+            reader.writeAttribute("Barriera", tipoElfo->getBar() ? "true" : "false");
+            reader.writeAttribute("Chip", tipoElfo->getChip() ? "true" : "false");
+            reader.writeAttribute("Trasparentia", QString("%1").arg(tipoElfo->getTrasparentia()));
         }
 
         ++it;
@@ -114,10 +122,14 @@ void Modello::caricare()
                 if(reader.name() == "Elfo") {
                     bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
                     bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;
-                    bool scudo = newAttributo.hasAttribute("Scudo") ? newAttributo.value("Scudo").toString() == "true" ? true : false : false;
-                    bool libro = newAttributo.hasAttribute("Libro") ? newAttributo.value("Libro").toString() == "true" ? true : false : false;
+                    bool scudo = false;
+                    bool libro = false;
+                    bool laser = false;
+                    bool amuleto = false;
+                    bool barriera = newAttributo.hasAttribute("Barriera") ? newAttributo.value("Barriera").toString() == "true" ? true : false : false;
+                    bool chip = newAttributo.hasAttribute("Chip") ? newAttributo.value("Chip").toString() == "true" ? true : false : false;
                     double trasparentia = newAttributo.hasAttribute("Trasparentia") ? newAttributo.value("Trasparentia").toDouble() : 0;
-                    inserire = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, trasparentia);
+                    inserire = new Elfo(nome, descrizione, lvl, exp, forza, magia, difesa, scienza, media, terreno, sesso, percorso, spada, anello, scudo, libro, laser, amuleto, barriera, chip, trasparentia);
                 } else if(reader.name() == "Nano") {
                     bool spada = newAttributo.hasAttribute("Spada") ? newAttributo.value("Spada").toString() == "true" ? true : false : false;
                     bool anello = newAttributo.hasAttribute("Anello") ? newAttributo.value("Anello").toString() == "true" ? true : false : false;

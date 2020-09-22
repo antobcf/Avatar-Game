@@ -1,6 +1,6 @@
 #include "sviluppatori.h"
 
-Sviluppatori::Sviluppatori(QWidget *parent) :
+Sviluppatori::Sviluppatori(QWidget *parent) : QDialog(parent),
     immagineSviluppatori(new QLabel(this)),
     testoSviluppatori(new QLabel(this))
 {

@@ -1,6 +1,6 @@
 #include "infosistema.h"
 
-InfoSistema::InfoSistema(QWidget *parent) :
+InfoSistema::InfoSistema(QWidget *parent) : QDialog(parent),
     testoSistema(new QLabel(this))
 {
     QVBoxLayout* layoutSistema = new QVBoxLayout(this);

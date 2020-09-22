@@ -1,6 +1,6 @@
 ﻿ #include "modificaavatar.h"
 
-ModificaAvatar::ModificaAvatar(QWidget *parent) :
+ModificaAvatar::ModificaAvatar(QWidget *parent) : QDialog(parent),
     formCrea(new QFormLayout),
     tipoAvatar(new QLabel(this)),
     maxPowerUp(new QLabel("Scegli massimo due Power Up:", this)),

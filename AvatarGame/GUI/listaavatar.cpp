@@ -1,6 +1,6 @@
 #include "listaavatar.h"
 
-ListaAvatar::ListaAvatar(QWidget *parent) :
+ListaAvatar::ListaAvatar(QWidget *parent) : QWidget(parent),
     bottoneHome(new QPushButton(this)),
     avviaRicerca(new QPushButton("Ricerca",this)),
     azzeraRicerca(new QPushButton("Azzera ricerca",this)),

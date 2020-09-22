@@ -1,7 +1,7 @@
 #include "scontro.h"
 #include "controller.h"
 
-Scontro::Scontro(QWidget *parent) :
+Scontro::Scontro(QWidget *parent) : QWidget(parent),
     nomeAvatarSx(new QLabel("Avatar1", this)),
     powerupSx(new QLabel("PowerUp:", this)),
     powerup1selezionatoSx(new QLabel(this)),

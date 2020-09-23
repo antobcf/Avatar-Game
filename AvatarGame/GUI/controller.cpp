@@ -1659,7 +1659,7 @@ void Controller::calcoloValori(Avatar* x)
 
 void Controller::setAvatarGameStyle()
 {
-    setFixedSize(QSize(800,600));
+    setMinimumWidth(800);
 
     QFile file(":/Risorse/style.css");
     file.open(QFile::ReadOnly);

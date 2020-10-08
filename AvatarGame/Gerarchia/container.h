@@ -222,8 +222,6 @@ bool Container<T>::ricerca(const T & r) const
     return false;
 }
 
-
-
 //METODI NODO
 
 template <class T>

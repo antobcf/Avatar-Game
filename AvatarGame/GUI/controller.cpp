@@ -1,4 +1,4 @@
-#include "controller.h"
+﻿#include "controller.h"
 
 Controller::Controller(Modello* m, QWidget *parent) :
     QWidget(parent),
@@ -43,7 +43,6 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getTipoUmano(),SIGNAL(clicked()),this,SLOT(carica()));
     connect(vistaLista->getTipoAlieno(),SIGNAL(clicked()),this,SLOT(carica()));
     connect(vistaLista->getTipoMostro(),SIGNAL(clicked()),this,SLOT(carica()));
-    connect(vistaLista->getAvviaRicerca(),SIGNAL(clicked()),this,SLOT(ricercaAvatar()));
     connect(vistaLista->getBottoneModifica(),SIGNAL(clicked()),this,SLOT(modificaAvatar()));
     connect(vistaLista->getBottoneRimuovi(),SIGNAL(clicked()),this,SLOT(rimuoviAvatar()));
     connect(vistaLista->getBottoneGioca(),SIGNAL(clicked()),this,SLOT(scontroTraAvatar()));
@@ -51,6 +50,7 @@ Controller::Controller(Modello* m, QWidget *parent) :
     connect(vistaLista->getBottoneInfoLista(),SIGNAL(clicked()),this,SLOT(infoPopLista()));
     connect(vistaModifica->getBottoneSalvaModifiche(), SIGNAL(clicked()),this,SLOT(salva()));
     connect(vistaLista->getAzzeraRicerca(),SIGNAL(clicked()),this,SLOT(resetRicerca()));
+    connect(vistaLista->getCercaNome(),SIGNAL(textChanged(QString)),this,SLOT(ricercaAvatar()));
 
     //CONNECT SCONTRO
     connect(vistaScontro->getBottoneHomeScontro(),SIGNAL(clicked()),this,SLOT(mostraHome()));
@@ -711,101 +711,29 @@ void Controller::rimuoviAvatar()
 
 void Controller::ricercaAvatar()
 {
+    vistaLista->getTipoElfo()->setChecked(false);
+    vistaLista->getTipoNano()->setChecked(false);
+    vistaLista->getTipoUmano()->setChecked(false);
+    vistaLista->getTipoAlieno()->setChecked(false);
+    vistaLista->getTipoMostro()->setChecked(false);
+
     std::string nome = vistaLista->getCercaNome()->text().toStdString();
+    int i = nome.length();
+    vistaLista->getElenco()->clear();
 
-    if(nome == "") {
-        QMessageBox::warning(this, "Errore", "Completa il campo Nome per avviare una ricerca");
-        return;
-    }
+    Container<Avatar*>::iteratoreConst val = modello->beginConst();
+    Container<Avatar*>::iteratoreConst valFin = modello->endConst();
 
-    Avatar* item = new Elfo(nome);
-    Avatar* item2 = new Nano(nome);
-    Avatar* item3 = new Umano(nome);
-    Avatar* item4 = new Alieno(nome);
-    Avatar* item5 = new Mostro(nome);
-
-    if(modello->getLista()->ricerca(item)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
-        bool match = false;
-
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-
-        while(val != valFin && !match) {
-            if(*item == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
-                match = true;
-            }
-            ++val;
+    while(val != valFin) {
+        bool match = true;
+        std::string check = (*val)->getNome();
+        for(int x=0; x<i && match; x++) {
+            if(nome[x] != check[x])
+                match = false;
         }
-    } else if(modello->getLista()->ricerca(item2)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
-        bool match = false;
-
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-
-        while(val != valFin && !match) {
-            if(*item2 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
-                match = true;
-            }
-            ++val;
-        }
-    } else if(modello->getLista()->ricerca(item3)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
-        bool match = false;
-
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-
-        while(val != valFin && !match) {
-            if(*item3 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
-                match = true;
-            }
-            ++val;
-        }
-    } else if(modello->getLista()->ricerca(item4)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
-        bool match = false;
-
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-
-        while(val != valFin && !match) {
-            if(*item4 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
-                match = true;
-            }
-            ++val;
-        }
-    } else if(modello->getLista()->ricerca(item5)) {
-        vistaLista->getElenco()->clear();
-        modello->setPercorso(destinazione.toStdString());
-        modello->caricare();
-        bool match = false;
-
-        Container<Avatar*>::iteratoreConst val = modello->beginConst();
-        Container<Avatar*>::iteratoreConst valFin = modello->endConst();
-
-        while(val != valFin && !match) {
-            if(*item5 == *(*val)) {
-                vistaLista->getElenco()->insertAvatar(*val);
-                match = true;
-            }
-            ++val;
-        }
-    } else {
-        QMessageBox::warning(this, "Errore",  "Non è stato trovato nessun Avatar");
+        if(match)
+            vistaLista->getElenco()->insertAvatar(*val);
+        ++val;
     }
 }
 

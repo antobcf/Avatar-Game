@@ -711,12 +711,6 @@ void Controller::rimuoviAvatar()
 
 void Controller::ricercaAvatar()
 {
-    vistaLista->getTipoElfo()->setChecked(false);
-    vistaLista->getTipoNano()->setChecked(false);
-    vistaLista->getTipoUmano()->setChecked(false);
-    vistaLista->getTipoAlieno()->setChecked(false);
-    vistaLista->getTipoMostro()->setChecked(false);
-
     std::string nome = vistaLista->getCercaNome()->text().toStdString();
     int i = nome.length();
     vistaLista->getElenco()->clear();
@@ -731,10 +725,23 @@ void Controller::ricercaAvatar()
             if(nome[x] != check[x])
                 match = false;
         }
-        if(match)
-            vistaLista->getElenco()->insertAvatar(*val);
+        if(match) {
+            if(vistaLista->getTipoNano()->isChecked() == true && (*val)->getTipo() == "Nano")
+                vistaLista->getElenco()->insertAvatar(*val);
+            if(vistaLista->getTipoUmano()->isChecked() == true && (*val)->getTipo() == "Umano")
+                vistaLista->getElenco()->insertAvatar(*val);
+            if(vistaLista->getTipoElfo()->isChecked() == true && (*val)->getTipo() == "Elfo")
+                vistaLista->getElenco()->insertAvatar(*val);
+            if(vistaLista->getTipoAlieno()->isChecked() == true && (*val)->getTipo() == "Alieno")
+                vistaLista->getElenco()->insertAvatar(*val);
+            if(vistaLista->getTipoMostro()->isChecked() == true && (*val)->getTipo() == "Mostro")
+                vistaLista->getElenco()->insertAvatar(*val);
+            if(vistaLista->getTipoNano()->isChecked() == false && vistaLista->getTipoUmano()->isChecked() == false && vistaLista->getTipoElfo()->isChecked() == false && vistaLista->getTipoAlieno()->isChecked() == false && vistaLista->getTipoMostro()->isChecked() == false)
+                vistaLista->getElenco()->insertAvatar(*val);
+        }
         ++val;
     }
+
 }
 
 void Controller::caricaDb()

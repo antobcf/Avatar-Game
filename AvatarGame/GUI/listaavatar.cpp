@@ -2,7 +2,6 @@
 
 ListaAvatar::ListaAvatar(QWidget *parent) : QWidget(parent),
     bottoneHome(new QPushButton(this)),
-    avviaRicerca(new QPushButton("Ricerca",this)),
     azzeraRicerca(new QPushButton("Azzera ricerca",this)),
     cercaNome(new QLineEdit(this)),
     tipoElfo(new QCheckBox("Elfo", this)),
@@ -48,7 +47,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) : QWidget(parent),
     layoutCheckBox->addWidget(cercaNome);
     cercaNome->setFixedHeight(30);
     cercaNome->setPlaceholderText("Nome");
-    layoutCheckBox->addWidget(avviaRicerca);
     layoutCheckBox->addWidget(azzeraRicerca);
     layoutDx->addWidget(bottoneModifica, 0, Qt::AlignCenter);
     layoutDx->addWidget(bottoneRimuovi, 0, Qt::AlignCenter);
@@ -60,7 +58,6 @@ ListaAvatar::ListaAvatar(QWidget *parent) : QWidget(parent),
     bottoneModifica->setFixedSize(sizeB);
     bottoneRimuovi->setFixedSize(sizeB);
     bottoneAvvioGioco->setFixedSize(sizeB);
-    avviaRicerca->setFixedSize(90,30);
     azzeraRicerca->setFixedSize(120,30);
     bottoneHome->setFixedHeight(30);
     bottoneInfoLista->setFixedSize(30,30);
@@ -101,11 +98,6 @@ QCheckBox *ListaAvatar::getTipoMostro() const
 QLineEdit *ListaAvatar::getCercaNome() const
 {
     return cercaNome;
-}
-
-QPushButton *ListaAvatar::getAvviaRicerca() const
-{
-    return avviaRicerca;
 }
 
 QPushButton *ListaAvatar::getAzzeraRicerca() const

@@ -19,7 +19,6 @@ class ListaAvatar : public QWidget
     Q_OBJECT
 private:
     QPushButton* bottoneHome;
-    QPushButton* avviaRicerca;
     QPushButton* azzeraRicerca;
     QLineEdit* cercaNome;
     QCheckBox* tipoElfo;

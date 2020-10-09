@@ -752,7 +752,6 @@ void Controller::caricaDb()
 
 void Controller::carica()
 {
-    vistaLista->getCercaNome()->clear();
     if(destinazione!="") {
         if(!(vistaLista->getTipoElfo()->isChecked()) && !(vistaLista->getTipoNano()->isChecked()) &&
                 !(vistaLista->getTipoUmano()->isChecked()) && !(vistaLista->getTipoAlieno()->isChecked()) &&
@@ -841,6 +840,7 @@ void Controller::carica()
             vistaLista->getBottoneGioca()->setEnabled(false);
         }
     }
+    ricercaAvatar();
 }
 
 void Controller::salva()

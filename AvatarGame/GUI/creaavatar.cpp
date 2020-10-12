@@ -60,7 +60,7 @@ CreaAvatar::CreaAvatar(QWidget *parent) :
     layoutCrea->addLayout(layoutSx);
     layoutCrea->addLayout(layoutDx);
     layoutSx->addLayout(layoutHomeNome);
-    layoutHomeNome->addWidget(bottoneHome);
+    layoutHomeNome->addWidget(bottoneHome,0, Qt::AlignTop);
     layoutHomeNome->addLayout(layoutHomeDestra);
     layoutHomeDestra->addLayout(formCrea);
     layoutHomeDestra->addLayout(layoutNome);

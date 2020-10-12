@@ -1594,7 +1594,7 @@ void Controller::calcoloValori(Avatar* x)
 
 void Controller::setAvatarGameStyle()
 {
-    setMinimumWidth(800);
+    setMinimumSize(800,600);
 
     QFile file(":/Risorse/style.css");
     file.open(QFile::ReadOnly);

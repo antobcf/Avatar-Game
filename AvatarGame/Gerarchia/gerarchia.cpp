@@ -148,12 +148,6 @@ std::string Avatar::datiAvatar()
 
 Terrestre::Terrestre(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool sp, bool a, bool sc, bool lib): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p), spada(sp), anello(a), scudo(sc), libro(lib) {}
 
-//Metodi della classe Terrestre
-//std::string Terrestre::getTerrNon() const
-//{
-//    return "Terrestre";
-//}
-
 bool Terrestre::getScu() const {
     return scudo;
 }
@@ -317,12 +311,6 @@ std::string Umano::getTerrNon() const
 }
 
 NOTerrestre::NOTerrestre(std::string n, std::string ds, unsigned int lvl, unsigned int e,  unsigned int f, unsigned int m, unsigned int d, unsigned int s, double med, std::string t, bool sx, std::string p, bool las, bool am, bool ba, bool ch): Avatar(n,ds,lvl,e,f,m,d,s,med,t,sx,p),  laser(las), amuleto(am), barriera(ba), chip(ch) {}
-
-//Metodi della classe NOTerrestre
-//std::string NOTerrestre::getTerrNon() const
-//{
-//    return "Non terrestre";
-//}
 
 bool NOTerrestre::getBar() const {
     return barriera;
